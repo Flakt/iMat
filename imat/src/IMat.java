@@ -1,5 +1,3 @@
-package matbutik;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,20 +6,17 @@ import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
 
-import static javafx.application.Application.launch;
 
 public class IMat extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        // To do: make resource bundle/fxml file and link it
+        ResourceBundle bundle = java.util.ResourceBundle.getBundle("/resources/IMat");
 
-        ResourceBundle bundle = java.util.ResourceBundle.getBundle("matbutik/resources/IMat");
+        Parent root = FXMLLoader.load(getClass().getResource("imat_search.fxml"), bundle);
 
-        Parent root = FXMLLoader.load(getClass().getResource("IMat.fxml"), bundle);
-
-        Scene scene = new Scene(root, 1024, 800);
+        Scene scene = new Scene(root, 1280, 1024);
 
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
@@ -29,8 +24,12 @@ public class IMat extends Application {
 
     }
 
-
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
+
     }
+
 }

@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="matbutik.IMat"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="800.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMat">
+   <children>
+      <SplitPane dividerPositions="0.13659147869674185" layoutX="220.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0">
+               <children>
+                  <ButtonBar layoutX="696.0" layoutY="31.0" prefHeight="40.0" prefWidth="325.0" AnchorPane.rightAnchor="0.7999999999999545">
+                    <buttons>
+                      <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Konto">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="39.0" text="Historik">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Hjälp">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                    </buttons>
+                  </ButtonBar>
+                  <TextField layoutX="158.0" layoutY="32.0" prefHeight="40.0" prefWidth="416.0" promptText="Du kan söka efter dina varor här!">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="574.0" layoutY="31.0" mnemonicParsing="false" text="SÖK">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <SplitPane disable="true" dividerPositions="0.14964788732394366, 0.7335680751173709" prefHeight="220.0" prefWidth="598.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="109.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" />
+              </items>
+            </SplitPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
