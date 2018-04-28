@@ -1,0 +1,4 @@
+.regionSplitters > .split-pane-divider
+{
+    -fx-padding: 0;
+}
