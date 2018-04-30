@@ -2,3 +2,24 @@
 {
     -fx-padding: 0;
 }
+
+#sideMenu
+{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+#sideMenu .list-cell:even
+{
+    -fx-background-color: #FF8080;
+}
+
+#sideMenu .list-cell:odd
+{
+    -fx-background-color: #FF0000;
+}
+
+#sideMenu .list-cell:nth-child(1)
+{
+    -fx-background-color: #B0FF80;
+}
