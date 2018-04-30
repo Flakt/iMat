@@ -15,9 +15,6 @@ import static javafx.application.Application.launch;
 
 public class IMat extends Application {
 
-    @FXML
-        private ListView categories;
-
     @Override
     public void start(Stage stage) throws Exception {
 
@@ -38,10 +35,5 @@ public class IMat extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
-        /*categories.setItems(FXCollections.observableArrayList(
-                "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
-                "Dryck", "Frys", "Konfektyr & Kaffebröd"));
-        */
     }
 }

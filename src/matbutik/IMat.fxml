@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="652.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMat">
+<AnchorPane prefHeight="652.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
    <children>
       <SplitPane dividerPositions="0.13659147869674185" layoutX="220.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="regionSplitters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -100,7 +100,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="109.0">
                      <children>
-                        <ListView fx:id="categories" layoutX="14.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <ListView layoutX="14.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children></AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" />
