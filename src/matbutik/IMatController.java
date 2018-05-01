@@ -18,16 +18,18 @@ public class IMatController implements Initializable {
 
 
     @FXML
-        private ListView<String> categories;
+        private TabPane categories;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         //categories = new ListView<>();
-    //    categories.getItems().addAll(
-      //          "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
+        //categories.getItems().addAll(
+        //        "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
         //        "Dryck", "Frys", "Konfektyr & Kaffebröd");
         //categories.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+
 
     }
 }
