@@ -50,7 +50,7 @@
 
 .tab:focused
 {
-    -fx-focus-color: #FFFFFF;
+    -fx-focus-color: transparent;
 }
 
 .tab-pane *.tab-header-background
