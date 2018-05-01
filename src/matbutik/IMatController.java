@@ -22,7 +22,7 @@ public class IMatController implements Initializable {
 
 
     @FXML
-        private ListView<String> categories;
+        private TabPane categories;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -30,9 +30,20 @@ public class IMatController implements Initializable {
         initCategories();
     }
 
+<<<<<<< HEAD
     private void initCategories() {
         categories = new ListView<>();
         //categories.getItems().addAll(backendController.getCategories());
         //categories.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+=======
+        //categories = new ListView<>();
+        //categories.getItems().addAll(
+        //        "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
+        //        "Dryck", "Frys", "Konfektyr & Kaffebröd");
+        //categories.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+
+
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
     }
 }

@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="774ba80b-abbc-4bb1-ad4e-063058ee9005" name="Default" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/matbutik/IMat_Shopping_Cart.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMatController.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMat.class" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMat.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMat.fxml" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMat.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMatController.class" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMatController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/styles/style.css" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/styles/style.css" />
+      <change beforePath="$PROJECT_DIR$/src/matbutik/IMat.fxml" afterPath="$PROJECT_DIR$/src/matbutik/IMat.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/matbutik/IMat.java" afterPath="$PROJECT_DIR$/src/matbutik/IMat.java" />
+      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatController.java" afterPath="$PROJECT_DIR$/src/matbutik/IMatController.java" />
+      <change beforePath="$PROJECT_DIR$/src/matbutik/styles/style.css" afterPath="$PROJECT_DIR$/src/matbutik/styles/style.css" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,6 +37,7 @@
       <file leaf-file-name="IMat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="146">
               <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
@@ -35,6 +49,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="491">
               <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+=======
+            <state relative-caret-position="315">
+              <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,11 +60,19 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="IMatShoppingCartController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+=======
+      <file leaf-file-name="IMatController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/matbutik/IMatController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="640">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,6 +80,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="IMatDataHandler.class" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/lib/projectbackend.jar!/se/chalmers/cse/dat216/project/IMatDataHandler.class">
           <provider selected="true" editor-type-id="text-editor">
@@ -71,6 +98,14 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/matbutik/styles/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+              <folding />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
             </state>
           </provider>
         </entry>
@@ -78,11 +113,22 @@
       <file leaf-file-name="IMat.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.fxml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="295">
               <caret line="127" selection-start-line="127" selection-end-line="127" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
+=======
+            <state relative-caret-position="357">
+              <caret line="17" column="195" lean-forward="false" selection-start-line="17" selection-start-column="195" selection-end-line="17" selection-end-column="195" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
         </entry>
       </file>
       <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
@@ -129,8 +175,8 @@
         <option value="$PROJECT_DIR$/src/matbutik/Main.java" />
         <option value="$PROJECT_DIR$/src/matbutik/resources/IMat.properties" />
         <option value="$PROJECT_DIR$/src/matbutik/iMatController.java" />
-        <option value="$PROJECT_DIR$/src/matbutik/IMat.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMat.fxml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/matbutik/styles/style.css" />
         <option value="$PROJECT_DIR$/src/matbutik/styles/IMatBackendController.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatBackendController.java" />
@@ -138,6 +184,11 @@
         <option value="$PROJECT_DIR$/src/matbutik/IMatKundVagnController.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMat_kundvagn.fxml" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java" />
+=======
+        <option value="$PROJECT_DIR$/src/matbutik/IMatController.java" />
+        <option value="$PROJECT_DIR$/src/matbutik/IMat.java" />
+        <option value="$PROJECT_DIR$/src/matbutik/styles/style.css" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
       </list>
     </option>
   </component>
@@ -161,7 +212,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,7 +266,10 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -312,6 +372,7 @@
       <workItem from="1524830318994" duration="2589000" />
       <workItem from="1524834511883" duration="15910000" />
       <workItem from="1525173143537" duration="3352000" />
+      <workItem from="1525178042853" duration="8181000" />
     </task>
     <task id="LOCAL-00001" summary="En början!">
       <created>1524833763730</created>
@@ -338,12 +399,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21851000" />
+    <option name="totallyTimeSpent" value="30032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32930845" />
@@ -372,6 +434,36 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+=======
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956093" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,12 +479,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="306">
           <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
         </state>
@@ -420,6 +513,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+=======
+        <state relative-caret-position="546">
+          <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -435,12 +532,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/styles/style.css" />
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.fxml">
+<<<<<<< HEAD
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="195" lean-forward="false" selection-start-line="14" selection-start-column="195" selection-end-line="14" selection-end-column="195" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/resources/IMat.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" column="49" lean-forward="true" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.fxml">
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="15" column="195" selection-start-line="15" selection-start-column="195" selection-end-line="15" selection-end-column="195" />
         </state>
       </provider>
+<<<<<<< HEAD
       <provider editor-type-id="JavaFX-Scene-Builder" />
+=======
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -554,6 +715,7 @@
     <entry file="file://$PROJECT_DIR$/lib/dist.zip">
       <provider selected="true" editor-type-id="apk-viewer" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
@@ -582,12 +744,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+=======
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/ListView.java" />
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="195" lean-forward="false" selection-start-line="17" selection-start-column="195" selection-end-line="17" selection-end-column="195" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/matbutik/IMatController.java">
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="491">
           <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
           <folding>
@@ -600,9 +784,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+=======
+        <state relative-caret-position="315">
+          <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+>>>>>>> 171cfcf31c85675c19456b28086d48b018eeeac0
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
