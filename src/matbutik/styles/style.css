@@ -3,23 +3,69 @@
     -fx-padding: 0;
 }
 
-#sideMenu
+#tabpane
 {
-    -fx-font-size: 20px;
+    -fx-tab-min-height: 15em;
+    -fx-tab-max-height: 15em;
+
+    -fx-tab-min-width: -1em;
+    -fx-tab-max-width: -1em;
+
+    -fx-padding: 0 -1 -1 0;
+}
+
+.tab .tab-label
+{
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-text-fill: #EBEAF0;
+}
+
+.tab
+{
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 0 30 0 30;
+}
+
+.tabLabel
+{
+    -fx-min-width: 16000%; /* Like a magic */
+    -fx-max-width: 16000%; /* These values be magic */
+    -fx-text-fill: #000000;
     -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    /*-fx-alignment: center;*/
 }
 
-#sideMenu .list-cell:even
+.tab:selected
 {
-    -fx-background-color: #FF8080;
+    -fx-background-color: #FAFCFB;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 5 0 0 0;
+    -fx-border-color: #3FE387;
 }
 
-#sideMenu .list-cell:odd
+.tab:focused
 {
-    -fx-background-color: #FF0000;
+    -fx-focus-color: transparent;
 }
 
-#sideMenu .list-cell:nth-child(1)
+.tab-pane *.tab-header-background
 {
-    -fx-background-color: #B0FF80;
+    -fx-background-color: transparent;
+}
+
+.tab-pane:left *.tab-header-area
+{
+    -fx-background-insets: 0 0 0 10;
+    -fx-padding: 0 0 0 0;
+}
+
+.tab:selected .focus-indicator
+{
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
 }
