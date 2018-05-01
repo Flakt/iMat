@@ -24,10 +24,10 @@ public class IMatController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //categories = new ListView<>();
-        categories.getItems().addAll(
-                "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
-                "Dryck", "Frys", "Konfektyr & Kaffebröd");
-        categories.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    //    categories.getItems().addAll(
+      //          "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
+        //        "Dryck", "Frys", "Konfektyr & Kaffebröd");
+        //categories.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
     }
 }
