@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="anchorpane" fx:id="productsPane" prefHeight="247.0" prefWidth="196.0" styleClass="anchorpane" stylesheets="@styles/productStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Products">
+   <children>
+      <ImageView fx:id="productImage" fitHeight="79.0" fitWidth="116.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Users/Joakim%20Svensson/.dat215/imat/images/product_33.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="productTotalPrice" layoutX="145.0" layoutY="227.0" text="Label" />
+      <Label fx:id="productName" layoutX="79.0" layoutY="124.0" text="Label" />
+      <Label fx:id="productInfo" layoutX="7.0" layoutY="169.0" text="Label" />
+      <ImageView fx:id="productImageEko" fitHeight="36.0" fitWidth="42.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+      <Spinner fx:id="productSpinner" layoutX="5.0" layoutY="228.0" prefHeight="26.0" prefWidth="122.0" stylesheets="@styles/productStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,8 @@
+.anchorpane{
+    -fx-border-radius: 20 20 0 0;
+    -fx-background-radius: 20 20 0 0;
+}
+
+.spinner .increment-arrow-button{
+    -fx-image:url("../resources/pluss.png") ;
+}
