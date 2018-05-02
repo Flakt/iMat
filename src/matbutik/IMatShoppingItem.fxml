@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="shoppingCartController" prefHeight="100.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatShoppingItem">
+   <children>
+      <Button fx:id="cartItemIncreaseButton" layoutX="292.0" layoutY="38.0" mnemonicParsing="false" onAction="#incItem" prefHeight="20.0" prefWidth="20.0" text="+" wrapText="true" />
+      <ImageView fx:id="cartItemImageView" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="cartItemDecreaseButton" layoutX="211.0" layoutY="37.0" mnemonicParsing="false" onAction="#decItem" prefHeight="20.0" prefWidth="20.0" text="-" wrapText="true" />
+      <Label fx:id="cartItemAmountLabel" alignment="CENTER" layoutX="232.0" layoutY="37.0" prefHeight="26.0" prefWidth="60.0" text="Label" />
+      <Label fx:id="cartItemPriceLabel" layoutX="355.0" layoutY="37.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
