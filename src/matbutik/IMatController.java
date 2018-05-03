@@ -16,13 +16,12 @@ import java.util.ResourceBundle;
 
 public class IMatController implements Initializable {
 
-
+   
     @FXML
         private TabPane categories;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         //categories = new ListView<>();
         //categories.getItems().addAll(
         //        "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
