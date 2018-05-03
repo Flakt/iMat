@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="774ba80b-abbc-4bb1-ad4e-063058ee9005" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,17 +33,17 @@
       <file leaf-file-name="IMatShoppingCartController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="73" column="109" selection-start-line="73" selection-start-column="109" selection-end-line="73" selection-end-column="109" />
+            <state relative-caret-position="204">
+              <caret line="64" column="78" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1000#1026#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+                <element signature="e#1829#1830#0" expanded="true" />
                 <element signature="e#2263#2264#0" expanded="true" />
                 <element signature="e#2318#2319#0" expanded="true" />
                 <element signature="e#2375#2376#0" expanded="true" />
                 <element signature="e#2429#2430#0" expanded="true" />
-                <element signature="e#2734#2735#0" expanded="true" />
-                <element signature="e#2790#2791#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,7 +52,7 @@
       <file leaf-file-name="IMatShoppingItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
+            <state relative-caret-position="272">
               <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -145,6 +144,19 @@
               <item name="iMat" type="b2602c69:ProjectViewProjectNode" />
               <item name="iMat" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iMat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iMat" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="projectbackend.jar" type="ab9368bb:PsiFileNode" />
+            </path>
+            <path>
+              <item name="iMat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iMat" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="projectbackend.jar" type="ab9368bb:PsiFileNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="iMat" type="b2602c69:ProjectViewProjectNode" />
@@ -385,12 +397,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1000#1026#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
             <element signature="e#2263#2264#0" expanded="true" />
             <element signature="e#2318#2319#0" expanded="true" />
             <element signature="e#2375#2376#0" expanded="true" />
             <element signature="e#2429#2430#0" expanded="true" />
-            <element signature="e#2734#2735#0" expanded="true" />
-            <element signature="e#2790#2791#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -652,7 +664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
+        <state relative-caret-position="272">
           <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -662,17 +674,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="73" column="109" selection-start-line="73" selection-start-column="109" selection-end-line="73" selection-end-column="109" />
+        <state relative-caret-position="204">
+          <caret line="64" column="78" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1000#1026#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
             <element signature="e#2263#2264#0" expanded="true" />
             <element signature="e#2318#2319#0" expanded="true" />
             <element signature="e#2375#2376#0" expanded="true" />
             <element signature="e#2429#2430#0" expanded="true" />
-            <element signature="e#2734#2735#0" expanded="true" />
-            <element signature="e#2790#2791#0" expanded="true" />
           </folding>
         </state>
       </provider>

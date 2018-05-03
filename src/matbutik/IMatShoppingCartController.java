@@ -6,9 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -57,14 +55,22 @@ public class IMatShoppingCartController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
         shoppingCart = dataHandler.getShoppingCart();
+        shoppingCart.addShoppingCartListener(new ShoppingCartListener() {
+            @Override
+            public void shoppingCartChanged(CartEvent cartEvent) {
+                updateProductsList();
+            }
+        });
+        populateProductsList();
+        // If create a new object for every item in list, run an update method
+        this.updateProductsList();
+    }
+
+    private void populateProductsList() {
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
-            // Create new fxml items for each here?, or use already existing class?
             IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(shoppingItem, this);
             iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), iMatShoppingItem);
         }
-        // If create a new object for every item in list, run an update method
-        // Should also consider moving this and for-loop as a separate method
-        this.updateProductsList();
     }
 
     private void updateProductsList() {
@@ -91,6 +97,7 @@ public class IMatShoppingCartController implements Initializable {
 
     public void incrementProductAmount(ShoppingItem item) {
         item.setAmount((item.getAmount() + 1.0));
+        this.updateProductsList();
     }
 
     public void decrementProductAmount(ShoppingItem item) {
@@ -100,6 +107,7 @@ public class IMatShoppingCartController implements Initializable {
         else {
             shoppingCart.removeItem(item);
         }
+        this.updateProductsList();
     }
 
 }
