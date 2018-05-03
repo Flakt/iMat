@@ -11,6 +11,9 @@ import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class IMatShoppingCartController implements Initializable {
@@ -26,7 +29,7 @@ public class IMatShoppingCartController implements Initializable {
      */
     private IMatDataHandler dataHandler;
     private ShoppingCart shoppingCart;
-
+    private Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
     @FXML
     private AnchorPane cartItemsPane;
     @FXML
@@ -56,9 +59,21 @@ public class IMatShoppingCartController implements Initializable {
         shoppingCart = dataHandler.getShoppingCart();
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
             // Create new fxml items for each here?, or use already existing class?
+            IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(shoppingItem, this);
+            iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), iMatShoppingItem);
         }
         // If create a new object for every item in list, run an update method
         // Should also consider moving this and for-loop as a separate method
+        this.updateProductsList();
+    }
+
+    private void updateProductsList() {
+        cartItemsFlowPane.getChildren().clear();
+        List<ShoppingItem> shoppingItems = dataHandler.getShoppingCart().getItems();
+        for (ShoppingItem shoppingItem : shoppingItems) {
+            IMatShoppingItem iMatShoppingItem = iMatShoppingItemMap.get(shoppingItem.getProduct().getName());
+            cartItemsFlowPane.getChildren().add(iMatShoppingItem);
+        }
     }
 
     public String getCartItemAmount(ShoppingItem item) {
