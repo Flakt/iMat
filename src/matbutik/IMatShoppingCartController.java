@@ -58,6 +58,8 @@ public class IMatShoppingCartController implements Initializable {
         dataHandler = IMatDataHandler.getInstance();
         shoppingCart = dataHandler.getShoppingCart();
         for (ShoppingItem shoppingItem : dataHandler.getShoppingCart().getItems()) {
+
+
             // Create new fxml items for each here?, or use already existing class?
             IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(shoppingItem, this);
             iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), iMatShoppingItem);
@@ -83,6 +85,7 @@ public class IMatShoppingCartController implements Initializable {
     public String getCartItemPrice(ShoppingItem item) {
         return String.valueOf(item.getTotal());
     }
+
 
     // Actually check if it loads the correct image
     public Image getCartItemImage(ShoppingItem item) {
