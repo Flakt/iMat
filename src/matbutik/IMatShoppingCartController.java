@@ -28,6 +28,7 @@ public class IMatShoppingCartController implements Initializable {
     private IMatDataHandler dataHandler;
     private ShoppingCart shoppingCart;
     private Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
+    private List<ShoppingItem> backupShoppingItems;
     @FXML
     private AnchorPane cartItemsPane;
     @FXML
@@ -61,16 +62,38 @@ public class IMatShoppingCartController implements Initializable {
                 updateProductsList();
             }
         });
+        for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
+            iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this));
+        }
         this.updateProductsList();
     }
 
     private void updateProductsList() {
         cartItemsFlowPane.getChildren().clear();
-        List<ShoppingItem> shoppingItems = dataHandler.getShoppingCart().getItems();
+        List<ShoppingItem> shoppingItems = shoppingCart.getItems();
         for (ShoppingItem shoppingItem : shoppingItems) {
             IMatShoppingItem iMatShoppingItem = iMatShoppingItemMap.get(shoppingItem.getProduct().getName());
             cartItemsFlowPane.getChildren().add(iMatShoppingItem);
         }
+    }
+
+    @FXML
+    protected void removeAllAction() {
+        // Not assigned yet
+        cartItemsFlowPane.getChildren().clear();
+        backupShoppingItems.addAll(shoppingCart.getItems());   // May or may not work
+        shoppingCart.clear();
+        iMatShoppingItemMap.clear();
+    }
+
+    @FXML
+    protected void regretRemove() {
+        // Not assigned yet
+        for (ShoppingItem item : backupShoppingItems) {
+            iMatShoppingItemMap.put(item.getProduct().getName(), new IMatShoppingItem(item,this));
+            shoppingCart.addItem(item);
+        }
+        backupShoppingItems.clear();
     }
 
     public String getCartItemAmount(ShoppingItem item) {
