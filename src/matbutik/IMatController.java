@@ -17,30 +17,10 @@ import java.net.URL;
 import java.util.*;
 
 public class IMatController implements Initializable {
-    private IMatDataHandler iMatDataHandler;
-    private Product product;
-    private Map<String, IMatProductController> iMatProductControllerMap = new HashMap<String, IMatProductController>();
-    @FXML private TabPane categories;
-    @FXML private FlowPane productFlowPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        populateList();
-        updateProduct();
-        }
-    public void populateList(){
-        for(Product product : iMatDataHandler.getProducts()){
-            iMatProductControllerMap.put(product.getName(), new IMatProductController(product,iMatDataHandler));
+
         }
 
-    }
-
-    public void updateProduct(){
-        productFlowPane.getChildren().clear();
-        List<Product> products = iMatDataHandler.getProducts();
-        for (Product product : products) {
-            IMatProductController iMatProductController = iMatProductControllerMap.get(product.getName());
-            productFlowPane.getChildren().add(iMatProductController);
-        }
-    }
 }
