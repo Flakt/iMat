@@ -56,6 +56,22 @@ public class IMatShoppingCartController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
         shoppingCart = dataHandler.getShoppingCart();
+
+
+        //
+        // TEST
+        // add something to the shopping cart
+        System.out.println(dataHandler.getProduct(1));
+
+        // Why does the following require a reference to this class?
+        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
+        System.out.print(sI.getProduct().getName());
+        IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(sI, this);
+        iMatShoppingItemMap.put("Gröna ärter", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(1)), this));
+        shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(1)));
+
+        updateProductsList();
+        // TEST END
         shoppingCart.addShoppingCartListener(new ShoppingCartListener() {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
@@ -112,14 +128,19 @@ public class IMatShoppingCartController implements Initializable {
 
     public void incrementProductAmount(ShoppingItem item) {
         item.setAmount((item.getAmount() + 1.0));
+        updateProductsList();
     }
 
     public void decrementProductAmount(ShoppingItem item) {
-        if (item.getAmount() < 1.0) {
+        if (item.getAmount() > 1.0) {
             item.setAmount((item.getAmount() - 1.0));
+            updateProductsList();
+
         }
         else {
             shoppingCart.removeItem(item);
+            updateProductsList();
+
         }
     }
 
