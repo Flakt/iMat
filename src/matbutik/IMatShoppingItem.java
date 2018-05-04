@@ -30,6 +30,7 @@ public class IMatShoppingItem extends AnchorPane {
     private ImageView cartItemImageView;
 
     public IMatShoppingItem(ShoppingItem shoppingItem, IMatShoppingCartController shoppingCartController) {
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatShoppingItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -49,12 +50,12 @@ public class IMatShoppingItem extends AnchorPane {
     }
 
     @FXML
-    protected void incItem(ShoppingItem item) {
-        shoppingCartController.incrementProductAmount(item);
+    protected void incItem(Event event) {
+        shoppingCartController.incrementProductAmount(this.shoppingItem);
     }
 
     @FXML
-    protected void decItem(ShoppingItem item) {
-        shoppingCartController.decrementProductAmount(item);
+    protected void decItem(Event event) {
+        shoppingCartController.decrementProductAmount(this.shoppingItem);
     }
 }
