@@ -21,7 +21,7 @@ public class IMat extends Application {
         // To do: make resource bundle/fxml file and link it
 
         ResourceBundle bundle = java.util.ResourceBundle.getBundle("matbutik/resources/IMat");
-        Parent root = FXMLLoader.load(getClass().getResource("IMatShoppingCart.fxml"), bundle);
+        Parent root = FXMLLoader.load(getClass().getResource("IMat.fxml"), bundle);
 
         Scene scene = new Scene(root, 1024, 700);
 
