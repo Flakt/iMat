@@ -9,10 +9,7 @@ import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class IMatShoppingCartController implements Initializable {
 
@@ -38,6 +35,8 @@ public class IMatShoppingCartController implements Initializable {
     @FXML
     private Button backButton;
     @FXML
+    private Button accountButton;
+    @FXML
     private Button historyButton;
     @FXML
     private Button helpButton;
@@ -56,6 +55,7 @@ public class IMatShoppingCartController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
         shoppingCart = dataHandler.getShoppingCart();
+        backupShoppingItems = new ArrayList<>();
 
 
         //
@@ -95,21 +95,22 @@ public class IMatShoppingCartController implements Initializable {
 
     @FXML
     protected void removeAllAction() {
-        // Not assigned yet
+        for (ShoppingItem item : shoppingCart.getItems()) {
+            backupShoppingItems.add(item);
+        }
         cartItemsFlowPane.getChildren().clear();
-        backupShoppingItems.addAll(shoppingCart.getItems());   // May or may not work
         shoppingCart.clear();
         iMatShoppingItemMap.clear();
     }
 
     @FXML
     protected void regretRemove() {
-        // Not assigned yet
         for (ShoppingItem item : backupShoppingItems) {
             iMatShoppingItemMap.put(item.getProduct().getName(), new IMatShoppingItem(item,this));
             shoppingCart.addItem(item);
         }
         backupShoppingItems.clear();
+        updateProductsList();
     }
 
     public String getCartItemAmount(ShoppingItem item) {
@@ -121,7 +122,7 @@ public class IMatShoppingCartController implements Initializable {
     }
 
 
-    // Actually check if it loads the correct image
+    // Does load correct Image
     public Image getCartItemImage(ShoppingItem item) {
         return new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + item.getProduct().getImageName());
     }

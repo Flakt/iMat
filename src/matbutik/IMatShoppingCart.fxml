@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -17,16 +15,28 @@
     <children>
         <StackPane prefHeight="700.0" prefWidth="1024.0">
             <children>
+                <AnchorPane prefHeight="700.0" prefWidth="1024.0">
+               <children>
+                  <Button fx:id="backButton" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="Tillbaka">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="437.0" layoutY="25.0" text="Din Kundvagn">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="accountButton" layoutX="796.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" text="Konto" />
+                  <Button fx:id="historyButton" layoutX="864.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" text="Historik" />
+                  <Button fx:id="helpButton" layoutX="932.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="68.0" text="Hjälp" />
+               </children>
+                </AnchorPane>
                 <SplitPane dividerPositions="0.75" prefHeight="350.0" prefWidth="760.0">
                     <items>
                         <AnchorPane fx:id="cartItemsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                             <children>
-                                <Label layoutX="326.0" layoutY="14.0" text="Din Kundvagn">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Label>
-                        <ScrollPane layoutY="54.0" prefHeight="594.0" prefWidth="764.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                        <ScrollPane prefHeight="618.0" prefWidth="764.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
                               <FlowPane fx:id="cartItemsFlowPane" prefHeight="304.0" prefWidth="443.0" />
                            </content>
@@ -50,29 +60,25 @@
                                         <Insets left="5.0" />
                                     </padding>
                                 </Label>
-                                <Button fx:id="removeAllButton" layoutX="12.0" layoutY="120.0" mnemonicParsing="false" onAction="#removeAllAction" prefHeight="26.0" prefWidth="125.0" text="Ta bort allt" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                <Button fx:id="regretButton" layoutX="50.0" layoutY="162.0" mnemonicParsing="false" onAction="#regretRemove" text="Ångra" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                <Button fx:id="toPaymentButton" layoutX="50.0" layoutY="309.0" mnemonicParsing="false" text="Gå till betalning" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                <Button fx:id="removeAllButton" layoutX="10.0" layoutY="121.0" mnemonicParsing="false" onAction="#removeAllAction" prefHeight="55.0" prefWidth="125.0" text="Ta bort allt" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                                <Button fx:id="regretButton" layoutX="10.0" layoutY="197.0" mnemonicParsing="false" onAction="#regretRemove" prefHeight="55.0" text="Ångra" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                                <Button fx:id="toPaymentButton" layoutX="10.0" layoutY="548.0" mnemonicParsing="false" prefHeight="55.0" text="Gå till betalning" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
                             </children>
                         </AnchorPane>
                     </items>
                     <StackPane.margin>
-                        <Insets top="50.0" />
+                        <Insets top="80.0" />
                     </StackPane.margin>
                 </SplitPane>
-                <AnchorPane prefHeight="700.0" prefWidth="1024.0">
-                    <children>
-                        <ImageView fitHeight="50.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <image>
-                                <Image url="@resources/tmpLogo.png" />
-                            </image>
-                        </ImageView>
-                        <Button fx:id="backButton" layoutX="63.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="701.0" text="Tillbaka till butiken" wrapText="true" />
-                        <Button fx:id="historyButton" layoutX="780.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="59.0" text="Historik" wrapText="true" />
-                  <Button fx:id="accountButton" layoutX="874.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" text="Konto" />
-                        <Button fx:id="helpButton" layoutX="966.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="44.0" text="Hjälp" />
-                    </children>
-                </AnchorPane>
             </children>
         </StackPane>
     </children>
