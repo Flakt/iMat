@@ -9,10 +9,12 @@ import se.chalmers.cse.dat216.project.Product;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class IMatProductController implements Initializable {
+public class IMatProductController extends AnchorPane {
     private Product product;
     private IMatDataHandler productHandler;
     @FXML private AnchorPane productPane;
@@ -21,11 +23,23 @@ public class IMatProductController implements Initializable {
     @FXML private Label productName;
     @FXML private Label productInfo;
     @FXML private Label productTotalPrice;
-    @FXML private FlowPane flowpaneResults;
 
+    public IMatProductController(Product p,IMatDataHandler h){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe_listitem.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
 
+        this.product = p;
+        this.productHandler = h;
     }
 }
+
+
+
+

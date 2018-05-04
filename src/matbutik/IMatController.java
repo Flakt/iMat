@@ -7,18 +7,21 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class IMatController implements Initializable {
 
-   
-    @FXML
-        private TabPane categories;
+    private Map<String, IMatProductController> recipeListItemMap = new HashMap<String, IMatProductController>();
+    @FXML private TabPane categories;
+    @FXML private FlowPane flowpaneResults;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
