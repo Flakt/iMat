@@ -9,7 +9,10 @@ import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 public class IMatShoppingCartController implements Initializable {
 
@@ -25,7 +28,6 @@ public class IMatShoppingCartController implements Initializable {
     private IMatDataHandler dataHandler;
     private ShoppingCart shoppingCart;
     private Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
-    private List<ShoppingItem> backupShoppingItems;
     @FXML
     private AnchorPane cartItemsPane;
     @FXML
@@ -34,8 +36,6 @@ public class IMatShoppingCartController implements Initializable {
     private FlowPane cartItemsFlowPane;
     @FXML
     private Button backButton;
-    @FXML
-    private Button accountButton;
     @FXML
     private Button historyButton;
     @FXML
@@ -55,62 +55,22 @@ public class IMatShoppingCartController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
         shoppingCart = dataHandler.getShoppingCart();
-        backupShoppingItems = new ArrayList<>();
-
-
-        //
-        // TEST
-        // add something to the shopping cart
-        System.out.println(dataHandler.getProduct(1));
-
-        // Why does the following require a reference to this class?
-        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
-        System.out.print(sI.getProduct().getName());
-        IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(sI, this);
-        iMatShoppingItemMap.put("Gröna ärter", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(1)), this));
-        shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(1)));
-
-        updateProductsList();
-        // TEST END
         shoppingCart.addShoppingCartListener(new ShoppingCartListener() {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateProductsList();
             }
         });
-        for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
-            iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this));
-        }
         this.updateProductsList();
     }
 
     private void updateProductsList() {
         cartItemsFlowPane.getChildren().clear();
-        List<ShoppingItem> shoppingItems = shoppingCart.getItems();
+        List<ShoppingItem> shoppingItems = dataHandler.getShoppingCart().getItems();
         for (ShoppingItem shoppingItem : shoppingItems) {
             IMatShoppingItem iMatShoppingItem = iMatShoppingItemMap.get(shoppingItem.getProduct().getName());
             cartItemsFlowPane.getChildren().add(iMatShoppingItem);
         }
-    }
-
-    @FXML
-    protected void removeAllAction() {
-        for (ShoppingItem item : shoppingCart.getItems()) {
-            backupShoppingItems.add(item);
-        }
-        cartItemsFlowPane.getChildren().clear();
-        shoppingCart.clear();
-        iMatShoppingItemMap.clear();
-    }
-
-    @FXML
-    protected void regretRemove() {
-        for (ShoppingItem item : backupShoppingItems) {
-            iMatShoppingItemMap.put(item.getProduct().getName(), new IMatShoppingItem(item,this));
-            shoppingCart.addItem(item);
-        }
-        backupShoppingItems.clear();
-        updateProductsList();
     }
 
     public String getCartItemAmount(ShoppingItem item) {
@@ -122,26 +82,21 @@ public class IMatShoppingCartController implements Initializable {
     }
 
 
-    // Does load correct Image
+    // Actually check if it loads the correct image
     public Image getCartItemImage(ShoppingItem item) {
         return new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + item.getProduct().getImageName());
     }
 
     public void incrementProductAmount(ShoppingItem item) {
         item.setAmount((item.getAmount() + 1.0));
-        updateProductsList();
     }
 
     public void decrementProductAmount(ShoppingItem item) {
-        if (item.getAmount() > 1.0) {
+        if (item.getAmount() < 1.0) {
             item.setAmount((item.getAmount() - 1.0));
-            updateProductsList();
-
         }
         else {
             shoppingCart.removeItem(item);
-            updateProductsList();
-
         }
     }
 

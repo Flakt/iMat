@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="shoppingCartController" prefHeight="100.0" prefWidth="443.0" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane fx:id="shoppingCartController" prefHeight="100.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatShoppingItem">
    <children>
       <Button fx:id="cartItemIncreaseButton" layoutX="292.0" layoutY="38.0" mnemonicParsing="false" onAction="#incItem" prefHeight="20.0" prefWidth="20.0" text="+" wrapText="true" />
       <ImageView fx:id="cartItemImageView" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0" />
@@ -18,4 +19,4 @@
          </font>
       </Label>
    </children>
-</fx:root>
+</AnchorPane>
