@@ -10,28 +10,37 @@ import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class IMatController implements Initializable {
-
-    private Map<String, IMatProductController> recipeListItemMap = new HashMap<String, IMatProductController>();
+    private IMatDataHandler iMatDataHandler;
+    private Product product;
+    private Map<String, IMatProductController> iMatProductControllerMap = new HashMap<String, IMatProductController>();
     @FXML private TabPane categories;
-    @FXML private FlowPane flowpaneResults;
+    @FXML private FlowPane productFlowPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //categories = new ListView<>();
-        //categories.getItems().addAll(
-        //        "Erbjudanden", "Mejeri", "Chark & Pålägg", "Fisk", "Frukt & Grönt", "Bröd", "Kryddhyllan",
-        //        "Dryck", "Frys", "Konfektyr & Kaffebröd");
-        //categories.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        populateList();
+        updateProduct();
+        }
+    public void populateList(){
+        for(Product product : iMatDataHandler.getProducts()){
+            iMatProductControllerMap.put(product.getName(), new IMatProductController(product,iMatDataHandler));
+        }
 
+    }
 
-
+    public void updateProduct(){
+        productFlowPane.getChildren().clear();
+        List<Product> products = iMatDataHandler.getProducts();
+        for (Product product : products) {
+            IMatProductController iMatProductController = iMatProductControllerMap.get(product.getName());
+            productFlowPane.getChildren().add(iMatProductController);
+        }
     }
 }
