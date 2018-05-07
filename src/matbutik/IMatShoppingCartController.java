@@ -9,10 +9,7 @@ import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class IMatShoppingCartController implements Initializable {
 
@@ -28,7 +25,7 @@ public class IMatShoppingCartController implements Initializable {
     private IMatDataHandler dataHandler;
     private ShoppingCart shoppingCart;
     private Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
-    private List<ShoppingItem> backupShoppingItems;
+    private List<ShoppingItem> backupShoppingItems = new ArrayList<>();
     @FXML
     private AnchorPane cartItemsPane;
     @FXML
@@ -57,18 +54,18 @@ public class IMatShoppingCartController implements Initializable {
         dataHandler = IMatDataHandler.getInstance();
         shoppingCart = dataHandler.getShoppingCart();
 
-
         //
         // TEST
         // add something to the shopping cart
         System.out.println(dataHandler.getProduct(1));
-
+        
         // Why does the following require a reference to this class?
         ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
         System.out.print(sI.getProduct().getName());
         IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(sI, this);
         iMatShoppingItemMap.put("Gröna ärter", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(1)), this));
         shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(1)));
+
 
         updateProductsList();
         // TEST END

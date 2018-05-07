@@ -17,6 +17,19 @@
     <children>
         <StackPane prefHeight="700.0" prefWidth="1024.0">
             <children>
+                <AnchorPane prefHeight="700.0" prefWidth="1024.0">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <image>
+                                <Image url="@resources/tmpLogo.png" />
+                            </image>
+                        </ImageView>
+                        <Button fx:id="backButton" layoutX="63.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="701.0" text="Tillbaka till butiken" wrapText="true" />
+                        <Button fx:id="historyButton" layoutX="780.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="59.0" text="Historik" wrapText="true" />
+                  <Button fx:id="accountButton" layoutX="874.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" text="Konto" />
+                        <Button fx:id="helpButton" layoutX="966.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="44.0" text="Hjälp" />
+                    </children>
+                </AnchorPane>
                 <SplitPane dividerPositions="0.75" prefHeight="350.0" prefWidth="760.0">
                     <items>
                         <AnchorPane fx:id="cartItemsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -60,19 +73,6 @@
                         <Insets top="50.0" />
                     </StackPane.margin>
                 </SplitPane>
-                <AnchorPane prefHeight="700.0" prefWidth="1024.0">
-                    <children>
-                        <ImageView fitHeight="50.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <image>
-                                <Image url="@resources/tmpLogo.png" />
-                            </image>
-                        </ImageView>
-                        <Button fx:id="backButton" layoutX="63.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="701.0" text="Tillbaka till butiken" wrapText="true" />
-                        <Button fx:id="historyButton" layoutX="780.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="59.0" text="Historik" wrapText="true" />
-                  <Button fx:id="accountButton" layoutX="874.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" text="Konto" />
-                        <Button fx:id="helpButton" layoutX="966.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="44.0" text="Hjälp" />
-                    </children>
-                </AnchorPane>
             </children>
         </StackPane>
     </children>
