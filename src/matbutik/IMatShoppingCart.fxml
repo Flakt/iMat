@@ -13,21 +13,21 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatShoppingCartController">
     <children>
+          <AnchorPane prefHeight="700.0" prefWidth="1024.0">
+              <children>
+                  <Button fx:id="backButton" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="Tillbaka till butiken" wrapText="true" />
+                  <Button fx:id="historyButton" layoutX="814.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Historik" wrapText="true" />
+            <Button fx:id="accountButton" layoutX="874.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Konto" />
+                  <Button fx:id="helpButton" layoutX="934.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Hjälp" AnchorPane.rightAnchor="30.0" />
+                    <Label fx:id="headerLabel" layoutX="456.0" layoutY="11.0" text="Din Kundvagn">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+              </children>
+          </AnchorPane>
         <StackPane prefHeight="700.0" prefWidth="1024.0">
             <children>
-                <AnchorPane prefHeight="700.0" prefWidth="1024.0">
-                    <children>
-                        <Button fx:id="backButton" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="Tillbaka till butiken" wrapText="true" />
-                        <Button fx:id="historyButton" layoutX="814.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Historik" wrapText="true" />
-                  <Button fx:id="accountButton" layoutX="874.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Konto" />
-                        <Button fx:id="helpButton" layoutX="934.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Hjälp" />
-                          <Label layoutX="456.0" layoutY="11.0" text="Din Kundvagn">
-                              <font>
-                                  <Font size="18.0" />
-                              </font>
-                          </Label>
-                    </children>
-                </AnchorPane>
                 <SplitPane dividerPositions="0.75" prefHeight="350.0" prefWidth="760.0">
                     <items>
                         <AnchorPane fx:id="cartItemsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -56,18 +56,6 @@
                                         <Insets left="5.0" />
                                     </padding>
                                 </Label>
-                                <Button fx:id="removeAllButton" layoutX="12.0" layoutY="120.0" mnemonicParsing="false" onAction="#removeAllAction" prefHeight="60.0" prefWidth="125.0" text="Ta bort allt" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Button>
-                                <Button fx:id="regretButton" layoutX="10.0" layoutY="193.0" mnemonicParsing="false" onAction="#regretRemove" prefHeight="60.0" text="Ångra" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Button>
-                                <Button fx:id="toPaymentButton" layoutX="10.0" layoutY="574.0" mnemonicParsing="false" prefHeight="60.0" text="Gå till betalning" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Button>
                             </children>
                         </AnchorPane>
                     </items>
@@ -77,5 +65,6 @@
                 </SplitPane>
             </children>
         </StackPane>
+      <AnchorPane layoutY="50.0" prefHeight="650.0" prefWidth="1024.0" />
     </children>
 </AnchorPane>
