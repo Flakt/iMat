@@ -17,9 +17,17 @@ import java.util.ResourceBundle;
 
 public class IMatPaymentController implements Initializable {
 
+    /*
+        To do:
+            - Implementera resten utav knapparna
+            - Testa om backend fungerar som det är tänkt
+            - Testa om bytningen mellan AnchorPanes fungerar
+     */
+
     private IMatDataHandler dataHandler;
     private Customer customer;
     private CreditCard creditCard;
+    private String choice;
 
     @FXML
     private AnchorPane cartDetailsPane;
@@ -99,6 +107,7 @@ public class IMatPaymentController implements Initializable {
         adressTextField.focusedProperty().addListener(new TextFieldListener(adressTextField));
         zipcodeTextField.focusedProperty().addListener(new TextFieldListener(zipcodeTextField));
         regionTextField.focusedProperty().addListener(new TextFieldListener(regionTextField));
+        choice = "invoice";
     }
 
     private void creditInit() {
@@ -110,17 +119,20 @@ public class IMatPaymentController implements Initializable {
         monthTextField.focusedProperty().addListener(new TextFieldListener(monthTextField));
         yearTextField.focusedProperty().addListener(new TextFieldListener(yearTextField));
         verificationCodeTextField.focusedProperty().addListener(new TextFieldListener(verificationCodeTextField));
+        choice = "credit";
     }
 
     @FXML
     protected void invoiceOnClick(Event event) {
         // Maybe run init invoice page here (If not initialized in initialize)
+        invoiceInit();
         invoiceAnchorPane.toFront();
     }
 
     @FXML
     protected void creditOnClick(Event event) {
         // Maybe run init credit page here (If not already initialized)
+        creditInit();
         creditcardAnchorPane.toFront();
     }
 
@@ -146,6 +158,16 @@ public class IMatPaymentController implements Initializable {
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
         // Redirect to "you have payed"
+    }
+
+    @FXML
+    protected void goBack() {
+        if (choice.equals("invoice") || choice.equals("credit")) {
+            paymentOptionsSplitPane.toFront();
+        }
+        else {
+            // Redirect tillbaka till vart användaren var förut
+        }
     }
 
     private class TextFieldListener implements ChangeListener<Boolean> {
