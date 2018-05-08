@@ -21,7 +21,8 @@ import java.util.ResourceBundle;
 public class IMatProductController extends AnchorPane implements Initializable {
     private IMatDataHandler iMatDataHandler;
     private Product product;
-    private Map<String, IMatProductController> iMatProductControllerMap = new HashMap<String, IMatProductController>();
+    IMatProductItem productItem;
+    private Map<String, IMatProductController> iMatProductItemMap = new HashMap<String, IMatProductController>();
     @FXML private FlowPane productFlowPane;
     @FXML private AnchorPane productPane;
     @FXML private ImageView productImage;
@@ -37,25 +38,13 @@ public class IMatProductController extends AnchorPane implements Initializable {
         populateList();
         updateProduct();
         populateProductDetail();
+
     }
 
-    public IMatProductController(Product p,IMatDataHandler h){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe_listitem.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        this.product = p;
-        this.iMatDataHandler = h;
-    }
     public void populateList(){
         for(Product product : iMatDataHandler.getProducts()){
-            iMatProductControllerMap.put(product.getName(), new IMatProductController(product,iMatDataHandler));
+            iMatProductItemMap.put(product.getName(), new IMatProductItem(product, this.iMatDataHandler));
         }
 
     }
@@ -64,8 +53,8 @@ public class IMatProductController extends AnchorPane implements Initializable {
         productFlowPane.getChildren().clear();
         List<Product> products = iMatDataHandler.getProducts();
         for (Product product : products) {
-            IMatProductController iMatProductController = iMatProductControllerMap.get(product.getName());
-            productFlowPane.getChildren().add(iMatProductController);
+            IMatProductItem iMatProductItem = (IMatProductItem) this.iMatProductItemMap.get(product.getName());
+            productFlowPane.getChildren().add(iMatProductItem);
         }
     }
 
