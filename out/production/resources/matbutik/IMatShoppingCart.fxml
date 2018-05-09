@@ -26,7 +26,10 @@
                     </Label>
               </children>
           </AnchorPane>
+<<<<<<< HEAD
       <AnchorPane layoutY="50.0" prefHeight="650.0" prefWidth="1024.0" />
+=======
+>>>>>>> 0129579df7d6e2b6241ff532fae39951ed98f489
         <StackPane prefHeight="700.0" prefWidth="1024.0">
             <children>
                 <SplitPane dividerPositions="0.75" prefHeight="350.0" prefWidth="760.0">
@@ -35,7 +38,11 @@
                             <children>
                         <ScrollPane layoutY="54.0" prefHeight="594.0" prefWidth="764.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
+<<<<<<< HEAD
                               <FlowPane fx:id="cartItemsFlowPane" />
+=======
+                              <FlowPane fx:id="cartItemsFlowPane" prefHeight="641.0" prefWidth="758.0" />
+>>>>>>> 0129579df7d6e2b6241ff532fae39951ed98f489
                            </content>
                         </ScrollPane>
                             </children>
@@ -66,5 +73,6 @@
                 </SplitPane>
             </children>
         </StackPane>
+      <AnchorPane layoutY="50.0" prefHeight="650.0" prefWidth="1024.0" />
     </children>
 </AnchorPane>

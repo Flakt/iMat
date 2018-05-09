@@ -64,11 +64,17 @@ public class IMatShoppingItem extends AnchorPane {
 
     @FXML
     protected void incItem(Event event) {
+        double amount = shoppingItem.getAmount();
         shoppingCartController.incrementProductAmount(this.shoppingItem);
+        cartItemAmountLabel.setText(String.valueOf(amount + 1));
     }
 
     @FXML
     protected void decItem(Event event) {
+        double amount = shoppingItem.getAmount();
         shoppingCartController.decrementProductAmount(this.shoppingItem);
+        if (amount > 1) {
+            cartItemAmountLabel.setText(String.valueOf(amount));
+        }
     }
 }
