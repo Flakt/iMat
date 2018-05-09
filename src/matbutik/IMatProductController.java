@@ -23,7 +23,7 @@ public class IMatProductController extends AnchorPane implements Initializable {
     private Product product;
     IMatProductItem productItem;
     private Map<String, IMatProductController> iMatProductItemMap = new HashMap<String, IMatProductController>();
-    @FXML private FlowPane productFlowPane;
+    @FXML private FlowPane mainPage;
     @FXML private AnchorPane productPane;
     @FXML private ImageView productImage;
     @FXML private ImageView productImageEko;
@@ -49,11 +49,11 @@ public class IMatProductController extends AnchorPane implements Initializable {
     }
 
     public void updateProduct(){
-        productFlowPane.getChildren().clear();
+        mainPage.getChildren().clear();
         List<Product> products = iMatDataHandler.getProducts();
         for (Product product : products) {
             IMatProductItem iMatProductItem = (IMatProductItem) this.iMatProductItemMap.get(product.getName());
-            productFlowPane.getChildren().add(iMatProductItem);
+            mainPage.getChildren().add(iMatProductItem);
         }
     }
 

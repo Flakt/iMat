@@ -57,7 +57,7 @@ public class IMatShoppingItem extends AnchorPane {
 
     }
    private void setEcoLabel(){
-        if(dataHandler.getProduct(37).isEcological()){
+        if(dataHandler.getProduct(1).isEcological()){
         cartItemEco.setText("Ekologisk");
         }
     }
@@ -66,7 +66,7 @@ public class IMatShoppingItem extends AnchorPane {
     protected void incItem(Event event) {
         double amount = shoppingItem.getAmount();
         shoppingCartController.incrementProductAmount(this.shoppingItem);
-        cartItemAmountLabel.setText(String.valueOf(amount + 1));
+        cartItemAmountTextField.setText(String.valueOf(amount + 1));
     }
 
     @FXML
@@ -74,7 +74,7 @@ public class IMatShoppingItem extends AnchorPane {
         double amount = shoppingItem.getAmount();
         shoppingCartController.decrementProductAmount(this.shoppingItem);
         if (amount > 1) {
-            cartItemAmountLabel.setText(String.valueOf(amount - 1));
+            cartItemAmountTextField.setText(String.valueOf(amount - 1));
         }
     }
 }

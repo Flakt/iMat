@@ -57,14 +57,14 @@ public class IMatShoppingCartController implements Initializable {
         //
         // TEST
         // add something to the shopping cart
-        System.out.println(dataHandler.getProduct(37));
+        System.out.println(dataHandler.getProduct(1));
 
         // Why does the following require a reference to this class?
-        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(37));
-        System.out.print(sI.getProduct().getName());
+        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
+
         IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(sI, this);
-        iMatShoppingItemMap.put("Fruktsoppa", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(37)), this));
-        shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(37)));
+        iMatShoppingItemMap.put("Gröna ärter", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(1)), this));
+        shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(1)));
 
 
         updateProductsList();
