@@ -1,0 +1,13 @@
+.stackpane{
+    -fx-padding: 3;
+    -fx-background-color: #336699;
+    -fx-background-radius: 5;
+}
+
+.anchorpane{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 0);
+    -fx-border-color: #336699;
+    -fx-border-padding: 3;
+}
+
+

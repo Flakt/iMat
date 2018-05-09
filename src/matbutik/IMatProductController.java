@@ -36,9 +36,8 @@ public class IMatProductController extends AnchorPane implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         populateList();
-        updateProduct();
         populateProductDetail();
-
+        updateProduct();
     }
 
 
@@ -58,7 +57,7 @@ public class IMatProductController extends AnchorPane implements Initializable {
         }
     }
 
-    private void isEco(){
+    private void setEcoImage(){
         if(product.isEcological()){
             productImageEko.setImage(new Image("resouces/Eko_logo.jpg"));
         }
@@ -70,7 +69,7 @@ public class IMatProductController extends AnchorPane implements Initializable {
         productInfo.setText(product.toString());
         productPrice.setText(((Double)product.getPrice()).toString() + " kr");
         productTotalPrice.setText(((Double)product.getPrice()).toString()); //TODO: fixar en metod som gör uträkning för totalt pris.
-        isEco();
+        setEcoImage();
     }
 
 }

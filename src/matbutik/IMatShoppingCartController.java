@@ -57,14 +57,14 @@ public class IMatShoppingCartController implements Initializable {
         //
         // TEST
         // add something to the shopping cart
-        System.out.println(dataHandler.getProduct(1));
+        System.out.println(dataHandler.getProduct(37));
 
         // Why does the following require a reference to this class?
-        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
+        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(37));
         System.out.print(sI.getProduct().getName());
         IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(sI, this);
-        iMatShoppingItemMap.put("Gröna ärter", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(1)), this));
-        shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(1)));
+        iMatShoppingItemMap.put("Fruktsoppa", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(37)), this));
+        shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(37)));
 
 
         updateProductsList();
@@ -109,10 +109,17 @@ public class IMatShoppingCartController implements Initializable {
         backupShoppingItems.clear();
     }
 
-    public String getCartItemAmount(ShoppingItem item) {
-        return String.valueOf(item.getAmount());
+    public double getCartItemAmount(ShoppingItem item) {
+        return item.getAmount();
     }
 
+    public String getCartUnit(ShoppingItem item){
+        return String.valueOf(item.getProduct().getUnit());
+    }
+
+    public String getCartSuffix(ShoppingItem item){
+        return String.valueOf(item.getProduct().getUnitSuffix());
+    }
     public String getCartItemPrice(ShoppingItem item) {
         return String.valueOf(item.getTotal());
     }

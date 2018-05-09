@@ -2,20 +2,47 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="shoppingCartController" prefHeight="100.0" prefWidth="443.0" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="shoppingCartController" prefWidth="760.0" styleClass="anchorpane" stylesheets="@styles/shoppingItem.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="cartItemIncreaseButton" layoutX="292.0" layoutY="38.0" mnemonicParsing="false" onAction="#incItem" prefHeight="20.0" prefWidth="20.0" text="+" wrapText="true" />
-      <ImageView fx:id="cartItemImageView" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0" />
-      <Button fx:id="cartItemDecreaseButton" layoutX="211.0" layoutY="37.0" mnemonicParsing="false" onAction="#decItem" prefHeight="20.0" prefWidth="20.0" text="-" wrapText="true" />
-      <Label fx:id="cartItemAmountLabel" alignment="CENTER" layoutX="232.0" layoutY="37.0" prefHeight="26.0" prefWidth="60.0" text="Label" />
-      <Label fx:id="cartItemPriceLabel" layoutX="355.0" layoutY="37.0" text="Label">
+      <TextField fx:id="cartItemAmountTextField" alignment="CENTER" layoutX="292.0" layoutY="10.0" prefHeight="54.0" prefWidth="230.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="cartItemDecreaseButton" layoutX="292.0" layoutY="10.0" mnemonicParsing="false" onAction="#decItem" prefHeight="54.0" prefWidth="54.0" text="-">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="cartItemIncreaseButton" layoutX="469.0" layoutY="11.0" mnemonicParsing="false" onAction="#incItem" prefHeight="53.0" prefWidth="53.0" text="+" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="cartItemPriceLabel" layoutX="557.0" layoutY="24.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="cartItemEco" layoutX="301.0" layoutY="65.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="cartItemUnit" layoutX="430.0" layoutY="24.0" prefHeight="27.0" prefWidth="38.0" textAlignment="RIGHT">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <StackPane layoutX="29.0" layoutY="-153.0" prefHeight="74.0" prefWidth="94.0" styleClass="stackpane" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <ImageView fx:id="cartItemImageView" fitHeight="72.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </StackPane>
    </children>
 </fx:root>
