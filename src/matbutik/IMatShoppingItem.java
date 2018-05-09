@@ -74,7 +74,7 @@ public class IMatShoppingItem extends AnchorPane {
         double amount = shoppingItem.getAmount();
         shoppingCartController.decrementProductAmount(this.shoppingItem);
         if (amount > 1) {
-            cartItemAmountLabel.setText(String.valueOf(amount));
+            cartItemAmountLabel.setText(String.valueOf(amount - 1));
         }
     }
 }

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="774ba80b-abbc-4bb1-ad4e-063058ee9005" name="Default" comment="" />
+=======
+    <list default="true" id="774ba80b-abbc-4bb1-ad4e-063058ee9005" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" afterDir="false" />
+    </list>
+>>>>>>> 590f25a9d626b4e43c9051261b4ac48fc8aa9376
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,9 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IMatShoppingCartController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IMatShoppingCartController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1270">
               <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="29" selection-end-line="119" selection-end-column="29" />
               <folding>
@@ -102,6 +109,10 @@
                 <element signature="e#4144#4145#0" expanded="true" />
                 <element signature="e#4198#4199#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="354">
+              <caret line="132" column="53" selection-start-line="132" selection-start-column="53" selection-end-line="132" selection-end-column="53" />
+>>>>>>> 590f25a9d626b4e43c9051261b4ac48fc8aa9376
             </state>
           </provider>
         </entry>
@@ -129,12 +140,20 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="IMatProductItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatProductItem.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
               <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
+=======
+      <file leaf-file-name="IMatShoppingItem.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+>>>>>>> 590f25a9d626b4e43c9051261b4ac48fc8aa9376
             </state>
           </provider>
         </entry>
@@ -180,12 +199,17 @@
         <option value="$PROJECT_DIR$/src/matbutik/IMatProduct.fxml" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatPayment.fxml" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatPaymentController.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/matbutik/IMat.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatProductController.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.fxml" />
         <option value="$PROJECT_DIR$/src/matbutik/styles/shoppingItem.css" />
+=======
+        <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java" />
+        <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" />
+>>>>>>> 590f25a9d626b4e43c9051261b4ac48fc8aa9376
       </list>
     </option>
   </component>
@@ -778,6 +802,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/matbutik/styles/shoppingItem.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -798,6 +823,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
+=======
+    <entry file="jar://$PROJECT_DIR$/lib/projectbackend.jar!/se/chalmers/cse/dat216/project/CreditCard.class">
+>>>>>>> 590f25a9d626b4e43c9051261b4ac48fc8aa9376
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-546">
           <caret line="26" column="47" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="47" />
@@ -812,6 +840,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1270">
           <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="29" selection-end-line="119" selection-end-column="29" />
           <folding>
@@ -824,6 +853,17 @@
             <element signature="e#4144#4145#0" expanded="true" />
             <element signature="e#4198#4199#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="354">
+          <caret line="132" column="53" selection-start-line="132" selection-start-column="53" selection-end-line="132" selection-end-column="53" />
+>>>>>>> 590f25a9d626b4e43c9051261b4ac48fc8aa9376
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
         </state>
       </provider>
     </entry>
