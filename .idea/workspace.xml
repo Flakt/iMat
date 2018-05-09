@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="774ba80b-abbc-4bb1-ad4e-063058ee9005" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatShoppingCart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatShoppingCart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IMatShoppingCartController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IMatShoppingCartController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
+            <state relative-caret-position="354">
               <caret line="132" column="53" selection-start-line="132" selection-start-column="53" selection-end-line="132" selection-end-column="53" />
             </state>
           </provider>
@@ -76,17 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IMatShoppingItem.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IMatShoppingItem.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="53" column="73" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
-              <folding>
-                <element signature="e#1711#1712#0" expanded="true" />
-                <element signature="e#1791#1792#0" expanded="true" />
-                <element signature="e#1942#1943#0" expanded="true" />
-                <element signature="e#2022#2023#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="507">
+              <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -130,8 +123,8 @@
         <option value="$PROJECT_DIR$/src/matbutik/IMatPayment.fxml" />
         <option value="$PROJECT_DIR$/src/matbutik/IMat.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatPaymentController.java" />
-        <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" />
         <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java" />
+        <option value="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" />
       </list>
     </option>
   </component>
@@ -691,19 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="53" column="73" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
-          <folding>
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1791#1792#0" expanded="true" />
-            <element signature="e#1942#1943#0" expanded="true" />
-            <element signature="e#2022#2023#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/projectbackend.jar!/se/chalmers/cse/dat216/project/CreditCard.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -713,8 +693,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingCartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
+        <state relative-caret-position="354">
           <caret line="132" column="53" selection-start-line="132" selection-start-column="53" selection-end-line="132" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
         </state>
       </provider>
     </entry>
