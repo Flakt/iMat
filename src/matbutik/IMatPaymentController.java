@@ -107,6 +107,7 @@ public class IMatPaymentController implements Initializable {
         adressTextField.focusedProperty().addListener(new TextFieldListener(adressTextField));
         zipcodeTextField.focusedProperty().addListener(new TextFieldListener(zipcodeTextField));
         regionTextField.focusedProperty().addListener(new TextFieldListener(regionTextField));
+        invoicePopulateTextField();
         choice = "invoice";
     }
 
@@ -119,7 +120,24 @@ public class IMatPaymentController implements Initializable {
         monthTextField.focusedProperty().addListener(new TextFieldListener(monthTextField));
         yearTextField.focusedProperty().addListener(new TextFieldListener(yearTextField));
         verificationCodeTextField.focusedProperty().addListener(new TextFieldListener(verificationCodeTextField));
+        creditPopulateTextField();
         choice = "credit";
+    }
+
+    private void invoicePopulateTextField() {
+        forenameTextField.setText(customer.getFirstName());
+        surnameTextField.setText(customer.getLastName());
+        adressTextField.setText(customer.getAddress());
+        zipcodeTextField.setText(customer.getPostCode());
+        regionTextField.setText(customer.getPostAddress());
+    }
+
+    private void creditPopulateTextField() {
+        nameTextField.setText(creditCard.getHoldersName());
+        cardNumberTextField.setText(creditCard.getCardNumber());
+        monthTextField.setText(String.valueOf(creditCard.getValidMonth()));
+        yearTextField.setText(String.valueOf(creditCard.getValidYear()));
+        verificationCodeTextField.setText(String.valueOf(creditCard.getVerificationCode()));
     }
 
     @FXML

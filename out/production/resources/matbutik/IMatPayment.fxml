@@ -198,7 +198,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Label fx:id="numberOfProductsLabel" layoutX="14.0" layoutY="58.0" text="Antal Varor:" AnchorPane.leftAnchor="14.0">
+                        <Label fx:id="numberOfProductsLabel" layoutX="14.0" layoutY="57.0" text="Antal Varor:" AnchorPane.leftAnchor="14.0">
                            <padding>
                               <Insets left="5.0" />
                            </padding>
