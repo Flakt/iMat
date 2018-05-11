@@ -22,7 +22,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label fx:id="headerLabel" layoutX="434.0" layoutY="16.0" text="Betalningsalternativ">
+            <Label fx:id="headerLabel" layoutX="355.0" layoutY="16.0" text="Betalningsalternativ">
                <font>
                   <Font size="18.0" />
                </font>
@@ -212,6 +212,64 @@
                   </AnchorPane>
               </items>
             </SplitPane>
+            <AnchorPane fx:id="deliveryAnchorPane" prefHeight="638.0" prefWidth="1024.0" style="-fx-background-color: #09CDDA;">
+               <children>
+                  <SplitPane dividerPositions="0.75" prefHeight="638.0" prefWidth="1024.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="121.0" layoutY="118.0" text="Förnamn" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="126.0" layoutY="163.0" text="Efternamn" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="124.0" layoutY="205.0" text="Address" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="128.0" layoutY="251.0" text="Postnummer" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="128.0" layoutY="296.0" text="Ort" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="deliveryFirstNameTextField" layoutX="225.0" layoutY="115.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryAfterNameTextField" layoutX="225.0" layoutY="160.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryAdressTextField" layoutX="225.0" layoutY="202.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryPostCodeTextField" layoutX="225.0" layoutY="248.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryPostAdressTextField" layoutX="225.0" layoutY="293.0" prefHeight="26.0" prefWidth="375.0" />
+                              <Button layoutX="479.0" layoutY="366.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="122.0" text="Gå Vidare">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Betalning">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="deliveryNumberOfProductsLabel" layoutX="14.0" layoutY="49.0" text="Label" />
+                              <Label fx:id="deliverySumLabel" layoutX="14.0" layoutY="73.0" text="Label" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
    </children>

@@ -36,6 +36,8 @@ public class IMatPaymentController implements Initializable {
     @FXML
     private AnchorPane invoiceAnchorPane;
     @FXML
+    private AnchorPane deliveryAnchorPane;
+    @FXML
     private Button backButton;
     @FXML
     private Button accountButton;
@@ -66,6 +68,10 @@ public class IMatPaymentController implements Initializable {
     @FXML
     private Label creditSumLabel;
     @FXML
+    private Label deliveryNumberOfProductsLabel;
+    @FXML
+    private Label deliverySumLabel;
+    @FXML
     private SplitPane paymentOptionsSplitPane;
     @FXML
     private TextField forenameTextField;
@@ -87,6 +93,16 @@ public class IMatPaymentController implements Initializable {
     private TextField monthTextField;
     @FXML
     private TextField verificationCodeTextField;
+    @FXML
+    private TextField deliveryFirstNameTextField;
+    @FXML
+    private TextField deliveryAfterNameTextField;
+    @FXML
+    private TextField deliveryAdressTextField;
+    @FXML
+    private TextField deliveryPostCodeTextField;
+    @FXML
+    private TextField deliveryPostAdressTextField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -140,6 +156,14 @@ public class IMatPaymentController implements Initializable {
         verificationCodeTextField.setText(String.valueOf(creditCard.getVerificationCode()));
     }
 
+    private void deliveryPopulateTextField() {
+        deliveryFirstNameTextField.setText(customer.getFirstName());
+        deliveryAfterNameTextField.setText(customer.getLastName());
+        deliveryAdressTextField.setText(customer.getAddress());
+        deliveryPostCodeTextField.setText(customer.getPostCode());
+        deliveryPostAdressTextField.setText(customer.getPostAddress());
+    }
+
     @FXML
     protected void invoiceOnClick(Event event) {
         // Maybe run init invoice page here (If not initialized in initialize)
@@ -163,7 +187,10 @@ public class IMatPaymentController implements Initializable {
             customer.setPostAddress(regionTextField.getText());
             customer.setPostCode(zipcodeTextField.getText());
         }
-        // Redirect to "you have payed"
+        choice = "delivery";
+        deliveryAnchorPane.toFront();
+        headerLabel.setText("Leveransadress");
+        deliveryPopulateTextField();
     }
 
     @FXML
@@ -175,16 +202,22 @@ public class IMatPaymentController implements Initializable {
             creditCard.setValidYear(Integer.parseInt(yearTextField.getText()));
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
-        // Redirect to "you have payed"
+        choice = "delivery";
+        deliveryAnchorPane.toFront();
+        headerLabel.setText("Leveransadress");
+        deliveryPopulateTextField();
     }
 
     @FXML
     protected void goBack() {
         if (choice.equals("invoice") || choice.equals("credit")) {
             paymentOptionsSplitPane.toFront();
+            headerLabel.setText("Betalningsalternativ");
         }
-        else {
-            // Redirect tillbaka till vart användaren var förut
+        else if (choice.equals("delivery")) {
+            // Maybe reconsider where the button should lead to in this case
+            paymentOptionsSplitPane.toFront();
+            headerLabel.setText("Betakningsalternativ");
         }
     }
 
