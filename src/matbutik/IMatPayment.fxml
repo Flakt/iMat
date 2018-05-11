@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatPaymentController">
    <children>
       <AnchorPane prefHeight="60.0" prefWidth="1024.0">
@@ -35,53 +34,6 @@
       </AnchorPane>
       <StackPane layoutY="66.0" prefHeight="634.0" prefWidth="1024.0">
          <children>
-            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.75" prefHeight="664.0" prefWidth="1024.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Label layoutX="328.0" layoutY="108.0" text="Kortbetalning">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="98.0" fitWidth="157.0" layoutX="305.0" layoutY="166.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/creditcard.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="315.0" layoutY="326.0" text="Fakturabetalning">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="98.0" fitWidth="126.0" layoutX="333.0" layoutY="386.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/mail.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Text layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="2.5" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Label fx:id="numberOfProductsLabel" layoutY="32.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="totalCostLabel" layoutY="50.0" text="Summa:" AnchorPane.leftAnchor="0.0">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
             <AnchorPane fx:id="creditcardAnchorPane" prefHeight="640.0" prefWidth="1024.0" style="-fx-background-color: #09CBBA;">
                <children>
                   <SplitPane dividerPositions="0.75" prefHeight="640.0" prefWidth="1024.0">
@@ -213,6 +165,53 @@
                   </SplitPane>
                </children>
             </AnchorPane>
+            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.75" prefHeight="664.0" prefWidth="1024.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label layoutX="328.0" layoutY="108.0" text="Kortbetalning">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="98.0" fitWidth="157.0" layoutX="305.0" layoutY="166.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/creditcard.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="315.0" layoutY="326.0" text="Fakturabetalning">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="98.0" fitWidth="126.0" layoutX="333.0" layoutY="386.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/mail.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="91.59998941421509" AnchorPane.topAnchor="13.576171875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="numberOfProductsLabel" layoutX="14.0" layoutY="57.0" text="Antal Varor:" AnchorPane.leftAnchor="14.0">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="totalCostLabel" layoutX="14.0" layoutY="83.0" text="Summa:" AnchorPane.leftAnchor="14.0">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
          </children>
       </StackPane>
    </children>

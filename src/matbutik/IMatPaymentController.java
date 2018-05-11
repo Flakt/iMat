@@ -93,8 +93,8 @@ public class IMatPaymentController implements Initializable {
         dataHandler = IMatDataHandler.getInstance();
         customer = dataHandler.getCustomer();
         creditCard = dataHandler.getCreditCard();
-        numberOfProductsLabel.setText(String.valueOf(dataHandler.getShoppingCart().getItems().size()));
-        totalCostLabel.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
+        numberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
+        totalCostLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
         paymentOptionsSplitPane.toFront();
     }
 
