@@ -30,4 +30,8 @@ public class IMatProductItem extends IMatProductController {
     public Node getStyleableNode() {
         return null;
     }
+
+    public Product getProduct() {
+        return this.product;
+    }
 }

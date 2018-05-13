@@ -22,7 +22,7 @@ public class IMatProductController extends AnchorPane implements Initializable {
     private IMatDataHandler iMatDataHandler;
     private Product product;
     IMatProductItem productItem;
-    private Map<String, IMatProductController> iMatProductItemMap = new HashMap<String, IMatProductController>();
+    private Map<String, IMatProductItem> iMatProductItemMap = new HashMap<String, IMatProductItem>();
     @FXML private FlowPane mainPage;
     @FXML private AnchorPane productPane;
     @FXML private ImageView productImage;
@@ -70,6 +70,15 @@ public class IMatProductController extends AnchorPane implements Initializable {
         productPrice.setText(((Double)product.getPrice()).toString() + " kr");
         productTotalPrice.setText(((Double)product.getPrice()).toString()); //TODO: fixar en metod som gör uträkning för totalt pris.
         setEcoImage();
+    }
+
+    // Gör uträkning för alla produkter inom iMatProductItemMap
+    private double calcProdSum() {
+        double sum = 0.0;
+        for (IMatProductItem item : iMatProductItemMap.values()) {
+            sum += item.getProduct().getPrice();
+        }
+        return sum;
     }
 
 }
