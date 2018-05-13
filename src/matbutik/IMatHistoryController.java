@@ -2,12 +2,13 @@ package matbutik;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,21 @@ public class IMatHistoryController implements Initializable{
     private List<Order> orders = new ArrayList<>();
 
     @FXML
+    private AnchorPane historyViewAnchorPane;
+    @FXML
+    private AnchorPane historyDetailAnchorPane;
+    @FXML
     private FlowPane historyOrdersFlowPane;
     @FXML
-    private Label numberOfProductsLabel;
+    private FlowPane historyDetailFlowPane;
     @FXML
-    private Label sumLabel;
+    private Label historyNumberOfProductsLabel;
+    @FXML
+    private Label historySumLabel;
+    @FXML
+    private Label historyDetailDateLabel;
+    @FXML
+    private Label historyDetailSumLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -32,6 +43,9 @@ public class IMatHistoryController implements Initializable{
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
         }
+        this.historyNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
+        this.historySumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
+        populateOrders();
     }
 
     private void populateOrders() {
