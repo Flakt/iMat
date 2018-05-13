@@ -15,17 +15,17 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="cartItemDecreaseButton" layoutX="292.0" layoutY="10.0" mnemonicParsing="false" onAction="#decItem" prefHeight="54.0" prefWidth="54.0" text="-">
+      <Button fx:id="cartItemDecreaseButton" layoutX="292.0" layoutY="10.0" mnemonicParsing="false" onAction="#decItem" prefHeight="55.0" prefWidth="55.0" text="-">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="cartItemIncreaseButton" layoutX="469.0" layoutY="11.0" mnemonicParsing="false" onAction="#incItem" prefHeight="53.0" prefWidth="53.0" text="+" textAlignment="CENTER">
+      <Button fx:id="cartItemIncreaseButton" layoutX="468.0" layoutY="10.0" mnemonicParsing="false" onAction="#incItem" prefHeight="55.0" prefWidth="55.0" text="+" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Label fx:id="cartItemPriceLabel" layoutX="557.0" layoutY="24.0">
+      <Label fx:id="cartItemTotalPrice" layoutX="557.0" layoutY="24.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -33,6 +33,11 @@
       <Label fx:id="cartItemEco" layoutX="301.0" layoutY="65.0">
          <font>
             <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="cartItemProductPrice" layoutX="430.0" layoutY="69.0" text="Label">
+         <font>
+            <Font size="14.0" />
          </font>
       </Label>
       <Label fx:id="cartItemUnit" layoutX="430.0" layoutY="24.0" prefHeight="27.0" prefWidth="38.0" textAlignment="RIGHT">
@@ -44,5 +49,10 @@
             <ImageView fx:id="cartItemImageView" fitHeight="72.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </StackPane>
+      <Label fx:id="cartItemName" layoutX="137.0" layoutY="16.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>

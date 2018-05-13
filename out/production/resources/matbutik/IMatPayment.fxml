@@ -246,7 +246,7 @@
                               <TextField fx:id="deliveryFirstNameTextField" layoutX="225.0" layoutY="115.0" prefHeight="26.0" prefWidth="375.0" />
                               <TextField fx:id="deliveryAfterNameTextField" layoutX="225.0" layoutY="160.0" prefHeight="26.0" prefWidth="375.0" />
                               <TextField fx:id="deliveryAdressTextField" layoutX="225.0" layoutY="202.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="deliveryPostCodeTextField" layoutX="234.0" layoutY="248.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryPostCodeTextField" layoutX="225.0" layoutY="248.0" prefHeight="26.0" prefWidth="375.0" />
                               <TextField fx:id="deliveryPostAdressTextField" layoutX="225.0" layoutY="293.0" prefHeight="26.0" prefWidth="375.0" />
                               <Button layoutX="479.0" layoutY="366.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="122.0" text="Gå Vidare">
                                  <font>

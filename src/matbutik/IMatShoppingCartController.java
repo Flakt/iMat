@@ -123,6 +123,7 @@ public class IMatShoppingCartController implements Initializable {
     public String getCartItemPrice(ShoppingItem item) {
         return String.valueOf(item.getTotal());
     }
+    public String getCartItemName(ShoppingItem item){return String.valueOf(item.getProduct().getName());}
 
 
     // Actually check if it loads the correct image

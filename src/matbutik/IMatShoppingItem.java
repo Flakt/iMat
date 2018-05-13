@@ -26,10 +26,12 @@ public class IMatShoppingItem extends AnchorPane {
     @FXML private Button cartItemIncreaseButton;
     @FXML private Button cartItemDecreaseButton;
     @FXML private TextField cartItemAmountTextField;
-    @FXML private Label cartItemPriceLabel;
+    @FXML private Label cartItemTotalPrice;
     @FXML private ImageView cartItemImageView;
     @FXML private Label cartItemEco;
     @FXML private Label cartItemUnit;
+    @FXML private Label cartItemProductPrice;
+    @FXML private Label cartItemName;
 
     public IMatShoppingItem(ShoppingItem shoppingItem, IMatShoppingCartController shoppingCartController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatShoppingItem.fxml"));
@@ -51,10 +53,11 @@ public class IMatShoppingItem extends AnchorPane {
                 (int)amount == amount ?
                         ((Integer)(int)amount).toString() :
                         ((Double)amount).toString());
-        cartItemPriceLabel.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " " + shoppingCartController.getCartUnit(this.shoppingItem) );
+        cartItemTotalPrice.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " kr"  );
         setEcoLabel();
         cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
-
+        cartItemProductPrice.setText("Jfr " + shoppingCartController.getCartItemPrice(this.shoppingItem) + " " + shoppingCartController.getCartUnit(this.shoppingItem));
+        cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem));
     }
    private void setEcoLabel(){
         if(dataHandler.getProduct(1).isEcological()){
