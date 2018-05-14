@@ -8,8 +8,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -25,6 +23,7 @@
                <children>
                   <GridPane prefHeight="90.0" prefWidth="718.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="9.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
@@ -37,15 +36,19 @@
                         <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fitHeight="92.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="3">
-                           <image>
-                              <Image url="@resources/tmpLogo.png" />
-                           </image>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" styleClass="settingsButton" text="Tillbaka" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
                            <GridPane.margin>
-                              <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                              <Insets />
                            </GridPane.margin>
-                        </ImageView>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <children>
                               <TextField prefHeight="40.0" prefWidth="416.0" promptText="Skriv här för att söka. T.ex: &quot;Köttbullar&quot;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
@@ -54,7 +57,7 @@
                               </TextField>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <children>
                               <Button mnemonicParsing="false" text="SÖK" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
@@ -63,12 +66,15 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <GridPane minHeight="1.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <GridPane minHeight="1.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
                               <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -84,12 +90,12 @@
                                     <Insets />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="39.0" text="Historik" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <Button mnemonicParsing="false" prefHeight="39.0" text="Historik" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Hjälp" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Hjälp" GridPane.columnIndex="5" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -110,7 +116,7 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <FlowPane fx:id="mainPage" layoutX="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <FlowPane fx:id="mainPage" layoutX="8.0" prefHeight="200.0" prefWidth="200.0" styleClass="flowpane" stylesheets="@styles/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children></AnchorPane>
                                  </content>
                                  <graphic>
