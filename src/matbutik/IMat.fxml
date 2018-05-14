@@ -115,6 +115,19 @@
                      <children>
                         <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
+                              <FlowPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
+                                 <StackPane.margin>
+                                    <Insets left="185.0" />
+                                 </StackPane.margin>
+                              </FlowPane>
+                              <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <FlowPane fx:id="searchResult" prefHeight="200.0" prefWidth="200.0" />
+                                 </content>
+                                 <StackPane.margin>
+                                    <Insets left="185.0" />
+                                 </StackPane.margin>
+                              </ScrollPane>
                               <TabPane id="tabpane" fx:id="categories" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
                                 <tabs>
                                   <Tab>
@@ -239,16 +252,6 @@
                                     </Tab>
                                 </tabs>
                               </TabPane>
-                              <FlowPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
-                                 <StackPane.margin>
-                                    <Insets left="185.0" />
-                                 </StackPane.margin>
-                              </FlowPane>
-                              <FlowPane fx:id="searchResult" prefHeight="200.0" prefWidth="200.0">
-                                 <StackPane.margin>
-                                    <Insets left="185.0" />
-                                 </StackPane.margin>
-                              </FlowPane>
                            </children>
                         </StackPane>
                      </children></AnchorPane>
@@ -270,12 +273,12 @@
                            </font>
                         </Label>
                         <FlowPane layoutY="112.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
-                        <ImageView fitHeight="60.0" fitWidth="54.0" layoutX="137.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ImageView fitHeight="60.0" fitWidth="54.0" layoutX="137.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="defualtColor" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <image>
                               <Image url="@resources/shoppingcart.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="45.0" layoutY="525.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Button" AnchorPane.bottomAnchor="0.0" />
+                        <Button layoutX="45.0" layoutY="525.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Gå till kassan" AnchorPane.bottomAnchor="0.0" />
                      </children></AnchorPane>
               </items>
             </SplitPane>
