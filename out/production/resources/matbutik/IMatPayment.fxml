@@ -165,7 +165,7 @@
                   </SplitPane>
                </children>
             </AnchorPane>
-            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.75" prefHeight="664.0" prefWidth="1024.0">
+            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.7" prefHeight="664.0" prefWidth="1024.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
@@ -174,24 +174,32 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="98.0" fitWidth="157.0" layoutX="305.0" layoutY="166.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/creditcard.png" />
-                           </image>
-                        </ImageView>
                         <Label layoutX="315.0" layoutY="326.0" text="Fakturabetalning">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="98.0" fitWidth="126.0" layoutX="333.0" layoutY="386.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/mail.png" />
-                           </image>
-                        </ImageView>
+                        <StackPane layoutX="305.0" layoutY="150.0" prefHeight="98.0" prefWidth="157.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                           <children>
+                              <ImageView fitHeight="98.0" fitWidth="157.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/creditcard.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <StackPane layoutX="315.0" layoutY="370.0" prefHeight="90.0" prefWidth="122.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                           <children>
+                              <ImageView fitHeight="98.0" fitWidth="126.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/mail.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="235.0">
                      <children>
                         <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="91.59998941421509" AnchorPane.topAnchor="13.576171875">
                            <font>

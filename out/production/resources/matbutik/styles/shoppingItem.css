@@ -5,10 +5,15 @@
 }
 
 .anchorpane{
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,2,0.1), 2, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,2,0.1), 5, 0, 0, 0);
     -fx-border-color: #336699;
     -fx-border-padding: 3;
 }
 
+.stackpanedropshadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,2,0.1), 10, 0, 2, 10);
+    -fx-border-color: #336699;
+    -fx-border-radius: 10;
+}
 
 
