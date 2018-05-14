@@ -112,30 +112,6 @@
                      <children>
                         <TabPane id="tabpane" fx:id="categories" layoutX="56.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <tabs>
-                              <Tab>
-                                 <graphic>
-                                    <Label styleClass="tabLabel" text="Startsida" />
-                                 </graphic>
-                                 <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <FlowPane fx:id="mainPage" prefHeight="593.0" prefWidth="637.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
-                                 </content>
-                              </Tab>
-                            <Tab>
-                                 <graphic>
-                                    <Label styleClass="tabLabel" text="Erbjudanden" />
-                                 </graphic>
-                                 <content>
-                                    <ScrollPane prefHeight="593.0" prefWidth="624.0">
-                                       <content>
-                                          <FlowPane prefHeight="590.0" prefWidth="643.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
-                                 </content>
-                            </Tab>
                             <Tab>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Mejeri" />
@@ -143,7 +119,7 @@
                                  <content>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <FlowPane prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                          <FlowPane fx:id="mainPage" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
                                        </content>
                                     </ScrollPane>
                                  </content>

@@ -77,7 +77,10 @@
     -fx-background-insets: 2em 0;
 }
 
+
+
 .flowpane{
     -fx-hgap: 10;
     -fx-vgap: 10;
 }
+
