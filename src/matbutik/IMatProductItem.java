@@ -1,13 +1,15 @@
 package matbutik;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 
-public class IMatProductItem extends IMatProductController {
+public class IMatProductItem extends AnchorPane {
+
+
     private IMatDataHandler iMatDataHandler;
     private Product product;
 
@@ -24,14 +26,13 @@ public class IMatProductItem extends IMatProductController {
 
         this.product = p;
         this.iMatDataHandler = h;
+
     }
 
-    @Override
-    public Node getStyleableNode() {
-        return null;
-    }
+
 
     public Product getProduct() {
         return this.product;
     }
+
 }
