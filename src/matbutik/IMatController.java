@@ -22,7 +22,7 @@ public class IMatController implements Initializable {
 
 
 
-    @FXML FlowPane mainPage;
+    @FXML FlowPane searchResult;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private Map<String, IMatProductItem> iMatProductItemMap = new HashMap<>();
@@ -36,7 +36,7 @@ public class IMatController implements Initializable {
         private void listItems() {
 
             for (Product product : dataHandler.getProducts()) {
-                mainPage.getChildren().add(new IMatProductItem(product, dataHandler));
+                searchResult.getChildren().add(new IMatProductItem(product, dataHandler));
             }
         }
 
