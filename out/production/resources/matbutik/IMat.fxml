@@ -115,6 +115,19 @@
                      <children>
                         <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
+                              <FlowPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
+                                 <StackPane.margin>
+                                    <Insets left="185.0" />
+                                 </StackPane.margin>
+                              </FlowPane>
+                              <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <FlowPane fx:id="searchResult" prefHeight="200.0" prefWidth="200.0" />
+                                 </content>
+                                 <StackPane.margin>
+                                    <Insets left="185.0" />
+                                 </StackPane.margin>
+                              </ScrollPane>
                               <TabPane id="tabpane" fx:id="categories" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
                                 <tabs>
                                   <Tab>
@@ -239,16 +252,6 @@
                                     </Tab>
                                 </tabs>
                               </TabPane>
-                              <FlowPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
-                                 <StackPane.margin>
-                                    <Insets left="185.0" />
-                                 </StackPane.margin>
-                              </FlowPane>
-                              <FlowPane fx:id="searchResult" prefHeight="200.0" prefWidth="200.0">
-                                 <StackPane.margin>
-                                    <Insets left="185.0" />
-                                 </StackPane.margin>
-                              </FlowPane>
                            </children>
                         </StackPane>
                      </children></AnchorPane>

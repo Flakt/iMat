@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
@@ -23,6 +24,7 @@ public class IMatController implements Initializable {
 
 
     @FXML FlowPane searchResult;
+    @FXML AnchorPane mainPage;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private Map<String, IMatProductItem> iMatProductItemMap = new HashMap<>();

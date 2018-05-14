@@ -90,6 +90,6 @@
 }
 
 .defualtColor{
-    -fx-background: derive(-fx-base,26.4%);
+    -fx-background-color: transparent;
 }
 
