@@ -120,7 +120,7 @@
                                  <content>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <FlowPane fx:id="mainPage" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                          <FlowPane prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
                                        </content>
                                     </ScrollPane>
                                  </content>
@@ -237,6 +237,7 @@
                         </TabPane>
                         <StackPane layoutX="188.0" prefHeight="591.0" prefWidth="630.0">
                            <children>
+                              <FlowPane fx:id="mainPage" prefHeight="590.0" prefWidth="630.0" />
                               <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                  <content>
                                     <FlowPane fx:id="searchResult" prefHeight="591.0" prefWidth="630.0" />
