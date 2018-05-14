@@ -4,14 +4,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 
 
-public class IMatOrderDetailItem {
-    private Product product;
+public class IMatOrderDetailItem extends AnchorPane {
+    private ShoppingItem shoppingItem;
     private IMatHistoryController historyController;
 
     @FXML
@@ -27,7 +30,7 @@ public class IMatOrderDetailItem {
     @FXML
     private Label orderDetailProductPriceLabel;
 
-    IMatOrderDetailItem(Product p, IMatHistoryController hc ) {
+    IMatOrderDetailItem(ShoppingItem sp, IMatHistoryController hc ) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatOrderDetailItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -37,8 +40,23 @@ public class IMatOrderDetailItem {
         } catch (IOException io) {
             throw new RuntimeException(io);
         }
-        
-        product = p;
+
+        shoppingItem = sp;
         historyController = hc;
+        orderDetailImage.setImage(new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + shoppingItem.getProduct().getImageName()));
+        if (shoppingItem.getProduct().isEcological()) {
+            orderDetailEcoImage.setImage(new Image("./resources/Eko_Logo.jpg"));
+        }
+        orderDetailProductNameLabel.setText(shoppingItem.getProduct().getName());
+        orderDetailProductPriceLabel.setText(String.valueOf(shoppingItem.getTotal()));
+    }
+
+    public ShoppingItem getShoppingItem() {
+        return this.shoppingItem;
+    }
+
+    @FXML
+    protected void incButtonAction() {
+
     }
 }

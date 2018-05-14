@@ -1,8 +1,10 @@
 package matbutik;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -18,15 +20,20 @@ public class IMatHistoryController implements Initializable{
 
     private IMatDataHandler dataHandler;
     private List<Order> orders = new ArrayList<>();
+    private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
 
     @FXML
     private AnchorPane historyViewAnchorPane;
     @FXML
     private AnchorPane historyDetailAnchorPane;
     @FXML
+    private AnchorPane historyShadowAnchorPane;
+    @FXML
     private FlowPane historyOrdersFlowPane;
     @FXML
     private FlowPane historyDetailFlowPane;
+    @FXML
+    private ImageView historyDetailCloseImage;
     @FXML
     private Label historyNumberOfProductsLabel;
     @FXML
@@ -55,6 +62,43 @@ public class IMatHistoryController implements Initializable{
             historyOrdersFlowPane.getChildren().add(historyItem);
         }
     }
+
+    protected void setHistoryDetailView(Order order) {
+        historyShadowAnchorPane.toFront();
+        historyDetailAnchorPane.toFront();
+        historyDetailDateLabel.setText("Kundvagn från " + order.getDate().toString()); // May write out gibberish
+        historyDetailSumLabel.setText("Summa: " + String.valueOf(sumOfAllProducts(order)));
+        populateHistoryDetailView(order);
+    }
+
+    private void populateHistoryDetailView(Order order) {
+        historyDetailFlowPane.getChildren().clear();
+        orderDetailItems.clear();
+        for (ShoppingItem item : order.getItems()) {
+            IMatOrderDetailItem orderDetailItem = new IMatOrderDetailItem(item,this);
+            orderDetailItems.add(orderDetailItem);
+            historyDetailFlowPane.getChildren().add(orderDetailItem);
+        }
+    }
+
+    @FXML
+    protected void putAllInCart() {
+        // Clear shoppingCart before?
+        for (IMatOrderDetailItem item : orderDetailItems) {
+            dataHandler.getShoppingCart().addItem(item.getShoppingItem());
+        }
+    }
+
+    @FXML
+    protected void shadowPaneOnClick(Event event) {
+        historyViewAnchorPane.toFront();
+    }
+
+    @FXML
+    protected void closeImageOnClick(Event event) {
+        historyViewAnchorPane.toFront();
+    }
+
     public double sumOfAllProducts(Order order) {
         double sum = 0;
         for (ShoppingItem item : order.getItems()) {
