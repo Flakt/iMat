@@ -21,20 +21,26 @@ import java.util.concurrent.Flow;
 public class IMatController implements Initializable {
 
 
+
     @FXML FlowPane mainPage;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+    private Map<String, IMatProductItem> iMatProductItemMap = new HashMap<>();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listItems();
         }
 
-        private void listItems(){
+        private void listItems() {
 
-        for (Product product : dataHandler.getProducts()) {
-            mainPage.getChildren().add(new IMatProductItem(product, dataHandler));
+            for (Product product : dataHandler.getProducts()) {
+                mainPage.getChildren().add(new IMatProductItem(product, dataHandler));
+            }
         }
-    }
+
+
+
 
 }
