@@ -24,7 +24,6 @@ public class IMatProductController extends AnchorPane implements Initializable {
     IMatProductItem productItem;
     private Map<String, IMatProductItem> iMatProductItemMap = new HashMap<String, IMatProductItem>();
     @FXML private FlowPane mainPage;
-    @FXML private AnchorPane productPane;
     @FXML private ImageView productImage;
     @FXML private ImageView productImageEko;
     @FXML private Label productName;

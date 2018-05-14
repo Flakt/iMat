@@ -119,7 +119,7 @@
                                  <content>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <FlowPane prefHeight="593.0" prefWidth="637.0" styleClass="flowpane" />
+                                          <FlowPane fx:id="mainPage" prefHeight="593.0" prefWidth="637.0" styleClass="flowpane" />
                                        </content>
                                     </ScrollPane>
                                  </content>
