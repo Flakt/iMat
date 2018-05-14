@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatProductController">
+<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
    <children>
       <SplitPane dividerPositions="0.13659147869674185" layoutX="220.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="regionSplitters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -110,32 +110,8 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <TabPane id="tabpane" fx:id="categories" layoutX="56.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TabPane id="tabpane" fx:id="categories" layoutX="56.0" layoutY="53.0" prefHeight="538.0" prefWidth="818.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
                           <tabs>
-                              <Tab>
-                                 <graphic>
-                                    <Label styleClass="tabLabel" text="Startsida" />
-                                 </graphic>
-                                 <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <FlowPane fx:id="mainPage" prefHeight="593.0" prefWidth="637.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
-                                 </content>
-                              </Tab>
-                            <Tab>
-                                 <graphic>
-                                    <Label styleClass="tabLabel" text="Erbjudanden" />
-                                 </graphic>
-                                 <content>
-                                    <ScrollPane prefHeight="593.0" prefWidth="624.0">
-                                       <content>
-                                          <FlowPane prefHeight="590.0" prefWidth="643.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
-                                 </content>
-                            </Tab>
                             <Tab>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Mejeri" />
@@ -143,7 +119,7 @@
                                  <content>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <FlowPane prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                          <FlowPane fx:id="mainPage" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
                                        </content>
                                     </ScrollPane>
                                  </content>
@@ -258,6 +234,16 @@
                               </Tab>
                           </tabs>
                         </TabPane>
+                        <Label layoutX="24.0" layoutY="14.0" text="Kategorier">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="459.0" layoutY="18.0" text="Sökresultat">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" />
               </items>
