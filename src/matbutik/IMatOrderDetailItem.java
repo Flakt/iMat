@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -18,9 +19,9 @@ public class IMatOrderDetailItem extends AnchorPane {
     private IMatHistoryController historyController;
 
     @FXML
-    private Button orderDetailIncButton;
+    private Button orderDetailAddButton;
     @FXML
-    private Button orderDetailDecButton;
+    private Button orderDetailRemoveButton;
     @FXML
     private ImageView orderDetailImage;
     @FXML
@@ -29,6 +30,8 @@ public class IMatOrderDetailItem extends AnchorPane {
     private Label orderDetailProductNameLabel;
     @FXML
     private Label orderDetailProductPriceLabel;
+    @FXML
+    private TextField orderDetailTextField;
 
     IMatOrderDetailItem(ShoppingItem sp, IMatHistoryController hc ) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatOrderDetailItem.fxml"));
@@ -55,8 +58,15 @@ public class IMatOrderDetailItem extends AnchorPane {
         return this.shoppingItem;
     }
 
-    @FXML
-    protected void incButtonAction() {
 
+    //  Delegera vidare?, Ja
+    @FXML
+    protected void addButtonAction() {
+        historyController.addShoppingItem(shoppingItem);
+    }
+
+    @FXML
+    protected void removeButtonAction() {
+        historyController.removeShoppingItem(shoppingItem);
     }
 }

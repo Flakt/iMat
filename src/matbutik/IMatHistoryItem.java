@@ -3,11 +3,10 @@ package matbutik;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -46,6 +45,7 @@ public class IMatHistoryItem extends AnchorPane {
 
     @FXML
     protected void onClick(Event event) {
-        historyController.setHistoryDetailView(order);
+        historyController.setHistoryDetailView(this.order);
     }
+
 }

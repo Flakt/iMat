@@ -21,6 +21,7 @@ public class IMatHistoryController implements Initializable{
     private IMatDataHandler dataHandler;
     private List<Order> orders = new ArrayList<>();
     private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
+    private Order selectedOrder;
 
     @FXML
     private AnchorPane historyViewAnchorPane;
@@ -107,5 +108,12 @@ public class IMatHistoryController implements Initializable{
         return sum;
     }
 
+    public void addShoppingItem(ShoppingItem item) {
+        dataHandler.getShoppingCart().addItem(item);
+    }
+
+    public void removeShoppingItem(ShoppingItem item) {
+        dataHandler.getShoppingCart().removeItem(item);
+    }
 
 }
