@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -165,30 +166,38 @@
                   </SplitPane>
                </children>
             </AnchorPane>
-            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.75" prefHeight="664.0" prefWidth="1024.0">
+            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.5" prefHeight="664.0" prefWidth="1024.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
+                        <BorderPane layoutX="299.0" layoutY="148.0" prefHeight="118.0" prefWidth="166.0">
+                           <center>
+                              <ImageView fitHeight="98.0" fitWidth="157.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@resources/creditcard.png" />
+                                 </image>
+                              </ImageView>
+                           </center>
+                        </BorderPane>
                         <Label layoutX="328.0" layoutY="108.0" text="Kortbetalning">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="98.0" fitWidth="157.0" layoutX="305.0" layoutY="166.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/creditcard.png" />
-                           </image>
-                        </ImageView>
                         <Label layoutX="315.0" layoutY="326.0" text="Fakturabetalning">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="98.0" fitWidth="126.0" layoutX="333.0" layoutY="386.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/mail.png" />
-                           </image>
-                        </ImageView>
+                        <BorderPane layoutX="314.0" layoutY="368.0" prefHeight="98.0" prefWidth="134.0">
+                           <center>
+                              <ImageView fitHeight="98.0" fitWidth="126.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@resources/mail.png" />
+                                 </image>
+                              </ImageView>
+                           </center>
+                        </BorderPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
