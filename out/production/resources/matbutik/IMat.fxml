@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
+<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatProductController">
    <children>
       <SplitPane dividerPositions="0.13659147869674185" layoutX="220.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="regionSplitters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -113,180 +113,148 @@
                         <TabPane id="tabpane" fx:id="categories" layoutX="56.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <tabs>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <FlowPane fx:id="mainPage" layoutX="8.0" prefHeight="200.0" prefWidth="200.0" styleClass="flowpane" stylesheets="@styles/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label styleClass="tabLabel" text="Startsida" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="593.0" prefWidth="637.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                             <Tab>
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="offersCategoryScrollPane" layoutX="104.0" layoutY="69.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                              </content>
                                  <graphic>
                                     <Label styleClass="tabLabel" text="Erbjudanden" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="593.0" prefWidth="624.0">
+                                       <content>
+                                          <FlowPane prefHeight="590.0" prefWidth="643.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                             </Tab>
                             <Tab>
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="dairyCategoryScrollPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="191.0" prefWidth="133.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                              </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Mejeri" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                             </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="meatCategoryScrollPane" layoutX="185.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Chark &amp; Pålägg" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="592.0" prefWidth="640.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="fishCategoryScrollPane" layoutX="117.0" layoutY="77.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Fisk" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="fruitCategoryScrollPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frukt &amp; Grönt" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="breadCategoryScrollPane" layoutX="117.0" layoutY="40.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Bröd" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="598.0" prefWidth="639.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="dryGoodsCategoryScrollPane" layoutX="256.0" layoutY="142.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Skafferi" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="599.0" prefWidth="641.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="sodaCategoryScrollPane" layoutX="132.0" layoutY="69.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Dryck" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="606.0" prefWidth="642.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="flavorCategoryScrollPane" layoutX="137.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Smaksättare" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="601.0" prefWidth="641.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="freezerCategoryScrollPane" layoutX="168.0" layoutY="84.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frys" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="601.0" prefWidth="646.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                               <Tab>
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane fx:id="sweetsCategoryScrollPane" layoutX="156.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                            </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Konfekt &amp; Kaffebröd" />
                                  </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane prefHeight="611.0" prefWidth="649.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
                               </Tab>
                           </tabs>
                         </TabPane>
