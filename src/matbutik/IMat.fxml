@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatProductController">
+<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
    <children>
       <SplitPane dividerPositions="0.13659147869674185" layoutX="220.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="regionSplitters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -112,30 +103,6 @@
                      <children>
                         <TabPane id="tabpane" fx:id="categories" layoutX="56.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <tabs>
-                              <Tab>
-                                 <graphic>
-                                    <Label styleClass="tabLabel" text="Startsida" />
-                                 </graphic>
-                                 <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <FlowPane prefHeight="593.0" prefWidth="637.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
-                                 </content>
-                              </Tab>
-                            <Tab>
-                                 <graphic>
-                                    <Label styleClass="tabLabel" text="Erbjudanden" />
-                                 </graphic>
-                                 <content>
-                                    <ScrollPane prefHeight="593.0" prefWidth="624.0">
-                                       <content>
-                                          <FlowPane prefHeight="590.0" prefWidth="643.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
-                                 </content>
-                            </Tab>
                             <Tab>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Mejeri" />
@@ -143,7 +110,7 @@
                                  <content>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <FlowPane prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                          <FlowPane fx:id="mainPage" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
                                        </content>
                                     </ScrollPane>
                                  </content>
