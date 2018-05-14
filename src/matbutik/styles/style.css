@@ -84,3 +84,9 @@
     -fx-vgap: 10;
 }
 
+#creditCardBorder:top{
+    -fx-background-color: #336699;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,2,0.1), 2, 0, 0, 0);
+
+}
+
