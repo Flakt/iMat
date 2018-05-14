@@ -1,6 +1,8 @@
 package matbutik;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -13,10 +15,13 @@ import java.util.regex.Pattern;
 public class IMatProductItem extends AnchorPane {
 
 
-    private IMatDataHandler iMatDataHandler;
+    private IMatDataHandler dataHandler;
     private Product product;
     private EnumSet<Category> category;
     private Set<String> tags;
+
+    @FXML
+    ImageView productImage;
 
     public EnumSet<Category> getCategory() {
         return category;
@@ -38,11 +43,18 @@ public class IMatProductItem extends AnchorPane {
         }
 
         this.product = p;
-        this.iMatDataHandler = h;
+        this.dataHandler = h;
+
+        setImage();
 /*
         category = EnumSet.noneOf(Category.class);
         tags = Set.of();
         acquireCategoryAndTags(p);*/
+    }
+
+    private void setImage(){
+        productImage.setImage(dataHandler.getFXImage(product));
+
     }
 
     private void acquireCategoryAndTags(Product p) {
