@@ -1,5 +1,6 @@
 package matbutik;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -41,5 +42,10 @@ public class IMatHistoryItem extends AnchorPane {
 
     private double calcSum(Order order) {
         return historyController.sumOfAllProducts(order);
+    }
+
+    @FXML
+    protected void onClick(Event event) {
+        historyController.setHistoryDetailView(order);
     }
 }

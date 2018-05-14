@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -19,7 +21,7 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Button layoutY="14.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="163.0" text="Tillbaka" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="163.0" text="Tillbaka" />
             <GridPane layoutX="718.0" layoutY="4.0" prefHeight="63.0" prefWidth="305.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -62,18 +64,19 @@
             </SplitPane>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="historyShadowAnchorPane" layoutX="-4.0" layoutY="92.0" onMouseClicked="#shadowPaneOnClick" opacity="0.75" prefHeight="610.0" prefWidth="771.0" style="-fx-background-color: #000000;" />
       <AnchorPane fx:id="historyDetailAnchorPane" layoutX="52.0" layoutY="106.0" prefHeight="405.0" prefWidth="664.0" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="310.0" AnchorPane.topAnchor="106.0">
          <children>
-            <Label fx:id="historyDetailDateLabel" layoutX="14.0" layoutY="14.0" text="Kundvagn från">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <SplitPane dividerPositions="0.66" layoutY="48.0" prefHeight="358.0" prefWidth="664.0">
+            <SplitPane dividerPositions="0.66" layoutY="1.0" prefHeight="405.0" prefWidth="664.0" AnchorPane.topAnchor="0.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="434.0">
                      <children>
-                        <FlowPane fx:id="historyDetailFlowPane" prefHeight="533.0" prefWidth="434.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <FlowPane fx:id="historyDetailFlowPane" layoutY="40.0" prefHeight="364.0" prefWidth="434.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                        <Label fx:id="historyDetailDateLabel" layoutX="14.0" layoutY="5.0" text="Kundvagn från">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -83,11 +86,16 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button layoutX="29.0" layoutY="266.0" mnemonicParsing="false" text="Lägg till allt i kundvagn">
+                        <Button layoutX="29.0" layoutY="266.0" mnemonicParsing="false" onAction="#putAllInCart" text="Lägg till allt i kundvagn">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
+                        <ImageView fx:id="historyDetailCloseImage" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@resources/cross.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
               </items>
