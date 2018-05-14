@@ -1,5 +1,6 @@
 package matbutik;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -12,6 +13,8 @@ public class IMatProductItem extends AnchorPane {
 
     private IMatDataHandler iMatDataHandler;
     private Product product;
+
+    @FXML
 
     public IMatProductItem(Product p, IMatDataHandler h){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatProduct.fxml"));
@@ -26,6 +29,7 @@ public class IMatProductItem extends AnchorPane {
 
         this.product = p;
         this.iMatDataHandler = h;
+
 
     }
 
