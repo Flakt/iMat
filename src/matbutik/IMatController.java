@@ -18,6 +18,9 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.Flow;
+import java.util.function.Function;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class IMatController implements Initializable {
 
@@ -42,13 +45,42 @@ public class IMatController implements Initializable {
 
         for (Product product : dataHandler.getProducts()) {
             iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler));
-            searchResult.getChildren().add(iMatProductItemMap.get(product.getProductId()));
+            //searchResult.getChildren().add(iMatProductItemMap.get(product.getProductId()));
             //System.out.println(product.getProductId() + " — " + product.getName());
         }
     }
 
     @FXML
     private void search() {
-        String query = searchBar.getText();
+        searchResult.getChildren().clear();
+        String query = searchBar.getText().toLowerCase();
+        Pattern.compile("[A-z\\u00C0-\\u017F]+").matcher(query).results().forEach((queryWord) -> {
+            iMatProductItemMap.values().forEach((product) -> {
+                if (Pattern.compile(queryWord.group()).matcher(product.getProduct().getName().toLowerCase()).find())
+                    searchResult.getChildren().add(product);
+
+            });
+            iMatProductItemMap.values().forEach((product) -> {/*(new Function<EnumSet<Category>,Set<String>>(){
+                @Override
+                public Set<String> apply(EnumSet<Category> enumSet) {
+                    return enumSet.stream().map(Enum::name).collect(Collectors.toSet());
+                }
+            }).apply(product.getCategory());*/
+                /*
+                product.getTags().forEach((tag) -> {
+                    if (Pattern.compile(queryWord.group()).matcher(tag).find()) {
+                        if (!searchResult.getChildren().contains(product))
+                            searchResult.getChildren().add(product);
+                    }
+                });*/
+                if (product.getTags().stream().anyMatch(tag -> Pattern.compile(queryWord.group()).matcher(tag.toLowerCase()).find()))
+                    if (!searchResult.getChildren().contains(product))
+                        searchResult.getChildren().add(product);
+
+                /*if (Pattern.compile(queryWord.group()).matcher(product.getProduct().getName()).find())
+                    if (!searchResult.getChildren().contains(product))
+                        searchResult.getChildren().add(product);*/
+            });
+        });
     }
 }
