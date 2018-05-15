@@ -24,25 +24,31 @@ public class IMatController implements Initializable {
 
 
     @FXML FlowPane searchResult;
-   // @FXML AnchorPane mainPage;
+    //@FXML AnchorPane mainPage;
+    @FXML ScrollPane searchResultContainer;
+    @FXML TextField searchBar;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-    private Map<String, IMatProductItem> iMatProductItemMap = new HashMap<>();
+    private Map<Integer, IMatProductItem> iMatProductItemMap = new HashMap<>();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listItems();
+        searchResultContainer.toFront();
+    }
+
+    private void listItems() {
+
+        for (Product product : dataHandler.getProducts()) {
+            iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler));
+            searchResult.getChildren().add(iMatProductItemMap.get(product.getProductId()));
+            //System.out.println(product.getProductId() + " — " + product.getName());
         }
+    }
 
-        private void listItems() {
-
-            for (Product product : dataHandler.getProducts()) {
-               searchResult.getChildren().add(new IMatProductItem(product, dataHandler));
-            }
-        }
-
-
-
-
+    @FXML
+    private void search() {
+        String query = searchBar.getText();
+    }
 }
