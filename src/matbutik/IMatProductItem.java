@@ -9,6 +9,7 @@ import se.chalmers.cse.dat216.project.Product;
 
 import java.io.*;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -46,10 +47,10 @@ public class IMatProductItem extends AnchorPane {
         this.dataHandler = h;
 
         setImage();
-/*
+
         category = EnumSet.noneOf(Category.class);
-        tags = Set.of();
-        acquireCategoryAndTags(p);*/
+        tags = new HashSet<>();
+        acquireCategoryAndTags(p);
     }
 
     private void setImage(){
@@ -59,22 +60,28 @@ public class IMatProductItem extends AnchorPane {
 
     private void acquireCategoryAndTags(Product p) {
         try {
-            InputStream is = new FileInputStream(new File(System.getProperty("user.home") + "/.dat215/tags.txt"));
+            InputStream is = new FileInputStream(new File(System.getProperty("user.home") + "/.dat215/imat/tags.txt"));
             while (true) {
-                String packet = readPacket(is, ';', "end");
-                if (Pattern.compile("\\D").matcher(packet).matches()) { // If the packet doesn't contain numeric characters
-                    if (p.getProductId() == Integer.getInteger(packet)) { // If the id if this product is found
+                String packet = readPacket(is);
+                if (!Pattern.compile("\\D").matcher(packet).matches()) { // If the packet only contains numeric characters
+                    int parsed = Integer.parseInt(packet);
+                    if (p.getProductId() == parsed) { // If the id if this product is found
                         String subPacket = "";
                         do {
-                            subPacket = readPacket(is, ',', ";");
-                            addCategory(subPacket);
+                            subPacket = readSubPacket(is);
+                            if (!subPacket.equals(""))
+                                addCategory(subPacket);
                         } while (!subPacket.equals("")); // End of packet
 
                         do {
-                            subPacket = readPacket(is, ',', ";");
-                            tags.add(subPacket);
+                            subPacket = readSubPacket(is);
+                            if (!subPacket.equals(""))
+                                tags.add(subPacket);
                         } while (!subPacket.equals("")); // End of packet
                         break;
+                    }
+                    else {
+                        waitForEnd(is);
                     }
                 }
             }
@@ -83,6 +90,17 @@ public class IMatProductItem extends AnchorPane {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Did not contain ID!");
+        }
+    }
+
+    private void waitForEnd(InputStream is) throws IOException {
+        while (true) {
+            while (is.read() != ';') ;
+            if (is.read() == 'e')
+                if (is.read() == 'n')
+                    if (is.read() == 'd')
+                        if (is.read() == '\r')
+                            return;
         }
     }
 
@@ -121,15 +139,36 @@ public class IMatProductItem extends AnchorPane {
         }
     }
 
-    private String readPacket(InputStream is, char separator, String ender) throws IOException {
+    private String readPacket(InputStream is) throws IOException {
         String fileContentBuffer = "";
         for (char c = 0; true; c = (char)is.read()) {
-            if (c == separator) {
+            if (c == ';') {
                 return fileContentBuffer;
-            } else if (fileContentBuffer.equals(ender)) {
+            } else if (fileContentBuffer.equals("end")) {
                 return "";
             }
-            fileContentBuffer += c;
+            fileContentBuffer += c < 32 ? "" : c;
+        }
+    }
+
+    private boolean readSubPacketEnd = false;
+    private String readSubPacket(InputStream is) throws IOException {
+        if (readSubPacketEnd) {
+            readSubPacketEnd = false;
+            return "";
+        }
+
+        String fileContentBuffer = "";
+        for (char c = 0; true; c = (char)is.read()) {
+            if (c == ',') {
+                return fileContentBuffer;
+            } else if (c == ';') {
+                readSubPacketEnd = true;
+                return fileContentBuffer;
+            } else if (fileContentBuffer.equals("end")) {
+                return "";
+            }
+            fileContentBuffer += c < 32 ? "" : c;
         }
     }
 
