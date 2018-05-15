@@ -1,7 +1,12 @@
 package matbutik;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -22,12 +27,25 @@ public class IMatProductItem extends AnchorPane {
 
     private IMatDataHandler dataHandler;
     private Product product;
+    private IMatShoppingItem shoppingItem;
     private EnumSet<Category> category;
     private Set<String> tags;
 
 
+    // SPINNER
+    @FXML
+    Button decrementButton;
 
+    @FXML
+    Button incrementButton;
 
+    @FXML
+    TextField numberOfProducts;
+
+    SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
+            0, 99);
+
+    //
     @FXML
     ImageView productImage;
 
@@ -40,10 +58,12 @@ public class IMatProductItem extends AnchorPane {
         return tags;
     }
 
-    public IMatProductItem(Product p, IMatDataHandler h){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatShoppingCart.fxml"));
+    IMatProductItem(Product p, IMatDataHandler h){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatProduct.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
+
+
 
         try {
             fxmlLoader.load();
@@ -59,6 +79,20 @@ public class IMatProductItem extends AnchorPane {
         category = EnumSet.noneOf(Category.class);
         tags = new HashSet<>();
         acquireCategoryAndTags(p);
+    }
+
+
+    // This is not working at all at the moment
+    @FXML
+    private void onIncrement(Event event){
+        valueFactory.increment(1);
+    }
+    @FXML
+    private void onDecrement(Event event){
+        valueFactory.decrement(1);
+    }
+    private void setAmount(Event event){
+        numberOfProducts.setText(valueFactory.getValue().toString());
     }
 
     private void setImage(){
