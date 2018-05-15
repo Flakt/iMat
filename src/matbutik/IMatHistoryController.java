@@ -50,9 +50,13 @@ public class IMatHistoryController implements Initializable{
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
         }
+        updateShoppingCart();
+        populateOrders();
+    }
+
+    private void updateShoppingCart() {
         this.historyNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
         this.historySumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
-        populateOrders();
     }
 
     private void populateOrders() {
@@ -87,6 +91,7 @@ public class IMatHistoryController implements Initializable{
         for (IMatOrderDetailItem item : orderDetailItems) {
             dataHandler.getShoppingCart().addItem(item.getShoppingItem());
         }
+        updateShoppingCart();
     }
 
     @FXML
@@ -107,5 +112,14 @@ public class IMatHistoryController implements Initializable{
         return sum;
     }
 
+    public void addToShoppingCart(ShoppingItem item) {
+        dataHandler.getShoppingCart().addItem(item);
+        updateShoppingCart();
+    }
+
+    public void removeFromShoppingCart(ShoppingItem item) {
+        dataHandler.getShoppingCart().removeItem(item);
+        updateShoppingCart();
+    }
 
 }
