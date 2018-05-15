@@ -51,7 +51,7 @@ public class IMatController implements Initializable {
     }
 
     @FXML
-    private void search() {
+    public void search() {
         searchResult.getChildren().clear();
         String query = searchBar.getText().toLowerCase();
         Pattern.compile("[A-z\\u00C0-\\u017F]+").matcher(query).results().forEach((queryWord) -> {
