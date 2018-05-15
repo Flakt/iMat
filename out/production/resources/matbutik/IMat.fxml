@@ -115,14 +115,9 @@
                      <children>
                         <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <FlowPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
-                                 <StackPane.margin>
-                                    <Insets left="185.0" />
-                                 </StackPane.margin>
-                              </FlowPane>
                               <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                  <content>
-                                    <FlowPane fx:id="searchResult" prefHeight="200.0" prefWidth="200.0" />
+                                    <FlowPane fx:id="searchResult" prefHeight="597.0" prefWidth="638.0" />
                                  </content>
                                  <StackPane.margin>
                                     <Insets left="185.0" />
@@ -252,6 +247,14 @@
                                     </Tab>
                                 </tabs>
                               </TabPane>
+                              <AnchorPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="288.0" layoutY="254.0" text="Main Page" />
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets left="185.0" />
+                                 </StackPane.margin>
+                              </AnchorPane>
                            </children>
                         </StackPane>
                      </children></AnchorPane>

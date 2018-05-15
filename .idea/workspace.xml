@@ -4,11 +4,8 @@
     <list default="true" id="774ba80b-abbc-4bb1-ad4e-063058ee9005" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMat.fxml" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMat.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMatProductItem.class" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMatProductItem.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/styles/style.css" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/styles/style.css" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMatController.class" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMatController.class" />
       <change beforePath="$PROJECT_DIR$/src/matbutik/IMat.fxml" afterPath="$PROJECT_DIR$/src/matbutik/IMat.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatController.java" afterPath="$PROJECT_DIR$/src/matbutik/IMatController.java" />
-      <change beforePath="$PROJECT_DIR$/src/matbutik/styles/style.css" afterPath="$PROJECT_DIR$/src/matbutik/styles/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +19,8 @@
       <file leaf-file-name="IMat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            <state relative-caret-position="399">
+              <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -32,7 +29,7 @@
       <file leaf-file-name="IMatPaymentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/matbutik/IMatPaymentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-940">
+            <state relative-caret-position="21">
               <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding />
             </state>
@@ -214,19 +211,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/resources/matbutik/IMat.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/resources/matbutik/IMatController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/resources/matbutik/IMatProductItem.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/resources/matbutik/styles/style.css</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMat.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatHistory.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatHistoryController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatHistoryItem.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatHistoryItem.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatOrderDetailItem.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatOrderDetailItem.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatProductController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/matbutik/IMatProductItem.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -442,7 +427,7 @@
       <workItem from="1525865768117" duration="128000" />
       <workItem from="1525866120195" duration="2441000" />
       <workItem from="1526202156542" duration="3821000" />
-      <workItem from="1526298234676" duration="17430000" />
+      <workItem from="1526298234676" duration="18976000" />
     </task>
     <task id="LOCAL-00001" summary="En början!">
       <created>1524833763730</created>
@@ -535,11 +520,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526318022031</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="mainPage">
+      <created>1526318574562</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1526318574562</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39339000" />
+    <option name="totallyTimeSpent" value="40885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -590,7 +582,8 @@
     <MESSAGE value="IMatPayment design" />
     <MESSAGE value="imageView Design för payment" />
     <MESSAGE value="shoppingCart till höger" />
-    <option name="LAST_COMMIT_MESSAGE" value="shoppingCart till höger" />
+    <MESSAGE value="mainPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="mainPage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -902,9 +895,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/matbutik/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMatPaymentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-940">
+        <state relative-caret-position="21">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding />
         </state>
@@ -912,16 +913,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/matbutik/IMat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/matbutik/styles/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="399">
+          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding />
         </state>
       </provider>
