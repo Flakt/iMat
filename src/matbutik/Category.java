@@ -11,4 +11,4 @@ public enum Category {
     Condiments,
     Frozen,
     Pastries,
-}
+};
