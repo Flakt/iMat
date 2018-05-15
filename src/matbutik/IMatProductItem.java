@@ -25,6 +25,9 @@ public class IMatProductItem extends AnchorPane {
     private EnumSet<Category> category;
     private Set<String> tags;
 
+
+
+
     @FXML
     ImageView productImage;
 
@@ -32,12 +35,13 @@ public class IMatProductItem extends AnchorPane {
         return category;
     }
 
+
     public Set<String> getTags() {
         return tags;
     }
 
     public IMatProductItem(Product p, IMatDataHandler h){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatProduct.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatShoppingCart.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -160,6 +164,7 @@ public class IMatProductItem extends AnchorPane {
             } else if (fileContentBuffer.equals("end")) {
                 return "";
             }
+            // If c contains special characters ( ascii code < 32: ignore)
             fileContentBuffer += c < 32 ? "" : c;
         }
     }
