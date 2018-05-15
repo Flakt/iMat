@@ -57,6 +57,11 @@ public class IMatOrderDetailItem extends AnchorPane {
 
     @FXML
     protected void incButtonAction() {
+        historyController.addToShoppingCart(shoppingItem);
+    }
 
+    @FXML
+    protected void decButtonAction() {
+        historyController.removeFromShoppingCart(shoppingItem);
     }
 }
