@@ -8,6 +8,10 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
@@ -59,8 +63,14 @@ public class IMatProductItem extends AnchorPane {
     }
 
     private void acquireCategoryAndTags(Product p) {
+        String filePath = System.getProperty("user.home") + "/.dat215/imat/tags.txt";
         try {
-            InputStream is = new FileInputStream(new File(System.getProperty("user.home") + "/.dat215/imat/tags.txt"));
+            InputStream is;
+            try { is = new FileInputStream(new File(filePath)); } catch (FileNotFoundException e) {
+                Path dest = new File(filePath).toPath();
+                Files.copy(Paths.get(System.getProperty("user.dir") + "/src/matbutik/resources/tags.txt"), dest, StandardCopyOption.REPLACE_EXISTING);
+            }
+            is = new FileInputStream(new File(filePath));
             while (true) {
                 String packet = readPacket(is);
                 if (!Pattern.compile("\\D").matcher(packet).matches()) { // If the packet only contains numeric characters
@@ -87,8 +97,9 @@ public class IMatProductItem extends AnchorPane {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            System.out.println("tags.txt seems to be lost!");
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.println("Did not contain ID!");
         }
     }
@@ -101,6 +112,8 @@ public class IMatProductItem extends AnchorPane {
                     if (is.read() == 'd')
                         if (is.read() == '\r')
                             return;
+                        else if (is.read() == -1)
+                            throw new IOException("EOF reached!");
         }
     }
 
