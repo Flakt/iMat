@@ -71,7 +71,8 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
             iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this));
         }
-        updateProductsList();
+        populateFlowPane();
+         updateProductsList();
     }
 
     protected void populateFlowPane() {
