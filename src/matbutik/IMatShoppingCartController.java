@@ -1,6 +1,8 @@
 package matbutik;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -8,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -22,28 +25,22 @@ public class IMatShoppingCartController extends IMatModularCartController implem
             - Methods/Functionality to be assigned to all the buttons
 
      */
-    @FXML
-    private AnchorPane cartItemsPane;
-    @FXML
-    private AnchorPane cartDetailsPane;
-    @FXML
-    private FlowPane cartItemsFlowPane;
-    @FXML
-    private Button backButton;
-    @FXML
-    private Button historyButton;
-    @FXML
-    private Button helpButton;
-    @FXML
-    private Button removeAllButton;
-    @FXML
-    private Button regretButton;
-    @FXML
-    private Button toPaymentButton;
-    @FXML
-    private Label numberOfProductsLabel;
-    @FXML
-    private Label totalCostLabel;
+    @FXML private AnchorPane cartItemsPane;
+    @FXML private AnchorPane cartDetailsPane;
+    @FXML private FlowPane cartItemsFlowPane;
+    @FXML private Button backButton;
+    @FXML private Button historyButton;
+    @FXML private Button helpButton;
+    @FXML private Button removeAllButton;
+    @FXML private Button regretButton;
+    @FXML private Button toPaymentButton;
+    @FXML private Label numberOfProductsLabel;
+    @FXML private Label totalCostLabel;
+    @FXML private AnchorPane rootPaneShoppingCart;
+
+    Scene scene = rootPaneShoppingCart.getScene();
+    ScreenController screenController = new ScreenController(scene);
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +48,14 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         // TEST
         // add something to the shopping cart
         System.out.println(dataHandler.getProduct(1));
+        //add scene
+        try {
+            screenController.addScreen("shoppingCart", FXMLLoader.load(getClass().getResource("./IMatShoppingCart.fxml"),
+                    java.util.ResourceBundle.getBundle("matbutik/resources/IMat")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         // Why does the following require a reference to this class?
         ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
