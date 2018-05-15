@@ -41,7 +41,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="historyDetailCloseImage" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" onMouseClicked="#closeImageOnClick" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ImageView fx:id="historyDetailCloseImage" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <image>
                               <Image url="@resources/cross.png" />
                            </image>

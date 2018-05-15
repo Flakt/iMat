@@ -13,6 +13,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -50,8 +51,18 @@ public class IMatHistoryController implements Initializable{
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
         }
+        // TEST
+        Order testOrder = new Order();
+        testOrder.setOrderNumber(2);
+        testOrder.setDate(new Date());
+        List<ShoppingItem> items = new ArrayList<>();
+        items.add(new ShoppingItem(dataHandler.getProduct(1)));
+        testOrder.setItems(items);
+        orders.add(testOrder);
+        // TEST END
         updateShoppingCart();
         populateOrders();
+        historyViewAnchorPane.toFront();
     }
 
     private void updateShoppingCart() {

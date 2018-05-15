@@ -11,7 +11,7 @@ import se.chalmers.cse.dat216.project.*;
 import java.net.URL;
 import java.util.*;
 
-public class IMatShoppingCartController implements Initializable {
+public class IMatShoppingCartController extends IMatModularCartController implements Initializable {
 
     /*
         Untested as of 2018-05-02
@@ -22,10 +22,6 @@ public class IMatShoppingCartController implements Initializable {
             - Methods/Functionality to be assigned to all the buttons
 
      */
-    private IMatDataHandler dataHandler;
-    private ShoppingCart shoppingCart;
-    private Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
-    private List<ShoppingItem> backupShoppingItems = new ArrayList<>();
     @FXML
     private AnchorPane cartItemsPane;
     @FXML
@@ -51,9 +47,6 @@ public class IMatShoppingCartController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dataHandler = IMatDataHandler.getInstance();
-        shoppingCart = dataHandler.getShoppingCart();
-
         //
         // TEST
         // add something to the shopping cart
@@ -78,15 +71,14 @@ public class IMatShoppingCartController implements Initializable {
         for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
             iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this));
         }
-        this.updateProductsList();
+        updateProductsList();
     }
 
-    private void updateProductsList() {
+    protected void populateFlowPane() {
         cartItemsFlowPane.getChildren().clear();
-        List<ShoppingItem> shoppingItems = shoppingCart.getItems();
-        for (ShoppingItem shoppingItem : shoppingItems) {
-            IMatShoppingItem iMatShoppingItem = iMatShoppingItemMap.get(shoppingItem.getProduct().getName());
-            cartItemsFlowPane.getChildren().add(iMatShoppingItem);
+        super.updateProductsList();
+        for (IMatShoppingItem item : super.iMatShoppingItemMap.values()) {
+            cartItemsFlowPane.getChildren().add(item);
         }
     }
 
@@ -107,46 +99,6 @@ public class IMatShoppingCartController implements Initializable {
             shoppingCart.addItem(item);
         }
         backupShoppingItems.clear();
-    }
-
-    public double getCartItemAmount(ShoppingItem item) {
-        return item.getAmount();
-    }
-
-    public String getCartUnit(ShoppingItem item){
-        return String.valueOf(item.getProduct().getUnit());
-    }
-
-    public String getCartSuffix(ShoppingItem item){
-        return String.valueOf(item.getProduct().getUnitSuffix());
-    }
-    public String getCartItemPrice(ShoppingItem item) {
-        return String.valueOf(item.getTotal());
-    }
-    public String getCartItemName(ShoppingItem item){return String.valueOf(item.getProduct().getName());}
-
-
-    // Actually check if it loads the correct image
-    public Image getCartItemImage(ShoppingItem item) {
-        return new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + item.getProduct().getImageName());
-    }
-
-    public void incrementProductAmount(ShoppingItem item) {
-        item.setAmount((item.getAmount() + 1.0));
-        updateProductsList();
-    }
-
-    public void decrementProductAmount(ShoppingItem item) {
-        if (item.getAmount() > 1.0) {
-            item.setAmount((item.getAmount() - 1.0));
-            updateProductsList();
-
-        }
-        else {
-            shoppingCart.removeItem(item);
-            updateProductsList();
-
-        }
     }
 
 }
