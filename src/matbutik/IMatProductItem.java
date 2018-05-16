@@ -134,7 +134,7 @@ public class IMatProductItem extends AnchorPane {
 
     }
 
-    private void updateShoppingCart(){
+    public void updateShoppingCart(){
         update();
         controller.getShoppingCartFlowPane().getChildren().clear();
         for (ShoppingItem si: controller.shoppingCart.getItems()){
