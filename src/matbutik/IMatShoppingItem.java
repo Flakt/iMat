@@ -3,13 +3,13 @@ package matbutik;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
@@ -119,5 +119,10 @@ public class IMatShoppingItem extends AnchorPane {
 
     private void updatePrice() {
         cartItemTotalPrice.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " kr"  );
+        updateOthers();
+    }
+
+    private void updateOthers() {
+        //((TabPane)((StackPane)((AnchorPane)((GridPane)this.getParent().getParent().getParent().getParent()).getChildren().get(1)).getChildren().get(0)).getChildren().get(1)).getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).getChildren().forEach(item -> ((IMatProductItem)item).updateShoppingCart()));
     }
 }
