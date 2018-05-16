@@ -126,7 +126,7 @@ public class IMatProductItem extends AnchorPane {
         updateShoppingCart();
     }
     private void update(){
-        numberOfProducts.setText(valueFactory.getValue().toString());
+        numberOfProducts.setText(((Double)shoppingItem.getAmount()).toString());
         }
 
     private void setImage(){

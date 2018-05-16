@@ -66,7 +66,7 @@ public class IMatShoppingItem extends AnchorPane {
                 (int)amount == amount ?
                         ((Integer)(int)amount).toString() :
                         ((Double)amount).toString());
-        cartItemTotalPrice.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " kr"  );
+        updatePrice();
         setEcoLabel();
         //cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
         cartItemProductPrice.setText(((Double)(this.shoppingItem.getProduct().getPrice())).toString() +
@@ -85,7 +85,12 @@ public class IMatShoppingItem extends AnchorPane {
         double amount = shoppingItem.getAmount();
         shoppingCartController.incrementProductAmount(this.shoppingItem);
         shoppingCartController.getCartItemAmount(this.shoppingItem);
-        cartItemAmountTextField.setText(String.valueOf(amount ));
+
+        String unit = shoppingItem.getProduct().getUnit();
+        boolean isAPiece = unit.substring(unit.length() - 2).equals("st");
+        cartItemAmountTextField.setText((isAPiece ? ((Integer)(int)(amount + 1)).toString() : ((Double)(amount + 1)).toString()));
+
+        updatePrice();
     }
 
     @FXML
@@ -103,9 +108,16 @@ public class IMatShoppingItem extends AnchorPane {
             shoppingItem = null;
         } else {
             shoppingCartController.decrementProductAmount(shoppingItem);
+
             String unit = shoppingItem.getProduct().getUnit();
             boolean isAPiece = unit.substring(unit.length() - 2).equals("st");
             cartItemAmountTextField.setText((isAPiece ? ((Integer)(int)(amount - 1)).toString() : ((Double)(amount - 1)).toString()));
         }
+
+        updatePrice();
+    }
+
+    private void updatePrice() {
+        cartItemTotalPrice.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " kr"  );
     }
 }
