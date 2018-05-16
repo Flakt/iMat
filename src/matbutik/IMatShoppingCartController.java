@@ -109,5 +109,20 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         backupShoppingItems.clear();
     }
 
+
+
+
+    @FXML
+    private void navigateToHistory(Event e){
+        ScreenController.getInstance().activate("History", cartDetailsPane.getScene().getRoot());
+    }
+    @FXML
+    private void navigateToAccount(Event e){
+        ScreenController.getInstance().activate("Account", cartDetailsPane.getScene().getRoot());
+    }
+    @FXML
+    private void navigateToHelp(Event e){
+        ScreenController.getInstance().activate("Help", cartDetailsPane.getScene().getRoot());
+    }
 }
 
