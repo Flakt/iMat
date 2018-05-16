@@ -48,11 +48,11 @@ public class IMatOrderDetailItem extends AnchorPane {
         historyController = hc;
         orderDetailImage.setImage(new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + shoppingItem.getProduct().getImageName()));
         if (shoppingItem.getProduct().isEcological()) {
-            orderDetailEcoImage.setImage(new Image("./resources/Eko_Logo.jpg"));
+            orderDetailEcoImage.setImage(new Image("/matbutik/resources/Eko_Logo.jpg"));
         }
         orderDetailProductNameLabel.setText(shoppingItem.getProduct().getName());
-        orderDetailProductPriceLabel.setText(String.valueOf(shoppingItem.getTotal()));
-        orderDetailProductAmountTextField.setText(String.valueOf(shoppingItem.getAmount()));
+        orderDetailProductPriceLabel.setText(String.valueOf(shoppingItem.getTotal()) + " kr totalt");
+        orderDetailProductAmountTextField.setText(String.valueOf(shoppingItem.getAmount()) + " st");
     }
 
     public ShoppingItem getShoppingItem() {
