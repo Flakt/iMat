@@ -19,21 +19,27 @@ public class IMatShoppingItem extends AnchorPane {
 
     // Untested as of 2018-05-02, should be functional
 
-    private IMatModularCartController shoppingCartController;
-    private ShoppingItem shoppingItem;
-    private IMatDataHandler dataHandler;
-    private Product product;
-    @FXML private Button cartItemIncreaseButton;
-    @FXML private Button cartItemDecreaseButton;
+    protected IMatModularCartController shoppingCartController;
+    protected ShoppingItem shoppingItem;
+    protected IMatDataHandler dataHandler;
+ //   protected Product product;
+ //   @FXML protected Button cartItemIncreaseButton;
+ //   @FXML protected Button cartItemDecreaseButton;
     @FXML private TextField cartItemAmountTextField;
     @FXML private Label cartItemTotalPrice;
-    @FXML private ImageView cartItemImageView;
-    @FXML private Label cartItemEco;
+    @FXML protected ImageView cartItemImageView;
+    @FXML protected Label cartItemEco;
     @FXML private Label cartItemUnit;
     @FXML private Label cartItemProductPrice;
-    @FXML private Label cartItemName;
+    @FXML protected Label cartItemName;
 
-    public IMatShoppingItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController) {
+
+    IMatShoppingItem(){
+
+    }
+
+
+    public void setupFxml(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatShoppingItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -43,6 +49,11 @@ public class IMatShoppingItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+     IMatShoppingItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController) {
+
+        setupFxml();
 
         this.shoppingCartController = shoppingCartController;
         this.shoppingItem = shoppingItem;
@@ -59,7 +70,7 @@ public class IMatShoppingItem extends AnchorPane {
         cartItemProductPrice.setText("Jfr " + shoppingCartController.getCartItemPrice(this.shoppingItem) + " " + shoppingCartController.getCartUnit(this.shoppingItem));
         cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem));
     }
-   private void setEcoLabel(){
+   protected void setEcoLabel(){
         if(dataHandler.getProduct(1).isEcological()){
         cartItemEco.setText("Ekologisk");
         }

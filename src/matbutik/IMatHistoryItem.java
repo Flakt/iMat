@@ -24,7 +24,8 @@ public class IMatHistoryItem extends AnchorPane {
     @FXML
     private Label sumLabel;
 
-    public IMatHistoryItem(Order order, IMatHistoryController historyController) {
+
+    protected void setupFXML(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatHistoryItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -34,6 +35,11 @@ public class IMatHistoryItem extends AnchorPane {
         catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    public IMatHistoryItem(Order order, IMatHistoryController historyController) {
+
+        setupFXML();
         this.order = order;
         this.historyController = historyController;
         dateLabel.setText(String.valueOf(order.getDate()));

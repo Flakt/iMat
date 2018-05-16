@@ -4,6 +4,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -52,6 +53,13 @@ public class IMatProductItem extends AnchorPane {
 
     @FXML
     private ImageView productImage;
+    @FXML
+    private Label name;
+    @FXML
+    private Label price;
+    @FXML
+    private Label comparativePrice;
+    @FXML Label productTotalPrice;
 
     public EnumSet<Category> getCategory() {
         return category;
@@ -127,7 +135,7 @@ public class IMatProductItem extends AnchorPane {
         update();
         controller.getShoppingCartFlowPane().getChildren().clear();
         for (ShoppingItem si: controller.shoppingCart.getItems()){
-            controller.getShoppingCartFlowPane().getChildren().add(new IMatShoppingItem(si, controller));
+            controller.getShoppingCartFlowPane().getChildren().add(new IMatMiniShoppingCartItem(si, controller));
         }
 
     }
