@@ -34,6 +34,8 @@ public class IMatAccountController implements Initializable {
         dataHandler = IMatDataHandler.getInstance();
         customer = dataHandler.getCustomer();
         creditCard = dataHandler.getCreditCard();
+        setShoppingCart();
+        setTextFields();
     }
 
     private void setShoppingCart() {
