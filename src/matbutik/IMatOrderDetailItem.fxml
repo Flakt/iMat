@@ -22,7 +22,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="orderDetailProductNumberTextField" alignment="CENTER" editable="false" layoutX="285.0" layoutY="110.0" prefHeight="50.0" prefWidth="150.0" />
+      <TextField fx:id="orderDetailProductAmountTextField" alignment="CENTER" editable="false" layoutX="285.0" layoutY="110.0" prefHeight="50.0" prefWidth="150.0" />
       <Button fx:id="orderDetailRemoveButton" layoutX="286.0" layoutY="110.0" mnemonicParsing="false" onAction="#removeButtonAction" prefHeight="50.0" prefWidth="50.0" text="-">
          <font>
             <Font size="18.0" />
