@@ -1,5 +1,8 @@
 package matbutik;
 
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -36,6 +39,7 @@ public class IMatAccountController implements Initializable {
         creditCard = dataHandler.getCreditCard();
         setShoppingCart();
         setTextFields();
+        addTextFieldListeners();
     }
 
     private void setShoppingCart() {
@@ -54,6 +58,17 @@ public class IMatAccountController implements Initializable {
         accountPostAdressTextField.setText(customer.getPostAddress());
     }
 
+    private void addTextFieldListeners() {
+        accountCardNumberTextField.focusedProperty().addListener(new TextFieldListener(accountCardNumberTextField));
+        accountMonthTextField.focusedProperty().addListener(new TextFieldListener(accountMonthTextField));
+        accountYearTextField.focusedProperty().addListener(new TextFieldListener(accountYearTextField));
+        accountFirstNameTextField.focusedProperty().addListener(new TextFieldListener(accountFirstNameTextField));
+        accountLastNameTextField.focusedProperty().addListener(new TextFieldListener(accountLastNameTextField));
+        accountAdressTextField.focusedProperty().addListener(new TextFieldListener(accountAdressTextField));
+        accountZipCodeTextField.focusedProperty().addListener(new TextFieldListener(accountZipCodeTextField));
+        accountPostAdressTextField.focusedProperty().addListener(new TextFieldListener(accountPostAdressTextField));
+    }
+
     @FXML
     protected void saveDetailsAction() {
         creditCard.setCardNumber(accountCardNumberTextField.getText());
@@ -64,5 +79,28 @@ public class IMatAccountController implements Initializable {
         customer.setAddress(accountAdressTextField.getText());
         customer.setPostCode(accountZipCodeTextField.getText());
         customer.setPostAddress(accountPostAdressTextField.getText());
+    }
+
+    private class TextFieldListener implements ChangeListener<Boolean> {
+        private TextField textField;
+
+        public TextFieldListener(TextField textField) {
+            this.textField = textField;
+        }
+
+        @Override
+        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+            if (newValue) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        textField.selectAll();
+                    }
+                });
+            }
+            else {
+                // Maybe put something here later on
+            }
+        }
     }
 }
