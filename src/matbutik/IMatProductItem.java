@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -58,7 +59,7 @@ public class IMatProductItem extends AnchorPane {
     @FXML
     private Label price;
     @FXML
-    private Label comparativePrice;
+    private Label eco;
     @FXML Label productTotalPrice;
 
     public EnumSet<Category> getCategory() {
@@ -90,6 +91,9 @@ public class IMatProductItem extends AnchorPane {
 
         //shoppingItem = new ShoppingItem(product);
         setImage();
+        setName();
+        setPrice();
+        setEco();
 
         category = EnumSet.noneOf(Category.class);
         tags = new HashSet<>();
@@ -97,6 +101,21 @@ public class IMatProductItem extends AnchorPane {
     }
 
 
+    private void setName(){
+        name.setText(product.getName());
+
+    }
+    private void setEco(){
+        if(product.isEcological()){
+            eco.setText("Ekologisk");
+        }
+        else{
+            eco.setText("");
+        }
+    }
+    private void setPrice(){
+        price.setText(product.getPrice() +  " " + product.getUnit());
+    }
 
     @FXML
     private void onIncrement(Event event) {
@@ -127,6 +146,7 @@ public class IMatProductItem extends AnchorPane {
     }
     private void update(){
         numberOfProducts.setText(((Double)shoppingItem.getAmount()).toString());
+        productTotalPrice.setText(String.format( "%.1f",((shoppingItem.getAmount() * product.getPrice()))) + " kr");
         }
 
     private void setImage(){
