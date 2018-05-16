@@ -9,6 +9,7 @@ import javafx.geometry.Side;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
@@ -18,6 +19,7 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.*;
@@ -146,5 +148,11 @@ public class IMatController extends IMatModularCartController implements Initial
         categories.getStyleClass().remove("tabsDeselected");
         categories.toFront();
         searchBar.setText("");
+    }
+
+    @FXML
+    public void searchBarKeyPressed(javafx.scene.input.KeyEvent e) {
+        if (e.getCode() == KeyCode.ENTER)
+            search();
     }
 }
