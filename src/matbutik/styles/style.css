@@ -93,3 +93,11 @@
     -fx-background-color: transparent;
 }
 
+.tabsDeselected .tab:selected
+{
+    -fx-background-color: /*#FAFCFB*/#FFFFFF;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 5 0 0 0;
+    -fx-border-color: #F5F5DC;
+}
