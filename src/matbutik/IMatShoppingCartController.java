@@ -1,4 +1,5 @@
 package matbutik;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -6,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.stage.Screen;
 import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
@@ -73,6 +75,11 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         }
         populateFlowPane();
          updateProductsList();
+    }
+
+    @FXML
+    private void navigateBack(Event event){
+        ScreenController.getInstance().navigateToPrevious();
     }
 
     protected void populateFlowPane() {

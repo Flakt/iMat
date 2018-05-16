@@ -37,8 +37,12 @@ public class IMatHistoryItem extends AnchorPane {
         this.order = order;
         this.historyController = historyController;
         dateLabel.setText(String.valueOf(order.getDate()));
-        numberOfProductsLabel.setText(String.valueOf(order.getItems().size()));
-        sumLabel.setText(String.valueOf(String.valueOf(calcSum(order))));
+        if (order.getItems().size() > 1) {
+            numberOfProductsLabel.setText(String.valueOf(order.getItems().size()) + " st varor");
+        } else {
+            numberOfProductsLabel.setText(String. valueOf(order.getItems().size() + " vara"));
+        }
+        sumLabel.setText(String.valueOf(String.valueOf(calcSum(order))) + " kr");
     }
 
     private double calcSum(Order order) {

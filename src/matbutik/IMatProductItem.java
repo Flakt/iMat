@@ -4,13 +4,14 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -24,30 +25,36 @@ import java.util.stream.Stream;
 
 public class IMatProductItem extends AnchorPane {
 
-
+    private IMatController controller;
     private IMatDataHandler dataHandler;
     private Product product;
-    private IMatShoppingItem shoppingItem;
+    private ShoppingItem shoppingItem;
     private EnumSet<Category> category;
     private Set<String> tags;
 
 
+
+
+
     // SPINNER
     @FXML
-    Button decrementButton;
+    private Button decrementButton;
 
     @FXML
-    Button incrementButton;
+    private Button incrementButton;
 
     @FXML
-    TextField numberOfProducts;
+    private TextField numberOfProducts;
 
-    SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
+    private SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
             0, 99);
-
     //
+
     @FXML
-    ImageView productImage;
+    private FlowPane shoppingCartFlowPane;
+
+    @FXML
+    private ImageView productImage;
 
     public EnumSet<Category> getCategory() {
         return category;
@@ -58,7 +65,7 @@ public class IMatProductItem extends AnchorPane {
         return tags;
     }
 
-    IMatProductItem(Product p, IMatDataHandler h){
+    IMatProductItem(Product p, IMatDataHandler h, IMatController controller){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatProduct.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -71,9 +78,11 @@ public class IMatProductItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.controller = controller;
         this.product = p;
         this.dataHandler = h;
 
+        shoppingItem = new ShoppingItem(product);
         setImage();
 
         category = EnumSet.noneOf(Category.class);
@@ -82,21 +91,36 @@ public class IMatProductItem extends AnchorPane {
     }
 
 
-    // This is not working at all at the moment
+
     @FXML
-    private void onIncrement(Event event){
+    private void onIncrement(Event event) {
         valueFactory.increment(1);
+        controller.incrementProductAmount(shoppingItem);
+        updateProductAmount();
+
+
     }
     @FXML
-    private void onDecrement(Event event){
+        private void onDecrement(Event event){
         valueFactory.decrement(1);
+        controller.decrementProductAmount(shoppingItem);
+        updateProductAmount();
     }
-    private void setAmount(Event event){
+    private void updateProductAmount(){
         numberOfProducts.setText(valueFactory.getValue().toString());
     }
 
     private void setImage(){
         productImage.setImage(dataHandler.getFXImage(product));
+
+    }
+
+    private void updateShoppingCart(){
+        updateProductAmount();
+        for (ShoppingItem si: controller.shoppingCart.getItems()){
+           // shoppingCartFlowPane.getChildren().add(new IMatShoppingItem(si));
+
+        }
 
     }
 

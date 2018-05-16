@@ -29,7 +29,7 @@ public class IMatHistoryController implements Initializable{
     private AnchorPane historyDetailAnchorPane;
     @FXML
     private AnchorPane historyShadowAnchorPane;
-    @FXML
+   @FXML
     private FlowPane historyOrdersFlowPane;
     @FXML
     private FlowPane historyDetailFlowPane;
@@ -56,7 +56,9 @@ public class IMatHistoryController implements Initializable{
         testOrder.setOrderNumber(2);
         testOrder.setDate(new Date());
         List<ShoppingItem> items = new ArrayList<>();
-        items.add(new ShoppingItem(dataHandler.getProduct(1)));
+        ShoppingItem testItem = new ShoppingItem(dataHandler.getProduct(1));
+        testItem.setAmount(2.0);
+        items.add(testItem);
         testOrder.setItems(items);
         orders.add(testOrder);
         // TEST END
@@ -65,7 +67,18 @@ public class IMatHistoryController implements Initializable{
         historyViewAnchorPane.toFront();
     }
 
+    @FXML
+    private void navigateBack(Event event){
+        ScreenController.getInstance().navigateToPrevious();
+    }
+
     private void updateShoppingCart() {
+        /*
+        double amount = 0;
+        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
+            amount += (item.getAmount() * item.getProduct().getPrice());
+        }
+        */
         this.historyNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
         this.historySumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
     }
@@ -118,7 +131,7 @@ public class IMatHistoryController implements Initializable{
     public double sumOfAllProducts(Order order) {
         double sum = 0;
         for (ShoppingItem item : order.getItems()) {
-            sum += item.getProduct().getPrice();
+            sum += (item.getProduct().getPrice() * item.getAmount());
         }
         return sum;
     }

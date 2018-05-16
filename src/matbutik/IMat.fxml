@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
+<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
    <children>
       <SplitPane dividerPositions="0.13659147869674185" layoutX="220.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="regionSplitters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -93,7 +93,7 @@
                                     <Insets />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="39.0" text="Historik" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                              <Button mnemonicParsing="false" onAction="#navigateToHistory" prefHeight="39.0" text="Historik" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -260,7 +260,7 @@
                      </children></AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0">
                      <children>
-                        <Button fx:id="goToCashDesk" layoutX="45.0" layoutY="525.0" mnemonicParsing="false" onAction="#ShoppingCart" prefHeight="52.0" prefWidth="138.0" text="Gå till kassan" AnchorPane.bottomAnchor="0.0" />
+                        <Button fx:id="goToCashDesk" layoutX="45.0" layoutY="525.0" mnemonicParsing="false" onAction="#shoppingCart" prefHeight="52.0" prefWidth="138.0" text="Gå till kassan" AnchorPane.bottomAnchor="0.0" />
                         <Label layoutX="7.0" text="Kundvagn">
                            <font>
                               <Font size="24.0" />

@@ -2,12 +2,14 @@ package matbutik;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+
 import java.util.HashMap;
 
 public class ScreenController {
     private HashMap<String, Parent> screenMap = new HashMap<>();
     private Scene main;
+
+    private Parent previousRoot;
 
     private ScreenController() {
     }
@@ -31,7 +33,14 @@ public class ScreenController {
         instance.screenMap.remove(name);
     }
 
-    protected void activate(String name){
-        main.setRoot( screenMap.get(name) );
+    protected void activate(String name, Parent currentRoot){
+
+        previousRoot = currentRoot;
+        Parent root = screenMap.get(name);
+        main.setRoot(root);
+    }
+
+    public void navigateToPrevious(){
+        main.setRoot(previousRoot);
     }
 }
