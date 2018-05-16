@@ -98,7 +98,7 @@ public class IMatController extends IMatModularCartController implements Initial
 
         searchResult.getChildren().clear();
         String query = searchBar.getText().toLowerCase();
-        Pattern.compile("[A-z\\u00C0-\\u017F0-9\\-]+").matcher(query).results().forEach((queryWord) -> {
+        Pattern.compile("[A-z\\u00C0-\\u017F0-9]+").matcher(query).results().forEach((queryWord) -> {
             iMatProductItemMap.values().forEach((product) -> {
                 if (Pattern.compile(queryWord.group()).matcher(product.getProduct().getName().toLowerCase()).find())
                     searchResult.getChildren().add(product/*new IMatProductItem(product.getProduct(),IMatDataHandler.getInstance(),this)*/);
