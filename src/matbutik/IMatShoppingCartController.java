@@ -49,21 +49,8 @@ public class IMatShoppingCartController extends IMatModularCartController implem
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //
-        // TEST
-        // add something to the shopping cart
-        System.out.println(dataHandler.getProduct(1));
 
-        // Why does the following require a reference to this class?
-        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
-
-        IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(sI, this);
-        iMatShoppingItemMap.put("Gröna ärter", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(1)), this));
-        shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(1)));
-
-
-        updateProductsList();
-        // TEST END
+        shoppingCart = dataHandler.getShoppingCart();
         shoppingCart.addShoppingCartListener(new ShoppingCartListener() {
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
@@ -74,7 +61,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
             iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this));
         }
         populateFlowPane();
-         updateProductsList();
+        updateProductsList();
     }
 
     @FXML
