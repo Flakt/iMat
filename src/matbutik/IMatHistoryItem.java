@@ -38,15 +38,15 @@ public class IMatHistoryItem extends AnchorPane {
         this.historyController = historyController;
         dateLabel.setText(String.valueOf(order.getDate()));
         numberOfProductsLabel.setText(String.valueOf(order.getItems().size()));
-        sumLabel.setText(String.valueOf(String.valueOf(calcSum(order))));
+      //  sumLabel.setText(String.valueOf(String.valueOf(calcSum(order))));
     }
 
-    private double calcSum(Order order) {
-        return historyController.sumOfAllProducts(order);
-    }
+  //  private double calcSum(Order order) {
+   //     return historyController.sumOfAllProducts(order);
+  //  }
 
     @FXML
     protected void onClick(Event event) {
-        historyController.setHistoryDetailView(order);
+    //    historyController.setHistoryDetailView(order);
     }
 }

@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.util.Callback;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -24,7 +25,7 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class IMatController implements Initializable {
+public class IMatController extends IMatModularCartController implements Initializable {
 
 
 
@@ -35,6 +36,8 @@ public class IMatController implements Initializable {
     @FXML TabPane categories;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+
+
     private Map<Integer, IMatProductItem> iMatProductItemMap = new HashMap<>();
 
 
@@ -59,10 +62,15 @@ public class IMatController implements Initializable {
     private void listItems() {
 
         for (Product product : dataHandler.getProducts()) {
-            iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler));
-            //searchResult.getChildren().add(iMatProductItemMap.get(product.getProductId()));
+            iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler, this));
+            searchResult.getChildren().add(iMatProductItemMap.get(product.getProductId()));
             //System.out.println(product.getProductId() + " — " + product.getName());
         }
+    }
+
+    @FXML
+    private void navigateToHistory(Event event){
+        ScreenController.getInstance().activate("History", categories.getScene().getRoot());
     }
 
     @FXML
@@ -101,8 +109,8 @@ public class IMatController implements Initializable {
         });
     }
 
-    @FXML public void ShoppingCart(Event event){
-          ScreenController.getInstance().activate("ShoppingCart");
+    @FXML public void shoppingCart(Event event){
+          ScreenController.getInstance().activate("ShoppingCart", categories.getScene().getRoot());
     }
 
 

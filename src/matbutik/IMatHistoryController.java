@@ -29,8 +29,8 @@ public class IMatHistoryController implements Initializable{
     private AnchorPane historyDetailAnchorPane;
     @FXML
     private AnchorPane historyShadowAnchorPane;
-    @FXML
-    private FlowPane historyOrdersFlowPane;
+ //   @FXML
+//    private FlowPane historyOrdersFlowPane;
     @FXML
     private FlowPane historyDetailFlowPane;
     @FXML
@@ -65,16 +65,21 @@ public class IMatHistoryController implements Initializable{
         historyViewAnchorPane.toFront();
     }
 
+    @FXML
+    private void navigateBack(Event event){
+        ScreenController.getInstance().navigateToPrevious();
+    }
+
     private void updateShoppingCart() {
         this.historyNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
         this.historySumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
     }
 
     private void populateOrders() {
-        historyOrdersFlowPane.getChildren().clear();
+   //     historyOrdersFlowPane.getChildren().clear();
         for (Order order : orders) {
             IMatHistoryItem historyItem = new IMatHistoryItem(order, this);
-            historyOrdersFlowPane.getChildren().add(historyItem);
+    //        historyOrdersFlowPane.getChildren().add(historyItem);
         }
     }
 
