@@ -123,7 +123,7 @@
                                     <Insets left="185.0" />
                                  </StackPane.margin>
                               </ScrollPane>
-                              <TabPane id="tabpane" fx:id="categories" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                              <TabPane id="tabpane" fx:id="categories" onMouseClicked="#reselectTabs" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
                                 <tabs>
                                   <Tab>
                                        <graphic>
@@ -132,7 +132,7 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                                <FlowPane fx:id="dairyFlowPane" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -144,7 +144,7 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="592.0" prefWidth="640.0" styleClass="flowpane" />
+                                                <FlowPane fx:id="meatFlowPane" prefHeight="592.0" prefWidth="640.0" styleClass="flowpane" />
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -260,7 +260,7 @@
                      </children></AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0">
                      <children>
-                        <Button fx:id="goToCashDesk" layoutX="45.0" layoutY="525.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Gå till kassan" AnchorPane.bottomAnchor="0.0" />
+                        <Button fx:id="goToCashDesk" layoutX="45.0" layoutY="525.0" mnemonicParsing="false" onAction="#ShoppingCart" prefHeight="52.0" prefWidth="138.0" text="Gå till kassan" AnchorPane.bottomAnchor="0.0" />
                         <Label layoutX="7.0" text="Kundvagn">
                            <font>
                               <Font size="24.0" />
