@@ -70,18 +70,6 @@
     -fx-border-color: transparent;
 }
 
-.settingsButtonContainer
-{
-    -fx-padding: 2em 0;
-    -fx-border-insets: 2em 0;
-    -fx-background-insets: 2em 0;
-}
-
-.settingsButtonContainer .button
-{
-    -fx-label-padding: -0.75em;
-}
-
 
 .flowpane{
     -fx-hgap: 10;
@@ -105,3 +93,10 @@
     -fx-border-width: 5 0 0 0;
     -fx-border-color: #F5F5DC;
 }
+
+
+/*Scroll thickness*/
+.scroll-bar:vertical, .scroll-bar:pressed:vertical, .scroll-bar:focused:vertical {
+    -fx-font-size: 28px;
+}
+
