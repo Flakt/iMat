@@ -58,7 +58,7 @@ public class IMatController extends IMatModularCartController implements Initial
         //dairyFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Dairy)).collect(Collectors.toList()));
         //meatFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Meat)).collect(Collectors.toList()));
         //iMatProductItemMap.values().forEach(item -> {/*to tab index*/item.getCategory().forEach(Enum::ordinal);});
-        iMatProductItemMap.values().forEach(item -> item.getCategory().forEach(category -> ((FlowPane)((ScrollPane)categories.getTabs().get(category.ordinal()).getContent()).getContent()).getChildren().add(new IMatProductItem(item.getProduct(),IMatDataHandler.getInstance()))));
+        iMatProductItemMap.values().forEach(item -> item.getCategory().forEach(category -> ((FlowPane)((ScrollPane)categories.getTabs().get(category.ordinal()).getContent()).getContent()).getChildren().add(new IMatProductItem(item.getProduct(),IMatDataHandler.getInstance(),this))));
         //((FlowPane)((ScrollPane)categories.getTabs().get(0).getContent()).getContent()).setCursor(Cursor.CLOSED_HAND);
     } // Try to do this in one "loop" instead
 
@@ -85,7 +85,7 @@ public class IMatController extends IMatModularCartController implements Initial
         Pattern.compile("[A-z\\u00C0-\\u017F]+").matcher(query).results().forEach((queryWord) -> {
             iMatProductItemMap.values().forEach((product) -> {
                 if (Pattern.compile(queryWord.group()).matcher(product.getProduct().getName().toLowerCase()).find())
-                    searchResult.getChildren().add(/*product*/new IMatProductItem(product.getProduct(),IMatDataHandler.getInstance()));
+                    searchResult.getChildren().add(/*product*/new IMatProductItem(product.getProduct(),IMatDataHandler.getInstance(),this));
 
             });
             iMatProductItemMap.values().forEach((product) -> {/*(new Function<EnumSet<Category>,Set<String>>(){
@@ -103,7 +103,7 @@ public class IMatController extends IMatModularCartController implements Initial
                 });*/
                 if (product.getTags().stream().anyMatch(tag -> Pattern.compile(queryWord.group()).matcher(tag.toLowerCase()).find()))
                     if (searchResult.getChildren().stream().noneMatch(item -> ((IMatProductItem)item).getProduct() == product.getProduct()))
-                        searchResult.getChildren().add(/*product*/new IMatProductItem(product.getProduct(),IMatDataHandler.getInstance()));
+                        searchResult.getChildren().add(/*product*/new IMatProductItem(product.getProduct(),IMatDataHandler.getInstance(),this));
 
                 /*if (Pattern.compile(queryWord.group()).matcher(product.getProduct().getName()).find())
                     if (!searchResult.getChildren().contains(product))
