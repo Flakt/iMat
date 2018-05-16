@@ -1,8 +1,10 @@
 package matbutik;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class ScreenController {
@@ -33,10 +35,15 @@ public class ScreenController {
         instance.screenMap.remove(name);
     }
 
-    protected void activate(String name, Parent currentRoot){
+    protected void activate(String name, Parent currentRoot) {
 
         previousRoot = currentRoot;
         Parent root = screenMap.get(name);
+        try {
+            root = FXMLLoader.load(getClass().getResource("IMat"+name+".fxml"), java.util.ResourceBundle.getBundle("matbutik/resources/IMat"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         main.setRoot(root);
     }
 

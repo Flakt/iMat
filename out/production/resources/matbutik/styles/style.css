@@ -70,14 +70,6 @@
     -fx-border-color: transparent;
 }
 
-.settingsButtonContainer
-{
-    -fx-padding: 2em 0;
-    -fx-border-insets: 2em 0;
-    -fx-background-insets: 2em 0;
-}
-
-
 
 .flowpane{
     -fx-hgap: 10;
@@ -91,5 +83,20 @@
 
 .defualtColor{
     -fx-background-color: transparent;
+}
+
+.tabsDeselected .tab:selected
+{
+    -fx-background-color: /*#FAFCFB*/#FFFFFF;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 5 0 0 0;
+    -fx-border-color: #F5F5DC;
+}
+
+
+/*Scroll thickness*/
+.scroll-bar:vertical, .scroll-bar:pressed:vertical, .scroll-bar:focused:vertical {
+    -fx-font-size: 28px;
 }
 

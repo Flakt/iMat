@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -17,12 +17,21 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1024.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
+<AnchorPane prefHeight="685.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
    <children>
-      <SplitPane dividerPositions="0.13659147869674185" layoutX="220.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="regionSplitters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0">
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="95.0" minHeight="95.0" prefHeight="95.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0" styleClass="topBar" GridPane.columnSpan="2">
                <children>
                   <GridPane prefHeight="90.0" prefWidth="718.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
@@ -102,202 +111,228 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <SplitPane dividerPositions="0.8" prefHeight="220.0" prefWidth="598.0" styleClass="regionSplitters">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.rowIndex="1">
+               <children>
+                  <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <ScrollPane fx:id="searchResultContainer" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                        <ScrollPane fx:id="searchResultContainer" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" />
+                           </content>
+                           <StackPane.margin>
+                              <Insets left="185.0" />
+                           </StackPane.margin>
+                        </ScrollPane>
+                        <TabPane id="tabpane" fx:id="categories" onMouseClicked="#reselectTabs" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Mejeri" />
+                                 </graphic>
                                  <content>
-                                    <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" />
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                       <content>
+                                          <FlowPane fx:id="dairyFlowPane" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                       </content>
+                                    </ScrollPane>
                                  </content>
-                                 <StackPane.margin>
-                                    <Insets left="185.0" />
-                                 </StackPane.margin>
-                              </ScrollPane>
-                              <TabPane id="tabpane" fx:id="categories" onMouseClicked="#reselectTabs" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
-                                <tabs>
-                                  <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Mejeri" />
-                                       </graphic>
+                            </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Chark &amp; Pålägg" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane fx:id="dairyFlowPane" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane fx:id="meatFlowPane" prefHeight="592.0" prefWidth="640.0" styleClass="flowpane" />
                                        </content>
-                                  </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Chark &amp; Pålägg" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Fisk" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane fx:id="meatFlowPane" prefHeight="592.0" prefWidth="640.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Fisk" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frukt &amp; Grönt" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frukt &amp; Grönt" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Bröd" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="598.0" prefWidth="639.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Bröd" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Skafferi" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="598.0" prefWidth="639.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="599.0" prefWidth="641.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Skafferi" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Dryck" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="599.0" prefWidth="641.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="606.0" prefWidth="642.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Dryck" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Smaksättare" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="606.0" prefWidth="642.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="601.0" prefWidth="641.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Smaksättare" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frys" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="601.0" prefWidth="641.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="601.0" prefWidth="646.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frys" />
-                                       </graphic>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                              <Tab>
+                                 <graphic>
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Konfekt &amp; Kaffebröd" />
+                                 </graphic>
+                                 <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="601.0" prefWidth="646.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
+                                          <FlowPane prefHeight="611.0" prefWidth="649.0" styleClass="flowpane" />
                                        </content>
-                                    </Tab>
-                                    <Tab>
-                                       <graphic>
-                                          <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Konfekt &amp; Kaffebröd" />
-                                       </graphic>
-                                       <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                             <content>
-                                                <FlowPane prefHeight="611.0" prefWidth="649.0" styleClass="flowpane" />
-                                             </content>
-                                          </ScrollPane>
-                                       </content>
-                                    </Tab>
-                                </tabs>
-                              </TabPane>
-                              <AnchorPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="181.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: -90;" AnchorPane.topAnchor="0.0">
-                                       <image>
-                                          <Image url="@resources/arrow.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label layoutX="125.0" layoutY="217.0" prefHeight="134.0" prefWidth="445.0" text="Du kan här använda knapparna för att välja kategori!" wrapText="true">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="37.0" />
-                                       </font>
-                                    </Label>
-                                    <ImageView fitHeight="125.0" fitWidth="125.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;" AnchorPane.leftAnchor="0.0">
-                                       <image>
-                                          <Image url="@resources/arrow.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label layoutX="12.0" layoutY="125.0" prefHeight="52.0" prefWidth="587.0" text="Du kan här söka efter varor!" wrapText="true">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="37.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <StackPane.margin>
-                                    <Insets left="185.0" />
-                                 </StackPane.margin>
-                              </AnchorPane>
+                                    </ScrollPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <AnchorPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="181.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: -90;" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@resources/arrow.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="125.0" layoutY="217.0" prefHeight="134.0" prefWidth="445.0" text="Du kan här använda knapparna för att välja kategori!" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="37.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="125.0" fitWidth="125.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;" AnchorPane.leftAnchor="0.0">
+                                 <image>
+                                    <Image url="@resources/arrow.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="12.0" layoutY="125.0" prefHeight="52.0" prefWidth="587.0" text="Du kan här söka efter varor!" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="37.0" />
+                                 </font>
+                              </Label>
                            </children>
-                        </StackPane>
-                     </children></AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0">
+                           <StackPane.margin>
+                              <Insets left="185.0" />
+                           </StackPane.margin>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <Button fx:id="goToCashDesk" layoutX="45.0" layoutY="525.0" mnemonicParsing="false" onAction="#shoppingCart" prefHeight="52.0" prefWidth="138.0" text="Gå till kassan" AnchorPane.bottomAnchor="0.0" />
-                        <Label layoutX="7.0" text="Kundvagn">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="7.0" layoutY="41.0" text="Antal varor:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="7.0" layoutY="67.0" text="Belopp:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <FlowPane fx:id="shoppingCartFlowPane" layoutY="112.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
-                        <ImageView fitHeight="60.0" fitWidth="54.0" layoutX="137.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="defualtColor" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <image>
-                              <Image url="@resources/shoppingcart.png" />
-                           </image>
-                        </ImageView>
-                     </children></AnchorPane>
-              </items>
-            </SplitPane>
-        </items>
-      </SplitPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="2.5" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Label fx:id="numberOfProductsLabel" layoutY="26.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="totalCostLabel" layoutY="47.0" text="Summa:" AnchorPane.leftAnchor="0.0">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" styleClass="defualtColor" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <image>
+                                    <Image url="@resources/shoppingcart.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="251.0" GridPane.rowIndex="1" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Button fx:id="goToCashDesk" mnemonicParsing="false" onAction="#shoppingCart" styleClass="greenButton" text="Gå till kassan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="22.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
    </children>
+   <stylesheets>
+      <URL value="@styles/style.css" />
+      <URL value="@styles/generalStyle.css" />
+   </stylesheets>
 </AnchorPane>

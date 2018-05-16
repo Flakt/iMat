@@ -28,6 +28,7 @@ public class IMat extends Application {
         Parent shoppingCart = FXMLLoader.load(getClass().getResource("IMatShoppingCart.fxml"), bundle);
         Parent history = FXMLLoader.load(getClass().getResource("IMatHistory.fxml"), bundle);
         Parent account = FXMLLoader.load(getClass().getResource("IMatAccount.fxml"), bundle);
+        Parent payment = FXMLLoader.load(getClass().getResource("IMatPayment.fxml"), bundle);
 
 
 
@@ -40,6 +41,7 @@ public class IMat extends Application {
         screenController.addScreen("ShoppingCart", shoppingCart);
         screenController.addScreen("History", history);
         screenController.addScreen("Account", account);
+        screenController.addScreen("Payment", payment);
 
 
         stage.setTitle(bundle.getString("application.name"));

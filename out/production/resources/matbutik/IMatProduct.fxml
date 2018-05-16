@@ -36,6 +36,6 @@
             </Button>
          </children></AnchorPane>
       <Label fx:id="price" layoutX="115.0" layoutY="33.0" text="Label" />
-      <Label fx:id="comparativePrice" layoutX="115.0" layoutY="54.0" text="Label" />
+      <Label fx:id="eco" layoutX="115.0" layoutY="54.0" text="Label" />
    </children>
 </fx:root>
