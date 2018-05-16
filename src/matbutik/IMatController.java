@@ -30,11 +30,14 @@ public class IMatController extends IMatModularCartController implements Initial
 
 
 
-    @FXML FlowPane searchResult;
-    @FXML AnchorPane mainPage;
-    @FXML ScrollPane searchResultContainer;
-    @FXML TextField searchBar;
-    @FXML TabPane categories;
+    private @FXML FlowPane searchResult;
+    private @FXML AnchorPane mainPage;
+    private @FXML ScrollPane searchResultContainer;
+    private @FXML TextField searchBar;
+    private @FXML TabPane categories;
+
+
+    private @FXML FlowPane shoppingCartFlowPane;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
@@ -42,6 +45,10 @@ public class IMatController extends IMatModularCartController implements Initial
     private Map<Integer, IMatProductItem> iMatProductItemMap = new HashMap<>();
 
 
+
+    public FlowPane getShoppingCartFlowPane(){
+        return shoppingCartFlowPane;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listItems();
