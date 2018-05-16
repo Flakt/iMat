@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -51,9 +52,11 @@ public class IMatController implements Initializable {
     @FXML FlowPane dairyFlowPane;
     @FXML FlowPane meatFlowPane;
     private void fillCategoryPages() {
-        dairyFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Dairy)).collect(Collectors.toList()));
-        meatFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Meat)).collect(Collectors.toList()));
-        //iMatProductItemMap.values().forEach(item -> {item.getCategory().forEach();});
+        //dairyFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Dairy)).collect(Collectors.toList()));
+        //meatFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Meat)).collect(Collectors.toList()));
+        //iMatProductItemMap.values().forEach(item -> {/*to tab index*/item.getCategory().forEach(Enum::ordinal);});
+        iMatProductItemMap.values().forEach(item -> item.getCategory().forEach(category -> ((FlowPane)((ScrollPane)categories.getTabs().get(category.ordinal()).getContent()).getContent()).getChildren().add(new IMatProductItem(item.getProduct(),IMatDataHandler.getInstance()))));
+        //((FlowPane)((ScrollPane)categories.getTabs().get(0).getContent()).getContent()).setCursor(Cursor.CLOSED_HAND);
     } // Try to do this in one "loop" instead
 
     private void listItems() {
@@ -74,7 +77,7 @@ public class IMatController implements Initializable {
         Pattern.compile("[A-z\\u00C0-\\u017F]+").matcher(query).results().forEach((queryWord) -> {
             iMatProductItemMap.values().forEach((product) -> {
                 if (Pattern.compile(queryWord.group()).matcher(product.getProduct().getName().toLowerCase()).find())
-                    searchResult.getChildren().add(product);
+                    searchResult.getChildren().add(/*product*/new IMatProductItem(product.getProduct(),IMatDataHandler.getInstance()));
 
             });
             iMatProductItemMap.values().forEach((product) -> {/*(new Function<EnumSet<Category>,Set<String>>(){
@@ -91,14 +94,16 @@ public class IMatController implements Initializable {
                     }
                 });*/
                 if (product.getTags().stream().anyMatch(tag -> Pattern.compile(queryWord.group()).matcher(tag.toLowerCase()).find()))
-                    if (!searchResult.getChildren().contains(product))
-                        searchResult.getChildren().add(product);
+                    if (searchResult.getChildren().stream().noneMatch(item -> ((IMatProductItem)item).getProduct() == product.getProduct()))
+                        searchResult.getChildren().add(/*product*/new IMatProductItem(product.getProduct(),IMatDataHandler.getInstance()));
 
                 /*if (Pattern.compile(queryWord.group()).matcher(product.getProduct().getName()).find())
                     if (!searchResult.getChildren().contains(product))
                         searchResult.getChildren().add(product);*/
             });
         });
+
+
     }
 
     @FXML public void ShoppingCart(Event event){
@@ -109,7 +114,7 @@ public class IMatController implements Initializable {
     public void deselectTabs() {
         if (!categories.getStyleClass().contains("tabsDeselected"))
             categories.getStyleClass().add("tabsDeselected");
-        searchResult.toFront();
+        searchResultContainer.toFront();
     }
 
     public void reselectTabs() {

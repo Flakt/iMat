@@ -17,10 +17,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class IMatProductItem extends AnchorPane {
 
@@ -140,6 +140,35 @@ public class IMatProductItem extends AnchorPane {
             //e.printStackTrace();
             System.out.println("Did not contain ID!");
         }
+        addCategoriesAsTags();
+    }
+
+    private void addCategoriesAsTags() {
+        List<String> list = new ArrayList<>();
+        tags.addAll(category.stream().map(en -> {switch(en){
+            case Fish:
+                return new ArrayList<String>(){{add("fisk");}};
+            case Meat:
+                return new ArrayList<String>(){{add("kött");}};
+            case Bread:
+                return new ArrayList<String>(){{add("bröd");add("bakning");}};
+            case Dairy:
+                return new ArrayList<String>(){{add("mejeri");}};
+            case Drink:
+                return new ArrayList<String>(){{add("dricka");add("dryck");}};
+            case Frozen:
+                return new ArrayList<String>(){{add("frys");}};
+            case Pantry:
+                return new ArrayList<String>(){{add("skafferi");}};
+            case FruitVeg:
+                return new ArrayList<String>();
+            case Pastries:
+                return new ArrayList<String>(){{add("kaffebröd");add("sött");add("sötsaker");}};
+            case Condiments:
+                return new ArrayList<String>(){{add("smaksättare");add("kryddor");add("krydda");}};
+            default:
+                return new ArrayList<String>();
+        }}).flatMap(List::stream).collect(Collectors.toList()));
     }
 
     private void waitForEnd(InputStream is) throws IOException {
