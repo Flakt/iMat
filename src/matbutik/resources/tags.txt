@@ -56,7 +56,7 @@
 133;fruitveg;plommon,frukt;end
 134;pantry,pastries;chips,fredagsmys;end
 135;pantry,pastries;choklad,fredagsmys,fika;end
-136;pastries;glass,fika;end
+136;pastries,frozen;glass,fika;end
 137;pantry,pastries;bullar,fika;end
 138;pantry,pastries;kex,fika;end
 139;pantry,pastries;fika;end
