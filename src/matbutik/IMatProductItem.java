@@ -93,17 +93,25 @@ public class IMatProductItem extends AnchorPane {
     private void onIncrement(Event event) {
         valueFactory.increment(1);
         controller.incrementProductAmount(shoppingItem);
-        controller.shoppingCart.addItem(shoppingItem);
+        if(!controller.shoppingCart.getItems().contains(shoppingItem)){
+            controller.shoppingCart.addItem(shoppingItem);
+        }
 
         updateShoppingCart();
-
     }
+
     @FXML
         private void onDecrement(Event event){
         valueFactory.decrement(1);
 
-        controller.shoppingCart.removeItem(shoppingItem);
+
         controller.decrementProductAmount(shoppingItem);
+        if (shoppingItem.getAmount() < 2) {
+            controller.shoppingCart.removeItem(shoppingItem);
+
+        }
+
+
         updateShoppingCart();
     }
     private void update(){
