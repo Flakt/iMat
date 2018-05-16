@@ -2,7 +2,7 @@
 92;pantry;mjöl,bakning;end
 95;pantry;bakning;end
 71;meat;nötkött;end
-77;dairy;ost;end
+77;dairy,meat;ost;end
 62;fruitveg;gurka,grönsaker;end
 63;fruitveg;kål,grönsaker;end
 64;fruitveg;grönsaker;end
