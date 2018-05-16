@@ -242,7 +242,26 @@
                               </TabPane>
                               <AnchorPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Label layoutX="288.0" layoutY="254.0" text="Main Page" />
+                                    <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="181.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: -90;" AnchorPane.topAnchor="0.0">
+                                       <image>
+                                          <Image url="@resources/arrow.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="125.0" layoutY="217.0" prefHeight="134.0" prefWidth="445.0" text="Du kan här använda knapparna för att välja kategori!" wrapText="true">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="37.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="125.0" fitWidth="125.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;" AnchorPane.leftAnchor="0.0">
+                                       <image>
+                                          <Image url="@resources/arrow.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="12.0" layoutY="125.0" prefHeight="52.0" prefWidth="587.0" text="Du kan här söka efter varor!" wrapText="true">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="37.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                                  <StackPane.margin>
                                     <Insets left="185.0" />
