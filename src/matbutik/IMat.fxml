@@ -108,9 +108,9 @@
                      <children>
                         <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <ScrollPane fx:id="searchResultContainer" prefHeight="200.0" prefWidth="200.0">
+                              <ScrollPane fx:id="searchResultContainer" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                  <content>
-                                    <FlowPane fx:id="searchResult" prefHeight="597.0" prefWidth="638.0" />
+                                    <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" />
                                  </content>
                                  <StackPane.margin>
                                     <Insets left="185.0" />
