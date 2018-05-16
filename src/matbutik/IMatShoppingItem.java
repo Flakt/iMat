@@ -19,7 +19,7 @@ public class IMatShoppingItem extends AnchorPane {
 
     // Untested as of 2018-05-02, should be functional
 
-    private IMatShoppingCartController shoppingCartController;
+    private IMatModularCartController shoppingCartController;
     private ShoppingItem shoppingItem;
     private IMatDataHandler dataHandler;
     private Product product;
@@ -33,7 +33,7 @@ public class IMatShoppingItem extends AnchorPane {
     @FXML private Label cartItemProductPrice;
     @FXML private Label cartItemName;
 
-    public IMatShoppingItem(ShoppingItem shoppingItem, IMatShoppingCartController shoppingCartController) {
+    public IMatShoppingItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatShoppingItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

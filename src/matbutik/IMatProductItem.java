@@ -51,9 +51,6 @@ public class IMatProductItem extends AnchorPane {
     //
 
     @FXML
-    private FlowPane shoppingCartFlowPane;
-
-    @FXML
     private ImageView productImage;
 
     public EnumSet<Category> getCategory() {
@@ -96,19 +93,22 @@ public class IMatProductItem extends AnchorPane {
     private void onIncrement(Event event) {
         valueFactory.increment(1);
         controller.incrementProductAmount(shoppingItem);
-        updateProductAmount();
+        controller.shoppingCart.addItem(shoppingItem);
 
+        updateShoppingCart();
 
     }
     @FXML
         private void onDecrement(Event event){
         valueFactory.decrement(1);
+
+        controller.shoppingCart.removeItem(shoppingItem);
         controller.decrementProductAmount(shoppingItem);
-        updateProductAmount();
+        updateShoppingCart();
     }
-    private void updateProductAmount(){
+    private void update(){
         numberOfProducts.setText(valueFactory.getValue().toString());
-    }
+        }
 
     private void setImage(){
         productImage.setImage(dataHandler.getFXImage(product));
@@ -116,10 +116,10 @@ public class IMatProductItem extends AnchorPane {
     }
 
     private void updateShoppingCart(){
-        updateProductAmount();
+        update();
+        controller.getShoppingCartFlowPane().getChildren().clear();
         for (ShoppingItem si: controller.shoppingCart.getItems()){
-           // shoppingCartFlowPane.getChildren().add(new IMatShoppingItem(si));
-
+            controller.getShoppingCartFlowPane().getChildren().add(new IMatShoppingItem(si, controller));
         }
 
     }

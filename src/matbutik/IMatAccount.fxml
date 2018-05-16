@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatAccountController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="163.0" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="52.0" prefWidth="163.0" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <Label layoutX="469.0" layoutY="17.0" text="Konto">
          <font>
             <Font name="System Bold" size="30.0" />
