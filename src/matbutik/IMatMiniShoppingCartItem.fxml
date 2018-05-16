@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="251.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="cartItemImageView" fitHeight="51.0" fitWidth="51.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="10.0" />
       <Label fx:id="cartItemName" layoutX="61.0" layoutY="4.0" text="Namn" />
-      <Label fx:id="cartItemEco" layoutX="127.0" layoutY="4.0" text="Ekologisk" />
+      <Label fx:id="cartItemEco" layoutX="127.0" layoutY="4.0" text="Ekologisk" AnchorPane.rightAnchor="10.0" />
       <TextField fx:id="cartItemAmountTextField" alignment="CENTER" layoutX="103.0" layoutY="42.0" minHeight="10.0" minWidth="50.0" prefHeight="36.0" prefWidth="112.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="35.0">
          <font>
             <Font size="18.0" />
@@ -43,7 +42,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="cartItemAmountTextField" layoutX="76.0" layoutY="25.0" text="st" />
-      <Label fx:id="cartItemProductPrice" layoutX="127.0" layoutY="25.0" text="st" />
+      <Label fx:id="cartItemProductPrice" layoutX="76.0" layoutY="25.0" text="st" />
    </children>
 </fx:root>

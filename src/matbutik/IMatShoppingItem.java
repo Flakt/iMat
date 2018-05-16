@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,11 +26,11 @@ public class IMatShoppingItem extends AnchorPane {
  //   protected Product product;
  //   @FXML protected Button cartItemIncreaseButton;
  //   @FXML protected Button cartItemDecreaseButton;
-    @FXML private TextField cartItemAmountTextField;
+    @FXML protected TextField cartItemAmountTextField;
     @FXML private Label cartItemTotalPrice;
     @FXML protected ImageView cartItemImageView;
     @FXML protected Label cartItemEco;
-    @FXML private Label cartItemUnit;
+   // @FXML private Label cartItemUnit;
     @FXML private Label cartItemProductPrice;
     @FXML protected Label cartItemName;
 
@@ -55,7 +56,8 @@ public class IMatShoppingItem extends AnchorPane {
 
         setupFxml();
 
-        this.shoppingCartController = shoppingCartController;
+
+         this.shoppingCartController = shoppingCartController;
         this.shoppingItem = shoppingItem;
 
         cartItemImageView.setImage(shoppingCartController.getCartItemImage(this.shoppingItem));
@@ -66,8 +68,9 @@ public class IMatShoppingItem extends AnchorPane {
                         ((Double)amount).toString());
         cartItemTotalPrice.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " kr"  );
         setEcoLabel();
-        cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
-        cartItemProductPrice.setText("Jfr " + shoppingCartController.getCartItemPrice(this.shoppingItem) + " " + shoppingCartController.getCartUnit(this.shoppingItem));
+        //cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
+        cartItemProductPrice.setText(((Double)(this.shoppingItem.getProduct().getPrice())).toString() +
+                " kr / " + shoppingCartController.getCartSuffix(this.shoppingItem));
         cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem));
     }
    protected void setEcoLabel(){
@@ -80,7 +83,7 @@ public class IMatShoppingItem extends AnchorPane {
     protected void incItem(Event event) {
         double amount = shoppingItem.getAmount();
         shoppingCartController.incrementProductAmount(this.shoppingItem);
-        cartItemAmountTextField.setText(String.valueOf(amount + 1));
+        cartItemAmountTextField.setText(String.valueOf(amount ));
     }
 
     @FXML
@@ -88,7 +91,7 @@ public class IMatShoppingItem extends AnchorPane {
         double amount = shoppingItem.getAmount();
         shoppingCartController.decrementProductAmount(this.shoppingItem);
         if (amount > 1) {
-            cartItemAmountTextField.setText(String.valueOf(amount - 1));
+            cartItemAmountTextField.setText(String.valueOf(amount));
         }
     }
 }
