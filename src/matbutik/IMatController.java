@@ -58,7 +58,11 @@ public class IMatController extends IMatModularCartController implements Initial
         //dairyFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Dairy)).collect(Collectors.toList()));
         //meatFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Meat)).collect(Collectors.toList()));
         //iMatProductItemMap.values().forEach(item -> {/*to tab index*/item.getCategory().forEach(Enum::ordinal);});
-        iMatProductItemMap.values().forEach(item -> item.getCategory().forEach(category -> ((FlowPane)((ScrollPane)categories.getTabs().get(category.ordinal()).getContent()).getContent()).getChildren().add(new IMatProductItem(item.getProduct(),IMatDataHandler.getInstance(),this))));
+//        iMatProductItemMap.values().forEach(item -> item.getCategory().forEach(category -> ((FlowPane)((ScrollPane)categories.getTabs().get(category.ordinal()).getContent()).getContent()).getChildren().add(new IMatProductItem(item.getProduct(),IMatDataHandler.getInstance(),this))));
+        for (IMatProductItem item : iMatProductItemMap.values())
+            for (Category category : item.getCategory())
+                ((FlowPane) ((ScrollPane) categories.getTabs().get(category.ordinal()).getContent()).getContent())/*Corresponding FlowPane for tab*/
+                        .getChildren().add(new IMatProductItem(item.getProduct(), IMatDataHandler.getInstance(), this));
         //((FlowPane)((ScrollPane)categories.getTabs().get(0).getContent()).getContent()).setCursor(Cursor.CLOSED_HAND);
     } // Try to do this in one "loop" instead
 
