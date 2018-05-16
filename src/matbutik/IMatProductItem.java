@@ -183,7 +183,7 @@ public class IMatProductItem extends AnchorPane {
             case Meat:
                 return new ArrayList<String>(){{add("kött");}};
             case Bread:
-                return new ArrayList<String>(){{add("bröd");add("bakning");}};
+                return new ArrayList<String>(){{add("bröd");}};
             case Dairy:
                 return new ArrayList<String>(){{add("mejeri");}};
             case Drink:
