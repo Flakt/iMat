@@ -81,6 +81,11 @@ public class IMatController extends IMatModularCartController implements Initial
     }
 
     @FXML
+    private void navigateToAccount(Event event) {
+        ScreenController.getInstance().activate("Account", categories.getScene().getRoot());
+    }
+
+    @FXML
     public void search() {
         deselectTabs();
 

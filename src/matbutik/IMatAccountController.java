@@ -3,6 +3,7 @@ package matbutik;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -79,6 +80,11 @@ public class IMatAccountController implements Initializable {
         customer.setAddress(accountAdressTextField.getText());
         customer.setPostCode(accountZipCodeTextField.getText());
         customer.setPostAddress(accountPostAdressTextField.getText());
+    }
+
+    @FXML
+    private void navigateBack(Event event) {
+        ScreenController.getInstance().navigateToPrevious();
     }
 
     private class TextFieldListener implements ChangeListener<Boolean> {
