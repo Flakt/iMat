@@ -55,14 +55,14 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         System.out.println(dataHandler.getProduct(1));
 
         // Why does the following require a reference to this class?
-        ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
+        /*ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
 
         IMatShoppingItem iMatShoppingItem = new IMatShoppingItem(sI, this);
         iMatShoppingItemMap.put("Gröna ärter", new IMatShoppingItem(new ShoppingItem(dataHandler.getProduct(1)), this));
         shoppingCart.addItem(new ShoppingItem(dataHandler.getProduct(1)));
 
 
-        updateProductsList();
+        updateProductsList();*/
         // TEST END
         shoppingCart.addShoppingCartListener(new ShoppingCartListener() {
             @Override
@@ -123,6 +123,11 @@ public class IMatShoppingCartController extends IMatModularCartController implem
     @FXML
     private void navigateToHelp(Event e){
         ScreenController.getInstance().activate("Help", cartDetailsPane.getScene().getRoot());
+    }
+
+    @FXML
+    private void toPayment(Event e) {
+        ScreenController.getInstance().activate("Payment", cartDetailsPane.getScene().getRoot());
     }
 }
 

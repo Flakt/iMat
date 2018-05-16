@@ -88,7 +88,7 @@ public class IMatProductItem extends AnchorPane {
         this.product = p;
         this.dataHandler = h;
 
-        shoppingItem = new ShoppingItem(product);
+        //shoppingItem = new ShoppingItem(product);
         setImage();
 
         category = EnumSet.noneOf(Category.class);
@@ -101,7 +101,9 @@ public class IMatProductItem extends AnchorPane {
     @FXML
     private void onIncrement(Event event) {
         valueFactory.increment(1);
-        controller.incrementProductAmount(shoppingItem);
+        if (shoppingItem != null)
+            controller.incrementProductAmount(shoppingItem);
+        else shoppingItem = new ShoppingItem(product);
         if(!controller.shoppingCart.getItems().contains(shoppingItem)){
             controller.shoppingCart.addItem(shoppingItem);
         }
@@ -114,11 +116,11 @@ public class IMatProductItem extends AnchorPane {
         valueFactory.decrement(1);
 
 
-        controller.decrementProductAmount(shoppingItem);
-        if (shoppingItem.getAmount() < 2) {
+        if (shoppingItem.getAmount() == 1) {
             controller.shoppingCart.removeItem(shoppingItem);
-
-        }
+            shoppingItem = null;
+        } else
+            controller.decrementProductAmount(shoppingItem);
 
 
         updateShoppingCart();
