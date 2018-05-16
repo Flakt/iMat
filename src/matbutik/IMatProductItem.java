@@ -77,6 +77,7 @@ public class IMatProductItem extends AnchorPane {
 
 
 
+
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
