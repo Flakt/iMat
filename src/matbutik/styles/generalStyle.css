@@ -19,3 +19,9 @@
 {
     -fx-font-size: 3em;
 }
+
+.topBar
+{
+    -fx-border-color: #888888;
+    -fx-border-width: 0px 0px 1px 0px;
+}
