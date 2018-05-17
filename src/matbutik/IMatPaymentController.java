@@ -112,7 +112,8 @@ public class IMatPaymentController implements Initializable {
         creditCard = dataHandler.getCreditCard();
         numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2).equals("st") ?item.getAmount():1).sum()));
         totalCostLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
-        paymentOptionsSplitPane.toFront();
+        //paymentOptionsSplitPane.toFront();
+        deliveryAnchorPane.toFront();
     }
 
     private void invoiceInit() {
@@ -211,6 +212,10 @@ public class IMatPaymentController implements Initializable {
 
     @FXML
     protected void goBack() {
+        if (choice == null) {
+            ScreenController.getInstance().navigateToPrevious();
+            return;
+        }
         if (choice.equals("invoice") || choice.equals("credit")) {
             paymentOptionsSplitPane.toFront();
             headerLabel.setText("Betalningsalternativ");

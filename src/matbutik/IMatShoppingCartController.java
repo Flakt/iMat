@@ -46,6 +46,8 @@ public class IMatShoppingCartController extends IMatModularCartController implem
     private Label numberOfProductsLabel;
     @FXML
     private Label totalCostLabel;
+    @FXML
+    private Label emptyCartLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,10 +85,12 @@ public class IMatShoppingCartController extends IMatModularCartController implem
     }
 
     protected void populateFlowPane() {
+        emptyCartLabel.setVisible(true);
         cartItemsFlowPane.getChildren().clear();
         super.updateProductsList();
         for (IMatShoppingItem item : super.iMatShoppingItemMap.values()) {
             cartItemsFlowPane.getChildren().add(item);
+            emptyCartLabel.setVisible(false);
         }
     }
 
