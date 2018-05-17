@@ -24,12 +24,14 @@ public class IMatHistoryController implements Initializable{
     private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
 
     @FXML
+    private AnchorPane historyRootPane;
+    @FXML
     private AnchorPane historyViewAnchorPane;
     @FXML
     private AnchorPane historyDetailAnchorPane;
     @FXML
     private AnchorPane historyShadowAnchorPane;
-   @FXML
+    @FXML
     private FlowPane historyOrdersFlowPane;
     @FXML
     private FlowPane historyDetailFlowPane;
@@ -126,6 +128,17 @@ public class IMatHistoryController implements Initializable{
     @FXML
     protected void closeImageOnClick(Event event) {
         historyViewAnchorPane.toFront();
+    }
+
+    @FXML
+    protected void toAccount() {
+        ScreenController.getInstance().activate("Account", historyRootPane.getScene().getRoot());
+    }
+
+    @FXML
+    protected void toHistory() {
+        // Why would you even press this?
+        ScreenController.getInstance().activate("History", historyRootPane.getScene().getRoot());
     }
 
     public double sumOfAllProducts(Order order) {
