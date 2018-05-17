@@ -256,11 +256,16 @@
                               <TextField fx:id="deliveryAdressTextField" layoutX="225.0" layoutY="202.0" prefHeight="26.0" prefWidth="375.0" />
                               <TextField fx:id="deliveryPostCodeTextField" layoutX="225.0" layoutY="248.0" prefHeight="26.0" prefWidth="375.0" />
                               <TextField fx:id="deliveryPostAdressTextField" layoutX="225.0" layoutY="293.0" prefHeight="26.0" prefWidth="375.0" />
-                              <Button layoutX="479.0" layoutY="366.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="122.0" text="Gå Vidare">
+                              <Button layoutX="479.0" layoutY="366.0" mnemonicParsing="false" onAction="#toPaymentAlternatives" prefHeight="39.0" prefWidth="122.0" text="Gå Vidare">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
+                              <Label fx:id="errorLabel" layoutX="254.0" layoutY="375.0" text="Samtliga fält behöver fyllas" textFill="RED">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

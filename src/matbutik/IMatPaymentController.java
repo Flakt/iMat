@@ -104,6 +104,8 @@ public class IMatPaymentController implements Initializable {
     private TextField deliveryPostCodeTextField;
     @FXML
     private TextField deliveryPostAdressTextField;
+    @FXML
+    private Label errorLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -114,6 +116,17 @@ public class IMatPaymentController implements Initializable {
         totalCostLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
         //paymentOptionsSplitPane.toFront();
         deliveryAnchorPane.toFront();
+        headerLabel.setText("Leveransadress");
+        fillInSavedDeliveryDetails();
+        errorLabel.setVisible(false);
+    }
+
+    private void fillInSavedDeliveryDetails() {
+        forenameTextField.setText(customer.getFirstName());
+        surnameTextField.setText(customer.getLastName());
+        adressTextField.setText(customer.getAddress());
+        regionTextField.setText(customer.getPostAddress());
+        zipcodeTextField.setText(customer.getPostCode());
     }
 
     private void invoiceInit() {
@@ -248,6 +261,31 @@ public class IMatPaymentController implements Initializable {
                 // Maybe put something here later on
             }
         }
+    }
+
+    @FXML
+    private void toPaymentAlternatives() {
+        if (deliveryFirstNameTextField.getText().equals("") ||
+                deliveryAfterNameTextField.getText().equals("") ||
+                deliveryAdressTextField.getText().equals("") ||
+                deliveryPostAdressTextField.getText().equals("") ||
+                deliveryPostCodeTextField.getText().equals("")) {
+            errorLabel.setVisible(true);
+            return;
+        }
+        paymentOptionsSplitPane.toFront();
+        headerLabel.setText("Betalningsalternativ");
+        customer.setFirstName(deliveryFirstNameTextField.getText());
+        customer.setLastName(deliveryAfterNameTextField.getText());
+        customer.setAddress(deliveryAdressTextField.getText());
+        customer.setPostAddress(deliveryPostAdressTextField.getText());
+        customer.setPostCode(deliveryPostCodeTextField.getText());
+
+        forenameTextField.setText(customer.getFirstName());
+        surnameTextField.setText(customer.getLastName());
+        adressTextField.setText(customer.getAddress());
+        regionTextField.setText(customer.getPostAddress());
+        zipcodeTextField.setText(customer.getPostCode());
     }
 
 }
