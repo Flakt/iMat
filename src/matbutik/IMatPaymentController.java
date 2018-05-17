@@ -117,7 +117,7 @@ public class IMatPaymentController implements Initializable {
         totalCostLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
         //paymentOptionsSplitPane.toFront();
         deliveryAnchorPane.toFront();
-        headerLabel.setText("Leveransadress");
+        deliveryInit();
         fillInSavedDeliveryDetails();
         errorLabel.setVisible(false);
     }
@@ -154,6 +154,18 @@ public class IMatPaymentController implements Initializable {
         verificationCodeTextField.focusedProperty().addListener(new TextFieldListener(verificationCodeTextField));
         creditPopulateTextField();
         choice = "credit";
+    }
+
+    private void deliveryInit() {
+        deliveryNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2) == "st"?item.getAmount():1).sum()));
+        deliverySumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
+        headerLabel.setText("Leveransadress");
+        deliveryFirstNameTextField.focusedProperty().addListener(new TextFieldListener(deliveryFirstNameTextField));
+        deliveryAfterNameTextField.focusedProperty().addListener(new TextFieldListener(deliveryAfterNameTextField));
+        deliveryAdressTextField.focusedProperty().addListener(new TextFieldListener(deliveryAdressTextField));
+        deliveryPostCodeTextField.focusedProperty().addListener(new TextFieldListener(deliveryPostCodeTextField));
+        deliveryPostAdressTextField.focusedProperty().addListener(new TextFieldListener(deliveryPostAdressTextField));
+        deliveryPopulateTextField();
     }
 
     private void invoicePopulateTextField() {
@@ -204,11 +216,8 @@ public class IMatPaymentController implements Initializable {
             customer.setPostCode(zipcodeTextField.getText());
         }
         choice = "delivery";
-        deliveryAnchorPane.toFront();
-        headerLabel.setText("Leveransadress");
-        deliveryPopulateTextField();
 
-        ScreenController.getInstance().activate("confirmation", creditSumLabel.getScene().getRoot());
+        ScreenController.getInstance().activate("ConfirmationPage", creditSumLabel.getScene().getRoot());
     }
 
     @FXML
@@ -221,9 +230,6 @@ public class IMatPaymentController implements Initializable {
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
         choice = "delivery";
-        deliveryAnchorPane.toFront();
-        headerLabel.setText("Leveransadress");
-        deliveryPopulateTextField();
 
         ScreenController.getInstance().activate("ConfirmationPage", creditSumLabel.getScene().getRoot());
 
