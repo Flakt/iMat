@@ -44,8 +44,8 @@ public class IMatAccountController implements Initializable {
     }
 
     private void setShoppingCart() {
-        accountNumberOfProductsLabel.setText(String.valueOf(dataHandler.getShoppingCart().getItems().size()));
-        accountSumLabel.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
+        accountNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2) == "st"?item.getAmount():1).sum()));
+        accountSumLabel.setText(String.valueOf("Summa: " + dataHandler.getShoppingCart().getTotal()));
     }
 
     private void setTextFields() {
