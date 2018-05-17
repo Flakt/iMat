@@ -144,6 +144,17 @@ public class IMatProductItem extends AnchorPane {
 
         updateShoppingCart();
     }
+
+    @FXML
+    public void onTextFieldInput(){
+        String amountText= numberOfProducts.getText();
+        System.out.println(numberOfProducts.getText());
+        int amount = Integer.parseInt(amountText);
+        valueFactory.setValue(amount);
+        controller.setProductAmount(shoppingItem, amount);
+        updateShoppingCart();
+    }
+
     private void update(){
         numberOfProducts.setText(((Double)shoppingItem.getAmount()).toString());
         productTotalPrice.setText(String.format( "%.1f",((shoppingItem.getAmount() * product.getPrice()))) + " kr");
