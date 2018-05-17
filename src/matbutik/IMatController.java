@@ -59,11 +59,32 @@ public class IMatController extends IMatModularCartController implements Initial
         deselectTabs();
         mainPage.toFront();
         fillCategoryPages();
+        //sizeSearchResultFlowPane();
+    }
+
+    private void sizeSearchResultFlowPane() {
+        double pWidth = searchResultContainer.getWidth();
+        searchResult.setMaxWidth(pWidth);
+        searchResult.setMinWidth(searchResult.getMaxWidth());
+        searchResult.setPrefWidth(searchResult.getMaxWidth());
+
+
+        sizeTabFlowPanes();
+    }
+
+    private void sizeTabFlowPanes() {
+        for (ScrollPane tabSP : categories.getTabs().stream().map(tab -> (ScrollPane)tab.getContent()).collect(Collectors.toList())){
+            double pWidth = tabSP.getWidth() - 28-6;
+            FlowPane tabFP = (FlowPane) tabSP.getContent();
+            tabFP.setMaxWidth(pWidth);
+            tabFP.setMinWidth(searchResult.getMaxWidth());
+            tabFP.setPrefWidth(searchResult.getMaxWidth());
+        }
     }
 
     @FXML FlowPane dairyFlowPane;
     @FXML FlowPane meatFlowPane;
-    private void fillCategoryPages() {
+    private void fillCategoryPages() {sizeSearchResultFlowPane();sizeTabFlowPanes();
         //dairyFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Dairy)).collect(Collectors.toList()));
         //meatFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Meat)).collect(Collectors.toList()));
         //iMatProductItemMap.values().forEach(item -> {/*to tab index*/item.getCategory().forEach(Enum::ordinal);});
@@ -148,6 +169,7 @@ public class IMatController extends IMatModularCartController implements Initial
         categories.getStyleClass().remove("tabsDeselected");
         categories.toFront();
         searchBar.setText("");
+        sizeTabFlowPanes();
     }
 
     @FXML

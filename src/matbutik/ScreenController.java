@@ -60,8 +60,13 @@ public class ScreenController {
                     if (((IMatProductItem) item).shoppingItem != null) ((IMatProductItem) item).updateShoppingCart();
                 }));
             } catch (Exception ex) {
+                try {
+                    ((TabPane)((StackPane)((AnchorPane)((GridPane)((AnchorPane)previousRoot).getChildren().get(0)).getChildren().get(1)).getChildren().get(0)).getChildren().get(0/**/)).getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).getChildren().forEach(item -> {if (((IMatProductItem)item).shoppingItem != null) ((IMatProductItem)item).updateShoppingCart();}));
+                } catch (Exception ex2) {
 
-                ((TabPane)((StackPane)((AnchorPane)((GridPane)((AnchorPane)previousRoot).getChildren().get(0)).getChildren().get(1)).getChildren().get(0)).getChildren().get(0/**/)).getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).getChildren().forEach(item -> {if (((IMatProductItem)item).shoppingItem != null) ((IMatProductItem)item).updateShoppingCart();}));
+                    ((TabPane)((StackPane)((AnchorPane)((GridPane)((AnchorPane)previousRoot).getChildren().get(0)).getChildren().get(1)).getChildren().get(0)).getChildren().get(1/**/)).getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).getChildren().forEach(item -> {if (((IMatProductItem)item).shoppingItem != null) ((IMatProductItem)item).updateShoppingCart();}));
+                }
+
             }
         }
         main.setRoot(previousRoot);

@@ -113,7 +113,7 @@ public class IMatPaymentController implements Initializable {
         dataHandler = IMatDataHandler.getInstance();
         customer = dataHandler.getCustomer();
         creditCard = dataHandler.getCreditCard();
-        numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2).equals("st") ?item.getAmount():1).sum()));
+        numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> {String un = item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2);return un.equals("st") || un.equals("rp") ?item.getAmount():1;}).sum()));
         totalCostLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
         //paymentOptionsSplitPane.toFront();
         deliveryAnchorPane.toFront();
@@ -131,7 +131,7 @@ public class IMatPaymentController implements Initializable {
     }
 
     private void invoiceInit() {
-        invoiceNumberOfProductsLabel.setText("Antal Varor: " + /*String.valueOf(dataHandler.getShoppingCart().getItems().size())*/String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length()-2)=="st"?item.getAmount():1).sum()));
+        invoiceNumberOfProductsLabel.setText("Antal Varor: " + /*String.valueOf(dataHandler.getShoppingCart().getItems().size())*/String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> {String un = item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2);return un.equals("st") || un.equals("rp") ?item.getAmount():1;}).sum()));
         invoiceSumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
         headerLabel.setText("Du har valt att betala med faktura");
         forenameTextField.focusedProperty().addListener(new TextFieldListener(forenameTextField));
@@ -144,7 +144,7 @@ public class IMatPaymentController implements Initializable {
     }
 
     private void creditInit() {
-        creditNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length()-2)=="st"?item.getAmount():1).sum()));
+        creditNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> {String un = item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2);return un.equals("st") || un.equals("rp") ?item.getAmount():1;}).sum()));
         creditSumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
         headerLabel.setText("Du har valt att betala med kreditkort");
         nameTextField.focusedProperty().addListener(new TextFieldListener(nameTextField));

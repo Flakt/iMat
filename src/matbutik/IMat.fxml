@@ -314,7 +314,11 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="251.0" GridPane.rowIndex="1" />
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <content>
+                              <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="254.0" style="-fx-pref-height: 416px;" />
+                           </content>
+                        </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
                               <Button fx:id="goToCashDesk" mnemonicParsing="false" onAction="#shoppingCart" styleClass="greenButton" text="Gå till kassan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">

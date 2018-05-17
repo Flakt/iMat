@@ -98,6 +98,8 @@ public class IMatProductItem extends AnchorPane {
         category = EnumSet.noneOf(Category.class);
         tags = new HashSet<>();
         acquireCategoryAndTags(p);
+
+        productTotalPrice.setText(String.format( "%.1f",((product.getPrice()))) + " kr");
     }
 
 
@@ -107,14 +109,14 @@ public class IMatProductItem extends AnchorPane {
     }
     private void setEco(){
         if(product.isEcological()){
-            eco.setText("Ekologisk");
+            eco.setVisible(true);
         }
         else{
-            eco.setText("");
+            eco.setVisible(false);
         }
     }
     private void setPrice(){
-        price.setText(product.getPrice() +  " " + product.getUnit());
+        price.setText("Jfr: " + product.getPrice() +  " " + product.getUnit());
     }
 
     @FXML
