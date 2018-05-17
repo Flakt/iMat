@@ -1,9 +1,7 @@
 package matbutik;
 
 import javafx.scene.image.Image;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,9 +15,21 @@ public class IMatModularCartController {
     protected Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
     protected List<ShoppingItem> backupShoppingItems = new ArrayList<>();
 
+
+
     IMatModularCartController() {
+
+
         dataHandler = IMatDataHandler.getInstance();
         shoppingCart = dataHandler.getShoppingCart();
+
+        shoppingCart.addShoppingCartListener(new ShoppingCartListener() {
+            @Override
+            public void shoppingCartChanged(CartEvent cartEvent) {
+                updateProductsList();
+
+            }
+        });
     }
 
     public void updateProductsList() {
@@ -46,13 +56,17 @@ public class IMatModularCartController {
     public String getCartItemName(ShoppingItem item){return String.valueOf(item.getProduct().getName());}
 
 
-    // Actually check if it loads the correct image
     public Image getCartItemImage(ShoppingItem item) {
         return new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + item.getProduct().getImageName());
     }
 
     public void incrementProductAmount(ShoppingItem item) {
         item.setAmount((item.getAmount() + 1.0));
+
+    }
+
+    public void setProductAmount(ShoppingItem item, int amount){
+        item.setAmount(amount);
 
     }
 

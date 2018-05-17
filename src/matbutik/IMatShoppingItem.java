@@ -58,7 +58,7 @@ public class IMatShoppingItem extends AnchorPane {
         setupFxml();
 
 
-         this.shoppingCartController = shoppingCartController;
+        this.shoppingCartController = shoppingCartController;
         this.shoppingItem = shoppingItem;
 
         cartItemImageView.setImage(shoppingCartController.getCartItemImage(this.shoppingItem));
