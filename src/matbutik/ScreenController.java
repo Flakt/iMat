@@ -54,7 +54,7 @@ public class ScreenController {
     }
 
     public void navigateToPrevious(){
-        if (previousRoot == screenMap.get("Main")){
+        if (previousRoot == screenMap.get("")){
             try {
                 ((TabPane) ((StackPane) ((AnchorPane) ((GridPane) ((AnchorPane) previousRoot).getChildren().get(0)).getChildren().get(1)).getChildren().get(0)).getChildren().get(2/**/)).getTabs().forEach(tab -> ((FlowPane) ((ScrollPane) tab.getContent()).getContent()).getChildren().forEach(item -> {
                     if (((IMatProductItem) item).shoppingItem != null) ((IMatProductItem) item).updateShoppingCart();

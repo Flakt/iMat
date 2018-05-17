@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -206,6 +207,8 @@ public class IMatPaymentController implements Initializable {
         deliveryAnchorPane.toFront();
         headerLabel.setText("Leveransadress");
         deliveryPopulateTextField();
+
+        ScreenController.getInstance().activate("confirmation", creditSumLabel.getScene().getRoot());
     }
 
     @FXML
@@ -221,6 +224,9 @@ public class IMatPaymentController implements Initializable {
         deliveryAnchorPane.toFront();
         headerLabel.setText("Leveransadress");
         deliveryPopulateTextField();
+
+        ScreenController.getInstance().activate("ConfirmationPage", creditSumLabel.getScene().getRoot());
+
     }
 
     @FXML

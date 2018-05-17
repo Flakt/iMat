@@ -1,16 +1,12 @@
 package matbutik;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 import static javafx.application.Application.launch;
 
@@ -29,6 +25,7 @@ public class IMat extends Application {
         Parent history = FXMLLoader.load(getClass().getResource("IMatHistory.fxml"), bundle);
         Parent account = FXMLLoader.load(getClass().getResource("IMatAccount.fxml"), bundle);
         Parent payment = FXMLLoader.load(getClass().getResource("IMatPayment.fxml"), bundle);
+        Parent confirmation = FXMLLoader.load(getClass().getResource("IMatConfirmationPage.fxml"), bundle);
 
 
 
@@ -37,11 +34,12 @@ public class IMat extends Application {
         ScreenController screenController = ScreenController.getInstance();
         screenController.setMain(scene);
 
-        screenController.addScreen("Main", root);
+        screenController.addScreen("", root);
         screenController.addScreen("ShoppingCart", shoppingCart);
         screenController.addScreen("History", history);
         screenController.addScreen("Account", account);
         screenController.addScreen("Payment", payment);
+        screenController.addScreen("ConfirmationPage", confirmation);
 
 
         stage.setTitle(bundle.getString("application.name"));
