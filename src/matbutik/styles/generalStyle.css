@@ -1,6 +1,31 @@
 .greenButton
 {
-    -fx-background-color: #88dd88;
+    -fx-base: #88dd88;
+    -fx-text-fill: #3a3a00;
+}
+.greenButton:hover
+{
+    -fx-base: #88ee88;
+}
+.greenButton:pressed
+{
+    -fx-base: #88cc88;
+}
+.greenButton:selected .focus-indicator
+{
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+.greenButton:focused
+{
+    -fx-focus-color: transparent;
+}
+
+.greenButton .text
+{
+    /*-fx-effect: dropshadow(one-pass-box, black, 1, 0.0, -1, -1);*/
+    -fx-effect: dropshadow(one-pass-box, black, 1, 0.0, 0, 0);
+
 }
 
 .settingsButtonContainer
