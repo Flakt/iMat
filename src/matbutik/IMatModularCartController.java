@@ -65,6 +65,11 @@ public class IMatModularCartController {
 
     }
 
+    public void setProductAmount(ShoppingItem item, int amount){
+        item.setAmount(amount);
+
+    }
+
     public void decrementProductAmount(ShoppingItem item) {
         if (item.getAmount() > 1.0) {
             item.setAmount((item.getAmount() - 1.0));
