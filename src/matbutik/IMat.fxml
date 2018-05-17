@@ -82,7 +82,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <children>
-                            <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                            <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToAccount" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
