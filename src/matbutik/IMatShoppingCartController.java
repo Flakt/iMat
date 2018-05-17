@@ -76,7 +76,9 @@ public class IMatShoppingCartController extends IMatModularCartController implem
             iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this));
         }
         populateFlowPane();
-         updateProductsList();
+        updateProductsList();
+        numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2).equals("st") ?item.getAmount():1).sum()));
+        totalCostLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
     }
 
     @FXML
