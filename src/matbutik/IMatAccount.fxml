@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatAccountController">
+<AnchorPane fx:id="accountRootPane" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatAccountController">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="52.0" prefWidth="163.0" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <Label layoutX="469.0" layoutY="17.0" text="Konto">
@@ -21,7 +20,7 @@
          </font>
       </Label>
       <Button layoutX="777.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" text="Konto" />
-      <Button layoutX="857.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" text="Historik" />
+      <Button layoutX="857.0" layoutY="15.0" mnemonicParsing="false" onAction="#toHistory" prefHeight="50.0" prefWidth="80.0" text="Historik" />
       <Button layoutX="937.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" text="Hjälp" />
       <GridPane layoutX="-2.0" layoutY="88.0" prefHeight="610.0" prefWidth="1024.0">
         <columnConstraints>
@@ -100,7 +99,7 @@
                </font>
             </Label>
             <Label fx:id="accountSumLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" text="Gå till kassan" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#toShoppingCart" text="Gå till kassan" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

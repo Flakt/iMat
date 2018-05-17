@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -21,6 +22,7 @@ public class IMatAccountController implements Initializable {
     private Customer customer;
     private CreditCard creditCard;
 
+    @FXML private AnchorPane accountRootPane;
     @FXML private Label accountNumberOfProductsLabel;
     @FXML private Label accountSumLabel;
     @FXML private TextField accountCardNumberTextField;
@@ -45,7 +47,7 @@ public class IMatAccountController implements Initializable {
 
     private void setShoppingCart() {
         accountNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2) == "st"?item.getAmount():1).sum()));
-        accountSumLabel.setText(String.valueOf("Summa: " + dataHandler.getShoppingCart().getTotal()));
+        accountSumLabel.setText(String.valueOf("Summa :" + dataHandler.getShoppingCart().getTotal()));
     }
 
     private void setTextFields() {
@@ -86,6 +88,17 @@ public class IMatAccountController implements Initializable {
     private void navigateBack(Event event) {
         ScreenController.getInstance().navigateToPrevious();
     }
+
+    @FXML
+    private void toShoppingCart() {
+        ScreenController.getInstance().activate("ShoppingCart", accountRootPane.getScene().getRoot());
+    }
+
+    @FXML
+    private void toHistory() {
+        ScreenController.getInstance().activate("History", accountRootPane.getScene().getRoot());
+    }
+
 
     private class TextFieldListener implements ChangeListener<Boolean> {
         private TextField textField;
