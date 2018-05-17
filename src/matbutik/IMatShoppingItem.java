@@ -3,6 +3,7 @@ package matbutik;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -91,6 +92,7 @@ public class IMatShoppingItem extends AnchorPane {
         cartItemAmountTextField.setText((isAPiece ? ((Integer)(int)(amount + 1)).toString() : ((Double)(amount + 1)).toString()));
 
         updatePrice();
+        updateOthers();
     }
 
     @FXML
@@ -115,14 +117,14 @@ public class IMatShoppingItem extends AnchorPane {
         }
 
         updatePrice();
+        updateOthers();
     }
 
     private void updatePrice() {
         cartItemTotalPrice.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " kr"  );
-        updateOthers();
     }
 
-    private void updateOthers() {
-        //((TabPane)((StackPane)((AnchorPane)((GridPane)this.getParent().getParent().getParent().getParent()).getChildren().get(1)).getChildren().get(0)).getChildren().get(1)).getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).getChildren().forEach(item -> ((IMatProductItem)item).updateShoppingCart()));
+    protected void updateOthers() {
+
     }
 }

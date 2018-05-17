@@ -29,7 +29,7 @@ public class IMatProductItem extends AnchorPane {
     private IMatController controller;
     private IMatDataHandler dataHandler;
     private Product product;
-    private ShoppingItem shoppingItem;
+    public ShoppingItem shoppingItem;
     private EnumSet<Category> category;
     private Set<String> tags;
 

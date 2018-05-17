@@ -3,6 +3,12 @@ package matbutik;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -48,6 +54,9 @@ public class ScreenController {
     }
 
     public void navigateToPrevious(){
+        if (previousRoot == screenMap.get("Main")){
+            ((TabPane)((StackPane)((AnchorPane)((GridPane)((AnchorPane)previousRoot).getChildren().get(0)).getChildren().get(1)).getChildren().get(0)).getChildren().get(2/**/)).getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).getChildren().forEach(item -> {if (((IMatProductItem)item).shoppingItem != null) ((IMatProductItem)item).updateShoppingCart();}));
+        }
         main.setRoot(previousRoot);
     }
 }
