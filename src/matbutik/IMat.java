@@ -32,7 +32,7 @@ public class IMat extends Application {
 
 
 
-        Scene scene = new Scene(root, 1024, 685);
+        Scene scene = new Scene(root, 1124, 685);
 
         ScreenController screenController = ScreenController.getInstance();
         screenController.setMain(scene);
