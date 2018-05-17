@@ -47,7 +47,7 @@ public class IMatPaymentController implements Initializable {
     @FXML
     private Button helpButton;
     @FXML
-    private Button payButton;
+    private Button paymentButton;
     @FXML
     private Button creditPayButton;
     @FXML
@@ -236,7 +236,7 @@ public class IMatPaymentController implements Initializable {
         else if (choice.equals("delivery")) {
             // Maybe reconsider where the button should lead to in this case
             paymentOptionsSplitPane.toFront();
-            headerLabel.setText("Betakningsalternativ");
+            headerLabel.setText("Betalningsalternativ");
         }
     }
 
