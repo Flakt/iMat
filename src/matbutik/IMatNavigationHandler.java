@@ -34,8 +34,13 @@ public class IMatNavigationHandler {
     }
 
     public void goBack() {
-        screenController.activate(this.customerPath.get(customerPath.size() - 2));
-        this.customerPath.remove(customerPath.size() - 1);
+        if (this.customerPath.size() == 1) {
+            screenController.activate(this.customerPath.get(customerPath.size() - 1));
+        }
+        else {
+            screenController.activate(this.customerPath.get(customerPath.size() - 2));
+            this.customerPath.remove(customerPath.size() - 1);
+        }
     }
 
     public void toAccount() {
