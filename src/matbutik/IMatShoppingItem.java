@@ -4,19 +4,20 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class IMatShoppingItem extends AnchorPane {
 
@@ -125,7 +126,46 @@ public class IMatShoppingItem extends AnchorPane {
         cartItemTotalPrice.setText((" =" + String.format("%.2f",this.shoppingItem.getTotal())) + " kr"  );
     }
 
-    protected void updateOthers() {
+    private Stream<Node> getChildrenStream(Node n) {
+        if (Pane.class.isAssignableFrom(n.getClass())) {
+            return ((Pane)n).getChildren().stream();
+        } else if (ScrollPane.class.isAssignableFrom(n.getClass())) {
+            Node temp = ((ScrollPane)n).getContent();
+            List<Node> tmplst = new ArrayList<>();
+            tmplst.add(temp);
+            return tmplst.stream();
+        } else if (TabPane.class.isAssignableFrom(n.getClass())) {
+            return ((TabPane)n).getTabs().stream().map(Tab::getContent);
+        } else if (n.getClass() == IMatProductItem.class)
+        {
+            List<Node> tmplst = new ArrayList<>();
+            tmplst.add(n);
+            return tmplst.stream();
+        } else {
+            return (new ArrayList<Node>()).stream();
+        }
+    }
 
+    private List<IMatProductItem> getDescendantProductItems(Stream<Node> n) {
+        List<IMatProductItem> list = new ArrayList<>();
+        n.forEach(x->{
+            if(x.getClass() == IMatProductItem.class || IMatProductItem.class.isAssignableFrom(x.getClass())){
+                list.add((IMatProductItem) x);
+            } else if (Node.class.isAssignableFrom(x.getClass())) {
+                list.addAll(getDescendantProductItems(getChildrenStream((x))));
+            }
+        });
+        return list;
+    }
+
+    private void updateOthers() {
+        Parent parent = this;
+        do {
+            parent = parent.getParent();
+        } while (parent.getClass() != AnchorPane.class || !parent.getStyleClass().contains("root"));
+        getDescendantProductItems(getChildrenStream(parent)).forEach(item -> {
+            if (item.shoppingItem != null)
+                item.updateShoppingCart();
+        });
     }
 }
