@@ -69,11 +69,6 @@ public class IMatHistoryController implements Initializable{
         historyViewAnchorPane.toFront();
     }
 
-    @FXML
-    private void navigateBack(Event event){
-        ScreenController.getInstance().navigateToPrevious();
-    }
-
     private void updateShoppingCart() {
         /*
         double amount = 0;
@@ -139,6 +134,16 @@ public class IMatHistoryController implements Initializable{
     protected void toHistory() {
         // Why would you even press this?
         ScreenController.getInstance().activate("History", historyRootPane.getScene().getRoot());
+    }
+
+    @FXML
+    protected void toPayment() {
+        ScreenController.getInstance().activate("Payment", historyRootPane.getScene().getRoot());
+    }
+
+    @FXML
+    protected void navigateBack(Event event){
+        ScreenController.getInstance().navigateToPrevious();
     }
 
     public double sumOfAllProducts(Order order) {
