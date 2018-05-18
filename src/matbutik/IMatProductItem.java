@@ -171,7 +171,7 @@ public class IMatProductItem extends AnchorPane {
     private void update(){
         String amountFormat = isAPiece() ? "%.0f" : "%.1f";
         numberOfProducts.setText(String.format(amountFormat,(Double)(shoppingItem!=null ? shoppingItem.getAmount() : 0)));
-        productTotalPrice.setText(String.format("%.2f",(((shoppingItem!=null ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
+        productTotalPrice.setText(String.format("%.2f",(((shoppingItem!=null && shoppingItem.getAmount() != 0 ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
         }
 
     private boolean isAPiece() {

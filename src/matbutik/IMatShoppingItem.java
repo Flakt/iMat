@@ -97,24 +97,18 @@ public class IMatShoppingItem extends AnchorPane {
 
     @FXML
     protected void decItem(Event event) {
-        /*double amount = shoppingItem.getAmount();
-        shoppingCartController.decrementProductAmount(this.shoppingItem);
-        if (amount > 1) {
-            cartItemAmountTextField.setText(String.valueOf(amount));
-        }*/
-
-
         double amount = shoppingItem.getAmount() - (isAPiece()?1:0.1);
         if (amount < 0.00001) {
             shoppingCartController.shoppingCart.removeItem(shoppingItem);
+            shoppingItem.setAmount(0);
             shoppingItem = null;
         } else {
-            shoppingCartController.decrementProductAmount(shoppingItem);
+            shoppingCartController.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
 
             cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount)));
+            updatePrice();
         }
 
-        updatePrice();
         updateOthers();
     }
 
