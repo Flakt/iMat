@@ -23,10 +23,19 @@
 
 .tab
 {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #e8f9e3;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-padding: 0 30 0 30;
+
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: whitesmoke whitesmoke #000 whitesmoke;
+
+    -fx-effect: dropshadow(three-pass-box, black, 0, 0.0, -1, 1);
+}
+.tab:hover
+{
+    -fx-background-color: #eeffe9;
 }
 
 .tabLabel
@@ -41,11 +50,12 @@
 
 .tab:selected
 {
-    -fx-background-color: #FAFCFB;
+    -fx-background-color: whitesmoke/*derive(topBar,100%)/*#FAFCFB*/;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
-    -fx-border-width: 5 0 0 0;
-    -fx-border-color: #3FE387;
+    -fx-border-width: 5 1 0 1;
+    -fx-border-color: #3FE387 #000 #000 #000;
+    /*-fx-border-radius: 0.1 0.1 0 0;*/
 }
 
 .tab:focused
@@ -87,11 +97,11 @@
 
 .tabsDeselected .tab:selected
 {
-    -fx-background-color: /*#FAFCFB*/#FFFFFF;
+    -fx-background-color: /*#FAFCFB*/#e8f9e3;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
-    -fx-border-width: 5 0 0 0;
-    -fx-border-color: #F5F5DC;
+    -fx-border-width: 5 1 1 1;
+    -fx-border-color: whitesmoke whitesmoke #000 whitesmoke/*#F5F5DC*/;
 }
 
 
