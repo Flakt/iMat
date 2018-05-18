@@ -22,6 +22,7 @@ public class IMatHistoryController implements Initializable{
     private IMatDataHandler dataHandler;
     private List<Order> orders = new ArrayList<>();
     private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
+    private IMatNavigationHandler navigationHandler;
 
     @FXML
     private AnchorPane historyRootPane;
@@ -49,6 +50,7 @@ public class IMatHistoryController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
+        navigationHandler = IMatNavigationHandler.getInstance();
         // Have to sort them depending on order number, which should be set @IMatPaymentController
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
@@ -127,18 +129,18 @@ public class IMatHistoryController implements Initializable{
 
     @FXML
     protected void toAccount() {
-        ScreenController.getInstance().activate("Account", historyRootPane.getScene().getRoot());
+        navigationHandler.toAccount();
     }
 
     @FXML
     protected void toHistory() {
         // Why would you even press this?
-        ScreenController.getInstance().activate("History", historyRootPane.getScene().getRoot());
+        navigationHandler.toHistory();
     }
 
     @FXML
     protected void toPayment() {
-        ScreenController.getInstance().activate("Payment", historyRootPane.getScene().getRoot());
+        navigationHandler.toDestination("Payment");
     }
 
     @FXML
