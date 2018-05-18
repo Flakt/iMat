@@ -10,3 +10,8 @@
 .spinner .increment-arrow{
     -fx-background-image: url("../resources/pluss.png");
 }
+
+#addToCartButton {
+    -fx-base: #c5ebe6;
+}
+
