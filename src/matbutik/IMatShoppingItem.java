@@ -16,6 +16,7 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class IMatShoppingItem extends AnchorPane {
 
@@ -66,7 +67,7 @@ public class IMatShoppingItem extends AnchorPane {
         cartItemAmountTextField.setText(
                 (int)amount == amount ?
                         ((Integer)(int)amount).toString() :
-                        ((Double)amount).toString());
+                        String.format("%.1f",(Double)amount));
         updatePrice();
         setEcoLabel();
         //cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
@@ -74,7 +75,7 @@ public class IMatShoppingItem extends AnchorPane {
                 " kr / " + shoppingCartController.getCartSuffix(this.shoppingItem));
         cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem));
     }
-   protected void setEcoLabel(){
+    protected void setEcoLabel(){
         if(dataHandler.getProduct(1).isEcological()){
         cartItemEco.setText("Ekologisk");
         }
@@ -84,12 +85,10 @@ public class IMatShoppingItem extends AnchorPane {
     protected void incItem(Event event) {
         System.out.println(this.getClass().toString());
         double amount = shoppingItem.getAmount();
-        shoppingCartController.incrementProductAmount(this.shoppingItem);
-        shoppingCartController.getCartItemAmount(this.shoppingItem);
+        shoppingCartController.incrementProductAmount(this.shoppingItem, isAPiece()?1:0.1);
+        //shoppingCartController.getCartItemAmount(this.shoppingItem);
 
-        String unit = shoppingItem.getProduct().getUnit();
-        boolean isAPiece = unit.substring(unit.length() - 2).equals("st");
-        cartItemAmountTextField.setText((isAPiece ? ((Integer)(int)(amount + 1)).toString() : ((Double)(amount + 1)).toString()));
+        cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)(amount + (isAPiece()?1:0.1))).toString() : String.format("%.1f",(Double)(amount + (isAPiece()?1:0.1)))));
 
         updatePrice();
         updateOthers();
@@ -104,24 +103,26 @@ public class IMatShoppingItem extends AnchorPane {
         }*/
 
 
-        double amount = shoppingItem.getAmount();
-        if (amount == 1) {
+        double amount = shoppingItem.getAmount() - (isAPiece()?1:0.1);
+        if (amount < 0.00001) {
             shoppingCartController.shoppingCart.removeItem(shoppingItem);
             shoppingItem = null;
         } else {
             shoppingCartController.decrementProductAmount(shoppingItem);
 
-            String unit = shoppingItem.getProduct().getUnit();
-            boolean isAPiece = unit.substring(unit.length() - 2).equals("st");
-            cartItemAmountTextField.setText((isAPiece ? ((Integer)(int)(amount - 1)).toString() : ((Double)(amount - 1)).toString()));
+            cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount)));
         }
 
         updatePrice();
         updateOthers();
     }
 
+    private boolean isAPiece() {
+        return Arrays.stream(new String[]{"st", "rp"}).anyMatch(x->x.equals(shoppingItem.getProduct().getUnit().substring(shoppingItem.getProduct().getUnit().length()-2)));
+    }
+
     private void updatePrice() {
-        cartItemTotalPrice.setText((" =" + shoppingCartController.getCartItemPrice(this.shoppingItem)) + " kr"  );
+        cartItemTotalPrice.setText((" =" + String.format("%.2f",this.shoppingItem.getTotal())) + " kr"  );
     }
 
     protected void updateOthers() {

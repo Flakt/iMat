@@ -61,8 +61,10 @@ public class IMatModularCartController {
     }
 
     public void incrementProductAmount(ShoppingItem item) {
-        item.setAmount((item.getAmount() + 1.0));
-
+        incrementProductAmount(item,1);
+    }
+    public void incrementProductAmount(ShoppingItem item, double step) {
+        item.setAmount((item.getAmount() + step));
     }
 
     public void setProductAmount(ShoppingItem item, int amount){
@@ -71,13 +73,14 @@ public class IMatModularCartController {
     }
 
     public void decrementProductAmount(ShoppingItem item) {
-        if (item.getAmount() > 1.0) {
-            item.setAmount((item.getAmount() - 1.0));
-
+        decrementProductAmount(item,1);
+    }
+    public void decrementProductAmount(ShoppingItem item, double step) {
+        if (item.getAmount() > step) {
+            item.setAmount((item.getAmount() - step));
         }
         else {
             shoppingCart.removeItem(item);
-
         }
     }
 

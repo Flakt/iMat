@@ -56,7 +56,7 @@ public class IMatHistoryController implements Initializable{
             orders.add(order);
         }
         // TEST
-        Order testOrder = new Order();
+        /*Order testOrder = new Order();
         testOrder.setOrderNumber(2);
         testOrder.setDate(new Date());
         List<ShoppingItem> items = new ArrayList<>();
@@ -64,7 +64,7 @@ public class IMatHistoryController implements Initializable{
         testItem.setAmount(2.0);
         items.add(testItem);
         testOrder.setItems(items);
-        orders.add(testOrder);
+        orders.add(testOrder);*/
         // TEST END
         updateShoppingCart();
         populateOrders();
