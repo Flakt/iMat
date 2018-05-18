@@ -42,7 +42,7 @@ public class IMatNavigationHandler {
         screenController.activate("Account");
         setCustomerPath("Account");
     }
-    
+
     public void toHistory() {
         screenController.activate("History");
         setCustomerPath("History");

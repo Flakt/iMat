@@ -21,6 +21,7 @@ public class IMatAccountController implements Initializable {
     private IMatDataHandler dataHandler;
     private Customer customer;
     private CreditCard creditCard;
+    private IMatNavigationHandler navigationHandler;
 
     @FXML private AnchorPane accountRootPane;
     @FXML private Label accountNumberOfProductsLabel;
@@ -38,6 +39,7 @@ public class IMatAccountController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
+        navigationHandler = IMatNavigationHandler.getInstance();
         customer = dataHandler.getCustomer();
         creditCard = dataHandler.getCreditCard();
         setShoppingCart();
@@ -86,17 +88,17 @@ public class IMatAccountController implements Initializable {
 
     @FXML
     private void navigateBack(Event event) {
-        ScreenController.getInstance().navigateToPrevious();
+        navigationHandler.goBack();
     }
 
     @FXML
     private void toShoppingCart() {
-        ScreenController.getInstance().activate("ShoppingCart", accountRootPane.getScene().getRoot());
+        navigationHandler.toDestination("ShoppingCart");
     }
 
     @FXML
     private void toHistory() {
-        ScreenController.getInstance().activate("History", accountRootPane.getScene().getRoot());
+        navigationHandler.toHistory();
     }
 
 

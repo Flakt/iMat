@@ -145,7 +145,7 @@ public class IMatHistoryController implements Initializable{
 
     @FXML
     protected void navigateBack(Event event){
-        ScreenController.getInstance().navigateToPrevious();
+        navigationHandler.goBack();
     }
 
     public double sumOfAllProducts(Order order) {

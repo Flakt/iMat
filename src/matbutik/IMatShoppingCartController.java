@@ -15,15 +15,8 @@ import java.util.*;
 
 public class IMatShoppingCartController extends IMatModularCartController implements Initializable {
 
-    /*
-        Untested as of 2018-05-02
+    private IMatNavigationHandler navigationHandler;
 
-        This Class should have:
-            - All necessary Fx:id
-            - A method to display all products in customer shopping cart
-            - Methods/Functionality to be assigned to all the buttons
-
-     */
     @FXML
     private AnchorPane cartItemsPane;
     @FXML
@@ -51,6 +44,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        navigationHandler = IMatNavigationHandler.getInstance();
         //
         // TEST
         // add something to the shopping cart
@@ -120,20 +114,20 @@ public class IMatShoppingCartController extends IMatModularCartController implem
 
     @FXML
     private void navigateToHistory(Event e){
-        ScreenController.getInstance().activate("History", cartDetailsPane.getScene().getRoot());
+        navigationHandler.toHistory();
     }
     @FXML
     private void navigateToAccount(Event e){
-        ScreenController.getInstance().activate("Account", cartDetailsPane.getScene().getRoot());
+        navigationHandler.toAccount();
     }
     @FXML
     private void navigateToHelp(Event e){
-        ScreenController.getInstance().activate("Help", cartDetailsPane.getScene().getRoot());
+        navigationHandler.toHelp();
     }
 
     @FXML
     private void toPayment(Event e) {
-        ScreenController.getInstance().activate("Payment", cartDetailsPane.getScene().getRoot());
+        navigationHandler.toDestination("Payment");
     }
 }
 
