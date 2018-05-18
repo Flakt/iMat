@@ -22,6 +22,6 @@ public class confirmationPage implements Initializable {
 
     @FXML
     public void onBack(Event event){
-        ScreenController.getInstance().activate("", text.getScene().getRoot());
+        IMatNavigationHandler.getInstance().toDestination("");
     }
 }

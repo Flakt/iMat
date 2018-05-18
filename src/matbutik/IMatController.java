@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
 public class IMatController extends IMatModularCartController implements Initializable {
 
 
-
     private @FXML FlowPane searchResult;
     private @FXML AnchorPane mainPage;
     private @FXML ScrollPane searchResultContainer;
@@ -42,7 +41,7 @@ public class IMatController extends IMatModularCartController implements Initial
     private @FXML FlowPane shoppingCartFlowPane;
 
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-
+    IMatNavigationHandler navigationHandler = IMatNavigationHandler.getInstance();
 
     private Map<Integer, IMatProductItem> iMatProductItemMap = new HashMap<>();
 
@@ -55,7 +54,7 @@ public class IMatController extends IMatModularCartController implements Initial
     public void initialize(URL location, ResourceBundle resources) {
         populateProductItemMap();
         searchResultContainer.toFront();
-
+        navigationHandler.setCustomerPath("");
         deselectTabs();
         mainPage.toFront();
         fillCategoryPages();
@@ -107,12 +106,12 @@ public class IMatController extends IMatModularCartController implements Initial
 
     @FXML
     private void navigateToHistory(Event event){
-        ScreenController.getInstance().activate("History", categories.getScene().getRoot());
+        navigationHandler.toHistory();
     }
 
     @FXML
     private void navigateToAccount(Event event) {
-        ScreenController.getInstance().activate("Account", categories.getScene().getRoot());
+        navigationHandler.toAccount();
     }
 
     @FXML
@@ -154,7 +153,7 @@ public class IMatController extends IMatModularCartController implements Initial
     }
 
     @FXML public void shoppingCart(Event event){
-          ScreenController.getInstance().activate("ShoppingCart", categories.getScene().getRoot());
+          navigationHandler.toDestination("ShoppingCart");
     }
 
 
