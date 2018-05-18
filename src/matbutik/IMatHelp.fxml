@@ -102,11 +102,7 @@
                            <tabs>
                               <Tab>
                                  <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <FlowPane fx:id="dairyFlowPane" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" />
                                  </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Vanliga frågor" />
@@ -114,11 +110,7 @@
                               </Tab>
                               <Tab>
                                  <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <FlowPane fx:id="meatFlowPane" prefHeight="592.0" prefWidth="640.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" />
                                  </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Hur kassan fungerar" />
@@ -126,11 +118,7 @@
                               </Tab>
                               <Tab>
                                  <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
-                                       </content>
-                                    </ScrollPane>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" />
                                  </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Leverans" />
@@ -140,12 +128,34 @@
                                  <content>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
+                                          <AnchorPane prefHeight="596.0" prefWidth="586.0">
+                                             <children>
+                                                <Label layoutX="66.0" layoutY="75.0" text="Adress: IMat vägen 37" />
+                                                <Label layoutX="65.0" layoutY="108.0" text="Post nummer: 1337" />
+                                                <Label layoutX="69.0" layoutY="168.0" text="Telephone: 031 1337" />
+                                                <Label layoutX="71.0" layoutY="221.0" text="E-Post: IMat@IMat.se" />
+                                                <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="30.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@resources/telephone.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="39.0" fitWidth="33.0" layoutX="25.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@resources/Circle-icons-mail.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="232.0" layoutY="14.0" text="Kontakt oss">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
                                        </content>
                                     </ScrollPane>
                                  </content>
                                  <graphic>
-                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Konstakt oss" />
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Kontakt oss" />
                                  </graphic>
                               </Tab>
                            </tabs>
