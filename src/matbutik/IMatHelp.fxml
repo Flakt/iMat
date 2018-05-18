@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatController">
+<AnchorPane prefHeight="685.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatHelpController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -42,7 +42,7 @@
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <children>
-                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToAccount" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -90,20 +90,17 @@
                <children>
                   <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane fx:id="searchResultContainer" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                            <content>
-                              <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" />
+                              <FlowPane prefHeight="568.0" prefWidth="638.0" />
                            </content>
                            <StackPane.margin>
                               <Insets left="185.0" />
                            </StackPane.margin>
                         </ScrollPane>
-                        <TabPane id="tabpane" fx:id="categories" onMouseClicked="#reselectTabs" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane id="tabpane" onMouseClicked="#reselectTabs" prefHeight="591.0" prefWidth="664.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
                            <tabs>
                               <Tab>
-                                 <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" />
-                                 </content>
                                  <graphic>
                                     <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Vanliga frågor" />
                                  </graphic>
@@ -175,12 +172,12 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Label fx:id="numberOfProductsLabel" layoutY="26.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
+                              <Label layoutY="26.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label fx:id="totalCostLabel" layoutY="47.0" text="Summa:" AnchorPane.leftAnchor="0.0">
+                              <Label layoutY="47.0" text="Summa:" AnchorPane.leftAnchor="0.0">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
@@ -194,12 +191,12 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <content>
-                              <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="254.0" style="-fx-pref-height: 416px;" />
+                              <FlowPane prefHeight="575.0" prefWidth="254.0" style="-fx-pref-height: 416px;" />
                            </content>
                         </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
-                              <Button fx:id="goToCashDesk" mnemonicParsing="false" onAction="#shoppingCart" styleClass="greenButton" text="Gå till kassan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <Button mnemonicParsing="false" styleClass="greenButton" text="Gå till kassan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="22.0" />
                                  </font>

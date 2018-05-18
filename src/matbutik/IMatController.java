@@ -115,6 +115,9 @@ public class IMatController extends IMatModularCartController implements Initial
     }
 
     @FXML
+    private void navigateToHelp(Event event) {navigationHandler.toHelp();}
+
+    @FXML
     public void search() {
         deselectTabs();
 

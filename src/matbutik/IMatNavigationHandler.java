@@ -54,7 +54,7 @@ public class IMatNavigationHandler {
     }
 
     public void toHelp() {
-        // Wait until help-pane is done
+        screenController.activate("Help");
         setCustomerPath("Help");
     }
 
@@ -62,5 +62,7 @@ public class IMatNavigationHandler {
         screenController.activate(dest);
         setCustomerPath(dest);
     }
+
+
 
 }
