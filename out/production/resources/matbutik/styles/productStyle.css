@@ -1,6 +1,10 @@
 .anchorpane{
     -fx-border-radius: 20 20 0 0;
     -fx-background-radius: 20 20 0 0;
+
+
+    -fx-background-color: #eeeeee;
+    -fx-effect: dropshadow(three-pass-box, black, 2, 0.0, 1, 1);
 }
 
 .spinner .increment-arrow{

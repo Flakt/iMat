@@ -82,7 +82,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <children>
-                            <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                            <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToAccount" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -314,7 +314,11 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="251.0" GridPane.rowIndex="1" />
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <content>
+                              <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="254.0" style="-fx-pref-height: 416px;" />
+                           </content>
+                        </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
                               <Button fx:id="goToCashDesk" mnemonicParsing="false" onAction="#shoppingCart" styleClass="greenButton" text="Gå till kassan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
