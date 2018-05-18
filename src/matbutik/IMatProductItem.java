@@ -48,8 +48,7 @@ public class IMatProductItem extends AnchorPane {
     @FXML
     private TextField numberOfProducts;
 
-    private SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
-            0, 99);
+    private SpinnerValueFactory valueFactory;
     //
 
     @FXML
@@ -99,6 +98,12 @@ public class IMatProductItem extends AnchorPane {
         tags = new HashSet<>();
         acquireCategoryAndTags(p);
 
+        if (isAPiece())
+            valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
+                    0, 99);
+        else
+            valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,99,0,0.1);
+
         productTotalPrice.setText(String.format( "%.2f",((product.getPrice()))) + " kr");
     }
 
@@ -123,8 +128,14 @@ public class IMatProductItem extends AnchorPane {
     private void onIncrement(Event event) {
         valueFactory.increment(1);
         if (shoppingItem != null)
-            controller.incrementProductAmount(shoppingItem);
-        else shoppingItem = new ShoppingItem(product);
+            if (isAPiece())
+                controller.incrementProductAmount(shoppingItem);
+            else
+                controller.incrementProductAmount(shoppingItem,0.1);
+        else {
+            shoppingItem = new ShoppingItem(product);
+            shoppingItem.setAmount(isAPiece() ? (Integer)valueFactory.getValue() : (Double)valueFactory.getValue());
+        }
         if(!controller.shoppingCart.getItems().contains(shoppingItem)){
             controller.shoppingCart.addItem(shoppingItem);
         }
@@ -137,11 +148,11 @@ public class IMatProductItem extends AnchorPane {
         valueFactory.decrement(1);
 
 
-        if (shoppingItem.getAmount() == 1) {
+        if (shoppingItem.getAmount() - (isAPiece()?1:0.1) < 0.00001) {
             controller.shoppingCart.removeItem(shoppingItem);
             shoppingItem = null;
         } else
-            controller.decrementProductAmount(shoppingItem);
+            controller.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
 
 
         updateShoppingCart();
@@ -158,9 +169,14 @@ public class IMatProductItem extends AnchorPane {
     }
 
     private void update(){
-        numberOfProducts.setText(shoppingItem!=null ? ((Double)shoppingItem.getAmount()).toString() : "0");
-        productTotalPrice.setText(String.format( "%.1f",(((shoppingItem!=null ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
+        String amountFormat = isAPiece() ? "%.0f" : "%.1f";
+        numberOfProducts.setText(String.format(amountFormat,(Double)(shoppingItem!=null ? shoppingItem.getAmount() : 0)));
+        productTotalPrice.setText(String.format("%.2f",(((shoppingItem!=null ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
         }
+
+    private boolean isAPiece() {
+        return Arrays.stream(new String[]{"st", "rp"}).anyMatch(x->x.equals(product.getUnit().substring(product.getUnit().length()-2)));
+    }
 
     private void setImage(){
         productImage.setImage(dataHandler.getFXImage(product));
@@ -252,11 +268,13 @@ public class IMatProductItem extends AnchorPane {
             while (is.read() != ';') ;
             if (is.read() == 'e')
                 if (is.read() == 'n')
-                    if (is.read() == 'd')
-                        if (is.read() == '\r')
+                    if (is.read() == 'd') {
+                        int temp = is.read();
+                        if (temp == '\r' || temp == '\n')
                             return;
                         else if (is.read() == -1)
                             throw new IOException("EOF reached!");
+                    }
         }
     }
 
