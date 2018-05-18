@@ -99,7 +99,7 @@ public class IMatProductItem extends AnchorPane {
         tags = new HashSet<>();
         acquireCategoryAndTags(p);
 
-        productTotalPrice.setText(String.format( "%.1f",((product.getPrice()))) + " kr");
+        productTotalPrice.setText(String.format( "%.2f",((product.getPrice()))) + " kr");
     }
 
 
@@ -158,8 +158,8 @@ public class IMatProductItem extends AnchorPane {
     }
 
     private void update(){
-        numberOfProducts.setText(((Double)shoppingItem.getAmount()).toString());
-        productTotalPrice.setText(String.format( "%.1f",((shoppingItem.getAmount() * product.getPrice()))) + " kr");
+        numberOfProducts.setText(shoppingItem!=null ? ((Double)shoppingItem.getAmount()).toString() : "0");
+        productTotalPrice.setText(String.format( "%.1f",(((shoppingItem!=null ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
         }
 
     private void setImage(){
