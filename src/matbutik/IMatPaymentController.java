@@ -9,24 +9,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
-import se.chalmers.cse.dat216.project.CreditCard;
-import se.chalmers.cse.dat216.project.Customer;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class IMatPaymentController implements Initializable {
 
-    /*
-        To do:
-            - Implementera resten utav knapparna
-            - Testa om backend fungerar som det är tänkt
-            - Testa om bytningen mellan AnchorPanes fungerar
-     */
-
     private IMatDataHandler dataHandler;
+    private IMatNavigationHandler navigationHandler;
     private Customer customer;
     private CreditCard creditCard;
     private String choice;
@@ -111,6 +103,7 @@ public class IMatPaymentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
+        navigationHandler = IMatNavigationHandler.getInstance();
         customer = dataHandler.getCustomer();
         creditCard = dataHandler.getCreditCard();
         numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> {String un = item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2);return un.equals("st") || un.equals("rp") ?item.getAmount():1;}).sum()));
@@ -216,8 +209,8 @@ public class IMatPaymentController implements Initializable {
             customer.setPostCode(zipcodeTextField.getText());
         }
         choice = "delivery";
-
-        ScreenController.getInstance().activate("ConfirmationPage", creditSumLabel.getScene().getRoot());
+        dataHandler.placeOrder(true);
+        navigationHandler.toDestination("ConfirmationPage");
     }
 
     @FXML
@@ -230,15 +223,15 @@ public class IMatPaymentController implements Initializable {
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
         choice = "delivery";
-
-        ScreenController.getInstance().activate("ConfirmationPage", creditSumLabel.getScene().getRoot());
+        dataHandler.placeOrder(true);
+        navigationHandler.toDestination("ConfirmationPage");
 
     }
 
     @FXML
     protected void goBack() {
         if (choice == null) {
-            ScreenController.getInstance().navigateToPrevious();
+            navigationHandler.goBack();
             return;
         }
         if (choice.equals("invoice") || choice.equals("credit")) {
