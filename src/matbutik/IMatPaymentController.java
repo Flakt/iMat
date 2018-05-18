@@ -9,12 +9,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
-import se.chalmers.cse.dat216.project.CreditCard;
-import se.chalmers.cse.dat216.project.Customer;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class IMatPaymentController implements Initializable {
@@ -211,7 +209,7 @@ public class IMatPaymentController implements Initializable {
             customer.setPostCode(zipcodeTextField.getText());
         }
         choice = "delivery";
-
+        dataHandler.placeOrder(true);
         navigationHandler.toDestination("ConfirmationPage");
     }
 
@@ -225,7 +223,7 @@ public class IMatPaymentController implements Initializable {
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
         choice = "delivery";
-
+        dataHandler.placeOrder(true);
         navigationHandler.toDestination("ConfirmationPage");
 
     }
