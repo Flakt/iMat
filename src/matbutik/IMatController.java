@@ -54,7 +54,7 @@ public class IMatController extends IMatModularCartController implements Initial
     public void initialize(URL location, ResourceBundle resources) {
         populateProductItemMap();
         searchResultContainer.toFront();
-
+        navigationHandler.setCustomerPath("");
         deselectTabs();
         mainPage.toFront();
         fillCategoryPages();
