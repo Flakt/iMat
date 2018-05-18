@@ -29,6 +29,9 @@ public class IMat extends Application {
         Parent confirmation = FXMLLoader.load(getClass().getResource("IMatConfirmationPage.fxml"), bundle);
 
 
+        Parent help = FXMLLoader.load(getClass().getResource("IMatHelp.fxml"), bundle);
+
+
 
         Scene scene = new Scene(root, 1124, 685);
 
@@ -41,6 +44,7 @@ public class IMat extends Application {
         screenController.addScreen("Account", account);
         screenController.addScreen("Payment", payment);
         screenController.addScreen("ConfirmationPage", confirmation);
+        screenController.addScreen("Help", help);
 
 
         stage.setTitle(bundle.getString("application.name"));
