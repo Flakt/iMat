@@ -3,10 +3,7 @@ package matbutik;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -40,6 +37,8 @@ public class IMatProductItem extends AnchorPane {
 
     // SPINNER
     @FXML
+    private AnchorPane spinner;
+    @FXML
     private Button decrementButton;
 
     @FXML
@@ -60,6 +59,9 @@ public class IMatProductItem extends AnchorPane {
     @FXML
     private Label eco;
     @FXML Label productTotalPrice;
+
+    @FXML
+    AnchorPane addItemToCartButtonContainer;
 
     public EnumSet<Category> getCategory() {
         return category;
@@ -105,6 +107,8 @@ public class IMatProductItem extends AnchorPane {
             valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,99,0,0.1);
 
         productTotalPrice.setText(String.format( "%.2f",((product.getPrice()))) + " kr");
+
+        addItemToCartButtonContainer.toFront();
     }
 
 
@@ -151,6 +155,7 @@ public class IMatProductItem extends AnchorPane {
         if (shoppingItem.getAmount() - (isAPiece()?1:0.1) < 0.00001) {
             controller.shoppingCart.removeItem(shoppingItem);
             shoppingItem = null;
+            addItemToCartButtonContainer.toFront();
         } else
             controller.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
 
@@ -168,14 +173,22 @@ public class IMatProductItem extends AnchorPane {
         updateShoppingCart();
     }
 
+    @FXML
+    private void addItemToCart(Event e) {
+        spinner.toFront();
+        onIncrement(e);
+    }
+
     private void update(){
         String amountFormat = isAPiece() ? "%.0f" : "%.1f";
         numberOfProducts.setText(String.format(amountFormat,(Double)(shoppingItem!=null ? shoppingItem.getAmount() : 0)));
         productTotalPrice.setText(String.format("%.2f",(((shoppingItem!=null && shoppingItem.getAmount() != 0 ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
-        }
+        if (shoppingItem==null || shoppingItem.getAmount()==0)
+            addItemToCartButtonContainer.toFront();
+    }
 
     private boolean isAPiece() {
-        return Arrays.stream(new String[]{"st", "rp"}).anyMatch(x->x.equals(product.getUnit().substring(product.getUnit().length()-2)));
+        return Arrays.stream(new String[]{"st", "rp", "se"}).anyMatch(x->x.equals(product.getUnit().substring(product.getUnit().length()-2)));
     }
 
     private void setImage(){

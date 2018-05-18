@@ -113,7 +113,7 @@ public class IMatShoppingItem extends AnchorPane {
     }
 
     private boolean isAPiece() {
-        return Arrays.stream(new String[]{"st", "rp"}).anyMatch(x->x.equals(shoppingItem.getProduct().getUnit().substring(shoppingItem.getProduct().getUnit().length()-2)));
+        return Arrays.stream(new String[]{"st", "rp", "se"}).anyMatch(x->x.equals(shoppingItem.getProduct().getUnit().substring(shoppingItem.getProduct().getUnit().length()-2)));
     }
 
     private void updatePrice() {
