@@ -102,8 +102,41 @@
                            <tabs>
                               <Tab>
                                  <graphic>
-                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Vanliga frågor" />
+                                    <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Att köpa en produkt" />
                                  </graphic>
+                                 <content>
+                                    <AnchorPane prefHeight="591.0" prefWidth="533.0">
+                                       <children>
+                                          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="200.0" styleClass="anchorpane" stylesheets="@styles/productStyle.css">
+                                             <children>
+                                                <ImageView fitHeight="60.0" fitWidth="82.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@resources/testProduct.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField alignment="CENTER" layoutX="6.0" layoutY="84.0" prefHeight="53.0" prefWidth="146.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button fx:id="testAddProduct" layoutX="100.0" layoutY="84.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="54.0" prefWidth="54.0" text="+" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="testRemoveProduct" layoutX="6.0" layoutY="84.0" mnemonicParsing="false" onAction="#removeProduct" prefHeight="54.0" prefWidth="54.0" text="-">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Button>
+                                                <Label layoutX="92.0" layoutY="14.0" text="Om du klickar på +" />
+                                                <Label layoutX="92.0" layoutY="37.0" text="Så lägger du till en " />
+                                                <Label layoutX="92.0" layoutY="59.0" text="vara i varukorgen" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
                               </Tab>
                               <Tab>
                                  <content>
@@ -189,11 +222,6 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                           <content>
-                              <FlowPane prefHeight="575.0" prefWidth="254.0" style="-fx-pref-height: 416px;" />
-                           </content>
-                        </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
                               <Button fx:id="goToCashDesk" mnemonicParsing="false" onAction="#shoppingCart" styleClass="greenButton" text="Gå till kassan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -203,6 +231,20 @@
                               </Button>
                            </children>
                         </AnchorPane>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="256.0">
+                                 <children>
+                                    <AnchorPane fx:id="emptyPane" prefHeight="200.0" prefWidth="256.0" />
+                                    <AnchorPane fx:id="testPane" prefHeight="200.0" prefWidth="256.0" visible="false">
+                                       <children>
+                                          <Label layoutX="92.0" layoutY="72.0" text="toFront" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

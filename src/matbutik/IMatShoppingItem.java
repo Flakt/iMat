@@ -75,7 +75,7 @@ public class IMatShoppingItem extends AnchorPane {
         cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem));
     }
    protected void setEcoLabel(){
-        if(dataHandler.getProduct(1).isEcological()){
+        if(dataHandler.getProduct(shoppingItem.getProduct().getProductId()).isEcological()){
         cartItemEco.setText("Ekologisk");
         }
     }

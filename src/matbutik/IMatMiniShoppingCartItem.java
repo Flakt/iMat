@@ -38,6 +38,7 @@ public class IMatMiniShoppingCartItem extends IMatShoppingItem {
     IMatMiniShoppingCartItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController){
         super(shoppingItem, shoppingCartController);
 
+
     }
 
     @Override
