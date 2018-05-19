@@ -22,6 +22,8 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.net.URL;
+import java.sql.Time;
+import java.time.Clock;
 import java.util.*;
 import java.util.concurrent.Flow;
 import java.util.function.Function;
@@ -52,6 +54,7 @@ public class IMatController extends IMatModularCartController implements Initial
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        TagLoader.getInstance().loadTags();
         populateProductItemMap();
         searchResultContainer.toFront();
         navigationHandler.setCustomerPath("");
