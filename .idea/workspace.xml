@@ -13,10 +13,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMatShoppingCartController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMatShoppingCartController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMatShoppingCartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMatShoppingCartController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/matbutik/IMatShoppingItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/matbutik/IMatShoppingItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatHelp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatHelp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatHelpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatHelpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatMiniShoppingCartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatMiniShoppingCartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/matbutik/IMatShoppingItem.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -305,7 +301,7 @@
       <workItem from="1526202156542" duration="3821000" />
       <workItem from="1526298234676" duration="17430000" />
       <workItem from="1526512222911" duration="1704000" />
-      <workItem from="1526642724974" duration="16183000" />
+      <workItem from="1526642724974" duration="16851000" />
     </task>
     <task id="LOCAL-00001" summary="En början!">
       <created>1524833763730</created>
@@ -440,11 +436,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526659283896</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Behöver fixar lite bilder etc">
+      <created>1526692017132</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1526692017132</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62240000" />
+    <option name="totallyTimeSpent" value="62908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -531,7 +534,8 @@
     <MESSAGE value="IMatHelp funkarish" />
     <MESSAGE value="IMatHelp en börja på en design" />
     <MESSAGE value="IMatHelp knappar funkar" />
-    <option name="LAST_COMMIT_MESSAGE" value="IMatHelp knappar funkar" />
+    <MESSAGE value="Behöver fixar lite bilder etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Behöver fixar lite bilder etc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
