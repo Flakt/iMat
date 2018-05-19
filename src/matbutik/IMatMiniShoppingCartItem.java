@@ -37,8 +37,8 @@ public class IMatMiniShoppingCartItem extends IMatShoppingItem {
 
     }
 
-    IMatMiniShoppingCartItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController){
-        super(shoppingItem, shoppingCartController);
+    IMatMiniShoppingCartItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController, Command cartUpdater){
+        super(shoppingItem, shoppingCartController, cartUpdater);
 
     }
 }

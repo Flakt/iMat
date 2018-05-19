@@ -37,6 +37,9 @@ public class IMatShoppingItem extends AnchorPane {
     @FXML private Label cartItemProductPrice;
     @FXML protected Label cartItemName;
 
+    public boolean removeMe = false;
+
+    private Command cartUpdater;
 
     IMatShoppingItem(){
 
@@ -55,7 +58,7 @@ public class IMatShoppingItem extends AnchorPane {
         }
     }
 
-     IMatShoppingItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController) {
+     IMatShoppingItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController, Command cartUpdater) {
 
         setupFxml();
 
@@ -75,6 +78,8 @@ public class IMatShoppingItem extends AnchorPane {
         cartItemProductPrice.setText(((Double)(this.shoppingItem.getProduct().getPrice())).toString() +
                 " kr / " + shoppingCartController.getCartSuffix(this.shoppingItem));
         cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem));
+
+        this.cartUpdater = cartUpdater;
     }
     protected void setEcoLabel(){
         if(dataHandler.getProduct(1).isEcological()){
@@ -102,14 +107,16 @@ public class IMatShoppingItem extends AnchorPane {
             shoppingCartController.shoppingCart.removeItem(shoppingItem);
             shoppingItem.setAmount(0);
             shoppingItem = null;
+            removeMe = true;
+            updateOthers();
+            cartUpdater.runCommand();
         } else {
             shoppingCartController.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
 
             cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount)));
             updatePrice();
+            updateOthers();
         }
-
-        updateOthers();
     }
 
     private boolean isAPiece() {
@@ -153,13 +160,18 @@ public class IMatShoppingItem extends AnchorPane {
     }
 
     private void updateOthers() {
-        Parent parent = this;
-        do {
-            parent = parent.getParent();
-        } while (parent.getClass() != AnchorPane.class || !parent.getStyleClass().contains("root"));
+        Parent parent = getRoot(this);
         getDescendantProductItems(getChildrenStream(parent)).forEach(item -> {
             if (item.shoppingItem != null)
                 item.updateShoppingCart();
         });
+    }
+
+    private Parent getRoot(Parent node) {
+        Parent parent = node;
+        do {
+            parent = parent.getParent();
+        } while (parent.getClass() != AnchorPane.class || !parent.getStyleClass().contains("root"));
+        return parent;
     }
 }

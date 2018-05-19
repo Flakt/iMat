@@ -160,7 +160,8 @@ public class IMatProductItem extends AnchorPane {
     public void onTextFieldInput(){
         String amountText= numberOfProducts.getText();
         System.out.println(numberOfProducts.getText());
-        int amount = Integer.parseInt(amountText);
+        double amount = Double.parseDouble(amountText);
+        if (isAPiece()) amount = (int)amount;
         valueFactory.setValue(amount);
         controller.setProductAmount(shoppingItem, amount);
         updateShoppingCart();
@@ -193,7 +194,8 @@ public class IMatProductItem extends AnchorPane {
         update();
         controller.getShoppingCartFlowPane().getChildren().clear();
         for (ShoppingItem si: controller.shoppingCart.getItems()){
-            controller.getShoppingCartFlowPane().getChildren().add(new IMatMiniShoppingCartItem(si, controller));
+            if (si.getAmount() != 0)
+                controller.getShoppingCartFlowPane().getChildren().add(new IMatMiniShoppingCartItem(si, controller, this::updateShoppingCart));
         }
 
     }
