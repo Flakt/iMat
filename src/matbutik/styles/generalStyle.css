@@ -64,3 +64,39 @@
     -fx-font-size: 3em;
     -fx-label-padding: -50px;
 }
+
+.topBar
+{
+    -fx-background-color: #fff8e0;
+}
+
+.settingsButtonContainer .button
+{
+    -fx-base: #dcd9d4;
+}
+
+.miniShoppingCartContainer
+{
+    -fx-background-color: #fff8e0;
+}
+
+.miniShoppingCartContainer .flow-pane
+{
+    -fx-background-color: #fff8e0;
+}
+
+.explorerContainer .flow-pane, .explorerContainer .flowpane, .explorerContainer .tab-pane, .explorerContainer .anchor-pane
+{
+    -fx-background-color: #fffdf1;
+}
+
+.miniShoppingCartContainer .scroll-pane
+{
+    -fx-background-color: transparent;
+}
+
+.miniShoppingCartItem
+{
+    -fx-background-color: #f0ffe1;
+    -fx-effect: dropshadow(three-pass-box, black, 1, 0.0, 1, 1);
+}

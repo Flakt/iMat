@@ -24,7 +24,7 @@
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="260.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="95.0" minHeight="95.0" prefHeight="95.0" vgrow="SOMETIMES" />
@@ -111,13 +111,13 @@
                   </GridPane>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.rowIndex="1">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="explorerContainer" GridPane.rowIndex="1">
                <children>
                   <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <ScrollPane fx:id="searchResultContainer" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                            <content>
-                              <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" />
+                              <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" styleClass="flow-pane" />
                            </content>
                            <StackPane.margin>
                               <Insets left="185.0" />
@@ -247,7 +247,7 @@
                               </Tab>
                           </tabs>
                         </TabPane>
-                        <AnchorPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane fx:id="mainPage" prefHeight="200.0" prefWidth="200.0" styleClass="anchor-pane">
                            <children>
                               <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="181.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: -90;" AnchorPane.topAnchor="0.0">
                                  <image>
@@ -278,7 +278,7 @@
                   </StackPane>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columnConstraints>
@@ -316,7 +316,7 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <content>
-                              <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="254.0" style="-fx-pref-height: 416px;" />
+                              <FlowPane fx:id="shoppingCartFlowPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="260.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
                            </content>
                         </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">

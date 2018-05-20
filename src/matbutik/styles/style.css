@@ -35,7 +35,7 @@
     -fx-effect: dropshadow(three-pass-box, black, 0, 0.0, -1, 1);
 
 
-    -fx-border-color: whitesmoke #000 #000 #000;
+    -fx-border-color: #fffdf1/*whitesmoke*/ #000 #000 #000;
     -fx-border-width: 13 0 0 1;
 
     -fx-border-width: 13 0 0 0;
@@ -67,7 +67,7 @@
 
 .tab:selected
 {
-    -fx-background-color: whitesmoke/*derive(topBar,100%)/*#FAFCFB*/;
+    -fx-background-color: #fffdf1/*whitesmoke/*derive(topBar,100%)/*#FAFCFB*/;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-border-width: 13 1 0 1;
@@ -120,7 +120,7 @@
     -fx-background-radius: 0;
     /*-fx-background-insets: 0;*/
     -fx-border-width: 13 0 0 0;
-    -fx-border-color: whitesmoke whitesmoke #000 whitesmoke/*#F5F5DC*/;
+    -fx-border-color: #fffdf1 #fffdf1 #000 #fffdf1/*whitesmoke whitesmoke #000 whitesmoke*//*#F5F5DC*/;
 }
 
 .tabsDeselected .tab:selected .tabLabel
@@ -143,7 +143,7 @@
 
 .tab-pane
 {
-    -fx-background-color: whitesmoke/*#e8f9e3*/;
+    -fx-background-color: #fffdf1/*whitesmoke/*#e8f9e3*/;
 }
 
 
