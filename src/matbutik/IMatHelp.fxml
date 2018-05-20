@@ -232,8 +232,8 @@
                            </children>
                         </AnchorPane>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="256.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="256.0">
                                  <children>
                                     <AnchorPane fx:id="emptyPane" prefHeight="200.0" prefWidth="256.0" />
                                     <AnchorPane fx:id="testPane" prefHeight="200.0" prefWidth="256.0" visible="false">
@@ -243,7 +243,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                          </content>
+                           </content>
                         </ScrollPane>
                      </children>
                      <columnConstraints>

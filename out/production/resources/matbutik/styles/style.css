@@ -23,10 +23,27 @@
 
 .tab
 {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #deefd9;
+    /*-fx-base: #e8f9e3;*/
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-padding: 0 30 0 30;
+
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: whitesmoke whitesmoke #000 whitesmoke;
+
+    -fx-effect: dropshadow(three-pass-box, black, 0, 0.0, -1, 1);
+
+
+    -fx-border-color: #fffdf1/*whitesmoke*/ #000 #000 #000;
+    -fx-border-width: 13 0 0 1;
+
+    -fx-border-width: 13 0 0 0;
+}
+.tab:hover
+{
+    /*-fx-base: #eeffe9;*/
+    -fx-background-color: #f5ffef;
 }
 
 .tabLabel
@@ -37,15 +54,27 @@
     -fx-font-weight: bold;
     -fx-font-size: 16px;
     /*-fx-alignment: center;*/
+    -fx-label-padding: 0 0 0 -7px;
+
+    -fx-border-color: black;
+    -fx-border-width: 1px 2px 1px 1px;
+    -fx-border-insets: -12px;
+}
+.tab:selected .tabLabel
+{
+    -fx-border-width: 1px 0 1px 0px;
 }
 
 .tab:selected
 {
-    -fx-background-color: #FAFCFB;
+    -fx-background-color: #fffdf1/*whitesmoke/*derive(topBar,100%)/*#FAFCFB*/;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
-    -fx-border-width: 5 0 0 0;
-    -fx-border-color: #3FE387;
+    -fx-border-width: 13 1 0 1;
+    -fx-border-color: #3FE387 #000 #000 #000;
+    /*-fx-border-radius: 0.1 0.1 0 0;*/
+
+    -fx-border-width: 13 0 0 0;
 }
 
 .tab:focused
@@ -87,16 +116,38 @@
 
 .tabsDeselected .tab:selected
 {
-    -fx-background-color: /*#FAFCFB*/#FFFFFF;
+    -fx-background-color: /*linear-gradient(to bottom, #e8f9e3, #d9ead4)/*#FAFCFB*/#deefd9;
     -fx-background-radius: 0;
-    -fx-background-insets: 0;
-    -fx-border-width: 5 0 0 0;
-    -fx-border-color: #F5F5DC;
+    /*-fx-background-insets: 0;*/
+    -fx-border-width: 13 0 0 0;
+    -fx-border-color: #fffdf1 #fffdf1 #000 #fffdf1/*whitesmoke whitesmoke #000 whitesmoke*//*#F5F5DC*/;
 }
 
+.tabsDeselected .tab:selected .tabLabel
+{
+-fx-border-width: 1px 2px 1px 1px;
+}
+
+.tabsDeselected .tab:selected:hover
+{
+    /*-fx-base: linear-gradient(to bottom, #ecfde7, #deefd9);*/
+    -fx-background-color: #f5ffef;
+}
 
 /*Scroll thickness*/
 .scroll-bar:vertical, .scroll-bar:pressed:vertical, .scroll-bar:focused:vertical {
     -fx-font-size: 28px;
 }
 
+
+
+.tab-pane
+{
+    -fx-background-color: #fffdf1/*whitesmoke/*#e8f9e3*/;
+}
+
+
+.tab:pressed
+{
+    -fx-background-color: #cad9c5;
+}
