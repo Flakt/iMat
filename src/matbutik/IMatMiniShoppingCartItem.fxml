@@ -13,7 +13,11 @@
       <AnchorPane layoutX="5.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="250.0" styleClass="miniShoppingCartItem">
          <children>
             <ImageView fx:id="cartItemImageView" fitHeight="51.0" fitWidth="51.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="cartItemName" layoutX="56.0" text="Namn" />
+            <Label fx:id="cartItemName" layoutX="56.0" text="Namn">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <Label fx:id="cartItemEco" layoutX="184.60000610351562" text="Ekologisk" />
             <TextField fx:id="cartItemAmountTextField" alignment="CENTER" layoutX="98.0" layoutY="42.0" minHeight="10.0" minWidth="50.0" prefHeight="36.0" prefWidth="112.0">
                <font>

@@ -42,6 +42,10 @@ public class IMatController extends IMatModularCartController implements Initial
 
     private @FXML FlowPane shoppingCartFlowPane;
 
+    private @FXML AnchorPane categoriesContainer;
+
+    private @FXML Label numberOfProductsLabel, totalCostLabel;
+
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     IMatNavigationHandler navigationHandler = IMatNavigationHandler.getInstance();
 
@@ -67,14 +71,14 @@ public class IMatController extends IMatModularCartController implements Initial
         });
     }
 
-    private void sizeSearchResultFlowPane() {
+    private void sizeSearchResultFlowPane() {/*
         double pWidth = searchResultContainer.getWidth();
         searchResult.setMaxWidth(pWidth);
         searchResult.setMinWidth(searchResult.getMaxWidth());
         searchResult.setPrefWidth(searchResult.getMaxWidth());
 
 
-        sizeTabFlowPanes();
+        sizeTabFlowPanes();*/
     }
 
     private void sizeTabFlowPanes() {
@@ -175,7 +179,7 @@ public class IMatController extends IMatModularCartController implements Initial
     public void reselectTabs() {
         fillCategoryPages();
         categories.getStyleClass().remove("tabsDeselected");
-        categories.toFront();
+        categoriesContainer.toFront();
         searchBar.setText("");
         sizeTabFlowPanes();
     }
@@ -184,5 +188,13 @@ public class IMatController extends IMatModularCartController implements Initial
     public void searchBarKeyPressed(javafx.scene.input.KeyEvent e) {
         if (e.getCode() == KeyCode.ENTER)
             search();
+    }
+
+    public Label getNumberOfProductsLabel() {
+        return numberOfProductsLabel;
+    }
+
+    public Label getTotalCostLabel() {
+        return totalCostLabel;
     }
 }

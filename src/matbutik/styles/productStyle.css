@@ -15,3 +15,7 @@
     -fx-base: #c5ebe6;
 }
 
+.anchorpane
+{
+    -fx-background-color: #f0ffe1;
+}

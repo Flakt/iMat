@@ -206,6 +206,8 @@ public class IMatProductItem extends AnchorPane {
                 controller.getShoppingCartFlowPane().getChildren().add(cartItem);
             }
         }
+        controller.getTotalCostLabel().setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
+        controller.getNumberOfProductsLabel().setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
 
     }
 

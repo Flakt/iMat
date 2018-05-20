@@ -151,3 +151,13 @@
 {
     -fx-background-color: #cad9c5;
 }
+
+.tab-pane .tab-header-area {
+    -fx-translate-y: 50px;
+}
+
+.scroll-bar
+{
+    -fx-background-color: #fff8e0;
+    -fx-base: #deefd9;
+}
