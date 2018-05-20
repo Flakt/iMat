@@ -8,40 +8,47 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="251.0" stylesheets="@styles/generalStyle.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="260.0" style="-fx-background-color: transparent;" stylesheets="@styles/generalStyle.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="cartItemImageView" fitHeight="51.0" fitWidth="51.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="10.0" />
-      <Label fx:id="cartItemName" layoutX="61.0" layoutY="4.0" text="Namn" />
-      <Label fx:id="cartItemEco" layoutX="127.0" layoutY="4.0" text="Ekologisk" AnchorPane.rightAnchor="10.0" />
-      <TextField fx:id="cartItemAmountTextField" alignment="CENTER" layoutX="103.0" layoutY="42.0" minHeight="10.0" minWidth="50.0" prefHeight="36.0" prefWidth="112.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="35.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <padding>
-            <Insets top="-5.0" />
-         </padding>
-      </TextField>
-      <Button fx:id="cartItemDecreaseButton" layoutX="70.0" layoutY="43.0" mnemonicParsing="false" onAction="#decItem" prefHeight="36.0" prefWidth="36.0" styleClass="decButton" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <padding>
-            <Insets bottom="-20.0" left="-20.0" right="-20.0" top="-20.0" />
-         </padding>
-      </Button>
-      <Button fx:id="cartItemIncreaseButton" layoutX="214.0" layoutY="43.0" mnemonicParsing="false" onAction="#incItem" prefHeight="36.0" prefWidth="36.0" styleClass="incButton" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <padding>
-            <Insets bottom="-20.0" left="-20.0" right="-20.0" top="-20.0" />
-         </padding>
-      </Button>
-      <Label fx:id="cartItemTotalPrice" layoutX="198.0" layoutY="26.0" text="= Pris">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="cartItemProductPrice" layoutX="76.0" layoutY="25.0" text="st" />
+      <AnchorPane layoutX="5.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="250.0" styleClass="miniShoppingCartItem">
+         <children>
+            <ImageView fx:id="cartItemImageView" fitHeight="51.0" fitWidth="51.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="cartItemName" layoutX="56.0" text="Namn" />
+            <Label fx:id="cartItemEco" layoutX="184.60000610351562" text="Ekologisk" />
+            <TextField fx:id="cartItemAmountTextField" alignment="CENTER" layoutX="98.0" layoutY="42.0" minHeight="10.0" minWidth="50.0" prefHeight="36.0" prefWidth="112.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets top="-5.0" />
+               </padding>
+            </TextField>
+            <Button fx:id="cartItemDecreaseButton" layoutX="65.0" layoutY="42.0" mnemonicParsing="false" onAction="#decItem" prefHeight="36.0" prefWidth="36.0" styleClass="decButton" text="-">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="-20.0" left="-20.0" right="-20.0" top="-20.0" />
+               </padding>
+            </Button>
+            <Button fx:id="cartItemIncreaseButton" layoutX="209.0" layoutY="42.0" mnemonicParsing="false" onAction="#incItem" prefHeight="36.0" prefWidth="36.0" styleClass="incButton" text="+" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="-20.0" left="-20.0" right="-20.0" top="-20.0" />
+               </padding>
+            </Button>
+            <Label fx:id="cartItemTotalPrice" layoutX="201.0" layoutY="22.0" text="= Pris" AnchorPane.rightAnchor="8.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartItemProductPrice" layoutX="71.0" layoutY="21.0" text="st" />
+         </children>
+      </AnchorPane>
    </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
 </fx:root>

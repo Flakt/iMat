@@ -52,6 +52,9 @@ public class IMatProductItem extends AnchorPane {
     @FXML Label productTotalPrice;
 
     @FXML
+    private Label unitLabel;
+
+    @FXML
     AnchorPane addItemToCartButtonContainer;
 
     public EnumSet<Category> getCategory() {
@@ -100,6 +103,8 @@ public class IMatProductItem extends AnchorPane {
             valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,99,0,0.1);
 
         productTotalPrice.setText(String.format( "%.2f",((product.getPrice()))) + " kr");
+
+        unitLabel.setText(product.getUnit().substring(product.getUnit().indexOf('/')+1));
 
         addItemToCartButtonContainer.toFront();
     }
@@ -161,8 +166,8 @@ public class IMatProductItem extends AnchorPane {
         String amountText= numberOfProducts.getText();
         System.out.println(numberOfProducts.getText());
         double amount = Double.parseDouble(amountText);
-        if (isAPiece()) amount = (int)amount;
-        valueFactory.setValue(amount);
+        if (isAPiece()) valueFactory.setValue((int)amount);
+        else valueFactory.setValue(amount);
         controller.setProductAmount(shoppingItem, amount);
         updateShoppingCart();
     }
@@ -175,14 +180,16 @@ public class IMatProductItem extends AnchorPane {
 
     private void update(){
         String amountFormat = isAPiece() ? "%.0f" : "%.1f";
-        numberOfProducts.setText(String.format(amountFormat,(Double)(shoppingItem!=null ? shoppingItem.getAmount() : 0)));
+        String spacing = "", unit = product.getUnit().substring(product.getUnit().indexOf('/')+1);
+        if (unit.equals("st") || unit.equals("kg")) spacing = " "; else if (unit.equals("förp") || unit.equals("burk")) spacing = "   ";
+        numberOfProducts.setText(String.format(amountFormat,(Double)(shoppingItem!=null ? shoppingItem.getAmount() : 0))+spacing);
         productTotalPrice.setText(String.format("%.2f",(((shoppingItem!=null && shoppingItem.getAmount() != 0 ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
         if (shoppingItem==null || shoppingItem.getAmount()==0)
             addItemToCartButtonContainer.toFront();
     }
 
     private boolean isAPiece() {
-        return Arrays.stream(new String[]{"st", "rp", "se"}).anyMatch(x->x.equals(product.getUnit().substring(product.getUnit().length()-2)));
+        return Arrays.stream(new String[]{"st", "rp", "se", "rk"}).anyMatch(x->x.equals(product.getUnit().substring(product.getUnit().length()-2)));
     }
 
     private void setImage(){
@@ -194,8 +201,10 @@ public class IMatProductItem extends AnchorPane {
         update();
         controller.getShoppingCartFlowPane().getChildren().clear();
         for (ShoppingItem si: controller.shoppingCart.getItems()){
-            if (si.getAmount() != 0)
-                controller.getShoppingCartFlowPane().getChildren().add(new IMatMiniShoppingCartItem(si, controller, this::updateShoppingCart));
+            if (si.getAmount() != 0) {
+                IMatMiniShoppingCartItem cartItem = new IMatMiniShoppingCartItem(si, controller, this::updateShoppingCart);
+                controller.getShoppingCartFlowPane().getChildren().add(cartItem);
+            }
         }
 
     }
