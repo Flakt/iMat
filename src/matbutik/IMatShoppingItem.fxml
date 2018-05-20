@@ -15,12 +15,12 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="cartItemDecreaseButton" layoutX="292.0" layoutY="10.0" mnemonicParsing="false" onAction="#decItem" prefHeight="55.0" prefWidth="55.0" text="-">
+      <Button fx:id="cartItemDecreaseButton" layoutX="292.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#decItem" prefHeight="55.0" prefWidth="55.0" style="-fx-font-size: 4em; -fx-label-padding: -50px;" styleClass="decButton" text="-">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="cartItemIncreaseButton" layoutX="468.0" layoutY="10.0" mnemonicParsing="false" onAction="#incItem" prefHeight="55.0" prefWidth="55.0" text="+" textAlignment="CENTER">
+      <Button fx:id="cartItemIncreaseButton" layoutX="468.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incItem" prefHeight="55.0" prefWidth="55.0" style="-fx-font-size: 4em; -fx-label-padding: -50px;" styleClass="incButton" text="+" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>

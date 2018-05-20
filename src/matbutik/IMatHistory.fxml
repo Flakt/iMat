@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,12 +22,16 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="434.0">
                      <children>
-                        <FlowPane fx:id="historyDetailFlowPane" layoutY="40.0" prefHeight="364.0" prefWidth="434.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
                         <Label fx:id="historyDetailDateLabel" layoutX="14.0" layoutY="5.0" text="Kundvagn från">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <ScrollPane layoutY="40.0" prefHeight="364.0" prefWidth="434.0">
+                           <content>
+                              <FlowPane fx:id="historyDetailFlowPane" prefHeight="364.0" prefWidth="434.0" />
+                           </content>
+                        </ScrollPane>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -41,7 +46,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="historyDetailCloseImage" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ImageView fx:id="historyDetailCloseImage" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" onMouseClicked="#closeImageOnClick" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <image>
                               <Image url="@resources/cross.png" />
                            </image>
@@ -54,52 +59,77 @@
       </AnchorPane>
       <AnchorPane fx:id="historyViewAnchorPane" prefHeight="700.0" prefWidth="1024.0">
          <children>
-            <Label layoutX="251.0" layoutY="36.0" prefHeight="45.0" prefWidth="522.0" text="Historik över dina tidigare köp" textAlignment="CENTER" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="251.0" AnchorPane.topAnchor="36.0">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="52.0" prefWidth="163.0" text="Tillbaka" />
-            <GridPane layoutX="718.0" layoutY="4.0" prefHeight="63.0" prefWidth="305.0">
+            <GridPane layoutY="-4.0" prefHeight="89.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.59999084472656" minWidth="10.0" prefWidth="49.99997940063477" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.8000205993652" minWidth="10.0" prefWidth="186.59994812011715" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="594.4" minWidth="10.0" prefWidth="577.8000518798829" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.60002441406243" minWidth="0.0" percentWidth="8.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.20001220703125" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.40002441406239" minWidth="10.0" percentWidth="8.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#toAccount" prefHeight="63.0" prefWidth="75.0" text="Konto" />
-                  <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="75.0" text="Hjälp" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="75.0" text="Historik" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#toAccount" prefHeight="63.0" prefWidth="75.0" text="Konto" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="75.0" text="Hjälp" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#toHistory" prefHeight="39.0" prefWidth="86.0" text="Historik" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label prefHeight="46.0" prefWidth="450.0" text="Historik över dina tidigare köp" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#navigateBack" prefHeight="39.0" prefWidth="96.0" text="Tillbaka" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </GridPane>
-            <SplitPane dividerPositions="0.75" layoutY="89.0" prefHeight="610.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.6000000000000227" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <FlowPane fx:id="historyOrdersFlowPane" layoutX="88.0" layoutY="44.0" prefHeight="566.0" prefWidth="663.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="Kundvagn">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="historyNumberOfProductsLabel" layoutX="14.0" layoutY="50.0" text="Label" wrapText="true" />
-                        <Label fx:id="historySumLabel" layoutX="14.0" layoutY="79.0" text="Label" wrapText="true" />
-                        <Button layoutX="62.0" layoutY="540.0" mnemonicParsing="false" onAction="#toPayment" text="Gå till kassan">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
+          <AnchorPane layoutY="90.0" minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="771.0" style="-fx-background-color: #09CDDA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+               <children>
+                  <ScrollPane prefHeight="610.0" prefWidth="771.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="768.0">
+                           <children>
+                              <FlowPane fx:id="historyOrdersFlowPane" prefHeight="610.0" prefWidth="771.0" AnchorPane.bottomAnchor="-410.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-571.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane layoutX="772.0" layoutY="90.0" minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="252.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Kundvagn">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="historyNumberOfProductsLabel" layoutX="14.0" layoutY="50.0" text="Label" wrapText="true" />
+                  <Label fx:id="historySumLabel" layoutX="14.0" layoutY="79.0" text="Label" wrapText="true" />
+                  <Button layoutX="62.0" layoutY="540.0" mnemonicParsing="false" onAction="#toPayment" text="Gå till kassan">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

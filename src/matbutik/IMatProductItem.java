@@ -3,27 +3,15 @@ package matbutik;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.text.DecimalFormat;
 import java.util.*;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class IMatProductItem extends AnchorPane {
 
@@ -39,6 +27,8 @@ public class IMatProductItem extends AnchorPane {
 
 
     // SPINNER
+    @FXML
+    private AnchorPane spinner;
     @FXML
     private Button decrementButton;
 
@@ -60,6 +50,9 @@ public class IMatProductItem extends AnchorPane {
     @FXML
     private Label eco;
     @FXML Label productTotalPrice;
+
+    @FXML
+    AnchorPane addItemToCartButtonContainer;
 
     public EnumSet<Category> getCategory() {
         return category;
@@ -96,7 +89,9 @@ public class IMatProductItem extends AnchorPane {
 
         category = EnumSet.noneOf(Category.class);
         tags = new HashSet<>();
-        acquireCategoryAndTags(p);
+        //acquireCategoryAndTags(p);
+        tags = TagLoader.getInstance().tagMap.get(product.getProductId());
+        category = TagLoader.getInstance().categoryMap.get(product.getProductId());
 
         if (isAPiece())
             valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
@@ -105,6 +100,8 @@ public class IMatProductItem extends AnchorPane {
             valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,99,0,0.1);
 
         productTotalPrice.setText(String.format( "%.2f",((product.getPrice()))) + " kr");
+
+        addItemToCartButtonContainer.toFront();
     }
 
 
@@ -151,6 +148,7 @@ public class IMatProductItem extends AnchorPane {
         if (shoppingItem.getAmount() - (isAPiece()?1:0.1) < 0.00001) {
             controller.shoppingCart.removeItem(shoppingItem);
             shoppingItem = null;
+            addItemToCartButtonContainer.toFront();
         } else
             controller.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
 
@@ -162,20 +160,29 @@ public class IMatProductItem extends AnchorPane {
     public void onTextFieldInput(){
         String amountText= numberOfProducts.getText();
         System.out.println(numberOfProducts.getText());
-        int amount = Integer.parseInt(amountText);
+        double amount = Double.parseDouble(amountText);
+        if (isAPiece()) amount = (int)amount;
         valueFactory.setValue(amount);
         controller.setProductAmount(shoppingItem, amount);
         updateShoppingCart();
     }
 
+    @FXML
+    private void addItemToCart(Event e) {
+        spinner.toFront();
+        onIncrement(e);
+    }
+
     private void update(){
         String amountFormat = isAPiece() ? "%.0f" : "%.1f";
         numberOfProducts.setText(String.format(amountFormat,(Double)(shoppingItem!=null ? shoppingItem.getAmount() : 0)));
-        productTotalPrice.setText(String.format("%.2f",(((shoppingItem!=null ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
-        }
+        productTotalPrice.setText(String.format("%.2f",(((shoppingItem!=null && shoppingItem.getAmount() != 0 ? shoppingItem.getAmount() : 1) * product.getPrice()))) + " kr");
+        if (shoppingItem==null || shoppingItem.getAmount()==0)
+            addItemToCartButtonContainer.toFront();
+    }
 
     private boolean isAPiece() {
-        return Arrays.stream(new String[]{"st", "rp"}).anyMatch(x->x.equals(product.getUnit().substring(product.getUnit().length()-2)));
+        return Arrays.stream(new String[]{"st", "rp", "se"}).anyMatch(x->x.equals(product.getUnit().substring(product.getUnit().length()-2)));
     }
 
     private void setImage(){
@@ -187,166 +194,11 @@ public class IMatProductItem extends AnchorPane {
         update();
         controller.getShoppingCartFlowPane().getChildren().clear();
         for (ShoppingItem si: controller.shoppingCart.getItems()){
-            controller.getShoppingCartFlowPane().getChildren().add(new IMatMiniShoppingCartItem(si, controller));
+            if (si.getAmount() != 0)
+                controller.getShoppingCartFlowPane().getChildren().add(new IMatMiniShoppingCartItem(si, controller, this::updateShoppingCart));
         }
 
     }
-
-    private void acquireCategoryAndTags(Product p) {
-        String filePath = System.getProperty("user.home") + "/.dat215/imat/tags.txt";
-        try {
-            InputStream is;
-            try { is = new FileInputStream(new File(filePath)); } catch (FileNotFoundException e) {
-                Path dest = new File(filePath).toPath();
-                Files.copy(Paths.get(System.getProperty("user.dir") + "/src/matbutik/resources/tags.txt"), dest, StandardCopyOption.REPLACE_EXISTING);
-            }
-            is = new FileInputStream(new File(filePath));
-            while (true) {
-                String packet = readPacket(is);
-                if (!Pattern.compile("\\D").matcher(packet).matches()) { // If the packet only contains numeric characters
-                    int parsed = Integer.parseInt(packet);
-                    if (p.getProductId() == parsed) { // If the id if this product is found
-                        String subPacket = "";
-                        do {
-                            subPacket = readSubPacket(is);
-                            if (!subPacket.equals(""))
-                                addCategory(subPacket);
-                        } while (!subPacket.equals("")); // End of packet
-
-                        do {
-                            subPacket = readSubPacket(is);
-                            if (!subPacket.equals(""))
-                                tags.add(subPacket);
-                        } while (!subPacket.equals("")); // End of packet
-                        break;
-                    }
-                    else {
-                        waitForEnd(is);
-                    }
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("tags.txt seems to be lost!");
-        } catch (IOException e) {
-            //e.printStackTrace();
-            System.out.println("Did not contain ID!");
-        }
-        addCategoriesAsTags();
-    }
-
-    private void addCategoriesAsTags() {
-        List<String> list = new ArrayList<>();
-        tags.addAll(category.stream().map(en -> {switch(en){
-            case Fish:
-                return new ArrayList<String>(){{add("fisk");}};
-            case Meat:
-                return new ArrayList<String>(){{add("kött");}};
-            case Bread:
-                return new ArrayList<String>(){{add("bröd");}};
-            case Dairy:
-                return new ArrayList<String>(){{add("mejeri");}};
-            case Drink:
-                return new ArrayList<String>(){{add("dricka");add("dryck");}};
-            case Frozen:
-                return new ArrayList<String>(){{add("frys");}};
-            case Pantry:
-                return new ArrayList<String>(){{add("skafferi");}};
-            case FruitVeg:
-                return new ArrayList<String>();
-            case Pastries:
-                return new ArrayList<String>(){{add("kaffebröd");add("sött");add("sötsaker");}};
-            case Condiments:
-                return new ArrayList<String>(){{add("smaksättare");add("kryddor");add("krydda");}};
-            default:
-                return new ArrayList<String>();
-        }}).flatMap(List::stream).collect(Collectors.toList()));
-    }
-
-    private void waitForEnd(InputStream is) throws IOException {
-        while (true) {
-            while (is.read() != ';') ;
-            if (is.read() == 'e')
-                if (is.read() == 'n')
-                    if (is.read() == 'd') {
-                        int temp = is.read();
-                        if (temp == '\r' || temp == '\n')
-                            return;
-                        else if (is.read() == -1)
-                            throw new IOException("EOF reached!");
-                    }
-        }
-    }
-
-    private void addCategory(String category) {
-        switch (category) {
-            case "dairy":
-                this.category.add(Category.Dairy);
-                break;
-            case "meat":
-                this.category.add(Category.Meat);
-                break;
-            case "fish":
-                this.category.add(Category.Fish);
-                break;
-            case "fruitveg":
-                this.category.add(Category.FruitVeg);
-                break;
-            case "bread":
-                this.category.add(Category.Bread);
-                break;
-            case "pantry":
-                this.category.add(Category.Pantry);
-                break;
-            case "drink":
-                this.category.add(Category.Drink);
-                break;
-            case "condiments":
-                this.category.add(Category.Condiments);
-                break;
-            case "frozen":
-                this.category.add(Category.Frozen);
-                break;
-            case "pastries":
-                this.category.add(Category.Pastries);
-                break;
-        }
-    }
-
-    private String readPacket(InputStream is) throws IOException {
-        String fileContentBuffer = "";
-        for (char c = 0; true; c = (char)is.read()) {
-            if (c == ';') {
-                return fileContentBuffer;
-            } else if (fileContentBuffer.equals("end")) {
-                return "";
-            }
-            // If c contains special characters ( ascii code < 32: ignore)
-            fileContentBuffer += c < 32 ? "" : c;
-        }
-    }
-
-    private boolean readSubPacketEnd = false;
-    private String readSubPacket(InputStream is) throws IOException {
-        if (readSubPacketEnd) {
-            readSubPacketEnd = false;
-            return "";
-        }
-
-        String fileContentBuffer = "";
-        for (char c = 0; true; c = (char)is.read()) {
-            if (c == ',') {
-                return fileContentBuffer;
-            } else if (c == ';') {
-                readSubPacketEnd = true;
-                return fileContentBuffer;
-            } else if (fileContentBuffer.equals("end")) {
-                return "";
-            }
-            fileContentBuffer += c < 32 ? "" : c;
-        }
-    }
-
 
 
     public Product getProduct() {

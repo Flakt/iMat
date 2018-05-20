@@ -51,8 +51,16 @@
     -fx-border-width: 0px 0px 1px 0px;
 }
 
-
-.flow-pane
+.incButton
 {
-
+    -fx-base: #a8e4c1;
+}
+.decButton
+{
+    -fx-base: #ecafa6;
+}
+.incButton, .decButton
+{
+    -fx-font-size: 3em;
+    -fx-label-padding: -50px;
 }

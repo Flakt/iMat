@@ -67,12 +67,12 @@ public class IMatShoppingCartController extends IMatModularCartController implem
             }
         });
         for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
-            iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this));
+            iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this,this::updateProductsList));
         }
         populateFlowPane();
         updateProductsList();
         numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2).equals("st") ?item.getAmount():1).sum()));
-        totalCostLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
+        totalCostLabel.setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
     }
 
     @FXML
@@ -80,14 +80,15 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         ScreenController.getInstance().navigateToPrevious();
     }
 
-    protected void populateFlowPane() {
+    @Override protected void populateFlowPane() {
         emptyCartLabel.setVisible(true);
         cartItemsFlowPane.getChildren().clear();
-        super.updateProductsList();
+        //super.updateProductsList();
         for (IMatShoppingItem item : super.iMatShoppingItemMap.values()) {
-            cartItemsFlowPane.getChildren().add(item);
-            emptyCartLabel.setVisible(false);
+            if (item.shoppingItem != null)
+                cartItemsFlowPane.getChildren().add(item);
         }
+        emptyCartLabel.setVisible(false);
     }
 
     @FXML
@@ -103,7 +104,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
     protected void regretRemove() {
         // Not assigned yet
         for (ShoppingItem item : backupShoppingItems) {
-            iMatShoppingItemMap.put(item.getProduct().getName(), new IMatShoppingItem(item,this));
+            iMatShoppingItemMap.put(item.getProduct().getName(), new IMatShoppingItem(item,this,this::updateProductsList));
             shoppingCart.addItem(item);
         }
         backupShoppingItems.clear();

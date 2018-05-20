@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,9 +10,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="200.0" styleClass="anchorpane" stylesheets="@styles/productStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="200.0" styleClass="anchorpane" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -38,23 +40,37 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="spinner" prefHeight="58.0" prefWidth="150.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <AnchorPane GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="numberOfProducts" alignment="CENTER" layoutX="-6.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onTextFieldInput" prefHeight="46.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <Button fx:id="decrementButton" layoutX="-6.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onDecrement" prefHeight="46.0" prefWidth="46.0" style="-fx-label-padding: -50px;" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="incrementButton" layoutX="100.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onIncrement" prefHeight="46.0" prefWidth="46.0" style="-fx-label-padding: -50px;" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane fx:id="addItemToCartButtonContainer">
+                           <children>
+                              <Button id="addToCartButton" mnemonicParsing="false" onAction="#addItemToCart" text="Lägg till i kundvagn" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="spinner" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="130.0">
+                           <children>
+                              <TextField fx:id="numberOfProducts" alignment="CENTER" layoutX="-6.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onTextFieldInput" prefHeight="36.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="kg" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="decrementButton" layoutX="-6.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onDecrement" prefHeight="36.0" prefWidth="36.0" styleClass="decButton" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="incrementButton" layoutX="100.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onIncrement" prefHeight="36.0" prefWidth="36.0" styleClass="incButton" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
                </children>
             </AnchorPane>
             <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="93.33" scaleX="0.75" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -97,4 +113,8 @@
          </children>
       </GridPane>
    </children>
+   <stylesheets>
+      <URL value="@styles/productStyle.css" />
+      <URL value="@styles/generalStyle.css" />
+   </stylesheets>
 </fx:root>

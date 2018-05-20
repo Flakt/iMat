@@ -42,7 +42,7 @@ public class ScreenController {
     }
 
     protected void activate(String name) {
-
+previousRoot = main.getRoot();
         Parent root = screenMap.get(name);
         try {
             root = FXMLLoader.load(getClass().getResource("IMat"+name+".fxml"), java.util.ResourceBundle.getBundle("matbutik/resources/IMat"));
