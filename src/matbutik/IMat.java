@@ -2,6 +2,7 @@ package matbutik;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
@@ -54,10 +55,18 @@ public class IMat extends Application {
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         Consumer<Object> widthListenerConsumer = x->{
+            double gap = 0.0;
             IMatController controller = loader.getController();
             double width = controller.getSearchResultScrollPane().getWidth();//-34;
             controller.getSearchResult().setPrefWidth(width);
-            controller.getCategories().getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).setPrefWidth(width));
+            controller.getCategories().getTabs().forEach(tab -> {
+                FlowPane fp = ((FlowPane) ((ScrollPane) tab.getContent()).getContent());
+                fp.setPrefWidth(width);
+                fp.setHgap(gap);
+                fp.setVgap(gap);
+            });
+            ((FlowPane)controller.getSearchResultScrollPane().getContent()).setHgap(gap);
+            ((FlowPane)controller.getSearchResultScrollPane().getContent()).setVgap(gap);
         };
         scene.widthProperty().addListener(widthListenerConsumer::accept);
         ((IMatController)loader.getController()).setWidthUpdateRunnable(()->widthListenerConsumer.accept(null));
