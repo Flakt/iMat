@@ -58,6 +58,10 @@ public class IMatProductItem extends AnchorPane {
     @FXML
     AnchorPane addItemToCartButtonContainer;
 
+    public void addItemToCartButtonContainerToBack() {
+        addItemToCartButtonContainer.toBack();
+    }
+
     public EnumSet<Category> getCategory() {
         return category;
     }
