@@ -66,6 +66,36 @@ public class IMatPaymentController implements Initializable {
     @FXML
     private Label deliverySumLabel;
     @FXML
+    private Label firstNameErrorLabel;
+    @FXML
+    private Label lastNameErrorLabel;
+    @FXML
+    private Label postCodeErrorLabel;
+    @FXML
+    private Label postAdressErrorLabel;
+    @FXML
+    private Label invoiceFirstNameErrorLabel;
+    @FXML
+    private Label invoiceLastNameErrorLabel;
+    @FXML
+    private Label invoicePostCodeErrorLabel;
+    @FXML
+    private Label invoicePostAdressErrorLabel;
+    @FXML
+    private Label invoiceErrorLabel;
+    @FXML
+    private Label creditCardNameErrorLabel;
+    @FXML
+    private Label creditCardNumberErrorLabel;
+    @FXML
+    private Label creditMonthErrorLabel;
+    @FXML
+    private Label creditYearErrorLabel;
+    @FXML
+    private Label creditVerifErrorLabel;
+    @FXML
+    private Label creditErrorLabel;
+    @FXML
     private SplitPane paymentOptionsSplitPane;
     @FXML
     private TextField forenameTextField;
@@ -113,6 +143,9 @@ public class IMatPaymentController implements Initializable {
         deliveryInit();
         fillInSavedDeliveryDetails();
         errorLabel.setVisible(false);
+        clearTextFieldsError();
+        clearInvoiceTextFieldsError();
+        clearCreditTextFieldsError();
     }
 
     private void fillInSavedDeliveryDetails() {
@@ -199,8 +232,71 @@ public class IMatPaymentController implements Initializable {
         creditcardAnchorPane.toFront();
     }
 
+    private void clearInvoiceTextFieldsError() {
+        invoiceFirstNameErrorLabel.setVisible(false);
+        invoiceLastNameErrorLabel.setVisible(false);
+        invoicePostCodeErrorLabel.setVisible(false);
+        invoicePostAdressErrorLabel.setVisible(false);
+        invoiceErrorLabel.setVisible(false);
+    }
+
+    private void clearCreditTextFieldsError() {
+        creditCardNameErrorLabel.setVisible(false);
+        creditCardNumberErrorLabel.setVisible(false);
+        creditMonthErrorLabel.setVisible(false);
+        creditYearErrorLabel.setVisible(false);
+        creditVerifErrorLabel.setVisible(false);
+        creditErrorLabel.setVisible(false);
+    }
+
+    private void showInvoiceTextFieldsError() {
+        if (forenameTextField.getText().matches(".*\\d+.*")) {
+            invoiceFirstNameErrorLabel.setVisible(true);
+        }
+        if (surnameTextField.getText().matches(".*\\d+.*")) {
+            invoiceLastNameErrorLabel.setVisible(true);
+        }
+        if (regionTextField.getText().matches(".*\\d+.*")) {
+            invoicePostAdressErrorLabel.setVisible(true);
+        }
+        if (zipcodeTextField.getText().matches("\\d+")) {
+            invoicePostCodeErrorLabel.setVisible(true);
+        }
+    }
+
+    private void showCreditTextFieldsError() {
+        if (nameTextField.getText().matches(".*\\d+.*")) {
+            creditCardNameErrorLabel.setVisible(true);
+        }
+        if (!cardNumberTextField.getText().matches("\\d+")) {
+            creditCardNumberErrorLabel.setVisible(true);
+        }
+        if (!yearTextField.getText().matches("\\d+")) {
+            creditYearErrorLabel.setVisible(true);
+        }
+        if (!monthTextField.getText().matches("\\d+")) {
+            creditMonthErrorLabel.setVisible(true);
+        }
+        if (!verificationCodeTextField.getText().matches("\\d+")) {
+            creditVerifErrorLabel.setVisible(true);
+        }
+    }
+
     @FXML
     protected void invoicePayAction() {
+        clearInvoiceTextFieldsError();
+        if (forenameTextField.getText().equals("") || surnameTextField.getText().equals("") ||
+                adressTextField.getText().equals("") || zipcodeTextField.getText().equals("") ||
+                regionTextField.getText().equals("")) {
+            invoiceErrorLabel.setVisible(true);
+            return;
+        }
+        showInvoiceTextFieldsError();
+        if (invoiceFirstNameErrorLabel.isVisible() || invoiceLastNameErrorLabel.isVisible() ||
+                invoicePostCodeErrorLabel.isVisible() || invoicePostAdressErrorLabel.isVisible()) {
+            return;
+        }
+
         if (invoiceSaveDetailsCheckBox.isSelected()) {
             customer.setFirstName(forenameTextField.getText());
             customer.setLastName(surnameTextField.getText());
@@ -215,6 +311,20 @@ public class IMatPaymentController implements Initializable {
 
     @FXML
     protected void creditPayAction() {
+        clearCreditTextFieldsError();
+        if (nameTextField.getText().equals("") || cardNumberTextField.getText().equals("") ||
+                yearTextField.getText().equals("") || monthTextField.getText().equals("") ||
+                verificationCodeTextField.getText().equals("")) {
+            creditErrorLabel.setVisible(true);
+            return;
+        }
+        showCreditTextFieldsError();
+        if (creditCardNameErrorLabel.isVisible() || creditCardNumberErrorLabel.isVisible() ||
+                creditMonthErrorLabel.isVisible() ||creditYearErrorLabel.isVisible() ||
+                creditVerifErrorLabel.isVisible()) {
+            return;
+        }
+
         if (creditSaveDetailsCheckBox.isSelected()) {
             creditCard.setHoldersName(nameTextField.getText());
             creditCard.setCardNumber(cardNumberTextField.getText());
@@ -268,14 +378,41 @@ public class IMatPaymentController implements Initializable {
         }
     }
 
+    private void showTextFieldsError() {
+        if (deliveryFirstNameTextField.getText().matches(".*\\d+.*")) {
+            firstNameErrorLabel.setVisible(true);
+        }
+        if (deliveryAfterNameTextField.getText().matches(".*\\d+.*")) {
+            lastNameErrorLabel.setVisible(true);
+        }
+        if (deliveryPostAdressTextField.getText().matches(".*\\d+.*")) {
+            postAdressErrorLabel.setVisible(true);
+        }
+        if (!deliveryPostCodeTextField.getText().matches("\\d+")) {
+            postCodeErrorLabel.setVisible(true);
+        }
+    }
+
+    private void clearTextFieldsError() {
+        firstNameErrorLabel.setVisible(false);
+        lastNameErrorLabel.setVisible(false);
+        postAdressErrorLabel.setVisible(false);
+        postCodeErrorLabel.setVisible(false);
+    }
+
     @FXML
     private void toPaymentAlternatives() {
+        clearTextFieldsError();
         if (deliveryFirstNameTextField.getText().equals("") ||
                 deliveryAfterNameTextField.getText().equals("") ||
                 deliveryAdressTextField.getText().equals("") ||
                 deliveryPostAdressTextField.getText().equals("") ||
                 deliveryPostCodeTextField.getText().equals("")) {
             errorLabel.setVisible(true);
+            return;
+        }
+        showTextFieldsError();
+        if (firstNameErrorLabel.isVisible() || lastNameErrorLabel.isVisible() || postAdressErrorLabel.isVisible() || postCodeErrorLabel.isVisible()) {
             return;
         }
         paymentOptionsSplitPane.toFront();
