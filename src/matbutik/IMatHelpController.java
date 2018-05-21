@@ -8,28 +8,18 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class IMatHelpController implements Initializable {
-    IMatNavigationHandler navigationHandler = IMatNavigationHandler.getInstance();
+public class IMatHelpController extends IMatController implements Initializable {
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    //super.productItem();
     }
 
-    @FXML
-    private void navigateToHistory(Event event){
-        navigationHandler.toHistory();
+    @FXML public void navigateGoBack(Event event) {
+        navigationHandler.goBack();
     }
 
-    public void reselectTabs() {
-
-    }
-
-    @FXML public void shoppingCart(Event event){
-        navigationHandler.toDestination("ShoppingCart");
-    }
-    @FXML public void navigateGoBack(Event event){navigationHandler.goBack();}
-
-    @FXML public void navigateToAccount(Event event){navigationHandler.toAccount();}
 }
 

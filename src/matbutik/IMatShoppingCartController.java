@@ -48,7 +48,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         //
         // TEST
         // add something to the shopping cart
-        System.out.println(dataHandler.getProduct(1));
+        // System.out.println(dataHandler.getProduct(1));
 
         // Why does the following require a reference to this class?
         /*ShoppingItem sI  = new ShoppingItem(dataHandler.getProduct(1));
@@ -77,7 +77,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
 
     @FXML
     private void navigateBack(Event event){
-        ScreenController.getInstance().navigateToPrevious();
+        ScreenController.getInstance().activate("");
     }
 
     @Override protected void populateFlowPane() {
