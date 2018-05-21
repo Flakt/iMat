@@ -100,3 +100,8 @@
     -fx-background-color: #f0ffe1;
     -fx-effect: dropshadow(three-pass-box, black, 1, 0.0, 1, 1);
 }
+
+.sectionLabel
+{
+    -fx-background-color: #fffdf1;
+}

@@ -13,6 +13,7 @@ import se.chalmers.cse.dat216.project.Product;
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class IMatController extends IMatModularCartController implements Initializable {
 
@@ -88,13 +89,18 @@ public class IMatController extends IMatModularCartController implements Initial
         //meatFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Meat)).collect(Collectors.toList()));
         //iMatProductItemMap.values().forEach(item -> {/*to tab index*/item.getCategory().forEach(Enum::ordinal);});
 //        iMatProductItemMap.values().forEach(item -> item.getCategory().forEach(category -> ((FlowPane)((ScrollPane)categories.getTabs().get(category.ordinal()).getContent()).getContent()).getChildren().add(new IMatProductItem(item.getProduct(),IMatDataHandler.getInstance(),this))));
-        for (IMatProductItem product : iMatProductItemMap.values())
+        for (IMatProductItem product : iMatProductItemMap.values()) {
             for (Category category : product.getCategory()) {
                 FlowPane correspondingFlowPaneForCategory = ((FlowPane) ((ScrollPane) categories.getTabs().get(category.ordinal()).getContent()).getContent());
                 if (!correspondingFlowPaneForCategory.getChildren().contains(product))
                     correspondingFlowPaneForCategory.getChildren().add(product
                     /*new IMatProductItem(product.getProduct(), IMatDataHandler.getInstance(), this)*/);
             }
+            if (shoppingCart.getItems().stream().filter(x->x.getProduct()==product.getProduct()).anyMatch(x->x.getAmount()>0.000001)) {
+                product.shoppingItem = shoppingCart.getItems().stream().filter(x->x.getProduct()==product.getProduct()).collect(Collectors.toList()).get(0);
+                product.addItemToCartButtonContainerToBack();
+            }
+        }
         //((FlowPane)((ScrollPane)categories.getTabs().get(0).getContent()).getContent()).setCursor(Cursor.CLOSED_HAND);
     } // Try to do this in one "loop" instead
 

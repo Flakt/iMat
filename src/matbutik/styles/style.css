@@ -158,6 +158,12 @@
 
 .scroll-bar
 {
+    -fx-background-color: #fffdf1;
+    -fx-base: #deefd9;
+}
+
+#miniShoppingCartScrollPane .scroll-bar
+{
     -fx-background-color: #fff8e0;
     -fx-base: #deefd9;
 }
