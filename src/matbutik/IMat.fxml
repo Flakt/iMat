@@ -122,14 +122,18 @@
                <children>
                   <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <AnchorPane>
+                        <AnchorPane fx:id="searchResultContainer" pickOnBounds="false">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
                            <children>
-                              <ScrollPane fx:id="searchResultContainer" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <ScrollPane fx:id="searchResultScrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <content>
-                                    <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" styleClass="flow-pane" />
+                                    <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" styleClass="flow-pane">
+                                       <padding>
+                                          <Insets right="34.0" />
+                                       </padding>
+                                    </FlowPane>
                                  </content>
                               </ScrollPane>
                            </children>
@@ -145,7 +149,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane fx:id="dairyFlowPane" prefHeight="594.0" prefWidth="643.0" styleClass="flowpane" />
+                                                <FlowPane fx:id="dairyFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1000.0" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -157,7 +164,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane fx:id="meatFlowPane" prefHeight="592.0" prefWidth="640.0" styleClass="flowpane" />
+                                                <FlowPane fx:id="meatFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -169,7 +179,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -181,7 +194,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="597.0" prefWidth="640.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -193,7 +209,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="598.0" prefWidth="639.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -205,7 +224,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="599.0" prefWidth="641.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -217,7 +239,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="606.0" prefWidth="642.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -229,7 +254,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="601.0" prefWidth="641.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -241,7 +269,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="601.0" prefWidth="646.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
@@ -253,7 +284,10 @@
                                        <content>
                                           <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                              <content>
-                                                <FlowPane prefHeight="611.0" prefWidth="649.0" styleClass="flowpane" />
+                                                <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
+                                                   <padding>
+                                                      <Insets right="34.0" />
+                                                   </padding></FlowPane>
                                              </content>
                                           </ScrollPane>
                                        </content>
