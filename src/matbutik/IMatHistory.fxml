@@ -101,13 +101,13 @@
                   </Button>
                </children>
             </GridPane>
-          <AnchorPane layoutY="90.0" minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="771.0" style="-fx-background-color: #09CDDA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+          <AnchorPane layoutY="90.0" minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="771.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                <children>
-                  <ScrollPane prefHeight="610.0" prefWidth="771.0">
+                  <ScrollPane prefHeight="610.0" prefWidth="563.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="768.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="769.0">
                            <children>
-                              <FlowPane fx:id="historyOrdersFlowPane" prefHeight="610.0" prefWidth="771.0" AnchorPane.bottomAnchor="-410.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-571.0" AnchorPane.topAnchor="0.0" />
+                              <FlowPane fx:id="historyOrdersFlowPane" columnHalignment="CENTER" prefHeight="610.0" prefWidth="563.0" prefWrapLength="769.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                     </content>
