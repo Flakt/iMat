@@ -1,41 +1,25 @@
 package matbutik;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableListBase;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Side;
-import javafx.scene.Cursor;
-import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Screen;
-import javafx.util.Callback;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.net.URL;
-import java.sql.Time;
-import java.time.Clock;
 import java.util.*;
-import java.util.concurrent.Flow;
-import java.util.function.Function;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class IMatController extends IMatModularCartController implements Initializable {
 
 
     private @FXML FlowPane searchResult;
     private @FXML AnchorPane mainPage;
-    private @FXML ScrollPane searchResultContainer;
+    private @FXML AnchorPane searchResultContainer;
     private @FXML TextField searchBar;
     private @FXML TabPane categories;
 
@@ -46,15 +30,23 @@ public class IMatController extends IMatModularCartController implements Initial
 
     private @FXML Label numberOfProductsLabel, totalCostLabel;
 
+    private @FXML ScrollPane searchResultScrollPane;
+
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     IMatNavigationHandler navigationHandler = IMatNavigationHandler.getInstance();
 
     private Map<Integer, IMatProductItem> iMatProductItemMap = new HashMap<>();
 
 
+    public FlowPane getSearchResult(){
+        return this.searchResult;
+    }
 
     public FlowPane getShoppingCartFlowPane(){
         return shoppingCartFlowPane;
+    }
+    public TabPane getCategories() {
+        return categories;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -71,29 +63,27 @@ public class IMatController extends IMatModularCartController implements Initial
         });
     }
 
-    private void sizeSearchResultFlowPane() {/*
-        double pWidth = searchResultContainer.getWidth();
-        searchResult.setMaxWidth(pWidth);
-        searchResult.setMinWidth(searchResult.getMaxWidth());
-        searchResult.setPrefWidth(searchResult.getMaxWidth());
-
-
-        sizeTabFlowPanes();*/
+    private Runnable widthUpdateRunnable;
+    public void setWidthUpdateRunnable(Runnable runnable) {
+        widthUpdateRunnable = runnable;
     }
 
-    private void sizeTabFlowPanes() {
-        for (ScrollPane tabSP : categories.getTabs().stream().map(tab -> (ScrollPane)tab.getContent()).collect(Collectors.toList())){
+    private void updateWidthForTabAndResultFlowPanes() {
+        /*for (ScrollPane tabSP : categories.getTabs().stream().map(tab -> (ScrollPane)tab.getContent()).collect(Collectors.toList())){
             double pWidth = tabSP.getWidth() - 28-6;
             FlowPane tabFP = (FlowPane) tabSP.getContent();
             tabFP.setMaxWidth(pWidth);
             tabFP.setMinWidth(searchResult.getMaxWidth());
             tabFP.setPrefWidth(searchResult.getMaxWidth());
-        }
+        }*/
+        if (widthUpdateRunnable != null)
+            widthUpdateRunnable.run();
     }
 
     @FXML FlowPane dairyFlowPane;
     @FXML FlowPane meatFlowPane;
-    private void fillCategoryPages() {sizeSearchResultFlowPane();sizeTabFlowPanes();
+    private void fillCategoryPages() {
+        updateWidthForTabAndResultFlowPanes();
         //dairyFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Dairy)).collect(Collectors.toList()));
         //meatFlowPane.getChildren().addAll(iMatProductItemMap.values().stream().filter(item -> item.getCategory().contains(Category.Meat)).collect(Collectors.toList()));
         //iMatProductItemMap.values().forEach(item -> {/*to tab index*/item.getCategory().forEach(Enum::ordinal);});
@@ -178,7 +168,7 @@ public class IMatController extends IMatModularCartController implements Initial
         categories.getStyleClass().remove("tabsDeselected");
         categoriesContainer.toFront();
         searchBar.setText("");
-        sizeTabFlowPanes();
+        updateWidthForTabAndResultFlowPanes();
     }
 
     @FXML
@@ -193,5 +183,9 @@ public class IMatController extends IMatModularCartController implements Initial
 
     public Label getTotalCostLabel() {
         return totalCostLabel;
+    }
+
+    public ScrollPane getSearchResultScrollPane() {
+        return searchResultScrollPane;
     }
 }

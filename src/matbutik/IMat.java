@@ -4,10 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 import static javafx.application.Application.launch;
 
@@ -21,7 +24,8 @@ public class IMat extends Application {
 
         ResourceBundle bundle = java.util.ResourceBundle.getBundle("matbutik/resources/IMat");
 
-        Parent root = FXMLLoader.load(getClass().getResource("IMat.fxml"), bundle);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("IMat.fxml"), bundle);
+        Parent root = loader.load();//FXMLLoader.load(getClass().getResource("IMat.fxml"), bundle);
         Parent shoppingCart = FXMLLoader.load(getClass().getResource("IMatShoppingCart.fxml"), bundle);
         Parent history = FXMLLoader.load(getClass().getResource("IMatHistory.fxml"), bundle);
         Parent account = FXMLLoader.load(getClass().getResource("IMatAccount.fxml"), bundle);
@@ -45,6 +49,14 @@ public class IMat extends Application {
 
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
+        Consumer<Object> widthListenerConsumer = x->{
+            IMatController controller = loader.getController();
+            double width = controller.getSearchResultScrollPane().getWidth();//-34;
+            controller.getSearchResult().setPrefWidth(width);
+            controller.getCategories().getTabs().forEach(tab -> ((FlowPane)((ScrollPane)tab.getContent()).getContent()).setPrefWidth(width));
+        };
+        scene.widthProperty().addListener(widthListenerConsumer::accept);
+        ((IMatController)loader.getController()).setWidthUpdateRunnable(()->widthListenerConsumer.accept(null));
         stage.show();
 
     }
