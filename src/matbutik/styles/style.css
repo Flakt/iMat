@@ -156,6 +156,9 @@
     -fx-translate-y: 50px;
 }
 
+.tabPaneNotTranslate .tab-header-area {
+    -fx-translate-y: 0px;
+}
 .scroll-bar
 {
     -fx-background-color: #fff8e0;

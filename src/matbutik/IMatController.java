@@ -58,11 +58,13 @@ public class IMatController extends IMatModularCartController implements Initial
         mainPage.toFront();
         fillCategoryPages();
         //sizeSearchResultFlowPane();
+        productItem();
+    }
+    protected void productItem(){
         dataHandler.getShoppingCart().getItems().forEach(x->{
             iMatProductItemMap.get(x.getProduct().getProductId()).updateShoppingCart();
         });
     }
-
     private Runnable widthUpdateRunnable;
     public void setWidthUpdateRunnable(Runnable runnable) {
         widthUpdateRunnable = runnable;
@@ -191,4 +193,5 @@ public class IMatController extends IMatModularCartController implements Initial
     public ScrollPane getSearchResultScrollPane() {
         return searchResultScrollPane;
     }
+
 }
