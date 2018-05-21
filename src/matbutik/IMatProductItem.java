@@ -12,6 +12,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class IMatProductItem extends AnchorPane {
 
@@ -129,6 +130,11 @@ public class IMatProductItem extends AnchorPane {
     @FXML
     private void onIncrement(Event event) {
         valueFactory.increment(1);
+        if (shoppingItem == null && controller.shoppingCart.getItems().stream().anyMatch(x->x.getProduct()==this.product && x.getAmount()>0.000001)){
+            List<ShoppingItem> sil = controller.shoppingCart.getItems().stream().filter(x->x.getProduct()==this.product).collect(Collectors.toList());
+            if (sil.size() > 0)
+                shoppingItem = sil.get(0);
+        }
         if (shoppingItem != null)
             if (isAPiece())
                 controller.incrementProductAmount(shoppingItem);
@@ -204,6 +210,8 @@ public class IMatProductItem extends AnchorPane {
             if (si.getAmount() != 0) {
                 IMatMiniShoppingCartItem cartItem = new IMatMiniShoppingCartItem(si, controller, this::updateShoppingCart);
                 controller.getShoppingCartFlowPane().getChildren().add(cartItem);
+            } else {
+                controller.shoppingCart.getItems().remove(si); // Maybe not useful at all
             }
         }
         controller.getTotalCostLabel().setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
