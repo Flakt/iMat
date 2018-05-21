@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatPaymentController">
+<AnchorPane prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatPaymentController">
    <children>
       <AnchorPane prefHeight="60.0" prefWidth="1024.0">
          <children>
@@ -22,9 +22,9 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label fx:id="headerLabel" layoutX="355.0" layoutY="16.0" text="Betalningsalternativ">
+            <Label fx:id="headerLabel" layoutX="356.0" layoutY="12.0" text="Betalningsalternativ">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
             <Button fx:id="accountButton" layoutX="814.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Konto" />
@@ -34,6 +34,217 @@
       </AnchorPane>
       <StackPane layoutY="66.0" prefHeight="634.0" prefWidth="1024.0">
          <children>
+            <AnchorPane fx:id="deliveryAnchorPane" prefHeight="638.0" prefWidth="1024.0" style="-fx-background-color: #09CDDA;">
+               <children>
+                  <SplitPane dividerPositions="0.75" prefHeight="638.0" prefWidth="1024.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="121.0" layoutY="118.0" text="Förnamn" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="126.0" layoutY="163.0" text="Efternamn" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="124.0" layoutY="205.0" text="Address" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="128.0" layoutY="251.0" text="Postnummer" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="128.0" layoutY="296.0" text="Ort" AnchorPane.leftAnchor="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="deliveryFirstNameTextField" layoutX="225.0" layoutY="115.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryAfterNameTextField" layoutX="225.0" layoutY="160.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryAdressTextField" layoutX="225.0" layoutY="202.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryPostCodeTextField" layoutX="225.0" layoutY="248.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="deliveryPostAdressTextField" layoutX="225.0" layoutY="293.0" prefHeight="26.0" prefWidth="375.0" />
+                              <Button fx:id="paymentButton" layoutX="479.0" layoutY="366.0" mnemonicParsing="false" onAction="#toPaymentAlternatives" prefHeight="39.0" prefWidth="122.0" text="Gå Vidare">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="errorLabel" layoutX="254.0" layoutY="375.0" text="Samtliga fält behöver fyllas" textFill="RED">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="14.0" text="Leveransadress ">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Betalning">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="deliveryNumberOfProductsLabel" layoutX="14.0" layoutY="49.0" text="Label" />
+                              <Label fx:id="deliverySumLabel" layoutX="14.0" layoutY="73.0" text="Label" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.7" prefHeight="664.0" prefWidth="1024.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label layoutX="328.0" layoutY="108.0" text="Kortbetalning">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="315.0" layoutY="326.0" text="Fakturabetalning">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="305.0" layoutY="150.0" prefHeight="98.0" prefWidth="157.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                           <children>
+                              <ImageView fitHeight="98.0" fitWidth="157.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/creditcard.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <StackPane layoutX="315.0" layoutY="370.0" prefHeight="90.0" prefWidth="122.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                           <children>
+                              <ImageView fitHeight="98.0" fitWidth="126.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/mail.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="14.0" layoutY="14.0" text="Leveransadress &gt;&gt;">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="164.0" layoutY="14.0" text=" Betalningsalternativ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="235.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="91.59998941421509" AnchorPane.topAnchor="13.576171875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="numberOfProductsLabel" layoutX="14.0" layoutY="57.0" text="Antal Varor:" AnchorPane.leftAnchor="14.0">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="totalCostLabel" layoutX="14.0" layoutY="83.0" text="Summa:" AnchorPane.leftAnchor="14.0">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <AnchorPane fx:id="invoiceAnchorPane" prefHeight="633.0" prefWidth="1024.0" style="-fx-background-color: #09CDDA;">
+               <children>
+                  <SplitPane dividerPositions="0.75" prefHeight="640.0" prefWidth="1024.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="163.0" layoutY="152.0" prefWidth="100.0" text="Förnamn">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="163.0" layoutY="195.0" prefWidth="100.0" text="Efternamn">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="163.0" layoutY="237.0" prefWidth="100.0" text="Adress">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="163.0" layoutY="285.0" prefHeight="20.0" prefWidth="100.0" text="Postnummer">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="163.0" layoutY="331.0" prefWidth="100.0" text="Ort">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="forenameTextField" layoutX="263.0" layoutY="150.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="surnameTextField" layoutX="263.0" layoutY="193.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="adressTextField" layoutX="263.0" layoutY="235.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="zipcodeTextField" layoutX="263.0" layoutY="283.0" prefHeight="26.0" prefWidth="375.0" />
+                              <TextField fx:id="regionTextField" layoutX="263.0" layoutY="329.0" prefHeight="26.0" prefWidth="375.0" />
+                              <Button fx:id="payButton" layoutX="487.0" layoutY="425.0" mnemonicParsing="false" onAction="#invoicePayAction" prefHeight="40.0" prefWidth="150.0" text="Gå Vidare">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <CheckBox fx:id="invoiceSaveDetailsCheckBox" layoutX="486.0" layoutY="379.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="153.0" text="Spara Uppgifter">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </CheckBox>
+                              <Label layoutX="14.0" layoutY="14.0" text="Leveransadress &gt;&gt;">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="163.0" layoutY="14.0" text=" Betalningsalternativ &gt;&gt;">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="354.0" layoutY="14.0" prefHeight="27.0" prefWidth="79.0" text=" Faktura">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Betalning">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="invoiceNumberOfProductsLabel" layoutX="14.0" layoutY="55.0" text="Antal Varor" />
+                              <Label fx:id="invoiceSumLabel" layoutX="14.0" layoutY="83.0" text="Summa" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="creditcardAnchorPane" prefHeight="640.0" prefWidth="1024.0" style="-fx-background-color: #09CBBA;">
                <children>
                   <SplitPane dividerPositions="0.75" prefHeight="640.0" prefWidth="1024.0">
@@ -85,6 +296,21 @@
                                     <Font size="18.0" />
                                  </font>
                               </Button>
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="150.0" text="Leveransadress &gt;&gt;">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="164.0" layoutY="14.0" text=" Betalningsalternativ &gt;&gt;">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="355.0" layoutY="14.0" text=" Kort">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="76.0">
@@ -96,187 +322,6 @@
                               </Label>
                               <Label fx:id="creditNumberOfProductsLabel" layoutX="14.0" layoutY="48.0" text="Antal Varor" />
                               <Label fx:id="creditSumLabel" layoutX="14.0" layoutY="81.0" text="Summa" />
-                           </children>
-                        </AnchorPane>
-                    </items>
-                  </SplitPane>
-               </children>
-            </AnchorPane>
-            <SplitPane fx:id="paymentOptionsSplitPane" dividerPositions="0.7" prefHeight="664.0" prefWidth="1024.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Label layoutX="328.0" layoutY="108.0" text="Kortbetalning">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="315.0" layoutY="326.0" text="Fakturabetalning">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <StackPane layoutX="305.0" layoutY="150.0" prefHeight="98.0" prefWidth="157.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
-                           <children>
-                              <ImageView fitHeight="98.0" fitWidth="157.0" onMouseClicked="#creditOnClick" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@resources/creditcard.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </StackPane>
-                        <StackPane layoutX="315.0" layoutY="370.0" prefHeight="90.0" prefWidth="122.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
-                           <children>
-                              <ImageView fitHeight="98.0" fitWidth="126.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@resources/mail.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </StackPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="235.0">
-                     <children>
-                        <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="91.59998941421509" AnchorPane.topAnchor="13.576171875">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Label fx:id="numberOfProductsLabel" layoutX="14.0" layoutY="57.0" text="Antal Varor:" AnchorPane.leftAnchor="14.0">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="totalCostLabel" layoutX="14.0" layoutY="83.0" text="Summa:" AnchorPane.leftAnchor="14.0">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-            <AnchorPane fx:id="deliveryAnchorPane" prefHeight="638.0" prefWidth="1024.0" style="-fx-background-color: #09CDDA;">
-               <children>
-                  <SplitPane dividerPositions="0.75" prefHeight="638.0" prefWidth="1024.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <Label layoutX="121.0" layoutY="118.0" text="Förnamn" AnchorPane.leftAnchor="120.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="126.0" layoutY="163.0" text="Efternamn" AnchorPane.leftAnchor="120.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="124.0" layoutY="205.0" text="Address" AnchorPane.leftAnchor="120.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="128.0" layoutY="251.0" text="Postnummer" AnchorPane.leftAnchor="120.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="128.0" layoutY="296.0" text="Ort" AnchorPane.leftAnchor="120.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="deliveryFirstNameTextField" layoutX="225.0" layoutY="115.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="deliveryAfterNameTextField" layoutX="225.0" layoutY="160.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="deliveryAdressTextField" layoutX="225.0" layoutY="202.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="deliveryPostCodeTextField" layoutX="225.0" layoutY="248.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="deliveryPostAdressTextField" layoutX="225.0" layoutY="293.0" prefHeight="26.0" prefWidth="375.0" />
-                              <Button fx:id="paymentButton" layoutX="479.0" layoutY="366.0" mnemonicParsing="false" onAction="#toPaymentAlternatives" prefHeight="39.0" prefWidth="122.0" text="Gå Vidare">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Label fx:id="errorLabel" layoutX="254.0" layoutY="375.0" text="Samtliga fält behöver fyllas" textFill="RED">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <Label layoutX="14.0" layoutY="14.0" text="Betalning">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="deliveryNumberOfProductsLabel" layoutX="14.0" layoutY="49.0" text="Label" />
-                              <Label fx:id="deliverySumLabel" layoutX="14.0" layoutY="73.0" text="Label" />
-                           </children>
-                        </AnchorPane>
-                    </items>
-                  </SplitPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="invoiceAnchorPane" prefHeight="633.0" prefWidth="1024.0" style="-fx-background-color: #09CDDA;">
-               <children>
-                  <SplitPane dividerPositions="0.75" prefHeight="640.0" prefWidth="1024.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <Label layoutX="163.0" layoutY="152.0" prefWidth="100.0" text="Förnamn">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="163.0" layoutY="195.0" prefWidth="100.0" text="Efternamn">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="163.0" layoutY="237.0" prefWidth="100.0" text="Adress">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="163.0" layoutY="285.0" prefHeight="20.0" prefWidth="100.0" text="Postnummer">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="163.0" layoutY="331.0" prefWidth="100.0" text="Ort">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="forenameTextField" layoutX="263.0" layoutY="150.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="surnameTextField" layoutX="263.0" layoutY="193.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="adressTextField" layoutX="263.0" layoutY="235.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="zipcodeTextField" layoutX="263.0" layoutY="283.0" prefHeight="26.0" prefWidth="375.0" />
-                              <TextField fx:id="regionTextField" layoutX="263.0" layoutY="329.0" prefHeight="26.0" prefWidth="375.0" />
-                              <Button fx:id="payButton" layoutX="487.0" layoutY="425.0" mnemonicParsing="false" onAction="#invoicePayAction" prefHeight="40.0" prefWidth="150.0" text="Gå Vidare">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <CheckBox fx:id="invoiceSaveDetailsCheckBox" layoutX="486.0" layoutY="379.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="153.0" text="Spara Uppgifter">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </CheckBox>
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <Label layoutX="14.0" layoutY="14.0" text="Betalning">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="invoiceNumberOfProductsLabel" layoutX="14.0" layoutY="55.0" text="Antal Varor" />
-                              <Label fx:id="invoiceSumLabel" layoutX="14.0" layoutY="83.0" text="Summa" />
                            </children>
                         </AnchorPane>
                     </items>
