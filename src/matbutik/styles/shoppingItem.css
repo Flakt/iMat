@@ -1,19 +1,21 @@
 .stackpane{
-    -fx-padding: 3;
-    -fx-background-color: #336699;
-    -fx-background-radius: 5;
+    -fx-padding: 2;
+    -fx-background-color: black;
+    -fx-background-radius: 1;
 }
 
 .anchorpane{
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,2,0.1), 5, 0, 0, 0);
-    -fx-border-color: #336699;
-    -fx-border-padding: 3;
-}
+    -fx-border-color: black;
+    -fx-border-padding: 2;
+    -fx-background-color: #f0ffe1;
 
+}
 .stackpanedropshadow{
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,2,0.1), 10, 0, 2, 10);
-    -fx-border-color: #336699;
+    -fx-border-color: black;
     -fx-border-radius: 10;
 }
+
 
 

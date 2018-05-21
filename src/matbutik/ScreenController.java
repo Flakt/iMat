@@ -52,6 +52,7 @@ previousRoot = main.getRoot();
         main.setRoot(root);
     }
 
+    @Deprecated
     public void navigateToPrevious(){
         if (previousRoot == screenMap.get("")){
             try {
