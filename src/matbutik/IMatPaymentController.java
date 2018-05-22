@@ -243,7 +243,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         if (regionTextField.getText().matches(".*\\d+.*")) {
             invoicePostAdressErrorLabel.setVisible(true);
         }
-        if (zipcodeTextField.getText().matches("\\d+")) {
+        if (!zipcodeTextField.getText().matches("\\d+")) {
             invoicePostCodeErrorLabel.setVisible(true);
         }
     }
