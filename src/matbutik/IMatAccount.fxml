@@ -24,7 +24,7 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="290.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -138,7 +138,7 @@
                         </AnchorPane>
                         <ScrollPane id="miniShoppingCartScrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scrollPane" GridPane.rowIndex="1">
                            <content>
-                              <FlowPane fx:id="shoppingCartFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
+                              <FlowPane fx:id="shoppingCartFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
                            </content>
                         </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
