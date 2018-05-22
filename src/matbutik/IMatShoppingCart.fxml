@@ -137,18 +137,24 @@
                            <children>
                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="2.5" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                           <font>
-                                              <Font size="18.0" />
+                                              <Font name="System Bold" size="19.0" />
                                           </font>
                                       </Text>
                                       <Label fx:id="numberOfProductsLabel" layoutY="26.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
                                           <padding>
                                               <Insets left="5.0" />
                                           </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
                                       </Label>
                                       <Label fx:id="totalCostLabel" layoutY="47.0" text="Summa:" AnchorPane.leftAnchor="0.0">
                                           <padding>
                                               <Insets left="5.0" />
                                           </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
                                       </Label>
                            </children>
                         </AnchorPane>
