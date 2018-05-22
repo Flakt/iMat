@@ -19,10 +19,6 @@ public class IMatHelpController extends IMatController implements Initializable 
 
     }
 
-    public void shoppingItems(){
-    dataHandler.getShoppingCart().getItems().forEach(x->shoppingCartFlowPane.getChildren().add(
-            new IMatMiniShoppingCartItem(x,this,() ->{})));
-    }
     @FXML public void navigateGoBack(Event event) {
         navigationHandler.goBack();
     }

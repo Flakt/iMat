@@ -1,115 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="accountRootPane" prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatAccountController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateBack" prefHeight="52.0" prefWidth="163.0" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <Label layoutX="469.0" layoutY="17.0" text="Konto">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Button layoutX="777.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" text="Konto" />
-      <Button layoutX="857.0" layoutY="15.0" mnemonicParsing="false" onAction="#toHistory" prefHeight="50.0" prefWidth="80.0" text="Historik" />
-      <Button layoutX="937.0" layoutY="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" text="Hjälp" />
-      <GridPane layoutX="-2.0" layoutY="88.0" prefHeight="610.0" prefWidth="1024.0">
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="768.7999877929688" minWidth="10.0" prefWidth="768.7999877929688" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="505.60003662109375" minWidth="10.0" prefWidth="255.20001220703125" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="290.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="60.8" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="88.79309992370605" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="549.0000061035156" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="549.0000061035156" minHeight="10.0" prefHeight="432.8000244140624" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="549.0000061035156" minHeight="10.0" prefHeight="90.39997558593745" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="explorerContainer" GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="accountCardNumberTextField" layoutX="238.0" layoutY="69.0" prefHeight="26.0" prefWidth="400.0" />
-                  <TextField fx:id="accountMonthTextField" layoutX="443.0" layoutY="114.0" prefHeight="26.0" prefWidth="60.0" />
-                  <TextField fx:id="accountYearTextField" layoutX="578.0" layoutY="114.0" prefHeight="26.0" prefWidth="60.0" />
-                  <TextField fx:id="accountFirstNameTextField" layoutX="238.0" layoutY="210.0" prefHeight="26.0" prefWidth="400.0" />
-                  <TextField fx:id="accountLastNameTextField" layoutX="238.0" layoutY="250.0" prefHeight="26.0" prefWidth="400.0" />
-                  <TextField fx:id="accountAdressTextField" layoutX="238.0" layoutY="292.0" prefHeight="26.0" prefWidth="400.0" />
-                  <TextField fx:id="accountZipCodeTextField" layoutX="238.0" layoutY="333.0" prefHeight="26.0" prefWidth="400.0" />
-                  <TextField fx:id="accountPostAdressTextField" layoutX="238.0" layoutY="375.0" prefHeight="26.0" prefWidth="400.0" />
-                  <Label layoutX="123.0" layoutY="72.0" text="Kortnummer">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="123.0" layoutY="213.0" text="Förnamn">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="382.0" layoutY="117.0" text="Månad">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="539.0" layoutY="117.0" text="År">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="123.0" layoutY="253.0" text="Efternamn">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="123.0" layoutY="295.0" text="Adress">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="123.0" layoutY="336.0" text="Postnummer">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="123.0" layoutY="378.0" text="Ort">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="438.0" layoutY="425.0" mnemonicParsing="false" onAction="#saveDetailsAction" prefHeight="50.0" prefWidth="201.0" text="Spara">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextField fx:id="accountCardNumberTextField" layoutX="238.0" layoutY="69.0" prefHeight="26.0" prefWidth="400.0" />
+                        <TextField fx:id="accountMonthTextField" layoutX="443.0" layoutY="114.0" prefHeight="26.0" prefWidth="60.0" />
+                        <TextField fx:id="accountYearTextField" layoutX="578.0" layoutY="114.0" prefHeight="26.0" prefWidth="60.0" />
+                        <TextField fx:id="accountFirstNameTextField" layoutX="238.0" layoutY="210.0" prefHeight="26.0" prefWidth="400.0" />
+                        <TextField fx:id="accountLastNameTextField" layoutX="238.0" layoutY="250.0" prefHeight="26.0" prefWidth="400.0" />
+                        <TextField fx:id="accountAdressTextField" layoutX="238.0" layoutY="292.0" prefHeight="26.0" prefWidth="400.0" />
+                        <TextField fx:id="accountZipCodeTextField" layoutX="238.0" layoutY="333.0" prefHeight="26.0" prefWidth="400.0" />
+                        <TextField fx:id="accountPostAdressTextField" layoutX="238.0" layoutY="375.0" prefHeight="26.0" prefWidth="400.0" />
+                        <Label layoutX="123.0" layoutY="72.0" text="Kortnummer">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="213.0" text="Förnamn">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="382.0" layoutY="117.0" text="Månad">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="539.0" layoutY="117.0" text="År">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="253.0" text="Efternamn">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="295.0" text="Adress">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="336.0" text="Postnummer">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="123.0" layoutY="378.0" text="Ort">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="438.0" layoutY="425.0" mnemonicParsing="false" onAction="#saveDetailsAction" prefHeight="50.0" prefWidth="201.0" styleClass="greenButton" text="Spara">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="accountSaveLabel" layoutX="441.0" layoutY="493.0" styleClass="save-label" text="Dina kontouppgifter är sparade" visible="false">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <Label fx:id="accountNumberOfProductsLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Kundvagn" GridPane.columnIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="accountSumLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#toShoppingCart" text="Gå till kassan" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="84.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <image>
-                  <Image url="@resources/shoppingcart.png" />
-               </image>
-            </ImageView>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" style="-fx-border-color: transparent transparent transparent black;" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anchor-pane">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kundvagn" wrappingWidth="146.4000105857849" AnchorPane.leftAnchor="2.5" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
+                              <Label fx:id="numberOfProductsLabel" layoutY="26.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalCostLabel" layoutY="47.0" text="Summa:" AnchorPane.leftAnchor="0.0">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" styleClass="defualtColor" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <image>
+                                    <Image url="@resources/shoppingcart.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <ScrollPane id="miniShoppingCartScrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scrollPane" GridPane.rowIndex="1">
+                           <content>
+                              <FlowPane fx:id="shoppingCartFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
+                           </content>
+                        </ScrollPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Button fx:id="goToCashDesk" mnemonicParsing="false" onAction="#shoppingCart" styleClass="greenButton" text="Gå till kassan" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="22.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0" style="-fx-border-color: transparent transparent black transparent;" styleClass="topBar" GridPane.columnSpan="2">
+               <children>
+                  <GridPane prefHeight="90.0" prefWidth="718.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" styleClass="settingsButton" text="Tillbaka" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label layoutX="242.0" layoutY="21.0" text="Konto" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToAccount" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#navigateToHistory" prefHeight="39.0" text="Historik" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToHelp" prefHeight="26.0" text="Hjälp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateGoBack" prefHeight="26.0" prefWidth="72.0" styleClass="settingsButton" text="Tillbaka" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
          </children>
       </GridPane>
    </children>
+   <stylesheets>
+      <URL value="@styles/generalStyle.css" />
+      <URL value="@styles/style.css" />
+   </stylesheets>
 </AnchorPane>

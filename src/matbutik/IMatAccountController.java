@@ -16,16 +16,13 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class IMatAccountController implements Initializable {
+public class IMatAccountController extends IMatController implements Initializable {
 
     private IMatDataHandler dataHandler;
     private Customer customer;
     private CreditCard creditCard;
     private IMatNavigationHandler navigationHandler;
-
-    @FXML private AnchorPane accountRootPane;
-    @FXML private Label accountNumberOfProductsLabel;
-    @FXML private Label accountSumLabel;
+    @FXML private Label accountSaveLabel;
     @FXML private TextField accountCardNumberTextField;
     @FXML private TextField accountMonthTextField;
     @FXML private TextField accountYearTextField;
@@ -42,15 +39,13 @@ public class IMatAccountController implements Initializable {
         navigationHandler = IMatNavigationHandler.getInstance();
         customer = dataHandler.getCustomer();
         creditCard = dataHandler.getCreditCard();
-        setShoppingCart();
         setTextFields();
         addTextFieldListeners();
+        shoppingItems();
+
     }
 
-    private void setShoppingCart() {
-        accountNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2) == "st"?item.getAmount():1).sum()));
-        accountSumLabel.setText(String.valueOf("Summa :" + dataHandler.getShoppingCart().getTotal()));
-    }
+
 
     private void setTextFields() {
         accountCardNumberTextField.setText(creditCard.getCardNumber());
@@ -84,23 +79,8 @@ public class IMatAccountController implements Initializable {
         customer.setAddress(accountAdressTextField.getText());
         customer.setPostCode(accountZipCodeTextField.getText());
         customer.setPostAddress(accountPostAdressTextField.getText());
+        accountSaveLabel.setVisible(true);
     }
-
-    @FXML
-    private void navigateBack(Event event) {
-        navigationHandler.goBack();
-    }
-
-    @FXML
-    private void toShoppingCart() {
-        navigationHandler.toDestination("ShoppingCart");
-    }
-
-    @FXML
-    private void toHistory() {
-        navigationHandler.toHistory();
-    }
-
 
     private class TextFieldListener implements ChangeListener<Boolean> {
         private TextField textField;
@@ -123,5 +103,8 @@ public class IMatAccountController implements Initializable {
                 // Maybe put something here later on
             }
         }
+    }
+    @FXML public void navigateGoBack(Event event) {
+        navigationHandler.goBack();
     }
 }

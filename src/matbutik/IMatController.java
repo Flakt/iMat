@@ -188,6 +188,11 @@ public class IMatController extends IMatModularCartController implements Initial
             search();
     }
 
+    public void shoppingItems(){
+        dataHandler.getShoppingCart().getItems().forEach(x->shoppingCartFlowPane.getChildren().add(
+                new IMatMiniShoppingCartItem(x,this,() ->{})));
+    }
+
     public Label getNumberOfProductsLabel() {
         return numberOfProductsLabel;
     }
