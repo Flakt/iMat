@@ -67,7 +67,7 @@
 
 .topBar
 {
-    -fx-background-color: #fff8e0;
+    -fx-background-color: #fff4cc /*#fff8e0*/;
 }
 
 .settingsButtonContainer .button
@@ -77,17 +77,17 @@
 
 .miniShoppingCartContainer
 {
-    -fx-background-color: #fff8e0;
+    -fx-background-color: #fff4cc /*#fff8e0*/;
 }
 
 .miniShoppingCartContainer .flow-pane
 {
-    -fx-background-color: #fff8e0;
+    -fx-background-color: #fff4cc /*#fff8e0*/;
 }
 
 .explorerContainer .flow-pane, .explorerContainer .flowpane, .explorerContainer .tab-pane, .explorerContainer .anchor-pane
 {
-    -fx-background-color: #fffdf1;
+    -fx-background-color: #ebf4f2 /*#fffdf1*/;
 }
 
 .miniShoppingCartContainer .scroll-pane
@@ -101,7 +101,7 @@
     -fx-effect: dropshadow(three-pass-box, black, 1, 0.0, 1, 1);
 }
 
-.sectionLabel
+.sectionLabel, .centerStage, .centerStage .flow-pane
 {
-    -fx-background-color: #fffdf1;
+    -fx-background-color: #ebf4f2 /*#fffdf1*/;
 }

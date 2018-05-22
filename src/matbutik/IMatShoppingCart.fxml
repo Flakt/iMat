@@ -107,11 +107,11 @@
                   </GridPane>
                </children>
             </AnchorPane>
-                  <AnchorPane fx:id="cartItemsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="cartItemsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #ebf4f2;" GridPane.rowIndex="1">
                       <children>
-                  <ScrollPane layoutY="54.0" prefHeight="594.0" prefWidth="764.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane layoutY="54.0" prefHeight="594.0" prefWidth="764.0" style="-fx-background-color: #ebf4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <FlowPane fx:id="cartItemsFlowPane" />
+                        <FlowPane fx:id="cartItemsFlowPane" style="-fx-background-color: #ebf4f2;" />
                      </content>
                   </ScrollPane>
                   <Label fx:id="emptyCartLabel" text="Din varukorg är tom" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="10.0">
@@ -121,7 +121,7 @@
                   </Label>
                       </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="cartDetailsPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                       <children>
                   <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>

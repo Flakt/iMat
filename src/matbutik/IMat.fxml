@@ -31,7 +31,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0" styleClass="topBar" GridPane.columnSpan="2">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0" style="-fx-border-color: transparent transparent black transparent;" styleClass="topBar" GridPane.columnSpan="2">
                <children>
                   <GridPane prefHeight="90.0" prefWidth="718.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
@@ -115,6 +115,31 @@
                <children>
                   <StackPane prefHeight="591.0" prefWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
+                        <AnchorPane fx:id="searchResultContainer" pickOnBounds="false">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                           <children>
+                              <ScrollPane fx:id="searchResultScrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <content>
+                                    <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" styleClass="flow-pane">
+                                       <padding>
+                                          <Insets right="34.0" />
+                                       </padding>
+                                    </FlowPane>
+                                 </content>
+                              </ScrollPane>
+                              <AnchorPane layoutY="10.0" prefHeight="50.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label style="-fx-alignment: center;" styleClass="sectionLabel" text="Sökresultat" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
                         <AnchorPane fx:id="mainPage" minWidth="300.0" mouseTransparent="true">
                            <StackPane.margin>
                               <Insets />
@@ -155,7 +180,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-insets: -11px -11px -12px -12px;" styleClass="tabLabel" text="Mejeri" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane fx:id="dairyFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1000.0" styleClass="flowpane">
                                                    <padding>
@@ -170,7 +195,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Chark &amp; Pålägg" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane fx:id="meatFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -185,7 +210,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Fisk" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -200,7 +225,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frukt &amp; Grönt" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -215,7 +240,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Bröd" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -230,7 +255,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Skafferi" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -245,7 +270,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Dryck" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -260,7 +285,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Smaksättare" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -275,7 +300,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Frys" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -290,7 +315,7 @@
                                           <Label prefHeight="17.0" prefWidth="19.0" styleClass="tabLabel" text="Konfekt &amp; Kaffebröd" />
                                        </graphic>
                                        <content>
-                                          <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                              <content>
                                                 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="flowpane">
                                                    <padding>
@@ -309,36 +334,11 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="searchResultContainer" pickOnBounds="false">
-                           <StackPane.margin>
-                              <Insets />
-                           </StackPane.margin>
-                           <children>
-                              <ScrollPane fx:id="searchResultScrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                 <content>
-                                    <FlowPane fx:id="searchResult" prefHeight="568.0" prefWidth="638.0" styleClass="flow-pane">
-                                       <padding>
-                                          <Insets right="34.0" />
-                                       </padding>
-                                    </FlowPane>
-                                 </content>
-                              </ScrollPane>
-                              <AnchorPane layoutY="10.0" prefHeight="50.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Label style="-fx-alignment: center;" styleClass="sectionLabel" text="Sökresultat" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font name="System Bold" size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
                      </children>
                   </StackPane>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" style="-fx-border-color: transparent transparent transparent black;" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columnConstraints>
