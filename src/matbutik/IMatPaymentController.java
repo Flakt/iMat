@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class IMatPaymentController implements Initializable {
+public class IMatPaymentController extends IMatController implements Initializable {
 
     private IMatDataHandler dataHandler;
     private IMatNavigationHandler navigationHandler;
@@ -54,18 +54,6 @@ public class IMatPaymentController implements Initializable {
     @FXML
     private Label headerLabel;
     @FXML
-    private Label invoiceNumberOfProductsLabel;
-    @FXML
-    private Label invoiceSumLabel;
-    @FXML
-    private Label creditNumberOfProductsLabel;
-    @FXML
-    private Label creditSumLabel;
-    @FXML
-    private Label deliveryNumberOfProductsLabel;
-    @FXML
-    private Label deliverySumLabel;
-    @FXML
     private Label firstNameErrorLabel;
     @FXML
     private Label lastNameErrorLabel;
@@ -96,7 +84,7 @@ public class IMatPaymentController implements Initializable {
     @FXML
     private Label creditErrorLabel;
     @FXML
-    private SplitPane paymentOptionsSplitPane;
+    private AnchorPane paymentOptionsAnchorPane;
     @FXML
     private TextField forenameTextField;
     @FXML
@@ -157,8 +145,7 @@ public class IMatPaymentController implements Initializable {
     }
 
     private void invoiceInit() {
-        invoiceNumberOfProductsLabel.setText("Antal Varor: " + /*String.valueOf(dataHandler.getShoppingCart().getItems().size())*/String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> {String un = item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2);return un.equals("st") || un.equals("rp") ?item.getAmount():1;}).sum()));
-        invoiceSumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
+
         headerLabel.setText("Du har valt att betala med faktura");
         forenameTextField.focusedProperty().addListener(new TextFieldListener(forenameTextField));
         surnameTextField.focusedProperty().addListener(new TextFieldListener(surnameTextField));
@@ -170,8 +157,7 @@ public class IMatPaymentController implements Initializable {
     }
 
     private void creditInit() {
-        creditNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> {String un = item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2);return un.equals("st") || un.equals("rp") ?item.getAmount():1;}).sum()));
-        creditSumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
+
         headerLabel.setText("Du har valt att betala med kreditkort");
         nameTextField.focusedProperty().addListener(new TextFieldListener(nameTextField));
         cardNumberTextField.focusedProperty().addListener(new TextFieldListener(cardNumberTextField));
@@ -183,8 +169,6 @@ public class IMatPaymentController implements Initializable {
     }
 
     private void deliveryInit() {
-        deliveryNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2) == "st"?item.getAmount():1).sum()));
-        deliverySumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
         headerLabel.setText("Leveransadress");
         deliveryFirstNameTextField.focusedProperty().addListener(new TextFieldListener(deliveryFirstNameTextField));
         deliveryAfterNameTextField.focusedProperty().addListener(new TextFieldListener(deliveryAfterNameTextField));
@@ -345,12 +329,12 @@ public class IMatPaymentController implements Initializable {
             return;
         }
         if (choice.equals("invoice") || choice.equals("credit")) {
-            paymentOptionsSplitPane.toFront();
+            paymentOptionsAnchorPane.toFront();
             headerLabel.setText("Betalningsalternativ");
         }
         else if (choice.equals("delivery")) {
             // Maybe reconsider where the button should lead to in this case
-            paymentOptionsSplitPane.toFront();
+            paymentOptionsAnchorPane.toFront();
             headerLabel.setText("Betalningsalternativ");
         }
     }
@@ -416,7 +400,7 @@ public class IMatPaymentController implements Initializable {
         if (firstNameErrorLabel.isVisible() || lastNameErrorLabel.isVisible() || postAdressErrorLabel.isVisible() || postCodeErrorLabel.isVisible()) {
             return;
         }
-        paymentOptionsSplitPane.toFront();
+        paymentOptionsAnchorPane.toFront();
         headerLabel.setText("Betalningsalternativ");
         customer.setFirstName(deliveryFirstNameTextField.getText());
         customer.setLastName(deliveryAfterNameTextField.getText());
