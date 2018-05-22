@@ -208,6 +208,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         // Maybe run init invoice page here (If not initialized in initialize)
         invoiceInit();
         invoiceAnchorPane.toFront();
+        choice = "invoice";
     }
 
     @FXML
@@ -215,6 +216,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         // Maybe run init credit page here (If not already initialized)
         creditInit();
         creditcardAnchorPane.toFront();
+        choice = "credit";
     }
 
     private void clearInvoiceTextFieldsError() {
@@ -244,7 +246,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         if (regionTextField.getText().matches(".*\\d+.*")) {
             invoicePostAdressErrorLabel.setVisible(true);
         }
-        if (!zipcodeTextField.getText().matches("\\d+")) {
+        if (!zipcodeTextField.getText().matches("[0-9]+")) {
             invoicePostCodeErrorLabel.setVisible(true);
         }
     }
@@ -253,16 +255,16 @@ public class IMatPaymentController extends IMatController implements Initializab
         if (nameTextField.getText().matches(".*\\d+.*")) {
             creditCardNameErrorLabel.setVisible(true);
         }
-        if (!cardNumberTextField.getText().matches("\\d+")) {
+        if (!cardNumberTextField.getText().matches("[0-9]+")) {
             creditCardNumberErrorLabel.setVisible(true);
         }
-        if (!yearTextField.getText().matches("\\d+")) {
+        if (!yearTextField.getText().matches("[0-9]+")) {
             creditYearErrorLabel.setVisible(true);
         }
-        if (!monthTextField.getText().matches("\\d+")) {
+        if (!monthTextField.getText().matches("[0-9]+")) {
             creditMonthErrorLabel.setVisible(true);
         }
-        if (!verificationCodeTextField.getText().matches("\\d+")) {
+        if (!verificationCodeTextField.getText().matches("[0-9]+")) {
             creditVerifErrorLabel.setVisible(true);
         }
     }
@@ -289,7 +291,6 @@ public class IMatPaymentController extends IMatController implements Initializab
             customer.setPostAddress(regionTextField.getText());
             customer.setPostCode(zipcodeTextField.getText());
         }
-        choice = "invoice";
         dataHandler.placeOrder(true);
         navigationHandler.toDestination("ConfirmationPage");
     }
@@ -317,7 +318,6 @@ public class IMatPaymentController extends IMatController implements Initializab
             creditCard.setValidYear(Integer.parseInt(yearTextField.getText()));
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
-        choice = "credit";
         dataHandler.placeOrder(true);
         navigationHandler.toDestination("ConfirmationPage");
 
@@ -332,8 +332,9 @@ public class IMatPaymentController extends IMatController implements Initializab
         if (choice.equals("invoice") || choice.equals("credit")) {
             paymentOptionsAnchorPane.toFront();
             headerLabel.setText("Betalningsalternativ");
+            choice = "alternatives";
         }
-        else if (choice.equals("delivery") || choice.equals("invoice") || choice.equals("credit")) {
+        else if (choice.equals("alternatives")) {
             // Maybe reconsider where the button should lead to in this case
             deliveryAnchorPane.toFront();
             headerLabel.setText("Leveransadress");
@@ -373,7 +374,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         if (deliveryPostAdressTextField.getText().matches(".*\\d+.*")) {
             postAdressErrorLabel.setVisible(true);
         }
-        if (!deliveryPostCodeTextField.getText().matches("\\d+")) {
+        if (!deliveryPostCodeTextField.getText().matches("[0-9]+")) {
             postCodeErrorLabel.setVisible(true);
         }
     }
@@ -414,7 +415,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         adressTextField.setText(customer.getAddress());
         regionTextField.setText(customer.getPostAddress());
         zipcodeTextField.setText(customer.getPostCode());
-        choice = "delivery";
+        choice = "alternatives";
     }
 
 }
