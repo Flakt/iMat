@@ -398,6 +398,7 @@ public class IMatPaymentController implements Initializable {
         lastNameErrorLabel.setVisible(false);
         postAdressErrorLabel.setVisible(false);
         postCodeErrorLabel.setVisible(false);
+        errorLabel.setVisible(false);
     }
 
     @FXML
