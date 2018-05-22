@@ -8,13 +8,10 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class confirmationPage implements Initializable {
+public class confirmationPage extends IMatController implements Initializable {
 
 
 
-
-
-    @FXML Label text;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

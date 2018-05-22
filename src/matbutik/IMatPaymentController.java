@@ -176,6 +176,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         deliveryPostCodeTextField.focusedProperty().addListener(new TextFieldListener(deliveryPostCodeTextField));
         deliveryPostAdressTextField.focusedProperty().addListener(new TextFieldListener(deliveryPostAdressTextField));
         deliveryPopulateTextField();
+        choice = null;
     }
 
     private void invoicePopulateTextField() {
@@ -288,7 +289,7 @@ public class IMatPaymentController extends IMatController implements Initializab
             customer.setPostAddress(regionTextField.getText());
             customer.setPostCode(zipcodeTextField.getText());
         }
-        choice = "delivery";
+        choice = "invoice";
         dataHandler.placeOrder(true);
         navigationHandler.toDestination("ConfirmationPage");
     }
@@ -316,7 +317,7 @@ public class IMatPaymentController extends IMatController implements Initializab
             creditCard.setValidYear(Integer.parseInt(yearTextField.getText()));
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
-        choice = "delivery";
+        choice = "credit";
         dataHandler.placeOrder(true);
         navigationHandler.toDestination("ConfirmationPage");
 
@@ -332,10 +333,10 @@ public class IMatPaymentController extends IMatController implements Initializab
             paymentOptionsAnchorPane.toFront();
             headerLabel.setText("Betalningsalternativ");
         }
-        else if (choice.equals("delivery")) {
+        else if (choice.equals("delivery") || choice.equals("invoice") || choice.equals("credit")) {
             // Maybe reconsider where the button should lead to in this case
-            paymentOptionsAnchorPane.toFront();
-            headerLabel.setText("Betalningsalternativ");
+            deliveryAnchorPane.toFront();
+            headerLabel.setText("Leveransadress");
         }
     }
 
@@ -413,6 +414,7 @@ public class IMatPaymentController extends IMatController implements Initializab
         adressTextField.setText(customer.getAddress());
         regionTextField.setText(customer.getPostAddress());
         zipcodeTextField.setText(customer.getPostCode());
+        choice = "delivery";
     }
 
 }

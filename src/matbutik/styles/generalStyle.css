@@ -80,7 +80,7 @@
     -fx-background-color: #fff4cc /*#fff8e0*/;
 }
 
-.miniShoppingCartContainer .flow-pane
+.miniShoppingCartContainer .flow-pane, .scrollPane
 {
     -fx-background-color: #fff4cc /*#fff8e0*/;
 }
