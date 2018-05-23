@@ -27,7 +27,6 @@ public class IMatHistoryController extends IMatController implements Initializab
     @FXML private AnchorPane historyRootPane;
     @FXML private AnchorPane historyViewAnchorPane;
     @FXML private AnchorPane historyDetailAnchorPane;
-    @FXML private AnchorPane historyShadowAnchorPane;
     @FXML private FlowPane historyOrdersFlowPane;
     @FXML private FlowPane historyDetailFlowPane;
     @FXML private ImageView historyDetailCloseImage;
@@ -41,8 +40,8 @@ public class IMatHistoryController extends IMatController implements Initializab
         // Have to sort them depending on order number, which should be set @IMatPaymentController
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
+
         }
-        shoppingItems();
         // TEST
         /*Order testOrder = new Order();
         testOrder.setOrderNumber(2);
@@ -56,6 +55,7 @@ public class IMatHistoryController extends IMatController implements Initializab
         // TEST END
         historyOrdersFlowPane.toFront();
         populateOrders();
+        shoppingItems();
     }
 
     private void populateOrders() {
@@ -67,10 +67,8 @@ public class IMatHistoryController extends IMatController implements Initializab
     }
 
     protected void setHistoryDetailView(Order order) {
-        historyShadowAnchorPane.toFront();
         historyDetailAnchorPane.toFront();
         historyDetailDateLabel.setText("Kundvagn från " + order.getDate().toString()); // May write out gibberish
-        historyDetailSumLabel.setText("Summa: " + String.valueOf(sumOfAllProducts(order)));
         populateHistoryDetailView(order);
     }
 

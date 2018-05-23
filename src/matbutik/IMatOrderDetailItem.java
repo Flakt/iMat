@@ -18,20 +18,13 @@ public class IMatOrderDetailItem extends AnchorPane {
     private ShoppingItem shoppingItem;
     private IMatHistoryController historyController;
 
-    @FXML
-    private Button orderDetailAddButton;
-    @FXML
-    private Button orderDetailRemoveButton;
-    @FXML
-    private ImageView orderDetailImage;
-    @FXML
-    private ImageView orderDetailEcoImage;
-    @FXML
-    private Label orderDetailProductNameLabel;
-    @FXML
-    private Label orderDetailProductPriceLabel;
-    @FXML
-    private TextField orderDetailProductAmountTextField;
+    @FXML protected TextField cartItemAmountTextField;
+    @FXML private Label cartItemTotalPrice;
+    @FXML protected ImageView cartItemImageView;
+    @FXML protected Label cartItemEco;
+    @FXML private Label cartItemProductPrice;
+    @FXML protected Label cartItemName;
+
 
     IMatOrderDetailItem(ShoppingItem sp, IMatHistoryController hc ) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatOrderDetailItem.fxml"));
@@ -46,13 +39,13 @@ public class IMatOrderDetailItem extends AnchorPane {
 
         shoppingItem = sp;
         historyController = hc;
-        orderDetailImage.setImage(new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + shoppingItem.getProduct().getImageName()));
+        cartItemImageView.setImage(new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + shoppingItem.getProduct().getImageName()));
         if (shoppingItem.getProduct().isEcological()) {
-            orderDetailEcoImage.setImage(new Image("/matbutik/resources/Eko_Logo.jpg"));
+            //car.setImage(new Image("/matbutik/resources/Eko_Logo.jpg"));
         }
-        orderDetailProductNameLabel.setText(shoppingItem.getProduct().getName());
-        orderDetailProductPriceLabel.setText(String.valueOf(shoppingItem.getTotal()) + " kr totalt");
-        orderDetailProductAmountTextField.setText(String.valueOf(shoppingItem.getAmount()) + " st");
+        cartItemName.setText(shoppingItem.getProduct().getName());
+        cartItemProductPrice.setText(String.valueOf(shoppingItem.getTotal()) + " kr totalt");
+        cartItemAmountTextField.setText(String.valueOf(shoppingItem.getAmount()) + " st");
     }
 
     public ShoppingItem getShoppingItem() {

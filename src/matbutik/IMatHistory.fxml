@@ -29,8 +29,6 @@
          <children>
             <AnchorPane prefHeight="405.0" prefWidth="664.0" GridPane.rowIndex="1">
                <children>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <AnchorPane fx:id="historyShadowAnchorPane" onMouseClicked="#shadowPaneOnClick" opacity="0.75" prefHeight="610.0" prefWidth="771.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0" />
                 <AnchorPane fx:id="historyDetailAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="434.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label fx:id="historyDetailDateLabel" layoutX="14.0" layoutY="5.0" text="Kundvagn från">
@@ -45,21 +43,11 @@
                         </ScrollPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label fx:id="historyDetailSumLabel" layoutX="14.0" layoutY="14.0" text="Summa:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
                               <Button layoutX="29.0" layoutY="266.0" mnemonicParsing="false" onAction="#putAllInCart" text="Lägg till allt i kundvagn">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <ImageView fx:id="historyDetailCloseImage" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" onMouseClicked="#closeImageOnClick" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <image>
-                                    <Image url="@resources/cross.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
