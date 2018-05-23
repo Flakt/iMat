@@ -17,35 +17,22 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class IMatHistoryController implements Initializable{
+public class IMatHistoryController extends IMatController implements Initializable{
 
     private IMatDataHandler dataHandler;
     private List<Order> orders = new ArrayList<>();
     private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
     private IMatNavigationHandler navigationHandler;
 
-    @FXML
-    private AnchorPane historyRootPane;
-    @FXML
-    private AnchorPane historyViewAnchorPane;
-    @FXML
-    private AnchorPane historyDetailAnchorPane;
-    @FXML
-    private AnchorPane historyShadowAnchorPane;
-    @FXML
-    private FlowPane historyOrdersFlowPane;
-    @FXML
-    private FlowPane historyDetailFlowPane;
-    @FXML
-    private ImageView historyDetailCloseImage;
-    @FXML
-    private Label historyNumberOfProductsLabel;
-    @FXML
-    private Label historySumLabel;
-    @FXML
-    private Label historyDetailDateLabel;
-    @FXML
-    private Label historyDetailSumLabel;
+    @FXML private AnchorPane historyRootPane;
+    @FXML private AnchorPane historyViewAnchorPane;
+    @FXML private AnchorPane historyDetailAnchorPane;
+    @FXML private AnchorPane historyShadowAnchorPane;
+    @FXML private FlowPane historyOrdersFlowPane;
+    @FXML private FlowPane historyDetailFlowPane;
+    @FXML private ImageView historyDetailCloseImage;
+    @FXML private Label historyDetailDateLabel;
+    @FXML private Label historyDetailSumLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,6 +42,7 @@ public class IMatHistoryController implements Initializable{
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
         }
+        shoppingItems();
         // TEST
         /*Order testOrder = new Order();
         testOrder.setOrderNumber(2);
@@ -66,20 +54,8 @@ public class IMatHistoryController implements Initializable{
         testOrder.setItems(items);
         orders.add(testOrder);*/
         // TEST END
-        updateShoppingCart();
+        historyOrdersFlowPane.toFront();
         populateOrders();
-        historyViewAnchorPane.toFront();
-    }
-
-    private void updateShoppingCart() {
-        /*
-        double amount = 0;
-        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
-            amount += (item.getAmount() * item.getProduct().getPrice());
-        }
-        */
-        this.historyNumberOfProductsLabel.setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
-        this.historySumLabel.setText("Summa: " + String.valueOf(dataHandler.getShoppingCart().getTotal()));
     }
 
     private void populateOrders() {
@@ -114,37 +90,16 @@ public class IMatHistoryController implements Initializable{
         for (IMatOrderDetailItem item : orderDetailItems) {
             dataHandler.getShoppingCart().addItem(item.getShoppingItem());
         }
-        updateShoppingCart();
+        shoppingItems();
     }
 
-    @FXML
-    protected void shadowPaneOnClick(Event event) {
+    @FXML protected void shadowPaneOnClick(Event event) {
         historyViewAnchorPane.toFront();
     }
-
-    @FXML
-    protected void closeImageOnClick(Event event) {
+    @FXML protected void closeImageOnClick(Event event) {
         historyViewAnchorPane.toFront();
     }
-
-    @FXML
-    protected void toAccount() {
-        navigationHandler.toAccount();
-    }
-
-    @FXML
-    protected void toHistory() {
-        // Why would you even press this?
-        navigationHandler.toHistory();
-    }
-
-    @FXML
-    protected void toPayment() {
-        navigationHandler.toDestination("Payment");
-    }
-
-    @FXML
-    protected void navigateBack(Event event){
+    @FXML protected void navigateBack(Event event){
         navigationHandler.goBack();
     }
 
@@ -158,12 +113,15 @@ public class IMatHistoryController implements Initializable{
 
     public void addToShoppingCart(ShoppingItem item) {
         dataHandler.getShoppingCart().addItem(item);
-        updateShoppingCart();
+        shoppingItems();
     }
 
     public void removeFromShoppingCart(ShoppingItem item) {
         dataHandler.getShoppingCart().removeItem(item);
-        updateShoppingCart();
+        shoppingItems();
     }
 
+    @FXML public void navigateGoBack(Event event) {
+        navigationHandler.goBack();
+    }
 }
