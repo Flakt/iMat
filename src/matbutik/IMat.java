@@ -30,8 +30,12 @@ public class IMat extends Application {
         Parent shoppingCart = FXMLLoader.load(getClass().getResource("IMatShoppingCart.fxml"), bundle);
         Parent history = FXMLLoader.load(getClass().getResource("IMatHistory.fxml"), bundle);
         Parent account = FXMLLoader.load(getClass().getResource("IMatAccount.fxml"), bundle);
-        Parent payment = FXMLLoader.load(getClass().getResource("IMatPayment.fxml"), bundle);
         Parent confirmation = FXMLLoader.load(getClass().getResource("IMatConfirmationPage.fxml"), bundle);
+        Parent delivery = FXMLLoader.load(getClass().getResource("IMatDelivery.fxml"), bundle);
+        Parent paymentCard = FXMLLoader.load(getClass().getResource("IMatPaymentCard.fxml"), bundle);
+        Parent paymentInvoice = FXMLLoader.load(getClass().getResource("IMatPaymentInvoice.fxml"), bundle);
+        Parent paymentOptions = FXMLLoader.load(getClass().getResource("IMatPaymentOptions.fxml"), bundle);
+        Parent paymentDeliveryAddress = FXMLLoader.load(getClass().getResource("IMatPaymentDeliveryAddress.fxml"), bundle);
 
 
         Parent help = FXMLLoader.load(getClass().getResource("IMatHelp.fxml"), bundle);
@@ -47,7 +51,11 @@ public class IMat extends Application {
         screenController.addScreen("ShoppingCart", shoppingCart);
         screenController.addScreen("History", history);
         screenController.addScreen("Account", account);
-        screenController.addScreen("Payment", payment);
+        screenController.addScreen("Delivery", delivery);
+        screenController.addScreen("PaymentCard", paymentCard);
+        screenController.addScreen("PaymentInvoice", paymentInvoice);
+        screenController.addScreen("PaymentDeliveryAddress", paymentDeliveryAddress);
+        screenController.addScreen("PaymentOptions", paymentOptions);
         screenController.addScreen("ConfirmationPage", confirmation);
         screenController.addScreen("Help", help);
 

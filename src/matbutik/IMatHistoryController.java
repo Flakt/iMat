@@ -97,9 +97,7 @@ public class IMatHistoryController extends IMatController implements Initializab
     @FXML protected void closeImageOnClick(Event event) {
         historyViewAnchorPane.toFront();
     }
-    @FXML protected void navigateBack(Event event){
-        navigationHandler.goBack();
-    }
+
 
     public double sumOfAllProducts(Order order) {
         double sum = 0;
@@ -119,7 +117,5 @@ public class IMatHistoryController extends IMatController implements Initializab
         shoppingItems();
     }
 
-    @FXML public void navigateGoBack(Event event) {
-        navigationHandler.goBack();
-    }
+
 }

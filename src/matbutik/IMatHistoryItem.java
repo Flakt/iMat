@@ -48,7 +48,7 @@ public class IMatHistoryItem extends AnchorPane {
         } else {
             numberOfProductsLabel.setText(String. valueOf(order.getItems().size() + " vara"));
         }
-        sumLabel.setText(String.valueOf(String.valueOf(calcSum(order))) + " kr");
+        sumLabel.setText(String.format("%.2f", calcSum(order)) + " kr");
     }
 
     private double calcSum(Order order) {

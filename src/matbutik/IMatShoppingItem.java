@@ -77,7 +77,7 @@ public class IMatShoppingItem extends AnchorPane {
         //cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
         cartItemProductPrice.setText(((Double)(this.shoppingItem.getProduct().getPrice())).toString() +
                 " kr / " + shoppingCartController.getCartSuffix(this.shoppingItem));
-        cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem));
+        cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem).replace("Ekologisk",""));
 
         this.cartUpdater = cartUpdater;
     }
@@ -86,6 +86,7 @@ public class IMatShoppingItem extends AnchorPane {
             cartItemEco.setVisible(false);
         }
     }
+
 
     @FXML
     protected void incItem(Event event) {
@@ -126,7 +127,7 @@ public class IMatShoppingItem extends AnchorPane {
     private void updatePrice() {
         cartItemTotalPrice.setText((" =" + String.format("%.2f",this.shoppingItem.getTotal())) + " kr"  );
     }
-
+    //STOPP SKYDDSOBJEKT ÄNDRA EJ!
     private Stream<Node> getChildrenStream(Node n) {
         if (Pane.class.isAssignableFrom(n.getClass())) {
             return ((Pane)n).getChildren().stream();

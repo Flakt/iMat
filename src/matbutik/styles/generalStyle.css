@@ -65,6 +65,18 @@
     -fx-label-padding: -50px;
 }
 
+.timeButton
+{
+    -fx-base: #a8e4c1;
+    -fx-font-size: 1.5em;
+}
+
+.removeButton
+{
+    -fx-base: #ecafa6;
+    -fx-font-size: 1.5em;
+}
+
 .topBar
 {
     -fx-background-color: #fff4cc /*#fff8e0*/;
@@ -88,6 +100,7 @@
 .explorerContainer .flow-pane, .explorerContainer .flowpane, .explorerContainer .tab-pane, .explorerContainer .anchor-pane
 {
     -fx-background-color: #ebf4f2 /*#fffdf1*/;
+    -fx-border-color: black;
 }
 
 .miniShoppingCartContainer .scroll-pane
@@ -110,4 +123,23 @@
 {
     -fx-text-fill: #88dd88;
     -fx-font-weight: bold;
+}
+
+.dateLabel
+{
+    -fx-alignment: center;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.timeButton
+{
+    -fx-base: #c5ebe6;
+    -fx-font-size: 2em;
+}
+
+.nextDateButton
+{
+    -fx-base: #a8e4c1;
+    -fx-font-size: 2em;
 }

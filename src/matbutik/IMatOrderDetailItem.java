@@ -44,8 +44,8 @@ public class IMatOrderDetailItem extends AnchorPane {
             //car.setImage(new Image("/matbutik/resources/Eko_Logo.jpg"));
         }
         cartItemName.setText(shoppingItem.getProduct().getName());
-        cartItemProductPrice.setText(String.valueOf(shoppingItem.getTotal()) + " kr totalt");
-        cartItemAmountTextField.setText(String.valueOf(shoppingItem.getAmount()) + " st");
+        cartItemProductPrice.setText(String.format("%.2f", shoppingItem.getTotal()) + " kr totalt");
+        cartItemAmountTextField.setText(String.format("%.2f", shoppingItem.getAmount()) + " st");
     }
 
     public ShoppingItem getShoppingItem() {

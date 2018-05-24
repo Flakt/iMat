@@ -63,6 +63,40 @@ public class IMatNavigationHandler {
         setCustomerPath(dest);
     }
 
+    public void toPaymentDeliveryAddress(){
+        screenController.activate("PaymentDeliveryAddress");
+        setCustomerPath("PaymentDeliveryAddress");
+    }
+
+    public void toPaymentCard(){
+        screenController.activate("PaymentCard");
+        setCustomerPath("PaymentCard");
+    }
+
+    public void toDelivery(){
+        screenController.activate("Delivery");
+        setCustomerPath("Delivery");
+    }
+
+    public void toPaymentInvoice(){
+        screenController.activate("PaymentInvoice");
+        setCustomerPath("PaymentInvoice");
+    }
+
+    public void toPaymentOptions(){
+        screenController.activate("PaymentOptions");
+        setCustomerPath("PaymentOptions");
+    }
+
+    public void toMainPage(){
+        screenController.activate("");
+        setCustomerPath("");
+    }
+
+    public void toConfirmationPage(){
+        screenController.activate("ConfirmationPage");
+        setCustomerPath("ConfirmationPage");
+    }
 
 
 }

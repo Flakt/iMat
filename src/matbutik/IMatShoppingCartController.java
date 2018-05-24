@@ -92,7 +92,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
     }
 
     @FXML
-    protected void removeAllAction() {
+    protected void removeAction() {
         // Not assigned yet
         cartItemsFlowPane.getChildren().clear();
         backupShoppingItems.addAll(shoppingCart.getItems());   // May or may not work
@@ -113,22 +113,17 @@ public class IMatShoppingCartController extends IMatModularCartController implem
 
 
 
-    @FXML
-    private void navigateToHistory(Event e){
+    @FXML private void navigateToHistory(Event e){
         navigationHandler.toHistory();
     }
-    @FXML
-    private void navigateToAccount(Event e){
+    @FXML private void navigateToAccount(Event e){
         navigationHandler.toAccount();
     }
-    @FXML
-    private void navigateToHelp(Event e){
+    @FXML private void navigateToHelp(Event e){
         navigationHandler.toHelp();
     }
-
-    @FXML
-    private void toPayment(Event e) {
-        navigationHandler.toDestination("Payment");
+    @FXML private void toPayment(Event e) {
+        navigationHandler.toPaymentDeliveryAddress();
     }
 }
 
