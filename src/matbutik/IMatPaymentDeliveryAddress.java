@@ -101,7 +101,7 @@ public class IMatPaymentDeliveryAddress extends IMatController implements Initia
             customer.setAddress(deliveryAdressTextField.getText());
             customer.setPostAddress(deliveryPostAdressTextField.getText());
             customer.setPostCode(deliveryPostCodeTextField.getText());
-            navigationHandler.toPaymentOptions();
+            navigationHandler.toDelivery();
     }
 
 

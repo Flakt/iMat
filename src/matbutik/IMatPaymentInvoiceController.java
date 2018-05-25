@@ -110,6 +110,6 @@ public class IMatPaymentInvoiceController extends IMatController implements Init
             customer.setPostCode(zipcodeTextField.getText());
         }
         dataHandler.placeOrder(true);
-        navigationHandler.toDelivery();
+        navigationHandler.toConfirmationPage();
     }
 }

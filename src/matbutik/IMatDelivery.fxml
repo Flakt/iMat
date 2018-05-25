@@ -179,6 +179,11 @@
                               </AnchorPane>
                            </children>
                         </GridPane>
+                        <Label layoutX="174.0" layoutY="20.0" text="Leverans &gt;&gt;">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                   <Label layoutX="24.0" layoutY="19.0" text="Leveransadress &gt;&gt;">
@@ -186,24 +191,19 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="182.0" layoutY="19.0" text=" Betalningsalternativ &gt;&gt;">
+                  <Label layoutX="279.0" layoutY="21.0" text=" Betalningsalternativ &gt;&gt;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="373.0" layoutY="19.0" text=" Betalning &gt;&gt;">
+                  <Label layoutX="472.0" layoutY="21.0" text=" Betalning &gt;&gt;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="604.0" layoutY="19.0" text=" Köpbekräftelse">
+                  <Label layoutX="584.0" layoutY="20.0" text=" Köpbekräftelse">
                      <font>
                         <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="499.0" layoutY="19.0" text="Leverans &gt;&gt;">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
@@ -236,7 +236,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#doneOnClick" styleClass="greenButton" text="Klar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <Button mnemonicParsing="false" styleClass="greenButton" text="Gå vidare" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="22.0" />
                                  </font>
