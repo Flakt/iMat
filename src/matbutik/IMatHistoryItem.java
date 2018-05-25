@@ -10,7 +10,10 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class IMatHistoryItem extends AnchorPane {
 
@@ -42,7 +45,7 @@ public class IMatHistoryItem extends AnchorPane {
         setupFXML();
         this.order = order;
         this.historyController = historyController;
-        dateLabel.setText(String.valueOf(order.getDate()));
+        setDateLabel();
         if (order.getItems().size() > 1) {
             numberOfProductsLabel.setText(String.valueOf(order.getItems().size()) + " st varor");
         } else {
@@ -51,6 +54,20 @@ public class IMatHistoryItem extends AnchorPane {
         sumLabel.setText(String.format("%.2f", calcSum(order)) + " kr");
     }
 
+    private void setDateLabel(){
+        String input = order.getDate().toString();
+        SimpleDateFormat parser = new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy");
+        Date date = null;
+        try {
+            date = parser.parse(input);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = formatter.format(date);
+        dateLabel.setText("Kundvagn från " + formattedDate);
+
+    }
     private double calcSum(Order order) {
         return historyController.sumOfAllProducts(order);
     }

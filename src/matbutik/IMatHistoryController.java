@@ -12,6 +12,12 @@ import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,16 +28,12 @@ public class IMatHistoryController extends IMatController implements Initializab
     private IMatDataHandler dataHandler;
     private List<Order> orders = new ArrayList<>();
     private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
-    private IMatNavigationHandler navigationHandler;
 
-    @FXML private AnchorPane historyRootPane;
-    @FXML private AnchorPane historyViewAnchorPane;
     @FXML private AnchorPane historyDetailAnchorPane;
     @FXML private FlowPane historyOrdersFlowPane;
     @FXML private FlowPane historyDetailFlowPane;
-    @FXML private ImageView historyDetailCloseImage;
     @FXML private Label historyDetailDateLabel;
-    @FXML private Label historyDetailSumLabel;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,8 +58,8 @@ public class IMatHistoryController extends IMatController implements Initializab
 
     protected void setHistoryDetailView(Order order) {
         historyDetailAnchorPane.toFront();
-        historyDetailDateLabel.setText("Kundvagn från " + order.getDate().toString()); // May write out gibberish
         populateHistoryDetailView(order);
+
     }
 
     private void populateHistoryDetailView(Order order) {
@@ -77,13 +79,6 @@ public class IMatHistoryController extends IMatController implements Initializab
             dataHandler.getShoppingCart().addItem(item.getShoppingItem());
         }
         shoppingItems();
-    }
-
-    @FXML protected void shadowPaneOnClick(Event event) {
-        historyViewAnchorPane.toFront();
-    }
-    @FXML protected void closeImageOnClick(Event event) {
-        historyViewAnchorPane.toFront();
     }
 
 
