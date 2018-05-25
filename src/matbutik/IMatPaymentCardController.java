@@ -106,6 +106,11 @@ public class IMatPaymentCardController extends IMatController implements Initial
         }
         if (!cardNumberTextField.getText().matches("[0-9]+") || !cardNumberTextField1.getText().matches("[0-9]+") ||
             !cardNumberTextField2.getText().matches("[0-9]+") || !cardNumberTextField3.getText().matches("[0-9]+")) {
+            creditCardNumberErrorLabel.setText("Bara siffror är tillåtna");
+            creditCardNumberErrorLabel.setVisible(true);
+        }
+        if (!validateCardNumberLength()) {
+            creditCardNumberErrorLabel.setText("Kortnummret är inte fullständig");
             creditCardNumberErrorLabel.setVisible(true);
         }
         if (!yearTextField.getText().matches("[0-9]+")) {
