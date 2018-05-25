@@ -41,7 +41,13 @@ public class IMatMiniShoppingCartItem extends IMatShoppingItem {
 
     @FXML
     protected void removeAction() {
-        // Copying from superclass
-        removeItem(this.shoppingItem);
+        // Copying from superclass, apparently it superclass stops functioning correctly
+        shoppingCartController.shoppingCart.removeItem(shoppingItem);
+        shoppingItem.setAmount(0);
+        shoppingItem = null;
+        removeMe = true;
+        updateOthers();
+        super.cartUpdater.runCommand();
+        shoppingCartController.populateFlowPane();
     }
 }
