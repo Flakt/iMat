@@ -35,6 +35,7 @@ public class IMatPaymentInvoiceController extends IMatController implements Init
         fillInSavedDeliveryDetails();
         invoiceInit();
         clearInvoiceTextFieldsError();
+        setNumberLabels();
     }
 
     private void fillInSavedDeliveryDetails() {

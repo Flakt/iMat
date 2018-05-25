@@ -22,6 +22,9 @@ public class IMatPaymentCardController extends IMatController implements Initial
     @FXML private Label creditErrorLabel;
     @FXML private TextField nameTextField;
     @FXML private TextField cardNumberTextField;
+    @FXML private TextField cardNumberTextField1;
+    @FXML private TextField cardNumberTextField2;
+    @FXML private TextField cardNumberTextField3;
     @FXML private TextField yearTextField;
     @FXML private TextField monthTextField;
     @FXML private TextField verificationCodeTextField;
@@ -34,7 +37,28 @@ public class IMatPaymentCardController extends IMatController implements Initial
         clearCreditTextFieldsError();
         creditInit();
         creditPopulateTextField();
+        setNumberLabels();
     }
+
+    private String getCreditNumberSplit(int part) {
+        String number = "";
+        switch (part) {
+            case 0:
+                number += creditCard.getCardNumber().substring(0,4);
+                break;
+            case 1:
+                number += creditCard.getCardNumber().substring(4,8);
+                break;
+            case 2:
+                number += creditCard.getCardNumber().substring(8,12);
+                break;
+            case 3:
+                number += creditCard.getCardNumber().substring(12,16);
+                break;
+        }
+        return number;
+    }
+
     private void clearCreditTextFieldsError() {
         creditCardNameErrorLabel.setVisible(false);
         creditCardNumberErrorLabel.setVisible(false);
@@ -46,7 +70,10 @@ public class IMatPaymentCardController extends IMatController implements Initial
 
     private void creditPopulateTextField() {
         nameTextField.setText(creditCard.getHoldersName());
-        cardNumberTextField.setText(creditCard.getCardNumber());
+        cardNumberTextField.setText(getCreditNumberSplit(0));
+        cardNumberTextField1.setText(getCreditNumberSplit(1));
+        cardNumberTextField2.setText(getCreditNumberSplit(2));
+        cardNumberTextField3.setText(getCreditNumberSplit(3));
         monthTextField.setText(String.valueOf(creditCard.getValidMonth()));
         yearTextField.setText(String.valueOf(creditCard.getValidYear()));
         verificationCodeTextField.setText(String.valueOf(creditCard.getVerificationCode()));
@@ -65,7 +92,8 @@ public class IMatPaymentCardController extends IMatController implements Initial
         if (nameTextField.getText().matches(".*\\d+.*")) {
             creditCardNameErrorLabel.setVisible(true);
         }
-        if (!cardNumberTextField.getText().matches("[0-9]+")) {
+        if (!cardNumberTextField.getText().matches("[0-9]+") || !cardNumberTextField1.getText().matches("[0-9]+") ||
+            !cardNumberTextField2.getText().matches("[0-9]+") || !cardNumberTextField3.getText().matches("[0-9]+")) {
             creditCardNumberErrorLabel.setVisible(true);
         }
         if (!yearTextField.getText().matches("[0-9]+")) {
@@ -97,7 +125,7 @@ public class IMatPaymentCardController extends IMatController implements Initial
 
         if (creditSaveDetailsCheckBox.isSelected()) {
             creditCard.setHoldersName(nameTextField.getText());
-            creditCard.setCardNumber(cardNumberTextField.getText());
+            creditCard.setCardNumber(cardNumberTextField.getText() + cardNumberTextField1.getText() + cardNumberTextField2.getText() + cardNumberTextField3.getText());
             creditCard.setValidMonth(Integer.parseInt(monthTextField.getText()));
             creditCard.setValidYear(Integer.parseInt(yearTextField.getText()));
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));

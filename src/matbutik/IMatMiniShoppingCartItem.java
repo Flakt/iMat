@@ -49,5 +49,6 @@ public class IMatMiniShoppingCartItem extends IMatShoppingItem {
         updateOthers();
         super.cartUpdater.runCommand();
         shoppingCartController.populateFlowPane();
+
     }
 }

@@ -15,6 +15,7 @@ public class IMatModularCartController {
     protected ShoppingCart shoppingCart;
     protected Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
     protected List<ShoppingItem> backupShoppingItems = new ArrayList<>();
+    protected FlowPane cartItemsFlowPane;
 
 
 
@@ -93,7 +94,6 @@ public class IMatModularCartController {
         }
     }
 
-    protected FlowPane cartItemsFlowPane;
     protected void populateFlowPane() {
         cartItemsFlowPane.getChildren().clear();
         updateProductsList();
@@ -101,4 +101,5 @@ public class IMatModularCartController {
             cartItemsFlowPane.getChildren().add(item);
         }
     }
+
 }
