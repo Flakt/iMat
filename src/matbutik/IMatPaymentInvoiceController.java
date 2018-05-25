@@ -32,6 +32,9 @@ public class IMatPaymentInvoiceController extends IMatController implements Init
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
         customer = dataHandler.getCustomer();
+        fillInSavedDeliveryDetails();
+        invoiceInit();
+        clearInvoiceTextFieldsError();
     }
 
     private void fillInSavedDeliveryDetails() {

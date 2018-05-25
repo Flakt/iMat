@@ -102,99 +102,292 @@
                <children>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TextField fx:id="forenameTextField" layoutX="300.0" layoutY="150.0" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i förnamn">
-                           <font>
-                              <Font size="16.0" />
-                           </font></TextField>
-                        <TextField fx:id="surnameTextField" layoutX="300.0" layoutY="193.0" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i efternamn">
-                           <font>
-                              <Font size="16.0" />
-                           </font></TextField>
-                        <TextField fx:id="adressTextField" layoutX="300.0" layoutY="234.0" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i adress">
-                           <font>
-                              <Font size="16.0" />
-                           </font></TextField>
-                        <TextField fx:id="zipcodeTextField" layoutX="300.0" layoutY="277.0" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i postnummer">
-                           <font>
-                              <Font size="16.0" />
-                           </font></TextField>
-                        <TextField fx:id="regionTextField" layoutX="300.0" layoutY="321.0" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i ort">
-                           <font>
-                              <Font size="16.0" />
-                           </font></TextField>
-                        <Label layoutX="118.0" layoutY="14.0" text="Leveransadress &gt;&gt;">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="264.0" layoutY="14.0" text=" Betalningsalternativ &gt;&gt;">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="453.0" layoutY="14.0" prefHeight="27.0" prefWidth="100.0" text=" Faktura &gt;&gt;">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="invoiceFirstNameErrorLabel" layoutX="681.0" layoutY="154.0" text="Endast bokstäver är tllåtna" textFill="RED" />
-                        <Label fx:id="invoiceLastNameErrorLabel" layoutX="681.0" layoutY="197.0" text="Endast bokstäver är tillåtna" textFill="RED" />
-                        <Label fx:id="invoicePostCodeErrorLabel" layoutX="681.0" layoutY="287.0" text="Endast siffror är tillåtna" textFill="RED" />
-                        <Label fx:id="invoicePostAdressErrorLabel" layoutX="681.0" layoutY="334.0" text="Endast bokstäver är tillåtna" textFill="RED" />
-                        <Label layoutX="651.0" layoutY="14.0" text=" Köpbekräftelse">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="552.0" layoutY="14.0" text="Leverans &gt;&gt;">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="invoiceErrorLabel" layoutX="374.0" layoutY="428.0" text="Samtliga fält behöver fyllas" textFill="RED">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <CheckBox fx:id="invoiceSaveDetailsCheckBox" layoutX="517.0" layoutY="386.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Spara uppgifter">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </CheckBox>
-                        <Label layoutX="266.0" layoutY="65.0" text="Du har valt fakturabetalning">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
-                        <AnchorPane layoutX="87.0" layoutY="150.0" prefHeight="215.0" prefWidth="212.0">
+                        <GridPane layoutY="63.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.20001220703125" minWidth="10.0" prefWidth="238.800048828125" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.79995117187502" minWidth="10.0" prefWidth="98.79995117187502" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
-                              <Label layoutX="148.8" layoutY="6.0" text="Förnamn" textAlignment="RIGHT" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="139.2" layoutY="47.0" text="Efternamn" textAlignment="RIGHT" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="164.0" layoutY="89.0" text="Adress" textAlignment="RIGHT" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="112.0" layoutY="134.0" text="Postnummer" textAlignment="RIGHT" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="180.0" layoutY="177.0" text="Ort" textAlignment="RIGHT" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="6">
+                                 <children>
+                                    <GridPane layoutY="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" prefWidth="1000.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" prefWidth="1000.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <AnchorPane GridPane.columnIndex="1">
+                                             <children>
+                                                <Label text="Leveransadress">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2">
+                                             <children>
+                                                <Label text="&gt;&gt;">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3">
+                                             <children>
+                                                <Label text="Betalningsalternativ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="4">
+                                             <children>
+                                                <Label text="&gt;&gt;">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="5">
+                                             <children>
+                                                <Label text="Betalning">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="6">
+                                             <children>
+                                                <Label text="&gt;&gt;">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="7">
+                                             <children>
+                                                <Label text="Leverans">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="8">
+                                             <children>
+                                                <Label text="&gt;&gt;">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="9">
+                                             <children>
+                                                <Label text="Bekräftelse">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="6" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label layoutX="166.0" text="Du har valt fakturabetalning">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="invoiceFirstNameErrorLabel" layoutY="14.0" text="Endast bokstäver är tllåtna" textFill="RED" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                                 <children>
+                                    <Label fx:id="invoicePostCodeErrorLabel" layoutX="69.0" layoutY="14.0" text="Endast siffror är tillåtna" textFill="RED" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                                 <children>
+                                    <Label fx:id="invoicePostAdressErrorLabel" layoutX="77.0" layoutY="14.0" text="Endast bokstäver är tillåtna" textFill="RED" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="54.0" prefWidth="277.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                                 <children>
+                                    <CheckBox fx:id="invoiceSaveDetailsCheckBox" layoutX="228.0" layoutY="18.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Spara uppgifter" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label layoutX="-12.0" layoutY="14.0" text="      Förnamn" textAlignment="RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label layoutX="-1.0" layoutY="16.0" text="    Efternamn" textAlignment="RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                                 <children>
+                                    <Label layoutX="-7.0" layoutY="10.0" text="       Address" textAlignment="RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                                 <children>
+                                    <Label layoutX="-30.0" layoutY="18.0" text="Postnummer" textAlignment="RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                                 <children>
+                                    <Label layoutX="23.0" layoutY="23.0" style="-fx-alignment: right;" text="               Ort" textAlignment="RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField fx:id="forenameTextField" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i förnamn" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <children>
+                                    <TextField fx:id="surnameTextField" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i efternamn" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <children>
+                                    <TextField fx:id="adressTextField" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i adress" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <children>
+                                    <TextField fx:id="zipcodeTextField" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i postnummer" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                 <children>
+                                    <TextField fx:id="regionTextField" prefHeight="26.0" prefWidth="375.0" promptText="Fyll i ort" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8">
+                                 <children>
+                                    <Label fx:id="invoiceErrorLabel" layoutX="-89.0" layoutY="17.0" style="-fx-alignment: center;" text="Samtliga fält behöver fyllas" textFill="RED" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label fx:id="invoiceLastNameErrorLabel" layoutX="-6.0" layoutY="35.0" text="Endast bokstäver är tillåtna" textFill="RED" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
                            </children>
-                        </AnchorPane>
+                        </GridPane>
                      </children>
                   </AnchorPane>
                </children>
@@ -222,7 +415,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="greenButton" text="Gå vidare" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <Button mnemonicParsing="false" onAction="#invoicePayAction" styleClass="greenButton" text="Gå vidare" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="22.0" />
                                  </font>
