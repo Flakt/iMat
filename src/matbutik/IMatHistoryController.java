@@ -32,7 +32,7 @@ public class IMatHistoryController extends IMatController implements Initializab
     @FXML private AnchorPane historyDetailAnchorPane;
     @FXML private FlowPane historyOrdersFlowPane;
     @FXML private FlowPane historyDetailFlowPane;
-    @FXML private Label historyDetailDateLabel;
+
 
 
     @Override
