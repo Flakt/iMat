@@ -61,6 +61,7 @@ public class IMatPaymentDeliveryAddress extends IMatController implements Initia
     private void showTextFieldsError() {
         if (deliveryFirstNameTextField.getText().matches(".*\\d+.*")) {
             firstNameErrorLabel.setVisible(true);
+            deliveryFirstNameTextField.setStyle("-fx-text-box-border: red;");
         }
         if (deliveryAfterNameTextField.getText().matches(".*\\d+.*")) {
             lastNameErrorLabel.setVisible(true);
