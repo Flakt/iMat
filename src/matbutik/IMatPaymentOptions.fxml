@@ -149,17 +149,17 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="322.0" layoutY="206.0" text="Kortbetalning">
+                        <Label layoutX="217.0" layoutY="169.0" text="Kortbetalning">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="553.0" layoutY="206.0" text="Fakturabetalning">
+                        <Label layoutX="571.0" layoutY="172.0" text="Fakturabetalning">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <StackPane layoutX="284.0" layoutY="248.0" prefHeight="114.0" prefWidth="178.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                        <StackPane layoutX="182.0" layoutY="235.0" prefHeight="114.0" prefWidth="178.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
                            <children>
                               <ImageView fitHeight="98.0" fitWidth="157.0" onMouseClicked="#cardOnClick" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -172,12 +172,12 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="176.0" layoutY="13.0" text=" Betalningsalternativ &gt;&gt;">
+                        <Label layoutX="273.0" layoutY="13.0" text=" Betalningsalternativ &gt;&gt;">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="382.0" layoutY="13.0" text=" Betalning &gt;&gt;">
+                        <Label layoutX="481.0" layoutY="13.0" text=" Betalning &gt;&gt;">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -187,24 +187,24 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="492.0" layoutY="13.0" text="Leverans &gt;&gt;">
+                        <Label layoutX="176.0" layoutY="13.0" text="Leverans &gt;&gt;">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
                         <StackPane layoutX="321.0" layoutY="432.0" />
                         <StackPane layoutX="292.0" layoutY="238.0" />
-                        <Label layoutX="256.0" layoutY="54.0" prefHeight="63.0" prefWidth="505.0" text="Du väljer här om du vill betala" wrapText="true">
+                        <Label layoutX="9.0" layoutY="54.0" prefHeight="63.0" prefWidth="505.0" text="Du väljer här om du vill betala med kort eller faktura" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Label layoutX="324.0" layoutY="117.0" text="med kort eller faktura">
+                        <Label layoutX="497.0" layoutY="60.0">
                            <font>
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <StackPane layoutX="557.0" layoutY="254.0" prefHeight="90.0" prefWidth="122.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                        <StackPane layoutX="577.0" layoutY="243.0" prefHeight="90.0" prefWidth="122.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
                            <children>
                               <ImageView fitHeight="98.0" fitWidth="126.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
                                  <image>
