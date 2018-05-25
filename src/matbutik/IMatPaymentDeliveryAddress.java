@@ -38,6 +38,7 @@ public class IMatPaymentDeliveryAddress extends IMatController implements Initia
         clearTextFieldsError();
         deliveryInit();
         deliveryPopulateTextField();
+        setNumberLabels();
     }
 
     private void deliveryInit() {

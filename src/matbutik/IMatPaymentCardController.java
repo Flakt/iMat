@@ -34,6 +34,7 @@ public class IMatPaymentCardController extends IMatController implements Initial
         clearCreditTextFieldsError();
         creditInit();
         creditPopulateTextField();
+        setNumberLabels();
     }
     private void clearCreditTextFieldsError() {
         creditCardNameErrorLabel.setVisible(false);

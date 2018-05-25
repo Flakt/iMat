@@ -11,7 +11,7 @@ public class IMatPaymentAlternatives extends IMatController implements Initializ
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        setNumberLabels();
     }
     @FXML
     protected void cardOnClick(Event event) {

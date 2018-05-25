@@ -148,6 +148,11 @@ public class IMatController extends IMatModularCartController implements Initial
                 new IMatMiniShoppingCartItem(x,this,() ->{})));
     }
 
+    public void setNumberLabels() {
+        numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2).equals("st") ?item.getAmount():1).sum()));
+        totalCostLabel.setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
+    }
+
     public Label getNumberOfProductsLabel() {
         return numberOfProductsLabel;
     }
