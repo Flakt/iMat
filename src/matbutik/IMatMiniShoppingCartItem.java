@@ -1,5 +1,6 @@
 package matbutik;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -17,10 +18,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class IMatMiniShoppingCartItem extends IMatShoppingItem {
-
-
-
-
 
     @Override
     public void setupFxml(){
@@ -40,5 +37,17 @@ public class IMatMiniShoppingCartItem extends IMatShoppingItem {
     IMatMiniShoppingCartItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController, Command cartUpdater){
         super(shoppingItem, shoppingCartController, cartUpdater);
 
+    }
+
+    @FXML
+    protected void removeAction() {
+        // Copying from superclass, apparently it superclass stops functioning correctly
+        shoppingCartController.shoppingCart.removeItem(shoppingItem);
+        shoppingItem.setAmount(0);
+        shoppingItem = null;
+        removeMe = true;
+        updateOthers();
+        super.cartUpdater.runCommand();
+        shoppingCartController.populateFlowPane();
     }
 }

@@ -39,7 +39,7 @@ public class IMatShoppingItem extends AnchorPane {
 
     public boolean removeMe = false;
 
-    private Command cartUpdater;
+    protected Command cartUpdater;
 
     IMatShoppingItem(){
 
@@ -101,6 +101,10 @@ public class IMatShoppingItem extends AnchorPane {
         updateOthers();
     }
 
+    protected void removeItem() {
+
+    }
+
     @FXML
     protected void decItem(Event event) {
         double amount = shoppingItem.getAmount() - (isAPiece()?1:0.1);
@@ -112,11 +116,8 @@ public class IMatShoppingItem extends AnchorPane {
             updateOthers();
             cartUpdater.runCommand();
             shoppingCartController.populateFlowPane();
-
-
         } else {
             shoppingCartController.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
-
             cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount)));
             updatePrice();
             updateOthers();
@@ -163,7 +164,7 @@ public class IMatShoppingItem extends AnchorPane {
         return list;
     }
 
-    private void updateOthers() {
+    protected void updateOthers() {
         Parent parent = getRoot(this);
         getDescendantProductItems(getChildrenStream(parent)).forEach(item -> {
             if (item.shoppingItem != null)
