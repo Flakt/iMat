@@ -60,26 +60,26 @@ public class IMatShoppingItem extends AnchorPane {
 
      IMatShoppingItem(ShoppingItem shoppingItem, IMatModularCartController shoppingCartController, Command cartUpdater) {
 
-        setupFxml();
+         setupFxml();
 
 
-        this.shoppingCartController = shoppingCartController;
-        this.shoppingItem = shoppingItem;
+         this.shoppingCartController = shoppingCartController;
+         this.shoppingItem = shoppingItem;
 
-        cartItemImageView.setImage(shoppingCartController.getCartItemImage(this.shoppingItem));
-        double amount = shoppingCartController.getCartItemAmount(this.shoppingItem);
-        cartItemAmountTextField.setText(
-                (int)amount == amount ?
-                        ((Integer)(int)amount).toString() :
-                        String.format("%.1f",(Double)amount));
-        updatePrice();
-        setEcoLabel();
-        //cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
-        cartItemProductPrice.setText(((Double)(this.shoppingItem.getProduct().getPrice())).toString() +
-                " kr / " + shoppingCartController.getCartSuffix(this.shoppingItem));
-        cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem).replace("Ekologisk",""));
+         cartItemImageView.setImage(shoppingCartController.getCartItemImage(this.shoppingItem));
+         double amount = shoppingCartController.getCartItemAmount(this.shoppingItem);
+         cartItemAmountTextField.setText(
+                 (int) amount == amount ?
+                         ((Integer) (int) amount).toString() :
+                         String.format("%.1f", (Double) amount));
+         updatePrice();
+         setEcoLabel();
+         //cartItemUnit.setText(shoppingCartController.getCartSuffix(this.shoppingItem));
+         cartItemProductPrice.setText(((Double) (this.shoppingItem.getProduct().getPrice())).toString() +
+                 " kr / " + shoppingCartController.getCartSuffix(this.shoppingItem));
+         cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem).replace("Ekologisk", ""));
 
-        this.cartUpdater = cartUpdater;
+         this.cartUpdater = cartUpdater;
     }
     protected void setEcoLabel(){
         if(!shoppingItem.getProduct().isEcological()){
@@ -99,6 +99,7 @@ public class IMatShoppingItem extends AnchorPane {
 
         updatePrice();
         updateOthers();
+        IMatShoppingCartController.getInstance().setLabels();
     }
 
     protected void removeItem() {
@@ -116,11 +117,13 @@ public class IMatShoppingItem extends AnchorPane {
             updateOthers();
             cartUpdater.runCommand();
             shoppingCartController.populateFlowPane();
+            IMatShoppingCartController.getInstance().setLabels();
         } else {
             shoppingCartController.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
             cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount)));
             updatePrice();
             updateOthers();
+            IMatShoppingCartController.getInstance().setLabels();
         }
     }
 

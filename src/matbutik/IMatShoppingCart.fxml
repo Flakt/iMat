@@ -161,7 +161,7 @@
                         <FlowPane fx:id="shoppingCartFlowPane" prefHeight="575.0" prefWidth="251.0" GridPane.rowIndex="1" />
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#toPayment" styleClass="greenButton" text="Gå till betalning" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <Button fx:id="toPaymentButton" mnemonicParsing="false" onAction="#toPayment" styleClass="greenButton" text="Gå till betalning" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="22.0" />
                                  </font>

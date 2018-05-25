@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -16,6 +17,8 @@ import java.util.*;
 public class IMatShoppingCartController extends IMatModularCartController implements Initializable {
 
     private IMatNavigationHandler navigationHandler;
+    // When object-oriented programming counteracts you
+    private static IMatShoppingCartController instance = null;
 
     @FXML
     private AnchorPane cartItemsPane;
@@ -45,6 +48,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         navigationHandler = IMatNavigationHandler.getInstance();
+        instance = this;
         //
         // TEST
         // add something to the shopping cart
@@ -64,6 +68,8 @@ public class IMatShoppingCartController extends IMatModularCartController implem
             @Override
             public void shoppingCartChanged(CartEvent cartEvent) {
                 updateProductsList();
+                checkCart();
+                setLabels();
             }
         });
         for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
@@ -71,6 +77,22 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         }
         populateFlowPane();
         updateProductsList();
+        setLabels();
+        checkCart();
+    }
+
+    public static IMatShoppingCartController getInstance() {
+        return instance;
+    }
+
+    protected void checkCart() {
+        if (shoppingCart.getItems().size() == 0) {
+            toPaymentButton.setDisable(true);
+            toPaymentButton.setTooltip(new Tooltip("Du har inga varor"));
+        }
+    }
+
+    protected void setLabels() {
         numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2).equals("st") ?item.getAmount():1).sum()));
         totalCostLabel.setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
     }
@@ -110,9 +132,6 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         backupShoppingItems.clear();
     }
 
-
-
-
     @FXML private void navigateToHistory(Event e){
         navigationHandler.toHistory();
     }
@@ -123,7 +142,9 @@ public class IMatShoppingCartController extends IMatModularCartController implem
         navigationHandler.toHelp();
     }
     @FXML private void toPayment(Event e) {
-        navigationHandler.toPaymentDeliveryAddress();
+        if (shoppingCart.getItems().size() > 0) {
+            navigationHandler.toPaymentDeliveryAddress();
+        }
     }
 }
 
