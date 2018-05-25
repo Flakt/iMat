@@ -14,6 +14,6 @@ public class IMatDeliveryController extends IMatController implements Initializa
 
     }
     @FXML private void doneOnClick(Event event){
-        navigationHandler.toConfirmationPage();
+        navigationHandler.toPaymentOptions();
     }
 }

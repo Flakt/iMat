@@ -143,7 +143,7 @@ public class IMatPaymentCardController extends IMatController implements Initial
             creditCard.setVerificationCode(Integer.parseInt(verificationCodeTextField.getText()));
         }
         dataHandler.placeOrder(true);
-        navigationHandler.toDelivery();
+        navigationHandler.toConfirmationPage();
 
     }
 

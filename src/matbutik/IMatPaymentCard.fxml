@@ -196,22 +196,22 @@
                               <Font size="16.0" />
                            </font>
                         </CheckBox>
-                        <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="150.0" text="Leveransadress &gt;&gt;">
+                        <Label layoutX="44.0" layoutY="14.0" prefHeight="27.0" prefWidth="150.0" text="Leveransadress &gt;&gt;">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="164.0" layoutY="14.0" text=" Betalningsalternativ &gt;&gt;">
+                        <Label layoutX="293.0" layoutY="14.0" text=" Betalningsalternativ &gt;&gt;">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="355.0" layoutY="14.0" text=" Kort &gt;&gt;">
+                        <Label layoutX="485.0" layoutY="14.0" text=" Kort &gt;&gt;">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="548.0" layoutY="14.0" text=" Köpbekräftelse">
+                        <Label layoutX="561.0" layoutY="14.0" text=" Köpbekräftelse">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -226,7 +226,7 @@
                         <Label fx:id="creditMonthErrorLabel" layoutX="359.0" layoutY="264.0" text="Bara siffror är tillåtna" textFill="RED" />
                         <Label fx:id="creditYearErrorLabel" layoutX="616.0" layoutY="265.0" text="Bara siffror är tillåtna" textFill="RED" />
                         <Label fx:id="creditVerifErrorLabel" layoutX="615.0" layoutY="319.0" text="Bara siffor är tillåtna" textFill="RED" />
-                        <Label layoutX="438.0" layoutY="14.0" text="Leverans &gt;&gt;">
+                        <Label layoutX="194.0" layoutY="14.0" text="Leverans &gt;&gt;">
                            <font>
                               <Font size="18.0" />
                            </font>
