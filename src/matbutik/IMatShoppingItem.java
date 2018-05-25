@@ -111,6 +111,9 @@ public class IMatShoppingItem extends AnchorPane {
             removeMe = true;
             updateOthers();
             cartUpdater.runCommand();
+            shoppingCartController.populateFlowPane();
+
+
         } else {
             shoppingCartController.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
 
