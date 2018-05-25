@@ -55,7 +55,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Button layoutX="171.0" layoutY="42.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="76.0" styleClass="removeButton" text="Ta bort" />
+            <Button layoutX="171.0" layoutY="42.0" mnemonicParsing="false" onAction="#removeAction" prefHeight="36.0" prefWidth="76.0" styleClass="removeButton" text="Ta bort" />
          </children>
       </AnchorPane>
    </children>
