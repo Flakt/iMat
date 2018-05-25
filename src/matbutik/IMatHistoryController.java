@@ -37,22 +37,10 @@ public class IMatHistoryController extends IMatController implements Initializab
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
         navigationHandler = IMatNavigationHandler.getInstance();
-        // Have to sort them depending on order number, which should be set @IMatPaymentController
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
 
         }
-        // TEST
-        /*Order testOrder = new Order();
-        testOrder.setOrderNumber(2);
-        testOrder.setDate(new Date());
-        List<ShoppingItem> items = new ArrayList<>();
-        ShoppingItem testItem = new ShoppingItem(dataHandler.getProduct(1));
-        testItem.setAmount(2.0);
-        items.add(testItem);
-        testOrder.setItems(items);
-        orders.add(testOrder);*/
-        // TEST END
         historyOrdersFlowPane.toFront();
         populateOrders();
         shoppingItems();

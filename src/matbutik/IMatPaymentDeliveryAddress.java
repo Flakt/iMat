@@ -35,8 +35,8 @@ public class IMatPaymentDeliveryAddress extends IMatController implements Initia
     public void initialize(URL location, ResourceBundle resources){
         dataHandler = IMatDataHandler.getInstance();
         customer = dataHandler.getCustomer();
-        deliveryInit();
         clearTextFieldsError();
+        deliveryInit();
         deliveryPopulateTextField();
     }
 
