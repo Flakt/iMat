@@ -156,44 +156,44 @@
                <children>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="89.0" layoutY="160.0" prefHeight="20.0" prefWidth="100.0" text="Namn på kort">
+                        <Label layoutX="44.0" layoutY="156.0" prefHeight="26.0" prefWidth="191.0" text="Kortinnehavavarens namn">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="89.0" layoutY="204.0" prefWidth="100.0" text="Kortnummer">
+                        <Label layoutX="137.0" layoutY="202.0" prefWidth="100.0" text="Kortnummer">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="nameTextField" layoutX="189.0" layoutY="157.0" prefHeight="26.0" prefWidth="370.0" promptText="Fyll i namn på kortet" />
-                        <TextField fx:id="cardNumberTextField" layoutX="190.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
-                        <TextField fx:id="yearTextField" layoutX="497.0" layoutY="259.0" prefHeight="26.0" prefWidth="60.0" promptText="År" />
-                        <TextField fx:id="monthTextField" layoutX="242.0" layoutY="260.0" prefHeight="26.0" prefWidth="60.0" promptText="Månad" />
-                        <Label alignment="CENTER" layoutX="428.0" layoutY="262.0" prefWidth="60.0" text="År">
+                        <TextField fx:id="nameTextField" layoutX="236.0" layoutY="157.0" prefHeight="26.0" prefWidth="370.0" promptText="Fyll i namn på kortet" />
+                        <TextField fx:id="cardNumberTextField" layoutX="237.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
+                        <TextField fx:id="yearTextField" layoutX="544.0" layoutY="259.0" prefHeight="26.0" prefWidth="60.0" promptText="År" />
+                        <TextField fx:id="monthTextField" layoutX="290.0" layoutY="260.0" prefHeight="26.0" prefWidth="60.0" promptText="Månad" />
+                        <Label alignment="CENTER" layoutX="481.0" layoutY="261.0" prefWidth="60.0" text="År">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="189.0" layoutY="263.0" prefHeight="20.0" prefWidth="60.0" text="Månad">
+                        <Label layoutX="233.0" layoutY="260.0" prefHeight="20.0" prefWidth="60.0" text="Månad">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="89.0" layoutY="262.0" text="Giltig till:">
+                        <Label layoutX="164.0" layoutY="260.0" text="Giltig till:">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="409.0" layoutY="317.0" prefHeight="20.0" prefWidth="98.0" text="CVV2/CVC2">
+                        <Label layoutX="442.0" layoutY="316.0" prefHeight="20.0" prefWidth="98.0" text="CVV2/CVC2">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="verificationCodeTextField" layoutX="497.0" layoutY="314.0" prefHeight="26.0" prefWidth="60.0" promptText="Kod" />
+                        <TextField fx:id="verificationCodeTextField" layoutX="544.0" layoutY="314.0" prefHeight="26.0" prefWidth="60.0" promptText="Kod" />
                         <CheckBox fx:id="creditSaveDetailsCheckBox" layoutX="436.0" layoutY="368.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Spara uppgifter">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </CheckBox>
                         <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="150.0" text="Leveransadress &gt;&gt;">
@@ -221,19 +221,24 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="creditCardNameErrorLabel" layoutX="566.0" layoutY="161.0" text="Bara bokstäver är tillåtna" textFill="RED" />
-                        <Label fx:id="creditCardNumberErrorLabel" layoutX="566.0" layoutY="206.0" text="Bara siffror är tillåtna" textFill="RED" />
-                        <Label fx:id="creditMonthErrorLabel" layoutX="312.0" layoutY="263.0" text="Bara siffror är tillåtna" textFill="RED" />
-                        <Label fx:id="creditYearErrorLabel" layoutX="566.0" layoutY="265.0" text="Bara siffror är tillåtna" textFill="RED" />
-                        <Label fx:id="creditVerifErrorLabel" layoutX="566.0" layoutY="319.0" text="Bara siffor är tillåtna" textFill="RED" />
+                        <Label fx:id="creditCardNameErrorLabel" layoutX="613.0" layoutY="161.0" text="Bara bokstäver är tillåtna" textFill="RED" />
+                        <Label fx:id="creditCardNumberErrorLabel" layoutX="614.0" layoutY="206.0" text="Bara siffror är tillåtna" textFill="RED" />
+                        <Label fx:id="creditMonthErrorLabel" layoutX="359.0" layoutY="264.0" text="Bara siffror är tillåtna" textFill="RED" />
+                        <Label fx:id="creditYearErrorLabel" layoutX="616.0" layoutY="265.0" text="Bara siffror är tillåtna" textFill="RED" />
+                        <Label fx:id="creditVerifErrorLabel" layoutX="615.0" layoutY="319.0" text="Bara siffor är tillåtna" textFill="RED" />
                         <Label layoutX="438.0" layoutY="14.0" text="Leverans &gt;&gt;">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="cardNumberTextField1" layoutX="275.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
-                        <TextField fx:id="cardNumberTextField2" layoutX="357.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
-                        <TextField fx:id="cardNumberTextField3" layoutX="436.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
+                        <TextField fx:id="cardNumberTextField1" layoutX="334.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
+                        <TextField fx:id="cardNumberTextField2" layoutX="430.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
+                        <TextField fx:id="cardNumberTextField3" layoutX="531.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
+                        <Label layoutX="172.0" layoutY="55.0" text="Du har valt kortbetalning">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

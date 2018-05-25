@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatPaymentAlternatives">
+<AnchorPane prefHeight="685.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.IMatPaymentAlternatives">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -149,34 +149,24 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="329.0" layoutY="86.0" text="Kortbetalning">
+                        <Label layoutX="322.0" layoutY="206.0" text="Kortbetalning">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="317.0" layoutY="281.0" text="Fakturabetalning">
+                        <Label layoutX="553.0" layoutY="206.0" text="Fakturabetalning">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <StackPane layoutX="292.0" layoutY="139.0" prefHeight="114.0" prefWidth="178.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                        <StackPane layoutX="284.0" layoutY="248.0" prefHeight="114.0" prefWidth="178.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
                            <children>
                               <ImageView fitHeight="98.0" fitWidth="157.0" onMouseClicked="#cardOnClick" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@resources/creditcard.png" />
                                  </image>
                               </ImageView>
-                           </children>
-                        </StackPane>
-                        <StackPane layoutX="323.0" layoutY="331.0" prefHeight="90.0" prefWidth="122.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
-                           <children>
-                              <ImageView fitHeight="98.0" fitWidth="126.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@resources/mail.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </StackPane>
+                           </children></StackPane>
                         <Label layoutX="26.0" layoutY="13.0" text="Leveransadress &gt;&gt;">
                            <font>
                               <Font size="18.0" />
@@ -202,6 +192,27 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <StackPane layoutX="321.0" layoutY="432.0" />
+                        <StackPane layoutX="292.0" layoutY="238.0" />
+                        <Label layoutX="256.0" layoutY="54.0" prefHeight="63.0" prefWidth="505.0" text="Du väljer här om du vill betala" wrapText="true">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="324.0" layoutY="117.0" text="med kort eller faktura">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="557.0" layoutY="254.0" prefHeight="90.0" prefWidth="122.0" styleClass="stackpanedropshadow" stylesheets="@styles/shoppingItem.css">
+                           <children>
+                              <ImageView fitHeight="98.0" fitWidth="126.0" onMouseClicked="#invoiceOnClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/mail.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
                      </children>
                   </AnchorPane>
                </children>
