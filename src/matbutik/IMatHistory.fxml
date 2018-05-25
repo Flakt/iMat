@@ -20,10 +20,10 @@
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="290.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="290.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="90.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -43,7 +43,7 @@
                         </ScrollPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button layoutX="29.0" layoutY="266.0" mnemonicParsing="false" onAction="#putAllInCart" text="Lägg till allt i kundvagn">
+                              <Button layoutX="29.0" layoutY="266.0" mnemonicParsing="false" onAction="#putAllInCart" styleClass="greenButton" text="Lägg till allt i kundvagn" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="40.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -56,90 +56,11 @@
                      <children>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <FlowPane fx:id="historyOrdersFlowPane" columnHalignment="CENTER" prefHeight="610.0" prefWidth="563.0" prefWrapLength="769.0" />
+                              <FlowPane fx:id="historyOrdersFlowPane" columnHalignment="CENTER" prefHeight="610.0" prefWidth="821.0" prefWrapLength="769.0" />
                            </content>
                         </ScrollPane>
                      </children>
                   </AnchorPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="1144.0" styleClass="topBar" GridPane.columnSpan="2">
-               <children>
-                  <GridPane prefHeight="90.0" prefWidth="718.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <children>
-                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateGoBack" prefHeight="26.0" prefWidth="72.0" styleClass="settingsButton" text="Tillbaka" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                           <GridPane.margin>
-                              <Insets />
-                           </GridPane.margin>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <children>
-                              <Label layoutX="189.0" layoutY="2.0" prefHeight="17.0" prefWidth="272.0" text="Historik">
-                                 <font>
-                                    <Font size="36.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                           <children>
-                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToAccount" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#navigateToHistory" prefHeight="39.0" text="Historik" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                           <children>
-                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Hjälp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <children>
-                              <Button layoutX="17.0" layoutY="72.0" mnemonicParsing="false" onAction="#toMainPage" styleClass="settingsButton" text="Till butiken" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-45.0" AnchorPane.topAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="9.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" percentWidth="50.0" prefWidth="90.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.79998779296875" minWidth="10.0" percentWidth="8.0" prefWidth="123.79998779296875" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="8.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -186,7 +107,7 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <content>
-                              <FlowPane fx:id="shoppingCartFlowPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
+                              <FlowPane fx:id="shoppingCartFlowPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
                            </content>
                         </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -199,6 +120,87 @@
                            </children>
                         </AnchorPane>
                      </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0" styleClass="topBar" GridPane.columnSpan="2">
+               <children>
+                  <GridPane prefHeight="90.0" prefWidth="718.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateGoBack" prefHeight="26.0" prefWidth="72.0" styleClass="settingsButton" text="Tillbaka" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="56.0" prefWidth="451.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label layoutX="189.0" layoutY="2.0" prefHeight="53.0" prefWidth="335.0" text="Historik" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToAccount" prefHeight="26.0" prefWidth="72.0" text="Konto" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#navigateToHistory" prefHeight="39.0" text="Historik" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                           <children>
+                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Hjälp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Button layoutX="17.0" layoutY="72.0" minWidth="63.0" mnemonicParsing="false" onAction="#toMainPage" prefHeight="87.0" prefWidth="146.0" styleClass="settingsButton" text="Till butiken" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-45.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="9.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="8.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="8.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                   </GridPane>
                </children>
             </AnchorPane>

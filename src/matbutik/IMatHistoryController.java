@@ -76,7 +76,7 @@ public class IMatHistoryController extends IMatController implements Initializab
     protected void putAllInCart() {
         // Clear shoppingCart before?
         for (IMatOrderDetailItem item : orderDetailItems) {
-            dataHandler.getShoppingCart().addItem(item.getShoppingItem());
+           dataHandler.getShoppingCart().addItem(item.getShoppingItem());
         }
         shoppingItems();
     }

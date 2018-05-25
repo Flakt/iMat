@@ -18,12 +18,10 @@ public class IMatOrderDetailItem extends AnchorPane {
     private ShoppingItem shoppingItem;
     private IMatHistoryController historyController;
 
-    @FXML protected TextField cartItemAmountTextField;
-    @FXML private Label cartItemTotalPrice;
     @FXML protected ImageView cartItemImageView;
-    @FXML protected Label cartItemEco;
-    @FXML private Label cartItemProductPrice;
     @FXML protected Label cartItemName;
+    @FXML protected Label cartItemProductPrice;
+
 
 
     IMatOrderDetailItem(ShoppingItem sp, IMatHistoryController hc ) {
@@ -40,12 +38,9 @@ public class IMatOrderDetailItem extends AnchorPane {
         shoppingItem = sp;
         historyController = hc;
         cartItemImageView.setImage(new Image("file:" + System.getProperty("user.home") + "/.dat215/imat/images/" + shoppingItem.getProduct().getImageName()));
-        if (shoppingItem.getProduct().isEcological()) {
-            //car.setImage(new Image("/matbutik/resources/Eko_Logo.jpg"));
-        }
         cartItemName.setText(shoppingItem.getProduct().getName());
-        cartItemProductPrice.setText(String.format("%.2f", shoppingItem.getTotal()) + " kr totalt");
-        cartItemAmountTextField.setText(String.format("%.2f", shoppingItem.getAmount()) + " st");
+        cartItemProductPrice.setText(String.format("%.2f", shoppingItem.getProduct().getPrice()) + " " +shoppingItem.getProduct().getUnit() );
+
     }
 
     public ShoppingItem getShoppingItem() {
@@ -57,8 +52,4 @@ public class IMatOrderDetailItem extends AnchorPane {
         historyController.addToShoppingCart(shoppingItem);
     }
 
-    @FXML
-    public void removeButtonAction() {
-        historyController.removeFromShoppingCart(shoppingItem);
-    }
 }

@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="shoppingCartController" prefWidth="760.0" styleClass="anchorpane" stylesheets="@styles/shoppingItem.css" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="shoppingCartController" prefHeight="106.0" prefWidth="533.0" styleClass="anchorpane" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="cartItemAmountTextField" alignment="CENTER" layoutX="292.0" layoutY="10.0" prefHeight="54.0" prefWidth="230.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <Button layoutX="292.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#removeButtonAction" prefHeight="55.0" prefWidth="55.0" style="-fx-font-size: 4em; -fx-label-padding: -50px;" styleClass="decButton" text="-">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button layoutX="468.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonAction" prefHeight="55.0" prefWidth="55.0" style="-fx-font-size: 4em; -fx-label-padding: -50px;" styleClass="incButton" text="+" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
       <Label fx:id="cartItemTotalPrice" layoutX="557.0" layoutY="24.0">
          <font>
             <Font size="18.0" />
@@ -35,9 +20,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="cartItemProductPrice" layoutX="430.0" layoutY="69.0" text="Label">
+      <Label fx:id="cartItemProductPrice" layoutX="247.0" layoutY="69.0" text="Label">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Label>
       <Label fx:id="cartItemUnit" layoutX="430.0" layoutY="24.0" prefHeight="27.0" prefWidth="38.0" textAlignment="RIGHT">
@@ -49,10 +34,19 @@
             <ImageView fx:id="cartItemImageView" fitHeight="72.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </StackPane>
-      <Label fx:id="cartItemName" layoutX="137.0" layoutY="16.0" prefHeight="27.0" prefWidth="143.0" text="Label" wrapText="true">
+      <Label fx:id="cartItemName" layoutX="247.0" layoutY="10.0" prefHeight="27.0" prefWidth="143.0" text="Label" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Button layoutX="311.0" layoutY="15.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="162.0" style="-fx-padding: -50px; -fx-base: #a8e4c1;" text="Lägg till i kundvagn" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
+   <stylesheets>
+      <URL value="@styles/shoppingItem.css" />
+      <URL value="@styles/generalStyle.css" />
+   </stylesheets>
 </fx:root>
