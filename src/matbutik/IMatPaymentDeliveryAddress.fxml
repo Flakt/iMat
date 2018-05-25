@@ -190,7 +190,7 @@
                                           </AnchorPane>
                                           <AnchorPane GridPane.columnIndex="3">
                                              <children>
-                                                <Label text="Betalningsalternativ">
+                                                <Label text="Leverans">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
@@ -208,7 +208,7 @@
                                           </AnchorPane>
                                           <AnchorPane GridPane.columnIndex="5">
                                              <children>
-                                                <Label text="Betalning">
+                                                <Label text="Betalningsalternativ">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
@@ -226,7 +226,7 @@
                                           </AnchorPane>
                                           <AnchorPane GridPane.columnIndex="7">
                                              <children>
-                                                <Label text="Leverans">
+                                                <Label text="Betalning">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
