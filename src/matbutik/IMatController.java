@@ -52,6 +52,8 @@ public class IMatController extends IMatModularCartController implements Initial
         mainPage.toFront();
         fillCategoryPages();
         productItem();
+        updateShoppingItems();
+        if (dataHandler.getCreditCard().getCardNumber().length() != 16) dataHandler.getCreditCard().setCardNumber("0000000000000000");
     }
 
     protected void productItem(){
@@ -93,10 +95,10 @@ public class IMatController extends IMatModularCartController implements Initial
                 iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler, this));
             }
         else {
-            updateProductsList();
+            //addItemsToShoppingCartFlowPane();
         }
         long t1 = System.nanoTime();
-        System.out.println((t1-t0) / 1.0E09 + " s");
+        //System.out.println((t1-t0) / 1.0E09 + " s");
     }
 
     @FXML public void shoppingCart(Event event){
@@ -150,15 +152,37 @@ public class IMatController extends IMatModularCartController implements Initial
             search();
     }
 
-    public void shoppingItems(){
+    public void updateShoppingItems(){
+        long t0 = System.nanoTime();
         shoppingCartFlowPane.getChildren().clear();
         dataHandler.getShoppingCart().getItems().forEach(x->shoppingCartFlowPane.getChildren().add(
                 new IMatMiniShoppingCartItem(x,this,iMatProductItemMap.get(x.getProduct().getProductId())::updateShoppingCart)));
+        long t1 = System.nanoTime();
+        System.out.println((t1-t0) / 1.0E09 + " s");
     }
 
     public void setNumberLabels() {
         numberOfProductsLabel.setText("Antal Varor: " + String.valueOf((int)dataHandler.getShoppingCart().getItems().stream().mapToDouble(item -> item.getProduct().getUnit().substring(item.getProduct().getUnit().length() - 2).equals("st") ?item.getAmount():1).sum()));
         totalCostLabel.setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
+    }
+
+    public String getCreditNumberSplit(int part) {
+        String number = "";
+        switch (part) {
+            case 0:
+                number += dataHandler.getCreditCard().getCardNumber().substring(0,4);
+                break;
+            case 1:
+                number += dataHandler.getCreditCard().getCardNumber().substring(4,8);
+                break;
+            case 2:
+                number += dataHandler.getCreditCard().getCardNumber().substring(8,12);
+                break;
+            case 3:
+                number += dataHandler.getCreditCard().getCardNumber().substring(12,16);
+                break;
+        }
+        return number;
     }
 
     public Label getNumberOfProductsLabel() {

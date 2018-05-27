@@ -40,7 +40,7 @@ public class IMatPaymentCardController extends IMatController implements Initial
         setNumberLabels();
     }
 
-    private String getCreditNumberSplit(int part) {
+    public String getCreditNumberSplit(int part) {
         String number = "";
         switch (part) {
             case 0:
@@ -60,8 +60,8 @@ public class IMatPaymentCardController extends IMatController implements Initial
     }
 
     private boolean validateCardNumberLength() {
-        if (cardNumberTextField.getText().length() == 4 || cardNumberTextField1.getText().length() == 4 ||
-            cardNumberTextField2.getText().length() == 4 || cardNumberTextField3.getText().length() == 4) {
+        if (cardNumberTextField.getText().length() == 4 && cardNumberTextField1.getText().length() == 4 &&
+            cardNumberTextField2.getText().length() == 4 && cardNumberTextField3.getText().length() == 4) {
             return true;
         }
         else {
@@ -80,11 +80,11 @@ public class IMatPaymentCardController extends IMatController implements Initial
 
     private void creditPopulateTextField() {
         nameTextField.setText(creditCard.getHoldersName());
-        if (creditCard.getCardNumber().toCharArray().length < 16) {
-           // cardNumberTextField.setText(getCreditNumberSplit(0));
-           // cardNumberTextField1.setText(getCreditNumberSplit(1));
-           // cardNumberTextField2.setText(getCreditNumberSplit(2));
-           // cardNumberTextField3.setText(getCreditNumberSplit(3));
+        if (creditCard.getCardNumber().toCharArray().length == 16) {
+            cardNumberTextField.setText(getCreditNumberSplit(0));
+            cardNumberTextField1.setText(getCreditNumberSplit(1));
+            cardNumberTextField2.setText(getCreditNumberSplit(2));
+            cardNumberTextField3.setText(getCreditNumberSplit(3));
         }
         monthTextField.setText(String.valueOf(creditCard.getValidMonth()));
         yearTextField.setText(String.valueOf(creditCard.getValidYear()));
