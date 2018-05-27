@@ -40,7 +40,7 @@ public class IMatPaymentCardController extends IMatController implements Initial
         setNumberLabels();
     }
 
-    private String getCreditNumberSplit(int part) {
+    public String getCreditNumberSplit(int part) {
         String number = "";
         switch (part) {
             case 0:
