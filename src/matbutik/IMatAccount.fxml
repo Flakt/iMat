@@ -32,7 +32,7 @@
                <children>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <GridPane layoutX="1.0" layoutY="-9.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="-9.0">
+                        <GridPane fx:id="accountMainGridPane" layoutX="1.0" layoutY="-9.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="-9.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -112,7 +112,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                  <children>
-                                    <Label layoutX="32.0" layoutY="15.0" text="Kortnummer" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="32.0" layoutY="15.0" text="Kortnummer" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -121,7 +121,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                                  <children>
-                                    <Label layoutX="17.0" layoutY="1.0" text="Förnamn" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="17.0" layoutY="1.0" text="Förnamn" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -130,7 +130,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
                                  <children>
-                                    <Label layoutX="14.0" layoutY="12.0" text="Efternamn" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="14.0" layoutY="12.0" text="Efternamn" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -139,7 +139,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
                                  <children>
-                                    <Label layoutX="13.0" layoutY="13.0" text="Address" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="13.0" layoutY="13.0" text="Address" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -148,7 +148,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
                                  <children>
-                                    <Label layoutX="17.0" layoutY="14.0" text="Postnummer" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="17.0" layoutY="14.0" text="Postnummer" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -157,7 +157,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8">
                                  <children>
-                                    <Label layoutX="20.0" layoutY="11.0" text="Ort" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="20.0" layoutY="11.0" text="Ort" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -220,7 +220,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <Label layoutX="37.0" layoutY="12.0" text="Månad" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="37.0" layoutY="12.0" text="Månad" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -229,11 +229,12 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                  <children>
-                                    <Label layoutX="64.0" layoutY="15.0" text="År" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                    <Label id="label" layoutX="64.0" layoutY="15.0" text="År" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
+                                    <Label id="errorLabel" fx:id="accountMonthErrorLabel" layoutY="8.0" prefHeight="34.0" prefWidth="86.0" text="Bara siffror är tillåtna" textFill="RED" wrapText="true" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="10">
@@ -245,6 +246,16 @@
                                     </Button>
                                  </children>
                               </AnchorPane>
+                              <Label id="errorLabel" fx:id="accountCardNumberErrorLabel" text="Kortnummret är inte i korrekt format" textFill="RED" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label id="errorLabel" fx:id="accountYearErrorLabel" text="Bara siffror är tillåtna" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <Label id="errorLabel" fx:id="accountFirstNameErrorLabel" text="Bara bokstäver är tillåtna" textFill="RED" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <Label id="errorLabel" fx:id="accountLastNameErrorLabel" text="Bara bokstäver är tillåtna" textFill="RED" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Label id="errorLabel" fx:id="accountPostCodeErrorLabel" text="Bara siffror är tillåtna" textFill="RED" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <Label id="errorLabel" fx:id="accountPostAdressErrorLabel" text="Bara bokstäver är tillåtna" textFill="RED" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
                      </children>
@@ -270,7 +281,7 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Text>
-                              <Label fx:id="numberOfProductsLabel" layoutY="26.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
+                              <Label id="miniCartLabel" fx:id="numberOfProductsLabel" layoutY="26.0" text="Antal Varor:" AnchorPane.leftAnchor="0.0">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
@@ -278,7 +289,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="totalCostLabel" layoutY="47.0" text="Summa:" AnchorPane.leftAnchor="0.0">
+                              <Label id="miniCartLabel" fx:id="totalCostLabel" layoutY="47.0" text="Summa:" AnchorPane.leftAnchor="0.0">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>

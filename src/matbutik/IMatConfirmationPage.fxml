@@ -20,8 +20,8 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="290.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="344.0000061035156" minHeight="10.0" prefHeight="154.39999999999998" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="546.4" minHeight="10.0" prefHeight="546.4" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="95.0" minHeight="95.0" prefHeight="95.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0" styleClass="topBar" GridPane.columnSpan="2">
@@ -93,30 +93,33 @@
                <children>
                   <AnchorPane layoutX="327.0" layoutY="163.0" prefHeight="200.0" prefWidth="200.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button layoutX="346.0" layoutY="455.0" mnemonicParsing="false" onAction="#onBack" prefHeight="66.0" prefWidth="162.0" styleClass="greenButton" text="Tillbaka till butiken" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="347.20000000000005" AnchorPane.topAnchor="455.0" />
+                        <Button layoutX="289.0" layoutY="427.0" mnemonicParsing="false" onAction="#onBack" prefHeight="66.0" prefWidth="218.0" styleClass="greenButton" text="Tillbaka till butiken" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="400.0">
+                           <font>
+                              <Font size="26.0" />
+                           </font></Button>
                         <AnchorPane layoutX="3.0" layoutY="142.0" prefHeight="239.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="135.2" layoutY="14.0" text="Namn" AnchorPane.rightAnchor="0.0">
+                              <Label layoutX="135.2" layoutY="14.0" text="Namn:" AnchorPane.rightAnchor="0.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="40.0" layoutY="57.0" text="Leveransadress" AnchorPane.rightAnchor="0.0">
+                              <Label layoutX="40.0" layoutY="57.0" text="Leveransadress:" AnchorPane.rightAnchor="0.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="77.0" layoutY="99.0" text="Ort" AnchorPane.rightAnchor="0.0">
+                              <Label layoutX="77.0" layoutY="99.0" text="Ort:" AnchorPane.rightAnchor="0.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="57.0" layoutY="138.0" text="Datum" AnchorPane.rightAnchor="0.0">
+                              <Label layoutX="123.0" layoutY="178.0" text="Datum:" AnchorPane.rightAnchor="0.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="38.0" layoutY="180.0" text="Tid för leverans" AnchorPane.rightAnchor="-0.4000000000000057">
+                              <Label layoutX="32.400000000000006" layoutY="140.0" text="Tid för leverans:" AnchorPane.rightAnchor="-0.4000000000000057">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -125,34 +128,34 @@
                         </AnchorPane>
                         <AnchorPane layoutX="215.0" layoutY="141.0" prefHeight="223.0" prefWidth="230.0">
                            <children>
-                              <Label layoutY="16.0" text="Joakim Svensson" AnchorPane.leftAnchor="0.0">
+                              <Label fx:id="name" layoutX="10.0" layoutY="16.0" text="Joakim Svensson" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutY="60.0" text="Platåvägen 2" AnchorPane.leftAnchor="0.0">
+                              <Label fx:id="address" layoutX="10.0" layoutY="60.0" text="Platåvägen 2" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutY="102.0" text="Åled" AnchorPane.leftAnchor="0.0">
+                              <Label fx:id="city" layoutX="10.0" layoutY="102.0" text="Åled" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutY="140.0" text="2018-05-29" AnchorPane.leftAnchor="0.0">
+                              <Label fx:id="date" layoutX="10.0" layoutY="180.0" text="2018-05-29" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutY="184.0" text="18-20" AnchorPane.leftAnchor="0.0">
+                              <Label fx:id="time" layoutX="10.0" layoutY="144.0" text="18-20" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <Label layoutX="235.0" layoutY="14.0" text="Tack för din bestälnning">
+                        <Label layoutX="235.0" layoutY="14.0" text="Tack för din beställning">
                            <font>
                               <Font size="36.0" />
                            </font>
@@ -163,65 +166,23 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff4cc;" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ScrollPane layoutX="14.0" layoutY="53.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff4cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane layoutX="14.0" layoutY="53.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff4cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
                      <content>
-                        <FlowPane minHeight="585.0" prefHeight="200.0" prefWidth="290.0" styleClass="flow-pane">
-                           <children>
-                              <AnchorPane prefHeight="541.0" prefWidth="274.0">
-                                 <children>
-                                    <Label layoutX="91.0" layoutY="23.0" text="Kvitto">
-                                       <font>
-                                          <Font size="36.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="25.0" layoutY="98.0" text="Grytbitar nöt">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="135.0" layoutY="98.0" text="= 62,30 kr">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="25.0" layoutY="123.0" text="Högrev">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="25.0" layoutY="149.0" text="Gramsmjöl">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="135.0" layoutY="123.0" text="= 32,50 kr">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="135.0" layoutY="149.0" text="= 51,00 kr">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="25.0" layoutY="253.0" text="Varor 3 st">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="142.0" layoutY="253.0" text="= 147,80 kr">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children></FlowPane>
+                        <FlowPane fx:id="receiptFlowPane" minHeight="585.0" prefHeight="200.0" prefWidth="290.0" styleClass="flow-pane" />
                      </content>
                   </ScrollPane>
+                  <Label layoutX="99.0" layoutY="14.0" text="Kvitto" textAlignment="CENTER">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="receiptText" alignment="CENTER" layoutX="122.0" layoutY="67.0" text="Antal varor: x    Pris: x kr" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </GridPane>
    </children>

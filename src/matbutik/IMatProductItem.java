@@ -134,7 +134,7 @@ public class IMatProductItem extends AnchorPane {
     }
 
     @FXML
-    private void onIncrement(Event event) {
+    public void onIncrement(Event event) {
         valueFactory.increment(1);
         if (shoppingItem == null && controller.shoppingCart.getItems().stream().anyMatch(x->x.getProduct()==this.product && x.getAmount()>0.000001)){
             List<ShoppingItem> sil = controller.shoppingCart.getItems().stream().filter(x->x.getProduct()==this.product).collect(Collectors.toList());

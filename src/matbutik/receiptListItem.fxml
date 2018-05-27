@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="287.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="name" layoutX="14.0" prefHeight="60.0" prefWidth="102.0" text="Namn" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="171.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" layoutX="204.0" layoutY="7.0" prefHeight="47.0" prefWidth="63.0" text="=Pris" wrapText="true" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="amount" layoutX="115.0" layoutY="7.0" prefHeight="47.0" prefWidth="87.0" text="antal+Enhet" wrapText="true" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="85.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

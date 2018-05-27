@@ -2,26 +2,32 @@ package matbutik;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
+import java.awt.*;
 import java.net.URL;
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.util.*;
 import java.util.List;
-import java.util.ResourceBundle;
+import java.util.concurrent.Flow;
 
 public class IMatHistoryController extends IMatController implements Initializable{
-
+    @FXML private FlowPane historyFlowPane;
+    @FXML private AnchorPane historyMainAnchorPane;
+    @FXML private AnchorPane historyDetailAnchorPane;
+    @FXML private FlowPane historyDetailFlowPane;
+    @FXML private Label historyDetailDateLabel;
+    @FXML private FlowPane shoppingCartFlowPane;
     private IMatDataHandler dataHandler;
     private List<Order> orders = new ArrayList<>();
     private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
 
-    @FXML private AnchorPane historyDetailAnchorPane;
-    @FXML private FlowPane historyOrdersFlowPane;
-    @FXML private FlowPane historyDetailFlowPane;
 
 
 
@@ -31,44 +37,20 @@ public class IMatHistoryController extends IMatController implements Initializab
         navigationHandler = IMatNavigationHandler.getInstance();
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
-
         }
-        historyOrdersFlowPane.toFront();
+
+        historyMainAnchorPane.toFront();
         populateOrders();
         updateShoppingItems();
     }
 
     private void populateOrders() {
-        historyOrdersFlowPane.getChildren().clear();
+        historyFlowPane.getChildren().clear();
         for (Order order : orders) {
             IMatHistoryItem historyItem = new IMatHistoryItem(order, this);
-            historyOrdersFlowPane.getChildren().add(historyItem);
+            historyFlowPane.getChildren().add(historyItem);
+            historyItem.setPrefWidth(850);
         }
-    }
-
-    protected void setHistoryDetailView(Order order) {
-        historyDetailAnchorPane.toFront();
-        populateHistoryDetailView(order);
-
-    }
-
-    private void populateHistoryDetailView(Order order) {
-        historyDetailFlowPane.getChildren().clear();
-        orderDetailItems.clear();
-        for (ShoppingItem item : order.getItems()) {
-            IMatOrderDetailItem orderDetailItem = new IMatOrderDetailItem(item,this);
-            orderDetailItems.add(orderDetailItem);
-            historyDetailFlowPane.getChildren().add(orderDetailItem);
-        }
-    }
-
-    @FXML
-    protected void putAllInCart() {
-        // Clear shoppingCart before?
-        for (IMatOrderDetailItem item : orderDetailItems) {
-           dataHandler.getShoppingCart().addItem(item.getShoppingItem());
-        }
-        updateShoppingItems();
     }
 
 
@@ -80,15 +62,35 @@ public class IMatHistoryController extends IMatController implements Initializab
         return sum;
     }
 
-    public void addToShoppingCart(ShoppingItem item) {
-        dataHandler.getShoppingCart().addItem(item);
-        updateShoppingItems();
+    public void populateHistoryDetailView(Order order) {
+        historyDetailFlowPane.getChildren().clear();
+        orderDetailItems.clear();
+        Date input = order.getDate();
+        DateFormat parser = DateFormat.getDateInstance(DateFormat.SHORT, Locale.getDefault());
+        String formattedDate = parser.format(input);
+        historyDetailDateLabel.setText("Kundvagn från " + formattedDate);
+        for (ShoppingItem item : order.getItems()) {
+            IMatOrderDetailItem orderDetailItem = new IMatOrderDetailItem(item,order);
+            orderDetailItems.add(orderDetailItem);
+            historyDetailFlowPane.getChildren().add(orderDetailItem);
+        }
     }
 
-    public void removeFromShoppingCart(ShoppingItem item) {
-        dataHandler.getShoppingCart().removeItem(item);
-        updateShoppingItems();
+    public void setHistoryDetailView(Order order){
+        historyDetailAnchorPane.toFront();
+        populateHistoryDetailView(order);
     }
 
+    @FXML
+    protected void putAllInCart() {
+        // Clear shoppingCart before?
+        for (IMatOrderDetailItem item : orderDetailItems) {
+            dataHandler.getShoppingCart().addItem(item.getShoppingItem());
+        }
+        updateShoppingItems();
+    }
 
 }
+
+
+

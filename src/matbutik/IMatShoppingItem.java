@@ -80,6 +80,7 @@ public class IMatShoppingItem extends AnchorPane {
          cartItemName.setText(shoppingCartController.getCartItemName(this.shoppingItem).replace("Ekologisk", ""));
 
          this.cartUpdater = cartUpdater;
+
     }
     protected void setEcoLabel(){
         if(!shoppingItem.getProduct().isEcological()){
@@ -142,7 +143,6 @@ public class IMatShoppingItem extends AnchorPane {
     private void updatePrice() {
         cartItemTotalPrice.setText((" =" + String.format("%.2f",this.shoppingItem.getTotal())) + " kr"  );
     }
-    //STOPP SKYDDSOBJEKT ÄNDRA EJ!
     private Stream<Node> getChildrenStream(Node n) {
         if (Pane.class.isAssignableFrom(n.getClass())) {
             return ((Pane)n).getChildren().stream();
