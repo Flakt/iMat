@@ -32,7 +32,7 @@ public class ReceiptListItem extends AnchorPane {
 
         name.setText(shoppingItem.getProduct().getName());
 
-        if(!shoppingItem.getProduct().getUnitSuffix().equals("burk") && shoppingItem.getAmount() > 1) {
+        if(!shoppingItem.getProduct().getUnitSuffix().equals("burk") || shoppingItem.getAmount() > 1) {
             amount.setText(String.format("%.1f", shoppingItem.getAmount()) + " " + shoppingItem.getProduct().getUnitSuffix());
         }
         else
