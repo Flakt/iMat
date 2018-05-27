@@ -153,7 +153,7 @@ public class IMatController extends IMatModularCartController implements Initial
     public void shoppingItems(){
         shoppingCartFlowPane.getChildren().clear();
         dataHandler.getShoppingCart().getItems().forEach(x->shoppingCartFlowPane.getChildren().add(
-                new IMatMiniShoppingCartItem(x,this,() ->{})));
+                new IMatMiniShoppingCartItem(x,this,iMatProductItemMap.get(x.getProduct().getProductId())::updateShoppingCart)));
     }
 
     public void setNumberLabels() {
