@@ -52,6 +52,7 @@ public class IMatController extends IMatModularCartController implements Initial
         mainPage.toFront();
         fillCategoryPages();
         productItem();
+        updateShoppingItems();
     }
 
     protected void productItem(){
@@ -93,10 +94,10 @@ public class IMatController extends IMatModularCartController implements Initial
                 iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler, this));
             }
         else {
-            updateProductsList();
+            //addItemsToShoppingCartFlowPane();
         }
         long t1 = System.nanoTime();
-        System.out.println((t1-t0) / 1.0E09 + " s");
+        //System.out.println((t1-t0) / 1.0E09 + " s");
     }
 
     @FXML public void shoppingCart(Event event){
@@ -150,10 +151,13 @@ public class IMatController extends IMatModularCartController implements Initial
             search();
     }
 
-    public void shoppingItems(){
+    public void updateShoppingItems(){
+        long t0 = System.nanoTime();
         shoppingCartFlowPane.getChildren().clear();
         dataHandler.getShoppingCart().getItems().forEach(x->shoppingCartFlowPane.getChildren().add(
                 new IMatMiniShoppingCartItem(x,this,iMatProductItemMap.get(x.getProduct().getProductId())::updateShoppingCart)));
+        long t1 = System.nanoTime();
+        System.out.println((t1-t0) / 1.0E09 + " s");
     }
 
     public void setNumberLabels() {

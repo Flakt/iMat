@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -41,7 +40,7 @@ public class IMatAccountController extends IMatController implements Initializab
         creditCard = dataHandler.getCreditCard();
         setTextFields();
         addTextFieldListeners();
-        shoppingItems();
+        updateShoppingItems();
 
     }
 

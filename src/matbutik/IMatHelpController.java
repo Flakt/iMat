@@ -1,6 +1,5 @@
 package matbutik;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.FlowPane;
@@ -15,7 +14,7 @@ public class IMatHelpController extends IMatController implements Initializable 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        shoppingItems();
+        updateShoppingItems();
 
     }
 }
