@@ -1,5 +1,6 @@
 package matbutik;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -40,15 +41,17 @@ public class IMatMiniShoppingCartItem extends IMatShoppingItem {
     }
 
     @FXML
-    protected void removeAction() {
-        // Copying from superclass, apparently it superclass stops functioning correctly
-        shoppingCartController.shoppingCart.removeItem(shoppingItem);
+    protected void removeAction(Event e) {
+        shoppingItem.setAmount(shoppingCartController.iMatShoppingItemMap.get(shoppingItem.getProduct().getProductId()).isAPiece() ?
+            1 : 0.1);
+        super.decItem(e);
+        /*shoppingCartController.shoppingCart.removeItem(shoppingItem);
         shoppingItem.setAmount(0);
+        updateOthers();
         shoppingItem = null;
         removeMe = true;
-        updateOthers();
-        super.cartUpdater.runCommand();
+        cartUpdater.runCommand();
         shoppingCartController.populateFlowPane();
-
+        IMatShoppingCartController.getInstance().setLabels();*/
     }
 }
