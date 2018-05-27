@@ -167,7 +167,10 @@
                            </font>
                         </Label>
                         <TextField fx:id="nameTextField" layoutX="236.0" layoutY="157.0" prefHeight="26.0" prefWidth="370.0" promptText="Fyll i namn på kortet" />
-                        <TextField fx:id="cardNumberTextField" layoutX="237.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
+                        <TextField fx:id="cardNumberTextField" layoutX="237.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" promptText="XXXX" />
+                        <TextField fx:id="cardNumberTextField1" layoutX="334.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" promptText="XXXX" />
+                        <TextField fx:id="cardNumberTextField2" layoutX="430.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" promptText="XXXX" />
+                        <TextField fx:id="cardNumberTextField3" layoutX="531.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" promptText="XXXX" />
                         <TextField fx:id="yearTextField" layoutX="544.0" layoutY="259.0" prefHeight="26.0" prefWidth="60.0" promptText="År" />
                         <TextField fx:id="monthTextField" layoutX="290.0" layoutY="260.0" prefHeight="26.0" prefWidth="60.0" promptText="Månad" />
                         <Label alignment="CENTER" layoutX="481.0" layoutY="261.0" prefWidth="60.0" text="År">
@@ -231,9 +234,6 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="cardNumberTextField1" layoutX="334.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
-                        <TextField fx:id="cardNumberTextField2" layoutX="430.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
-                        <TextField fx:id="cardNumberTextField3" layoutX="531.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
                         <Label layoutX="172.0" layoutY="55.0" text="Du har valt kortbetalning">
                            <font>
                               <Font size="36.0" />
