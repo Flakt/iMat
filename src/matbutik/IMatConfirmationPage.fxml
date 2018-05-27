@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.confirmationPage">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matbutik.confirmationPage">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -20,8 +20,8 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="290.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="344.0000061035156" minHeight="10.0" prefHeight="154.39999999999998" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="546.4" minHeight="10.0" prefHeight="546.4" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="95.0" minHeight="95.0" prefHeight="95.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="190.0" prefWidth="1022.0" styleClass="topBar" GridPane.columnSpan="2">
