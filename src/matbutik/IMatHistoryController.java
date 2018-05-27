@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
@@ -48,6 +49,7 @@ public class IMatHistoryController extends IMatController implements Initializab
         for (Order order : orders) {
             IMatHistoryItem historyItem = new IMatHistoryItem(order, this);
             historyFlowPane.getChildren().add(historyItem);
+            historyItem.setPrefWidth(850);
         }
     }
 
