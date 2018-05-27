@@ -136,7 +136,7 @@ public class IMatShoppingItem extends AnchorPane {
         }
     }
 
-    private boolean isAPiece() {
+    public boolean isAPiece() {
         return Arrays.stream(new String[]{"st", "rp", "se", "rk"}).anyMatch(x->x.equals(shoppingItem.getProduct().getUnit().substring(shoppingItem.getProduct().getUnit().length()-2)));
     }
 
