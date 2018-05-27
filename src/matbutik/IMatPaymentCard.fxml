@@ -186,7 +186,7 @@
                            <font>
                               <Font size="16.0" />
                            </font></TextField>
-                        <TextField fx:id="monthTextField" layoutX="220.0" layoutY="260.0" prefHeight="26.0" prefWidth="60.0" promptText="Månad">
+                        <TextField fx:id="monthTextField" layoutX="220.0" layoutY="260.0" prefHeight="26.0" prefWidth="60.0" promptText="MM">
                            <font>
                               <Font size="16.0" />
                            </font></TextField>
@@ -273,9 +273,6 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="cardNumberTextField1" layoutX="334.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
-                        <TextField fx:id="cardNumberTextField2" layoutX="430.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
-                        <TextField fx:id="cardNumberTextField3" layoutX="531.0" layoutY="201.0" prefHeight="26.0" prefWidth="73.0" />
                         <Label layoutX="172.0" layoutY="55.0" text="Du har valt kortbetalning">
                            <font>
                               <Font size="36.0" />
