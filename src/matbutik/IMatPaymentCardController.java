@@ -33,6 +33,8 @@ public class IMatPaymentCardController extends IMatController implements Initial
     @FXML private TextField verificationCodeTextField;
     @FXML private CheckBox creditSaveDetailsCheckBox;
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataHandler = IMatDataHandler.getInstance();
@@ -41,6 +43,12 @@ public class IMatPaymentCardController extends IMatController implements Initial
         creditInit();
         creditPopulateTextField();
         setNumberLabels();
+
+
+        registerListener(cardNumberTextField, cardNumberTextField1);
+        registerListener(cardNumberTextField1, cardNumberTextField2);
+        registerListener(cardNumberTextField2, cardNumberTextField3);
+        registerListener(cardNumberTextField3, cardNumberTextField);
     }
 
     private boolean validateCardNumberLength() {
@@ -157,6 +165,15 @@ public class IMatPaymentCardController extends IMatController implements Initial
         if (!verificationCodeTextField.getText().matches("[0-9]+")) {
             creditVerifErrorLabel.setVisible(true);
         }
+    }
+
+
+    private void registerListener(TextField tf1, TextField tf2) {
+        tf1.textProperty().addListener((obs, oldText, newText) -> {
+            if (oldText.length() < 4 && newText.length() >= 4) {
+                tf2.requestFocus();
+            }
+        });
     }
 
     @FXML

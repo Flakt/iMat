@@ -63,6 +63,10 @@ public class IMatAccountController extends IMatController implements Initializab
         addTextFieldListeners();
         updateShoppingItems();
 
+
+
+
+
     }
 
 
@@ -172,13 +176,9 @@ public class IMatAccountController extends IMatController implements Initializab
 
     private void addTextFieldListeners() {
         accountCardNumberTextField.focusedProperty().addListener(new TextFieldListener(accountCardNumberTextField));
-        accountCardNumberTextField.focusedProperty().addListener(new CardNumberListener(accountCardNumberTextField));
         accountCardNumberTextField1.focusedProperty().addListener(new TextFieldListener(accountCardNumberTextField1));
-        accountCardNumberTextField1.focusedProperty().addListener(new CardNumberListener(accountCardNumberTextField1));
         accountCardNumberTextField2.focusedProperty().addListener(new TextFieldListener(accountCardNumberTextField2));
-        accountCardNumberTextField2.focusedProperty().addListener(new CardNumberListener(accountCardNumberTextField2));
         accountCardNumberTextField3.focusedProperty().addListener(new TextFieldListener(accountCardNumberTextField3));
-        accountCardNumberTextField3.focusedProperty().addListener(new CardNumberListener(accountCardNumberTextField3));
         accountMonthTextField.focusedProperty().addListener(new TextFieldListener(accountMonthTextField));
         accountYearTextField.focusedProperty().addListener(new TextFieldListener(accountYearTextField));
         accountFirstNameTextField.focusedProperty().addListener(new TextFieldListener(accountFirstNameTextField));
@@ -186,6 +186,13 @@ public class IMatAccountController extends IMatController implements Initializab
         accountAdressTextField.focusedProperty().addListener(new TextFieldListener(accountAdressTextField));
         accountZipCodeTextField.focusedProperty().addListener(new TextFieldListener(accountZipCodeTextField));
         accountPostAdressTextField.focusedProperty().addListener(new TextFieldListener(accountPostAdressTextField));
+
+        registerListener(accountCardNumberTextField, accountCardNumberTextField1);
+        registerListener(accountCardNumberTextField1, accountCardNumberTextField2);
+        registerListener(accountCardNumberTextField2, accountCardNumberTextField3);
+        registerListener(accountCardNumberTextField3, accountCardNumberTextField);
+
+
     }
 
     @FXML
@@ -242,28 +249,13 @@ public class IMatAccountController extends IMatController implements Initializab
         }
     }
 
-    private class CardNumberListener implements ChangeListener<Boolean> {
-        private int numberOfChar;
-        private TextField textField;
 
-        public CardNumberListener(TextField textField) {
-            this.numberOfChar = textField.getText().length();
-            this.textField = textField;
-        }
-
-        @Override
-        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-            if (newValue) {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (numberOfChar == 4) {
-                            jumpToNext(textField);
-                        }
-                    }
-                });
+    private void registerListener(TextField tf1, TextField tf2) {
+        tf1.textProperty().addListener((obs, oldText, newText) -> {
+            if (oldText.length() < 4 && newText.length() >= 4) {
+                tf2.requestFocus();
             }
-        }
+        });
     }
 
     @FXML public void navigateGoBack(Event event) {
