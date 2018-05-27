@@ -53,6 +53,7 @@ public class IMatController extends IMatModularCartController implements Initial
         fillCategoryPages();
         productItem();
         updateShoppingItems();
+        if (dataHandler.getCreditCard().getCardNumber().length() != 16) dataHandler.getCreditCard().setCardNumber("");
     }
 
     protected void productItem(){
