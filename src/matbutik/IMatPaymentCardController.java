@@ -2,9 +2,11 @@ package matbutik;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
@@ -14,6 +16,7 @@ import java.util.ResourceBundle;
 public class IMatPaymentCardController extends IMatController implements Initializable {
     private CreditCard creditCard;
     private IMatDataHandler dataHandler;
+    @FXML private AnchorPane creditcardMainAnchorPane;
     @FXML private Label creditCardNameErrorLabel;
     @FXML private Label creditCardNumberErrorLabel;
     @FXML private Label creditMonthErrorLabel;
@@ -40,25 +43,6 @@ public class IMatPaymentCardController extends IMatController implements Initial
         setNumberLabels();
     }
 
-    public String getCreditNumberSplit(int part) {
-        String number = "";
-        switch (part) {
-            case 0:
-                number += creditCard.getCardNumber().substring(0,4);
-                break;
-            case 1:
-                number += creditCard.getCardNumber().substring(4,8);
-                break;
-            case 2:
-                number += creditCard.getCardNumber().substring(8,12);
-                break;
-            case 3:
-                number += creditCard.getCardNumber().substring(12,16);
-                break;
-        }
-        return number;
-    }
-
     private boolean validateCardNumberLength() {
         if (cardNumberTextField.getText().length() == 4 && cardNumberTextField1.getText().length() == 4 &&
             cardNumberTextField2.getText().length() == 4 && cardNumberTextField3.getText().length() == 4) {
@@ -69,6 +53,31 @@ public class IMatPaymentCardController extends IMatController implements Initial
         }
     }
 
+    private void setCardNumberLengthErrors() {
+        if (cardNumberTextField.getText().length() != 4) {
+            cardNumberTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (cardNumberTextField1.getText().length() != 4) {
+            cardNumberTextField1.setStyle("-fx-text-box-border: red;");
+        }
+        if (cardNumberTextField2.getText().length() != 4) {
+            cardNumberTextField2.setStyle("-fx-text-box-border: red;");
+        }
+        if (cardNumberTextField3.getText().length() != 4) {
+            cardNumberTextField3.setStyle("-fx-text-box-border: red;");
+        }
+    }
+
+    private void setEmptyTextFieldsErrors() {
+        for (Node node : creditcardMainAnchorPane.getChildren()) {
+            if (node instanceof TextField) {
+                if (((TextField) node).getText().equals("")) {
+                    ((TextField) node).setStyle("-fx-text-box-border: red;");
+                }
+            }
+        }
+    }
+
     private void clearCreditTextFieldsError() {
         creditCardNameErrorLabel.setVisible(false);
         creditCardNumberErrorLabel.setVisible(false);
@@ -76,6 +85,11 @@ public class IMatPaymentCardController extends IMatController implements Initial
         creditYearErrorLabel.setVisible(false);
         creditVerifErrorLabel.setVisible(false);
         creditErrorLabel.setVisible(false);
+        for (Node node : creditcardMainAnchorPane.getChildren()) {
+            if (node instanceof TextField) {
+                ((TextField) node).setStyle(null);
+            }
+        }
     }
 
     private void creditPopulateTextField() {
@@ -100,17 +114,38 @@ public class IMatPaymentCardController extends IMatController implements Initial
         creditPopulateTextField();
     }
 
-    private void showCreditTextFieldsError() {
-        if (nameTextField.getText().matches(".*\\d+.*")) {
-            creditCardNameErrorLabel.setVisible(true);
-        }
-        if (!cardNumberTextField.getText().matches("[0-9]+") || !cardNumberTextField1.getText().matches("[0-9]+") ||
-            !cardNumberTextField2.getText().matches("[0-9]+") || !cardNumberTextField3.getText().matches("[0-9]+")) {
+    private void setCardNumberTextFieldErrors() {
+        if (!cardNumberTextField.getText().matches("[0-9]+")) {
+            cardNumberTextField.setStyle("-fx-text-box-border: red;");
             creditCardNumberErrorLabel.setText("Bara siffror är tillåtna");
             creditCardNumberErrorLabel.setVisible(true);
         }
+        if (!cardNumberTextField1.getText().matches("[0-9]+")) {
+            cardNumberTextField1.setStyle("-fx-text-box-border: red;");
+            creditCardNumberErrorLabel.setText("Bara siffror är tillåtna");
+            creditCardNumberErrorLabel.setVisible(true);
+        }
+        if (!cardNumberTextField2.getText().matches("[0-9]+")) {
+            cardNumberTextField2.setStyle("-fx-text-box-border: red;");
+            creditCardNumberErrorLabel.setText("Bara siffror är tillåtna");
+            creditCardNumberErrorLabel.setVisible(true);
+        }
+        if (!cardNumberTextField3.getText().matches("[0-9]+")) {
+            cardNumberTextField3.setStyle("-fx-text-box-border: red;");
+            creditCardNumberErrorLabel.setText("Bara siffror är tillåtna");
+            creditCardNumberErrorLabel.setVisible(true);
+        }
+    }
+
+    private void showCreditTextFieldsError() {
+        if (nameTextField.getText().matches(".*\\d+.*")) {
+            creditCardNameErrorLabel.setVisible(true);
+            nameTextField.setStyle("-fx-text-box-border: red;");
+        }
+        setCardNumberTextFieldErrors();
         if (!validateCardNumberLength()) {
-            creditCardNumberErrorLabel.setText("Kortnummret är inte fullständig");
+            setCardNumberLengthErrors();
+            creditCardNumberErrorLabel.setText("Kortnummret är inte i korrekt format");
             creditCardNumberErrorLabel.setVisible(true);
         }
         if (!yearTextField.getText().matches("[0-9]+")) {
@@ -130,6 +165,7 @@ public class IMatPaymentCardController extends IMatController implements Initial
         if (nameTextField.getText().equals("") || cardNumberTextField.getText().equals("") ||
                 yearTextField.getText().equals("") || monthTextField.getText().equals("") ||
                 verificationCodeTextField.getText().equals("")) {
+            setEmptyTextFieldsErrors();
             creditErrorLabel.setVisible(true);
             return;
         }

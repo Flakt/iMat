@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.*;
@@ -50,16 +51,33 @@ public class IMatController extends IMatModularCartController implements Initial
         navigationHandler.setCustomerPath("");
         deselectTabs();
         mainPage.toFront();
-        fillCategoryPages();
-        productItem();
+        fillCategoryPages(); long t0 = System.nanoTime();
+        productItem(); long t05 = System.nanoTime();
         updateShoppingItems();
         if (dataHandler.getCreditCard().getCardNumber().length() != 16) dataHandler.getCreditCard().setCardNumber("0000000000000000");
+        long t1 = System.nanoTime();
+        System.out.print("[BenchmarkTime]IMatController::initialize: " + (t1-t0) / 1.0E09 + " s");
+        System.out.println("    (" + (t05-t0) / 1.0E09 + " s + " + (t1-t05) / 1.0E09 + " s)");
+        initIMatShoppingItemMap();
+    }
+
+    public Map<Integer,IMatProductItem> getiMatProductItemMap() {
+        return iMatProductItemMap;
+    }
+
+    private void initIMatShoppingItemMap() {
+        if (iMatShoppingItemMap.isEmpty()) {
+            for (ShoppingItem si : shoppingCart.getItems())
+                iMatShoppingItemMap.put(si.getProduct().getProductId(),new IMatShoppingItem(si,this,this::updateProductsList));
+        }
     }
 
     protected void productItem(){
-        dataHandler.getShoppingCart().getItems().forEach(x->{
+        if (!dataHandler.getShoppingCart().getItems().isEmpty())
+            iMatProductItemMap.get(dataHandler.getShoppingCart().getItems().get(0).getProduct().getProductId()).updateShoppingCart();
+        /*dataHandler.getShoppingCart().getItems().forEach(x->{
             iMatProductItemMap.get(x.getProduct().getProductId()).updateShoppingCart();
-        });
+        });*/
     }
 
     public void setWidthUpdateRunnable(Runnable runnable) {
@@ -72,6 +90,7 @@ public class IMatController extends IMatModularCartController implements Initial
     }
 
     private void fillCategoryPages() {
+        long t0 = System.nanoTime();
         updateWidthForTabAndResultFlowPanes();
         for (IMatProductItem product : iMatProductItemMap.values()) {
             for (Category category : product.getCategory()) {
@@ -85,7 +104,7 @@ public class IMatController extends IMatModularCartController implements Initial
             }
         }
         //((FlowPane)((ScrollPane)categories.getTabs().get(0).getContent()).getContent()).setCursor(Cursor.CLOSED_HAND);
-        if (widthUpdateRunnable!=null) widthUpdateRunnable.run();
+        if (widthUpdateRunnable!=null) widthUpdateRunnable.run(); long t1 = System.nanoTime(); System.out.println("[BenchmarkTime]IMatController::fillCategoryPages: " + (t1-t0)/1.0E09 + " s");
     } // Try to do this in one "loop" instead
 
     private void populateProductItemMap() {
@@ -158,7 +177,7 @@ public class IMatController extends IMatModularCartController implements Initial
         dataHandler.getShoppingCart().getItems().forEach(x->shoppingCartFlowPane.getChildren().add(
                 new IMatMiniShoppingCartItem(x,this,iMatProductItemMap.get(x.getProduct().getProductId())::updateShoppingCart)));
         long t1 = System.nanoTime();
-        System.out.println((t1-t0) / 1.0E09 + " s");
+        //System.out.println((t1-t0) / 1.0E09 + " s");
     }
 
     public void setNumberLabels() {
