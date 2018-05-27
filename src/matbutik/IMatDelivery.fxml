@@ -134,47 +134,47 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3">
                                  <children>
-                                    <Button layoutX="-10.0" layoutY="5.0" mnemonicParsing="false" styleClass="timeButton" text="08.00 - 10.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="dateButton" layoutX="-10.0" layoutY="5.0" mnemonicParsing="false" styleClass="timeButton" text="08.00 - 10.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
                                  <children>
-                                    <Button layoutX="-6.0" layoutY="7.0" mnemonicParsing="false" styleClass="timeButton" text="10.00 - 12.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="dateButton1" layoutX="-6.0" layoutY="7.0" mnemonicParsing="false" styleClass="timeButton" text="10.00 - 12.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5">
                                  <children>
-                                    <Button layoutX="-16.0" layoutY="1.0" mnemonicParsing="false" styleClass="timeButton" text="12.00 - 14.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="dateButton2" layoutX="-16.0" layoutY="1.0" mnemonicParsing="false" styleClass="timeButton" text="12.00 - 14.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6">
                                  <children>
-                                    <Button layoutX="-25.0" layoutY="1.0" mnemonicParsing="false" styleClass="timeButton" text="14.00 - 16.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="dateButton3" layoutX="-25.0" layoutY="1.0" mnemonicParsing="false" styleClass="timeButton" text="14.00 - 16.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
                                  <children>
-                                    <Button layoutX="-15.0" layoutY="7.0" mnemonicParsing="false" styleClass="timeButton" text="16.00 - 18.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="dateButton4" layoutX="-15.0" layoutY="7.0" mnemonicParsing="false" styleClass="timeButton" text="16.00 - 18.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8">
                                  <children>
-                                    <Button layoutX="35.0" layoutY="4.0" mnemonicParsing="false" styleClass="timeButton" text="18.00 - 20.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="dateButton5" layoutX="35.0" layoutY="4.0" mnemonicParsing="false" styleClass="timeButton" text="18.00 - 20.00" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1">
                                  <children>
-                                    <Button layoutX="15.0" layoutY="14.0" mnemonicParsing="false" styleClass="nextDateButton" text="Nästa dag" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.6000000000000085" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="nextDayButton" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#incDate" styleClass="nextDateButton" text="Nästa dag" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.6000000000000085" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                                  <children>
-                                    <Button layoutX="2.0" layoutY="19.0" mnemonicParsing="false" styleClass="nextDateButton" text="Föregånde dag" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="prevDayButton" layoutX="2.0" layoutY="19.0" mnemonicParsing="false" onAction="#decDate" styleClass="nextDateButton" text="Föregånde dag" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
                                  <children>
-                                    <Label fx:id="dateLabel" layoutX="5.0" layoutY="5.0" styleClass="dateLabel" text="Datum 24/5-18" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <Label fx:id="dateLabel" layoutX="-124.0" layoutY="5.0" prefHeight="48.0" prefWidth="501.0" styleClass="dateLabel" text="Datum 24/5-18" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="-124.0" AnchorPane.rightAnchor="-121.0" AnchorPane.topAnchor="5.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -229,7 +229,7 @@
                               </Text>
                               <ImageView fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" styleClass="defualtColor" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                  <image>
-                                    <Image url="@resources/icons8-free-shipping-26.png" />
+                                    <Image url="@resources/shoppingcart.png" />
                                  </image>
                               </ImageView>
                            </children>

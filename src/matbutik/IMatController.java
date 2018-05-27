@@ -3,6 +3,7 @@ package matbutik;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
@@ -212,6 +213,22 @@ public class IMatController extends IMatModularCartController implements Initial
     }
     public ScrollPane getSearchResultScrollPane() {
         return searchResultScrollPane;
+    }
+
+
+    @Override
+    protected void populateFlowPane() {
+        /*shoppingCartFlowPane.getChildren().clear();
+        //super.updateProductsList();
+        for (IMatMiniShoppingCartItem item : iMatShoppingItemMap.values()) {
+            if (item.shoppingItem != null)
+                shoppingCartFlowPane.getChildren().add(item);
+        }*/
+        for (int i = 0; i < shoppingCartFlowPane.getChildren().size(); i++) {
+            IMatMiniShoppingCartItem item = (IMatMiniShoppingCartItem) shoppingCartFlowPane.getChildren().get(i);
+            if (item.shoppingItem == null)
+                shoppingCartFlowPane.getChildren().remove(item);
+        }
     }
 
 }

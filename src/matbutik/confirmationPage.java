@@ -22,26 +22,34 @@ public class confirmationPage extends IMatController implements Initializable {
     @FXML Label address;
     @FXML Label date;
     @FXML Label city;
+    @FXML Label receiptText;
 
 
     @FXML
     FlowPane receiptFlowPane;
 
 
+    private Order order;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Order order = dataHandler.getOrders().get(dataHandler.getOrders().size()-1);
-        Customer customer = dataHandler.getCustomer();
+
+        if(dataHandler.getOrders().size() > 0) {
+            order = dataHandler.getOrders().get(dataHandler.getOrders().size() - 1);
+            Customer customer = dataHandler.getCustomer();
 
 
-        name.setText(customer.getFirstName() + " " + customer.getLastName());
-        address.setText(customer.getAddress());
-        city.setText(customer.getPostAddress());
+            name.setText(customer.getFirstName() + " " + customer.getLastName());
+            address.setText(customer.getAddress());
+            city.setText(customer.getPostAddress());
+
+            receiptText.setText("Antal varor: " + order.getItems().size() + "\tPris: " + String.format("%.1f",
+                    getTotalPrice()) + " kr");
 
 
-        for (ShoppingItem shoppingItem : order.getItems()) {
-            receiptFlowPane.getChildren().add(new ReceiptListItem(shoppingItem));
-            System.out.println("Element added to receipt FlowPane");
+            for (ShoppingItem shoppingItem : order.getItems()) {
+                receiptFlowPane.getChildren().add(new ReceiptListItem(shoppingItem));
+                System.out.println("Element added to receipt FlowPane");
+            }
         }
 
 
@@ -49,6 +57,13 @@ public class confirmationPage extends IMatController implements Initializable {
      //   city.setText();
 
 
+    }
+    private Double getTotalPrice() {
+        Double sum = 0d;
+        for (ShoppingItem shoppingItem : order.getItems()) {
+            sum += shoppingItem.getTotal();
+        }
+         return sum;
     }
 
     @FXML
