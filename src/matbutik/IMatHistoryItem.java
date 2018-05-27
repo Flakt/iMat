@@ -47,7 +47,9 @@ public class IMatHistoryItem extends AnchorPane {
         setupFXML();
         this.order = order;
         this.historyController = historyController;
+
         setDateLabel();
+
         if (order.getItems().size() > 1) {
             numberOfProductsLabel.setText(String.valueOf(order.getItems().size()) + " st varor");
         } else {
