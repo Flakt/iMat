@@ -169,7 +169,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="7" GridPane.rowIndex="1">
                            <children>
-                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Hjälp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToHelp" prefHeight="26.0" text="Hjälp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
