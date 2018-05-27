@@ -65,20 +65,27 @@ public class IMatPaymentDeliveryAddress extends IMatController implements Initia
         }
         if (deliveryAfterNameTextField.getText().matches(".*\\d+.*")) {
             lastNameErrorLabel.setVisible(true);
+            deliveryAfterNameTextField.setStyle("-fx-text-box-border: red;");
         }
         if (deliveryPostAdressTextField.getText().matches(".*\\d+.*")) {
             postAdressErrorLabel.setVisible(true);
+            deliveryPostAdressTextField.setStyle("-fx-text-box-border: red;");
         }
         if (!deliveryPostCodeTextField.getText().matches("[0-9]+")) {
             postCodeErrorLabel.setVisible(true);
+            deliveryPostCodeTextField.setStyle("-fx-text-box-border: red;");
         }
     }
 
     private void clearTextFieldsError() {
         firstNameErrorLabel.setVisible(false);
+        deliveryFirstNameTextField.setStyle(null);
         lastNameErrorLabel.setVisible(false);
+        deliveryAfterNameTextField.setStyle(null);
         postAdressErrorLabel.setVisible(false);
+        deliveryPostAdressTextField.setStyle(null);
         postCodeErrorLabel.setVisible(false);
+        deliveryPostCodeTextField.setStyle(null);
         errorLabel.setVisible(false);
     }
 
