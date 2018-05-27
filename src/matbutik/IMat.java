@@ -42,7 +42,7 @@ public class IMat extends Application {
 
 
 
-        Scene scene = new Scene(root, 1144, 685);
+        Scene scene = new Scene(root, 1196, 685);
 
         ScreenController screenController = ScreenController.getInstance();
         screenController.setMain(scene);

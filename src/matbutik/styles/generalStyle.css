@@ -143,3 +143,15 @@
     -fx-base: #a8e4c1;
     -fx-font-size: 2em;
 }
+
+.historyAddButon
+{
+    -fx-base:  #a8e4c1;
+    -fx-text-alignment: center;
+}
+
+.historyEcoLabel
+{
+    -fx-background-color:  #aaddaa;
+    -fx-alignment: center;
+}
