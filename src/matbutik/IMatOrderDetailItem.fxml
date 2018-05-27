@@ -26,11 +26,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="97.0" prefWidth="142.0" styleClass="historyAddButon" text="Lägg till i kundvagn" wrapText="true" GridPane.columnIndex="2" GridPane.rowSpan="4">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
             <AnchorPane prefHeight="102.0" prefWidth="103.0" GridPane.rowSpan="4">
                <children>
                   <ImageView fx:id="cartItemImageView" fitHeight="104.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
@@ -82,6 +77,15 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowSpan="4">
+               <children>
+                  <Button layoutX="4.0" layoutY="-20.0" mnemonicParsing="false" onAction="#addOnAction" prefHeight="97.0" prefWidth="142.0" styleClass="historyAddButon" text="Lägg till i kundvagn" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

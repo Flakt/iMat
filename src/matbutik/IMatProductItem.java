@@ -3,6 +3,7 @@ package matbutik;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -132,7 +133,7 @@ public class IMatProductItem extends AnchorPane {
     }
 
     @FXML
-    private void onIncrement(Event event) {
+    public void onIncrement(Event event) {
         valueFactory.increment(1);
         if (shoppingItem == null && controller.shoppingCart.getItems().stream().anyMatch(x->x.getProduct()==this.product && x.getAmount()>0.000001)){
             List<ShoppingItem> sil = controller.shoppingCart.getItems().stream().filter(x->x.getProduct()==this.product).collect(Collectors.toList());
@@ -207,9 +208,9 @@ public class IMatProductItem extends AnchorPane {
 
     }
 
-    public void updateShoppingCart(){
+    public void updateShoppingCart(){ long t0 = System.nanoTime();
         update();
-        controller.getShoppingCartFlowPane().getChildren().clear();
+        /*controller.getShoppingCartFlowPane().getChildren().clear();
         for (ShoppingItem si: controller.shoppingCart.getItems()){
             if (si.getAmount() != 0) {
                 IMatMiniShoppingCartItem cartItem = new IMatMiniShoppingCartItem(si, controller, this::updateShoppingCart);
@@ -217,10 +218,30 @@ public class IMatProductItem extends AnchorPane {
             } else {
                 controller.shoppingCart.getItems().remove(si); // Maybe not useful at all
             }
+        }*/
+        // Replacement
+        for (Node item : controller.getShoppingCartFlowPane().getChildren()) {
+            if (((IMatMiniShoppingCartItem) item).shoppingItem == this.shoppingItem) {
+                ((IMatMiniShoppingCartItem) item).updateCartItemAmountTextField();
+                //((IMatMiniShoppingCartItem) item).cartItemAmountTextField.setText(String.format("%.1f",((IMatMiniShoppingCartItem) item).shoppingItem.getAmount()));
+                /*controller.getShoppingCartFlowPane().getChildren().remove(item);
+                item = new IMatMiniShoppingCartItem(this.shoppingItem,controller,((IMatMiniShoppingCartItem) item).cartUpdater);
+                controller.getShoppingCartFlowPane().getChildren().add(0,item);*/
+                break;
+            }
         }
+        // END Replacement
         controller.getTotalCostLabel().setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
         controller.getNumberOfProductsLabel().setText("Antal Varor: " + String.valueOf(dataHandler.getShoppingCart().getItems().size()));
 
+    }
+
+    public void updateAmountText() {
+        numberOfProducts.setText(amountToString(shoppingItem.getAmount()));
+    }
+
+    private String amountToString(double amount) {
+        return (isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount));
     }
 
 

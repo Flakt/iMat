@@ -35,6 +35,7 @@ public class IMatPaymentInvoiceController extends IMatController implements Init
         fillInSavedDeliveryDetails();
         invoiceInit();
         clearInvoiceTextFieldsError();
+        clearTextFieldsBorderErrors();
         setNumberLabels();
     }
 
@@ -73,6 +74,33 @@ public class IMatPaymentInvoiceController extends IMatController implements Init
         invoiceErrorLabel.setVisible(false);
     }
 
+    private void clearTextFieldsBorderErrors() {
+        // All textfields are in separate anchorpanes, making getChildren not a viable option
+        forenameTextField.setStyle(null);
+        surnameTextField.setStyle(null);
+        adressTextField.setStyle(null);
+        zipcodeTextField.setStyle(null);
+        regionTextField.setStyle(null);
+    }
+
+    private void setEmptyTextFieldsErrors() {
+        if (forenameTextField.getText().equals("")) {
+            forenameTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (surnameTextField.getText().equals("")) {
+            surnameTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (adressTextField.getText().equals("")) {
+            adressTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (zipcodeTextField.getText().equals("")) {
+            zipcodeTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (regionTextField.getText().equals("")) {
+            regionTextField.setStyle("-fx-text-box-border: red;");
+        }
+    }
+
     private void showInvoiceTextFieldsError() {
         if (forenameTextField.getText().matches(".*\\d+.*")) {
             invoiceFirstNameErrorLabel.setVisible(true);
@@ -90,10 +118,12 @@ public class IMatPaymentInvoiceController extends IMatController implements Init
 
     @FXML protected void invoicePayAction() {
         clearInvoiceTextFieldsError();
+        clearTextFieldsBorderErrors();
         if (forenameTextField.getText().equals("") || surnameTextField.getText().equals("") ||
                 adressTextField.getText().equals("") || zipcodeTextField.getText().equals("") ||
                 regionTextField.getText().equals("")) {
             invoiceErrorLabel.setVisible(true);
+            setEmptyTextFieldsErrors();
             return;
         }
         showInvoiceTextFieldsError();
