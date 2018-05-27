@@ -31,8 +31,17 @@ public class ReceiptListItem extends AnchorPane {
         }
 
         name.setText(shoppingItem.getProduct().getName());
-        amount.setText(((Double)(shoppingItem.getAmount())).toString() +" " + shoppingItem.getProduct().getUnitSuffix());
-        price.setText(((Double)shoppingItem.getTotal()).toString() + " kr");
+
+        if(!shoppingItem.getProduct().getUnitSuffix().equals("burk") && shoppingItem.getAmount() > 1) {
+            amount.setText(String.format("%.1f", shoppingItem.getAmount()) + " " + shoppingItem.getProduct().getUnitSuffix());
+        }
+        else
+        {
+            amount.setText(String.format("%.1f", shoppingItem.getAmount()) + " " + shoppingItem.getProduct().getUnitSuffix() + "ar");
+
+        }
+
+        price.setText( String.format( "%.1f",(shoppingItem.getTotal())) + " kr");
 
 
     }
