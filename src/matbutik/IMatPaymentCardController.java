@@ -60,8 +60,8 @@ public class IMatPaymentCardController extends IMatController implements Initial
     }
 
     private boolean validateCardNumberLength() {
-        if (cardNumberTextField.getText().length() == 4 || cardNumberTextField1.getText().length() == 4 ||
-            cardNumberTextField2.getText().length() == 4 || cardNumberTextField3.getText().length() == 4) {
+        if (cardNumberTextField.getText().length() == 4 && cardNumberTextField1.getText().length() == 4 &&
+            cardNumberTextField2.getText().length() == 4 && cardNumberTextField3.getText().length() == 4) {
             return true;
         }
         else {
