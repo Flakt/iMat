@@ -87,6 +87,10 @@ public class IMatShoppingItem extends AnchorPane {
         }
     }
 
+    public void updateCartItemAmountTextField() {
+        cartItemAmountTextField.setText(amountToString(shoppingItem.getAmount()));
+    }
+
 
     @FXML
     protected void incItem(Event event) {
@@ -95,11 +99,15 @@ public class IMatShoppingItem extends AnchorPane {
         shoppingCartController.incrementProductAmount(this.shoppingItem, isAPiece()?1:0.1);
         //shoppingCartController.getCartItemAmount(this.shoppingItem);
 
-        cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)(amount + (isAPiece()?1:0.1))).toString() : String.format("%.1f",(Double)(amount + (isAPiece()?1:0.1)))));
+        cartItemAmountTextField.setText(amountToString(amount + (isAPiece()?1:0.1)));
 
-        updatePrice();
-        updateOthers();
+        updatePrice(); long t0 = System.nanoTime();
+        updateOthers(); long t1 = System.nanoTime(); System.out.println("[BenchmarkTime]IMatShoppingItem::incItem: " + (t1-t0)/1.0E09 + " s");
         IMatShoppingCartController.getInstance().setLabels();
+    }
+
+    private String amountToString(double amount) {
+        return (isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount));
     }
 
     protected void removeItem() {
@@ -120,7 +128,7 @@ public class IMatShoppingItem extends AnchorPane {
             IMatShoppingCartController.getInstance().setLabels();
         } else {
             shoppingCartController.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
-            cartItemAmountTextField.setText((isAPiece() ? ((Integer)(int)amount).toString() : String.format("%.1f",(Double)amount)));
+            cartItemAmountTextField.setText(amountToString(amount));
             updatePrice();
             updateOthers();
             IMatShoppingCartController.getInstance().setLabels();
@@ -169,10 +177,14 @@ public class IMatShoppingItem extends AnchorPane {
 
     protected void updateOthers() {
         Parent parent = getRoot(this);
-        getDescendantProductItems(getChildrenStream(parent)).forEach(item -> {
-            if (item.shoppingItem != null)
-                item.updateShoppingCart();
-        });
+        for (IMatProductItem item : getDescendantProductItems(getChildrenStream(parent))) {
+            if (item.getProduct().getProductId() == this.shoppingItem.getProduct().getProductId()) {
+                if (item.shoppingItem != null) {
+                    item.updateAmountText();
+                }
+                break;
+            }
+        }
     }
 
     private Parent getRoot(Parent node) {
