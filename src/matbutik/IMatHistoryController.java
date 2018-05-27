@@ -1,10 +1,7 @@
 package matbutik;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -12,14 +9,7 @@ import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -45,7 +35,7 @@ public class IMatHistoryController extends IMatController implements Initializab
         }
         historyOrdersFlowPane.toFront();
         populateOrders();
-        shoppingItems();
+        updateShoppingItems();
     }
 
     private void populateOrders() {
@@ -78,7 +68,7 @@ public class IMatHistoryController extends IMatController implements Initializab
         for (IMatOrderDetailItem item : orderDetailItems) {
            dataHandler.getShoppingCart().addItem(item.getShoppingItem());
         }
-        shoppingItems();
+        updateShoppingItems();
     }
 
 
@@ -92,12 +82,12 @@ public class IMatHistoryController extends IMatController implements Initializab
 
     public void addToShoppingCart(ShoppingItem item) {
         dataHandler.getShoppingCart().addItem(item);
-        shoppingItems();
+        updateShoppingItems();
     }
 
     public void removeFromShoppingCart(ShoppingItem item) {
         dataHandler.getShoppingCart().removeItem(item);
-        shoppingItems();
+        updateShoppingItems();
     }
 
 
