@@ -6,8 +6,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -22,6 +25,14 @@ public class IMatAccountController extends IMatController implements Initializab
     private CreditCard creditCard;
     private IMatNavigationHandler navigationHandler;
     @FXML private Label accountSaveLabel;
+    @FXML private Label accountCardNumberErrorLabel;
+    @FXML private Label accountYearErrorLabel;
+    @FXML private Label accountMonthErrorLabel;
+    @FXML private Label accountFirstNameErrorLabel;
+    @FXML private Label accountLastNameErrorLabel;
+    @FXML private Label accountPostCodeErrorLabel;
+    @FXML private Label accountPostAdressErrorLabel;
+    @FXML private GridPane accountMainGridPane;
     @FXML private TextField accountCardNumberTextField;
     @FXML private TextField accountCardNumberTextField1;
     @FXML private TextField accountCardNumberTextField2;
@@ -41,6 +52,8 @@ public class IMatAccountController extends IMatController implements Initializab
         navigationHandler = IMatNavigationHandler.getInstance();
         customer = dataHandler.getCustomer();
         creditCard = dataHandler.getCreditCard();
+        clearErrorLabels();
+        clearTextFieldsBordersErrors();
         setTextFields();
         addTextFieldListeners();
         updateShoppingItems();
@@ -62,6 +75,96 @@ public class IMatAccountController extends IMatController implements Initializab
         accountPostAdressTextField.setText(customer.getPostAddress());
     }
 
+    private void clearErrorLabels() {
+        for (Node node : accountMainGridPane.getChildren()) {
+            if (node instanceof AnchorPane) {
+                for (Node deeperNode : ((AnchorPane) node).getChildren()) {
+                    if (deeperNode instanceof Label && deeperNode.getId().equals("errorLabel")) {
+                        deeperNode.setVisible(false);
+                    }
+                }
+            }
+            else if (node instanceof Label && node.getId().equals("errorLabel")) {
+                node.setVisible(false);
+            }
+        }
+    }
+
+    private void clearTextFieldsBordersErrors() {
+        for (Node node : accountMainGridPane.getChildren()) {
+            if (node instanceof AnchorPane) {
+                for (Node deeperNode : ((AnchorPane) node).getChildren()) {
+                    if (deeperNode instanceof TextField) {
+                        deeperNode.setStyle(null);
+                    }
+                }
+            }
+        }
+    }
+
+    private void checkCreditCardErrors() {
+        if (!accountCardNumberTextField.getText().matches("[0-9]+")) {
+            accountCardNumberErrorLabel.setVisible(true);
+            accountCardNumberTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (!accountCardNumberTextField1.getText().matches("[0-9]+")) {
+            accountCardNumberErrorLabel.setVisible(true);
+            accountCardNumberTextField1.setStyle("-fx-text-box-border: red;");
+        }
+        if (!accountCardNumberTextField2.getText().matches("[0-9]+")) {
+            accountCardNumberErrorLabel.setVisible(true);
+            accountCardNumberTextField2.setStyle("-fx-text-box-border: red;");
+        }
+        if (!accountCardNumberTextField3.getText().matches("[0-9]+")) {
+            accountCardNumberErrorLabel.setVisible(true);
+            accountCardNumberTextField3.setStyle("-fx-text-box-border: red;");
+        }
+        if (!accountMonthTextField.getText().matches("[0-9]+")) {
+            accountMonthErrorLabel.setVisible(true);
+            accountMonthTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (!accountYearTextField.getText().matches("[0-9]+")) {
+            accountYearErrorLabel.setVisible(true);
+            accountYearTextField.setStyle("-fx-text-box-border: red;");
+        }
+    }
+
+    private void checkCustomerDetailErrors() {
+        if (accountFirstNameTextField.getText().matches(".*\\d+.*")) {
+            accountFirstNameErrorLabel.setVisible(true);
+            accountFirstNameTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (accountLastNameTextField.getText().matches(".*\\d+.*")) {
+            accountLastNameErrorLabel.setVisible(true);
+            accountLastNameTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (!accountZipCodeTextField.getText().matches("[0-9]+")) {
+            accountPostCodeErrorLabel.setVisible(true);
+            accountZipCodeTextField.setStyle("-fx-text-box-border: red;");
+        }
+        if (accountPostAdressTextField.getText().matches(".*\\d+.*")) {
+            accountPostAdressErrorLabel.setVisible(true);
+            accountPostAdressTextField.setStyle("-fx-text-box-border: red;");
+        }
+    }
+
+    private boolean isErrors() {
+        boolean isError = false;
+        for (Node node : accountMainGridPane.getChildren()) {
+            if (node instanceof AnchorPane) {
+                for (Node deeperNode : ((AnchorPane) node).getChildren()) {
+                    if (deeperNode instanceof Label && deeperNode.getId().equals("errorLabel") && deeperNode.isVisible()) {
+                        isError = true;
+                    }
+                }
+            }
+            else if (node instanceof Label && node.getId().equals("errorLabel") && node.isVisible()) {
+                isError = true;
+            }
+        }
+        return isError;
+    }
+
     private void addTextFieldListeners() {
         accountCardNumberTextField.focusedProperty().addListener(new TextFieldListener(accountCardNumberTextField));
         accountMonthTextField.focusedProperty().addListener(new TextFieldListener(accountMonthTextField));
@@ -75,7 +178,15 @@ public class IMatAccountController extends IMatController implements Initializab
 
     @FXML
     protected void saveDetailsAction() {
-        creditCard.setCardNumber(accountCardNumberTextField.getText());
+        clearErrorLabels();
+        clearTextFieldsBordersErrors();
+        checkCreditCardErrors();
+        checkCustomerDetailErrors();
+        if (isErrors()) {
+            return;
+        }
+        creditCard.setCardNumber(accountCardNumberTextField.getText() + accountCardNumberTextField1.getText() +
+                                 accountCardNumberTextField2.getText() + accountCardNumberTextField3.getText());
         creditCard.setValidMonth(Integer.parseInt(accountMonthTextField.getText()));
         creditCard.setValidYear(Integer.parseInt(accountYearTextField.getText()));
         customer.setFirstName(accountFirstNameTextField.getText());
