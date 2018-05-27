@@ -23,6 +23,9 @@ public class IMatAccountController extends IMatController implements Initializab
     private IMatNavigationHandler navigationHandler;
     @FXML private Label accountSaveLabel;
     @FXML private TextField accountCardNumberTextField;
+    @FXML private TextField accountCardNumberTextField1;
+    @FXML private TextField accountCardNumberTextField2;
+    @FXML private TextField accountCardNumberTextField3;
     @FXML private TextField accountMonthTextField;
     @FXML private TextField accountYearTextField;
     @FXML private TextField accountFirstNameTextField;
@@ -45,9 +48,11 @@ public class IMatAccountController extends IMatController implements Initializab
     }
 
 
-
     private void setTextFields() {
-        accountCardNumberTextField.setText(creditCard.getCardNumber());
+        accountCardNumberTextField.setText(getCreditNumberSplit(0));
+        accountCardNumberTextField1.setText(getCreditNumberSplit(1));
+        accountCardNumberTextField2.setText(getCreditNumberSplit(2));
+        accountCardNumberTextField3.setText(getCreditNumberSplit(3));
         accountMonthTextField.setText(String.valueOf(creditCard.getValidMonth()));
         accountYearTextField.setText(String.valueOf(creditCard.getValidYear()));
         accountFirstNameTextField.setText(customer.getFirstName());

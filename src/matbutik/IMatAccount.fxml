@@ -76,7 +76,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <children>
-                                    <TextField fx:id="accountCardNumberTextField1" layoutX="47.0" layoutY="7.0" prefHeight="26.0" prefWidth="60.0" promptText="XXXX" style="-fx-alignment: center;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                                    <TextField fx:id="accountCardNumberTextField2" layoutX="47.0" layoutY="7.0" prefHeight="26.0" prefWidth="60.0" promptText="XXXX" style="-fx-alignment: center;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -85,7 +85,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <children>
-                                    <TextField fx:id="accountCardNumberTextField1" layoutX="19.0" layoutY="15.0" prefHeight="26.0" prefWidth="60.0" promptText="XXXX" style="-fx-alignment: center;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                                    <TextField fx:id="accountCardNumberTextField3" layoutX="19.0" layoutY="15.0" prefHeight="26.0" prefWidth="60.0" promptText="XXXX" style="-fx-alignment: center;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>

@@ -165,6 +165,25 @@ public class IMatController extends IMatModularCartController implements Initial
         totalCostLabel.setText("Summa: " + String.format("%.2f",dataHandler.getShoppingCart().getTotal()) + " kr");
     }
 
+    public String getCreditNumberSplit(int part) {
+        String number = "";
+        switch (part) {
+            case 0:
+                number += dataHandler.getCreditCard().getCardNumber().substring(0,4);
+                break;
+            case 1:
+                number += dataHandler.getCreditCard().getCardNumber().substring(4,8);
+                break;
+            case 2:
+                number += dataHandler.getCreditCard().getCardNumber().substring(8,12);
+                break;
+            case 3:
+                number += dataHandler.getCreditCard().getCardNumber().substring(12,16);
+                break;
+        }
+        return number;
+    }
+
     public Label getNumberOfProductsLabel() {
         return numberOfProductsLabel;
     }
