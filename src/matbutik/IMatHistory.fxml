@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -29,38 +30,79 @@
          <children>
             <AnchorPane prefHeight="405.0" prefWidth="664.0" GridPane.rowIndex="1">
                <children>
-                <AnchorPane fx:id="historyDetailAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="434.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="historyDetailDateLabel" layoutX="14.0" layoutY="5.0" text="Kundvagn från">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ScrollPane layoutY="40.0" prefHeight="364.0" prefWidth="434.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <FlowPane fx:id="historyDetailFlowPane" minHeight="600.0" minWidth="852.0" />
-                           </content>
-                        </ScrollPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="historyDetailAnchorPane" prefHeight="405.0" prefWidth="664.0" styleClass="explorerContainer">
                            <children>
-                              <Button layoutX="29.0" layoutY="266.0" mnemonicParsing="false" onAction="#putAllInCart" styleClass="greenButton" text="Lägg till allt i kundvagn" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="40.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
+                              <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="1.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="197.79999389648438" minHeight="10.0" prefHeight="59.59999237060546" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="557.6000076293946" minHeight="10.0" prefHeight="549.6000076293946" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="60.0" prefWidth="507.0" styleClass="anchor-pane">
+                                       <children>
+                                          <Label fx:id="historyDetailDateLabel" layoutX="14.0" layoutY="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <ScrollPane prefHeight="364.0" prefWidth="434.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <content>
+                                          <FlowPane fx:id="historyDetailFlowPane" minHeight="600.0" minWidth="852.0" styleClass="flow-pane" />
+                                       </content>
+                                    </ScrollPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anchor-pane" GridPane.columnIndex="1">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#putAllInCart" styleClass="greenButton" text="Lägg till allt i kundvagn" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="historyMainAnchorPane" prefHeight="200.0" prefWidth="200.0" styleClass="explorerContainer">
+                           <children>
+                              <GridPane prefHeight="610.0" prefWidth="854.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="1.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="197.79999389648438" minHeight="10.0" prefHeight="59.59999237060546" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="557.6000076293946" minHeight="10.0" prefHeight="549.6000076293946" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="60.0" prefWidth="507.0" styleClass="anchor-pane" GridPane.columnSpan="2">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="5.0" style="-fx-alignment: center;" text="Här visas dina tidigare köp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <ScrollPane fx:id="historyScrollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <content>
+                                          <FlowPane fx:id="historyFlowPane" columnHalignment="CENTER" prefHeight="610.0" prefWidth="821.0" prefWrapLength="769.0" styleClass="flow-pane" />
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </GridPane>
                            </children>
                         </AnchorPane>
                      </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="historyViewAnchorPane" prefHeight="700.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <FlowPane fx:id="historyOrdersFlowPane" columnHalignment="CENTER" prefHeight="610.0" prefWidth="821.0" prefWrapLength="769.0" />
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
+                  </StackPane>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="150.0" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -107,7 +149,7 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <content>
-                              <FlowPane fx:id="shoppingCartFlowPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
+                              <FlowPane fx:id="shoppingCartFlowPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
                            </content>
                         </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">

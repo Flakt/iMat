@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -15,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class IMatHistoryItem extends AnchorPane {
@@ -22,12 +24,12 @@ public class IMatHistoryItem extends AnchorPane {
     private Order order;
     private IMatHistoryController historyController;
 
-    @FXML
-    private Label dateLabel;
-    @FXML
-    private Label numberOfProductsLabel;
-    @FXML
-    private Label sumLabel;
+
+
+    @FXML private Label dateLabel;
+    @FXML private Label numberOfProductsLabel;
+    @FXML private Label sumLabel;
+
 
 
     protected void setupFXML(){
@@ -69,8 +71,13 @@ public class IMatHistoryItem extends AnchorPane {
         return historyController.sumOfAllProducts(order);
     }
 
-    @FXML
-    protected void onClick(Event event) {
+
+
+    @FXML protected void onClick(Event event) {
         historyController.setHistoryDetailView(order);
     }
+
+
+
+
 }
