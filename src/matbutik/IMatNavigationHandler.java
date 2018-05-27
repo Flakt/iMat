@@ -98,5 +98,4 @@ public class IMatNavigationHandler {
         setCustomerPath("ConfirmationPage");
     }
 
-
 }

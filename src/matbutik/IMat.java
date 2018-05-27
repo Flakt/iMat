@@ -38,6 +38,7 @@ public class IMat extends Application {
         Parent paymentDeliveryAddress = FXMLLoader.load(getClass().getResource("IMatPaymentDeliveryAddress.fxml"), bundle);
 
 
+
         Parent help = FXMLLoader.load(getClass().getResource("IMatHelp.fxml"), bundle);
 
 
@@ -58,6 +59,7 @@ public class IMat extends Application {
         screenController.addScreen("PaymentOptions", paymentOptions);
         screenController.addScreen("ConfirmationPage", confirmation);
         screenController.addScreen("Help", help);
+
 
 
         stage.setTitle(bundle.getString("application.name"));
