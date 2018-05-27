@@ -166,7 +166,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff4cc;" styleClass="miniShoppingCartContainer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ScrollPane layoutX="14.0" layoutY="53.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff4cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                  <ScrollPane layoutX="14.0" layoutY="53.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff4cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
                      <content>
                         <FlowPane fx:id="receiptFlowPane" minHeight="585.0" prefHeight="200.0" prefWidth="290.0" styleClass="flow-pane" />
                      </content>
@@ -176,6 +176,7 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
+                  <Label fx:id="receiptText" alignment="CENTER" layoutX="122.0" layoutY="67.0" text="Antal varor: x    Pris: x kr" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
          </children>
