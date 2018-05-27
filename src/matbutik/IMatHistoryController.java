@@ -22,6 +22,7 @@ public class IMatHistoryController extends IMatController implements Initializab
     @FXML private AnchorPane historyDetailAnchorPane;
     @FXML private FlowPane historyDetailFlowPane;
     @FXML private Label historyDetailDateLabel;
+    @FXML private FlowPane shoppingCartFlowPane;
     private IMatDataHandler dataHandler;
     private List<Order> orders = new ArrayList<>();
     private List<IMatOrderDetailItem> orderDetailItems = new ArrayList<>();
@@ -36,6 +37,7 @@ public class IMatHistoryController extends IMatController implements Initializab
         for (Order order : dataHandler.getOrders()) {
             orders.add(order);
         }
+
         historyMainAnchorPane.toFront();
         populateOrders();
         updateShoppingItems();
@@ -86,14 +88,6 @@ public class IMatHistoryController extends IMatController implements Initializab
         updateShoppingItems();
     }
 
-    public void upDateShoppingCart(){
-        updateShoppingItems();
-    }
-
-    public void removeFromShoppingCart(ShoppingItem item) {
-        dataHandler.getShoppingCart().removeItem(item);
-        updateShoppingItems();
-    }
 }
 
 

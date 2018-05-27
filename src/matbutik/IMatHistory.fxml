@@ -149,7 +149,7 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <content>
-                              <FlowPane fx:id="shoppingCartFlowPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
+                              <FlowPane fx:id="shoppingCartFlowPane" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="290.0" style="-fx-pref-height: 416px;" styleClass="flow-pane" />
                            </content>
                         </ScrollPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
