@@ -42,6 +42,7 @@ public class ScreenController {
     }
 
     protected void activate(String name) {
+        long t0 = System.nanoTime();
 previousRoot = main.getRoot();
         Parent root = screenMap.get(name);
         try {
@@ -50,6 +51,8 @@ previousRoot = main.getRoot();
             e.printStackTrace();
         }
         main.setRoot(root);
+        long t1 = System.nanoTime();
+        System.out.println("[BenchmarkTime]ScreenController::activate: " + (t1-t0) / 1.0E09 + " s");
     }
 
     @Deprecated
