@@ -268,15 +268,6 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="54.0" prefWidth="277.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
-                                 <children>
-                                    <CheckBox fx:id="invoiceSaveDetailsCheckBox" layoutX="228.0" layoutY="18.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Spara uppgifter" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </CheckBox>
-                                 </children>
-                              </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="9" />
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
                                  <children>
@@ -384,6 +375,15 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="54.0" prefWidth="277.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                                 <children>
+                                    <CheckBox fx:id="invoiceSaveDetailsCheckBox" layoutX="228.0" layoutY="18.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Spara uppgifter" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </CheckBox>
                                  </children>
                               </AnchorPane>
                            </children>
