@@ -73,7 +73,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
             }
         });
         for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
-            iMatShoppingItemMap.put(shoppingItem.getProduct().getName(), new IMatShoppingItem(shoppingItem,this,this::updateProductsList));
+            iMatShoppingItemMap.put(shoppingItem.getProduct().getProductId(), new IMatShoppingItem(shoppingItem,this,this::updateProductsList));
         }
         populateFlowPane();
         updateProductsList();
@@ -126,7 +126,7 @@ public class IMatShoppingCartController extends IMatModularCartController implem
     protected void regretRemove() {
         // Not assigned yet
         for (ShoppingItem item : backupShoppingItems) {
-            iMatShoppingItemMap.put(item.getProduct().getName(), new IMatShoppingItem(item,this,this::updateProductsList));
+            iMatShoppingItemMap.put(item.getProduct().getProductId(), new IMatShoppingItem(item,this,this::updateProductsList));
             shoppingCart.addItem(item);
         }
         backupShoppingItems.clear();

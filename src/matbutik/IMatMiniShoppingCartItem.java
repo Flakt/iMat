@@ -22,7 +22,7 @@ public class IMatMiniShoppingCartItem extends IMatShoppingItem {
     @Override
     public void setupFxml(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("IMatMiniShoppingCartItem.fxml"));
-        System.out.println(this.getClass().toString());
+        //System.out.println(this.getClass().toString());
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         dataHandler = IMatDataHandler.getInstance();

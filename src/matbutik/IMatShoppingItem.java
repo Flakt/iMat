@@ -90,7 +90,7 @@ public class IMatShoppingItem extends AnchorPane {
 
     @FXML
     protected void incItem(Event event) {
-        System.out.println(this.getClass().toString());
+        //System.out.println(this.getClass().toString());
         double amount = shoppingItem.getAmount();
         shoppingCartController.incrementProductAmount(this.shoppingItem, isAPiece()?1:0.1);
         //shoppingCartController.getCartItemAmount(this.shoppingItem);

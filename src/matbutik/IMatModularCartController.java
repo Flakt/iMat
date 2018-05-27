@@ -8,12 +8,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class IMatModularCartController {
 
     protected IMatDataHandler dataHandler;
     protected ShoppingCart shoppingCart;
-    protected Map<String, IMatShoppingItem> iMatShoppingItemMap = new HashMap<String, IMatShoppingItem>();
+    protected Map<Integer, IMatShoppingItem> iMatShoppingItemMap = new HashMap<>();
     protected List<ShoppingItem> backupShoppingItems = new ArrayList<>();
     protected FlowPane cartItemsFlowPane;
 
@@ -36,17 +37,15 @@ public class IMatModularCartController {
 
     public void updateProductsList() {
         List<ShoppingItem> shoppingItems = shoppingCart.getItems();
-        for (ShoppingItem shoppingItem : shoppingItems) {
-            IMatShoppingItem iMatShoppingItem = iMatShoppingItemMap.get(shoppingItem.getProduct().getName());
-            iMatShoppingItemMap.values().stream().forEach(x->{
-                if (x.removeMe) {
-                    iMatShoppingItemMap.remove(iMatShoppingItemMap.keySet().stream().filter(y -> iMatShoppingItemMap.get(y) == x || iMatShoppingItemMap.get(y).shoppingItem == null).findAny());
-                    shoppingItems.remove(x.shoppingItem);
-                    shoppingCart.removeItem(x.shoppingItem);
-                    populateFlowPane();
-                }
-            });
-        }
+        iMatShoppingItemMap.values().forEach(x -> {
+            if (x.removeMe) {
+                List<Integer> removables = iMatShoppingItemMap.keySet().stream().filter(y -> iMatShoppingItemMap.get(y) == x || iMatShoppingItemMap.get(y).shoppingItem == null).collect(Collectors.toList());
+                if (!removables.isEmpty()) iMatShoppingItemMap.remove(removables.get(0));
+                shoppingItems.remove(x.shoppingItem);
+                shoppingCart.removeItem(x.shoppingItem);
+                populateFlowPane();
+            }
+        });
     }
 
     public double getCartItemAmount(ShoppingItem item) {

@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class IMatController extends IMatModularCartController implements Initializable {
     IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     IMatNavigationHandler navigationHandler = IMatNavigationHandler.getInstance();
-    private Map<Integer, IMatProductItem> iMatProductItemMap = new HashMap<>();
+    private Map<Integer, IMatProductItem> iMatProductItemMap = IMatProductItemMapController.getInstance();
     @FXML FlowPane dairyFlowPane;
     @FXML FlowPane meatFlowPane;
     private @FXML FlowPane searchResult;
@@ -82,13 +82,21 @@ public class IMatController extends IMatModularCartController implements Initial
                 product.addItemToCartButtonContainerToBack();
             }
         }
-
-    }
+        //((FlowPane)((ScrollPane)categories.getTabs().get(0).getContent()).getContent()).setCursor(Cursor.CLOSED_HAND);
+        if (widthUpdateRunnable!=null) widthUpdateRunnable.run();
+    } // Try to do this in one "loop" instead
 
     private void populateProductItemMap() {
-        for (Product product : dataHandler.getProducts()) {
-            iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler, this));
+        long t0 = System.nanoTime();
+        if (iMatProductItemMap.isEmpty())
+            for (Product product : dataHandler.getProducts()) {
+                iMatProductItemMap.put(product.getProductId(), new IMatProductItem(product, dataHandler, this));
+            }
+        else {
+            updateProductsList();
         }
+        long t1 = System.nanoTime();
+        System.out.println((t1-t0) / 1.0E09 + " s");
     }
 
     @FXML public void shoppingCart(Event event){
@@ -163,4 +171,11 @@ public class IMatController extends IMatModularCartController implements Initial
         return searchResultScrollPane;
     }
 
+}
+
+class IMatProductItemMapController {
+    private static Map<Integer, IMatProductItem> instance;
+    public static Map<Integer, IMatProductItem> getInstance() {
+        return instance != null ? instance : (instance = new HashMap<>());
+    }
 }
