@@ -102,6 +102,7 @@ public class IMatController extends IMatModularCartController implements Initial
             if (shoppingCart.getItems().stream().filter(x->x.getProduct()==product.getProduct()).anyMatch(x->x.getAmount()>0.000001)) {
                 product.shoppingItem = shoppingCart.getItems().stream().filter(x->x.getProduct()==product.getProduct()).collect(Collectors.toList()).get(0);
                 product.addItemToCartButtonContainerToBack();
+                product.updateAmountText();
             }
         }
         //((FlowPane)((ScrollPane)categories.getTabs().get(0).getContent()).getContent()).setCursor(Cursor.CLOSED_HAND);
