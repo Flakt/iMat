@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.*;
@@ -57,6 +58,18 @@ public class IMatController extends IMatModularCartController implements Initial
         long t1 = System.nanoTime();
         System.out.print("[BenchmarkTime]IMatController::initialize: " + (t1-t0) / 1.0E09 + " s");
         System.out.println("    (" + (t05-t0) / 1.0E09 + " s + " + (t1-t05) / 1.0E09 + " s)");
+        initIMatShoppingItemMap();
+    }
+
+    public Map<Integer,IMatProductItem> getiMatProductItemMap() {
+        return iMatProductItemMap;
+    }
+
+    private void initIMatShoppingItemMap() {
+        if (iMatShoppingItemMap.isEmpty()) {
+            for (ShoppingItem si : shoppingCart.getItems())
+                iMatShoppingItemMap.put(si.getProduct().getProductId(),new IMatShoppingItem(si,this,this::updateProductsList));
+        }
     }
 
     protected void productItem(){
