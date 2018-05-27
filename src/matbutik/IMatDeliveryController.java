@@ -32,6 +32,7 @@ public class IMatDeliveryController extends IMatController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        date = LocalDateTime.now();
         addButtonListeners();
         setCurrentDate();
     }
