@@ -120,9 +120,9 @@ public class IMatShoppingItem extends AnchorPane {
         if (amount < 0.00001) {
             shoppingCartController.shoppingCart.removeItem(shoppingItem);
             shoppingItem.setAmount(0);
+            updateOthers();
             shoppingItem = null;
             removeMe = true;
-            updateOthers();
             cartUpdater.runCommand();
             shoppingCartController.populateFlowPane();
             IMatShoppingCartController.getInstance().setLabels();
@@ -178,11 +178,11 @@ public class IMatShoppingItem extends AnchorPane {
     protected void updateOthers() {
         Parent parent = getRoot(this);
         for (IMatProductItem item : getDescendantProductItems(getChildrenStream(parent))) {
-            if (item.getProduct().getProductId() == this.shoppingItem.getProduct().getProductId()) {
-                if (item.shoppingItem != null) {
+            if (item.shoppingItem != null) {
+                if (item.getProduct().getProductId() == this.shoppingItem.getProduct().getProductId()) {
                     item.updateAmountText();
                 }
-                break;
+                //break;
             }
         }
     }
