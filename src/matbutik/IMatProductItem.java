@@ -1,5 +1,6 @@
 package matbutik;
 
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -151,6 +152,8 @@ public class IMatProductItem extends AnchorPane {
         }
         if(!controller.shoppingCart.getItems().contains(shoppingItem)){
             controller.shoppingCart.addItem(shoppingItem);
+            controller.iMatShoppingItemMap.put(shoppingItem.getProduct().getProductId(),new IMatMiniShoppingCartItem(shoppingItem,controller,()->{}));
+            controller.getShoppingCartFlowPane().getChildren().add(controller.iMatShoppingItemMap.get(shoppingItem.getProduct().getProductId()));
         }
 
         updateShoppingCart();
@@ -160,13 +163,13 @@ public class IMatProductItem extends AnchorPane {
         private void onDecrement(Event event){
         valueFactory.decrement(1);
 
-
-        if (shoppingItem.getAmount() - (isAPiece()?1:0.1) < 0.00001) {
+        controller.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
+        if (!controller.shoppingCart.getItems().contains(shoppingItem)/*shoppingItem.getAmount() - (isAPiece()?1:0.1) < 0.00001*/) {
             controller.shoppingCart.removeItem(shoppingItem);
             shoppingItem = null;
             addItemToCartButtonContainer.toFront();
-        } else
-            controller.decrementProductAmount(shoppingItem, isAPiece()?1:0.1);
+        } //else
+
 
 
         updateShoppingCart();
@@ -220,6 +223,16 @@ public class IMatProductItem extends AnchorPane {
             }
         }*/
         // Replacement
+        if (this.shoppingItem == null) {
+            //IMatShoppingItem removee = controller.iMatShoppingItemMap.get(product.getProductId());
+            //controller.getShoppingCartFlowPane().getChildren().remove(removee);
+            ObservableList<Node> fpChildren = controller.getShoppingCartFlowPane().getChildren();
+            for (int i = 0; i < fpChildren.size(); i++) {
+                IMatShoppingItem x = (IMatShoppingItem) fpChildren.get(i);
+                if (x.shoppingItem.getProduct() == this.product)
+                    fpChildren.remove(fpChildren.get(i));
+            }
+        } else
         for (Node item : controller.getShoppingCartFlowPane().getChildren()) {
             if (((IMatMiniShoppingCartItem) item).shoppingItem == this.shoppingItem) {
                 ((IMatMiniShoppingCartItem) item).updateCartItemAmountTextField();
