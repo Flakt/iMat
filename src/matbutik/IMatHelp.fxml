@@ -68,7 +68,16 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="7" GridPane.rowIndex="1">
                            <children>
-                              <Button minWidth="63.0" mnemonicParsing="false" prefHeight="26.0" text="Hjälp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                              <Button minWidth="63.0" mnemonicParsing="false" onAction="#navigateToHelp" prefHeight="26.0" text="Hjälp" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="settingsButtonContainer" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Button layoutX="17.0" layoutY="72.0" minWidth="63.0" mnemonicParsing="false" onAction="#toMainPage" prefHeight="87.0" prefWidth="146.0" styleClass="settingsButton" text="Till butiken" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-45.0" AnchorPane.topAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -79,11 +88,11 @@
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="9.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="1.0" percentWidth="1.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="8.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="8.0" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
