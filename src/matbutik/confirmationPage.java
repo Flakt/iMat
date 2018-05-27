@@ -45,6 +45,10 @@ public class confirmationPage extends IMatController implements Initializable {
             receiptText.setText("Antal varor: " + order.getItems().size() + "\tPris: " + String.format("%.1f",
                     getTotalPrice()) + " kr");
 
+            time.setText(IMatDeliveryController.getChosenTime());
+
+            date.setText(IMatDeliveryController.getDate().toLocalDate().toString());
+
 
             for (ShoppingItem shoppingItem : order.getItems()) {
                 receiptFlowPane.getChildren().add(new ReceiptListItem(shoppingItem));
@@ -53,8 +57,7 @@ public class confirmationPage extends IMatController implements Initializable {
         }
 
 
-     //   time.setText();
-     //   city.setText();
+
 
 
     }
